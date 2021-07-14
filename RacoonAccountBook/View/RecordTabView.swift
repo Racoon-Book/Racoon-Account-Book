@@ -7,43 +7,14 @@ struct RecordTabView: View {
     @State private var inputCategory: String = ""
     @State private var inputAmount: String = ""
 
-    @State private var isEditing = false
+    @State private var isEditing: Bool = false
 
     var body: some View {
         VStack {
-            Text("RecordTabView")
-
-            Spacer()
             VStack {
-                TextField(
-                    "花销说明",
-                    text: $inputOriginalText
-                ) { isEditing in
-                    self.isEditing = isEditing
-                } onCommit: {}
-                    .border(Color(UIColor.separator))
-                    .autocapitalization(.none)
-                    .disableAutocorrection(false)
-
-                TextField(
-                    "花销种类",
-                    text: $inputCategory
-                ) { isEditing in
-                    self.isEditing = isEditing
-                } onCommit: {}
-                    .border(Color(UIColor.separator))
-                    .autocapitalization(.none)
-                    .disableAutocorrection(false)
-
-                TextField(
-                    "花销金额(小数)",
-                    text: $inputAmount
-                ) { isEditing in
-                    self.isEditing = isEditing
-                } onCommit: {}
-                    .border(Color(UIColor.separator))
-                    .autocapitalization(.none)
-                    .disableAutocorrection(false)
+                MyTextField(defaultDescription: "花销说明", inputOriginalText: $inputOriginalText, isEditing: $isEditing)
+                MyTextField(defaultDescription: "花销种类", inputOriginalText: $inputOriginalText, isEditing: $isEditing)
+                MyTextField(defaultDescription: "花销金额(小数)", inputOriginalText: $inputOriginalText, isEditing: $isEditing)
             }
 
             // FIXME: 加输入判断，不能随便就把用户的输入写进数据库
@@ -59,7 +30,8 @@ struct RecordTabView: View {
                     Text("记账")
                         .font(.title)
                         .border(Color(UIColor.separator))
-                })
+                }
+            )
 
             Spacer()
 
@@ -72,8 +44,26 @@ struct RecordTabView: View {
     }
 }
 
+struct MyTextField: View {
+    var defaultDescription: String = ""
+    @Binding var inputOriginalText: String
+    @Binding var isEditing: Bool
+
+    var body: some View {
+        TextField(
+            defaultDescription,
+            text: $inputOriginalText
+        ) { isEditing in
+            self.isEditing = isEditing
+        } onCommit: {}
+            .border(Color(UIColor.separator))
+            .autocapitalization(.none)
+            .disableAutocorrection(false)
+    }
+}
+
 struct RecordTabView_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook: AccountBookModel = AccountBookModel()
+    @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
         RecordTabView(RacoonAccountBook: PreviewAccountBook)

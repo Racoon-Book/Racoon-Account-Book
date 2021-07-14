@@ -6,15 +6,12 @@ struct ReportTabView: View {
     var body: some View {
         VStack {
             Text("ReportTabView")
-            
         }
     }
 }
 
-
-
 struct ReportTabView_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook: AccountBookModel = AccountBookModel()
+    @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
         BookTabView(RacoonAccountBook: PreviewAccountBook)
