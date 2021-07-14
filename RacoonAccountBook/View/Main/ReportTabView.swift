@@ -1,5 +1,6 @@
 import SwiftDate
 import SwiftUI
+
 struct ReportTabView: View {
     @ObservedObject var RacoonAccountBook: AccountBookModel // FIXME: 这里应该用绑定的
 
@@ -14,6 +15,7 @@ struct ReportTabView_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
-        BookTabView(RacoonAccountBook: PreviewAccountBook)
+//        BookTabView(RacoonAccountBook: PreviewAccountBook)
+        EmptyView()
     }
 }

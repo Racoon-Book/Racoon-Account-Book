@@ -7,7 +7,7 @@ struct BookTabView: View {
         VStack {
             List {
                 ForEach(RacoonAccountBook.items) { item in
-                    ItemView(item: item)
+                    MetaItemView(metadata: item.metadata)
                 }
             }
         }
@@ -18,6 +18,7 @@ struct BookTabView_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook: AccountBookModel = AccountBookModel()
 
     static var previews: some View {
-        BookTabView(RacoonAccountBook: PreviewAccountBook)
+//        BookTabView(RacoonAccountBook: PreviewAccountBook)
+        EmptyView()
     }
 }

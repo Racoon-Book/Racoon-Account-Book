@@ -1,19 +1,37 @@
 import Combine
+import SwiftDate
 import SwiftUI
 
 struct AddTabView: View {
     @ObservedObject var RacoonAccountBook: AccountBookModel
 
-    @State private var metadata_being_input = AccountBook.MetaItem(originalText: "", category: "", amount_float: 0.0, amount_string: "")
-
+    // 是否正在编辑某个文本框
     @State private var isEditing: Bool = false
+
+    // 为了方便 直接使用结构体MetaItem；每次添加数据之后把它们归零
+    @State private var metadata_inputting = AccountBook.MetaItem(
+        originalText: "",
+        spentMoneyAt: DateInRegion(region: regionChina),
+        event: "",
+        amount_float: 0.0)
+    @State private var amount_string_inputting: String = "" // 用来转换输入的可能不是小数的小数
 
     var body: some View {
         VStack {
             VStack {
-                ItemTextField(hint: "用一句话写出你的花销", input_text: $metadata_being_input.originalText, isEditing: $isEditing)
-                ItemTextField(hint: "花销种类", input_text: $metadata_being_input.category, isEditing: $isEditing)
-                ItemFloatField(hint: "花销金额(小数)", input_float: $metadata_being_input.amount_float, input_string: $metadata_being_input.amount_string, isEditing: $isEditing)
+                ItemTextField(
+                    hint: "用一句话写出你的花销",
+                    input_text: $metadata_inputting.originalText ?? "",
+                    isEditing: $isEditing)
+                ItemTextField(
+                    hint: "事件",
+                    input_text: $metadata_inputting.event,
+                    isEditing: $isEditing)
+                ItemFloatField(
+                    hint: "花销金额(小数)",
+                    input_float: $metadata_inputting.amount_float,
+                    input_string: $amount_string_inputting,
+                    isEditing: $isEditing)
             }
 
             Button(
@@ -21,20 +39,27 @@ struct AddTabView: View {
                     PutKeyboardBack() // 收起键盘
 
                     // FIXME: 加输入判断，不能随便就把用户的输入写进数据库
-                    RacoonAccountBook.createItem(metadata: metadata_being_input)
-                    metadata_being_input = AccountBook.MetaItem(originalText: "", category: "", amount_float: 0.0, amount_string: "") // 值归零 等待下次输入
+                    RacoonAccountBook.createItem(metadata: metadata_inputting)
+
+                    // 写好了之后将inputting的数据都清零
+                    metadata_inputting = AccountBook.MetaItem(
+                        originalText: "",
+                        spentMoneyAt: DateInRegion(region: regionChina),
+                        event: "",
+                        amount_float: 0.0)
+                    amount_string_inputting = ""
                 },
                 label: {
                     Text("记账")
                         .font(.title)
                         .border(Color(UIColor.separator))
-                }
-            )
+                })
 
             Spacer()
 
             // FIXME: 临时预览输入的效果
-            MetaItemView(metadata: metadata_being_input)
+            MetaItemView(
+                metadata: metadata_inputting)
                 .foregroundColor(isEditing ? .red : .blue) // 正在编辑设置为红色，结束编辑设置为蓝色
                 .border(Color(UIColor.separator))
         }
@@ -50,8 +75,7 @@ struct ItemTextField: View {
     var body: some View {
         TextField(
             hint,
-            text: $input_text
-        ) { isEditing in
+            text: $input_text) { isEditing in
             self.isEditing = isEditing
         } onCommit: {}
 
@@ -101,6 +125,7 @@ struct AddTabView_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
-        AddTabView(RacoonAccountBook: PreviewAccountBook)
+//        AddTabView(RacoonAccountBook: PreviewAccountBook)
+        EmptyView()
     }
 }

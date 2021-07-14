@@ -55,29 +55,54 @@ struct AccountBook {
 
     // [MetaItem] - 记账本的基础数据结构是一个元条目 用户所需要输入和生成的是这些数据
     struct MetaItem {
-        // 语音转文字的结果 or 用户键盘输入的一段话
-        var originalText: String
+        // 用户在记账时语音输入转换得到或敲键盘的一句话 简单记录此次花销（至少包含花销的内容和金额）
+        // 不保留原始语音 用户在机器生成后修改错别字 不在列表中显示 只做录入用
+        var originalText: String? = nil
 
-        // 可输入可自动生成
-        var category: String // 判断字符串中有没有关键词 -> 数据关联
-        // var motive: String // 大部分写死 自动关联category
-        // var forWho: String //
+        // 消费发生的日期 (记昨天的账，日期为昨天）
+        // 这里只存日期，排序时相同的日期用创建时间二次排序
+        var spentMoneyAt: DateInRegion
 
-        // 花销数额
+        // 由originalText去掉钱数、日期自动生成
+        var event: String
+
+        // 金额 从originalText里面提取
+        // 系统记录最多两位小数 但显示时四舍五入保留为一位 输入时弹出数字键盘
         var amount_float: Float
-        // 从originalText提取出来的文字 or 用户直接在输入框中输入的汉字；最终会转换为`amount_float`
-        var amount_string: String
+
+        // App自动识别originalText得到的关键词
+        // 多为名词 添加用户自定义的词以提高准确度
+        var tag_auto_generated: [String]? = nil
+
+        // 用户编辑后的tag_auto_generated + 用户自己添加的
+        // 后续可用来生成词云 产生新motive
+        // 花销中的要素(elements) 包括但不限于 具体事件(时间(特殊纪念日)) 地点 人物 心情
+        // 用户第一时间想到的，相关的要素，随意添加，越多越好；用户自己灵活使用
+        var tag: [String]? = nil
+
+        // 支出的目的 for what
+        // 可以通过精选tag得到 多次出现的tag可以称为focus
+        // 为用户所关注的花销的点 不关心这笔花销就不设置focus
+        var focus: String? = nil
+
+        // 为谁产生的花销
+        // 一般开销都是自己的 如果不是为了自己的开销 用户选择更改
+        // TODO: ps. 如果是丢失的欠款，好像也不是为了自己花的吧？
+        var forWho: [String] = ["Me"]
+
+        var story: Story? = nil
+
+        struct Story {
+            // 用户对这笔支出的评价 默认无评价 表示该笔支出没什么意义
+            // 五星表示非常值得纪念 一星表示非常不值得
+            // 如果想添加故事 那么这一项从nil变为有值 默认值为3 用户调整该值后添加story
+            var rating: Int? = nil
+
+            // 用户想的话 可以添加一个emoji
+            var emoji: String? = nil
+
+            // 用户在添加花销或回顾时找感兴趣的花销添加与这笔钱相关的故事
+            var text: String? = nil
+        }
     }
 }
-
-// --------------------------------------------------------------
-// [测试数据]
-let testMetaItem_1 = AccountBook.MetaItem(originalText: "买水果花了二十", category: "生活", amount_float: 20, amount_string: "二十")
-let testMetaItem_2 = AccountBook.MetaItem(originalText: "花二十二块五买了课本", category: "学习", amount_float: 22.5, amount_string: "二十二块五")
-let testMetaItem_3 = AccountBook.MetaItem(originalText: "和朋友一起出去吃饭花了一百二", category: "社交", amount_float: 120, amount_string: "一百二")
-
-let testMetaItems: [AccountBook.MetaItem] = [testMetaItem_1, testMetaItem_2, testMetaItem_3]
-
-// 备注：
-// id、date 应该是由struct来管的；这里应该新建一个更小的结构体
-// 所有数数的从0开始！
