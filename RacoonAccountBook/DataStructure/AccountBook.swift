@@ -16,16 +16,14 @@ struct AccountBook {
         itemsAmount = 0
 
         // FIXME: 这里插入的是测试数据
-        items.append(Item(id: itemsAmount, originalText: "今天买水果花了20", category: "生活", amount: 20, createdAt: Date(), updatedAt: Date()))
-        itemsAmount = itemsAmount + 1
-        items.append(Item(id: itemsAmount, originalText: "早上买了一本22元的书", category: "学习", amount: 22, createdAt: Date(), updatedAt: Date()))
-        itemsAmount = itemsAmount + 1
-        for item in items {
+        for item in testItems {
             print("插入了一条测试数据 \(item)")
+            createItem(item: item)
         }
         // END: 插入的是测试数据
     }
 
+    // 一个元素一个元素插入
     mutating func createItem(
         originalText: String,
         category: String,
@@ -34,6 +32,13 @@ struct AccountBook {
         items.append(Item(id: itemsAmount, originalText: originalText, category: category, amount: amount, createdAt: Date(), updatedAt: Date())) // 创建Item的同时算作第一次更新
         itemsAmount = itemsAmount + 1
         print("用户插入了一条Item id为\(itemsAmount)")
+    }
+
+    // 一次插入一个item
+    mutating func createItem(item: AccountBook.Item) {
+        items.append(item) // 创建Item的同时算作第一次更新
+        itemsAmount = itemsAmount + 1
+        print("用户插入了一条Item id为\(itemsAmount)\n内容为\(item)")
     }
 
     // MARK: - Basic Data Structure
@@ -54,7 +59,12 @@ struct AccountBook {
         var amount: Float // 正则表达式，模型训练/机器学习，现成的module
 
         /// [生成Item时自动生成]
-        var createdAt: Date = Date() // 创建时自动生成日期
-        var updatedAt: Date = Date() // 创建时自动生成日期 只在创建时自动生成
+        var createdAt = Date() // 创建时自动生成日期
+        var updatedAt = Date() // 创建时自动生成日期 只在创建时自动生成
     }
 }
+
+let testItem_1 = AccountBook.Item(id: 0, originalText: "买水果花了20", category: "生活", amount: 20, createdAt: Date(), updatedAt: Date())
+let testItem_2 = AccountBook.Item(id: 1, originalText: "花二十二块五买了课本", category: "学习", amount: 22.5, createdAt: Date(), updatedAt: Date())
+
+let testItems: [AccountBook.Item] = [testItem_1, testItem_2]

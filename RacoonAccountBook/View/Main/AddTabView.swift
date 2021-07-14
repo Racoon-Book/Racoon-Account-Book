@@ -56,9 +56,10 @@ struct ItemTextField: View {
             self.isEditing = isEditing
         } onCommit: {}
 
-            .border(Color(UIColor.separator))
+//            .border(Color(UIColor.separator))
             .autocapitalization(.none)
             .disableAutocorrection(false)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
     }
 }
 
@@ -67,32 +68,46 @@ struct ItemTextField: View {
 struct ItemFloatField: View {
     var hint: String = ""
     @Binding var input_float: Float
+//    @Binding var input_string: String
     @Binding var isEditing: Bool
 
     @State private var input_string: String = ""
 
     var body: some View {
         return TextField(hint, text: $input_string) { isEditing in
+            // 每次isEditing改变就会触发这个函数
+
             self.isEditing = isEditing
-        } onCommit: {}
+
+        } onCommit: { input_string = "" }
+
+            .onAppear(perform: {
+                // 注意只appear一次
+                // 如果是0.0，说明新的一轮已经开始；我们需要更新`@State input_string`的值
+                // 这里解决的是添加数据之后 原来的框没清除掉的问题
+                if input_float == 0.0 {
+                    self.input_string = ""
+                }
+
+                // 如果不是0.0，那需要把这个值显示出来
+                if input_float != 0.0 {
+                    self.input_string = "\(self.input_float)"
+                }
+            }) // 把数字的值显示出来，但不能遮挡hint
 
             .onReceive(Just(input_string)) { typedValue in
                 if let newValue = Float(typedValue) {
                     self.input_float = newValue
                 }
             }
-            .onAppear(perform: {
-                if input_float != 0.0 {
-                    self.input_string = "\(self.input_float)"
-                }
-            }) // 把数字的值显示出来，但不能遮挡hint
 
             .keyboardType(.numbersAndPunctuation) // 点击输入数字的框图显示数字键盘 这里显示小数点
             // .decimalPad 这个键盘太糟糕了！出来之后收不起来
 
-            .border(Color(UIColor.separator))
+//            .border(Color(UIColor.separator))
             .autocapitalization(.none)
             .disableAutocorrection(false)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
     }
 }
 
