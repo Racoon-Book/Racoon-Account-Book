@@ -4,12 +4,8 @@ import SwiftUI
 struct AddTabView: View {
     @ObservedObject var RacoonAccountBook: AccountBookModel
 
-    // 这里只是为了方便插入数据，不然要写一堆的state
+    // 这里只是为了方便插入数据，不然要写一堆的state；id随便起的
     @State private var item_being_input = AccountBook.Item(id: 0, originalText: "", category: "", amount: 0.0) // FIXME: 测试数据
-
-    @State private var inputOriginalText: String = ""
-    @State private var inputCategory: String = ""
-    @State private var inputAmount: String = ""
 
     @State private var isEditing: Bool = false
 
@@ -23,6 +19,8 @@ struct AddTabView: View {
 
             Button(
                 action: {
+                    PutKeyboardBack() // 收起键盘
+
                     // FIXME: 加输入判断，不能随便就把用户的输入写进数据库
                     RacoonAccountBook.createItem(originalText: item_being_input.originalText, category: item_being_input.category, amount: item_being_input.amount)
                     item_being_input = AccountBook.Item(id: 0, originalText: "", category: "", amount: 0.0) // 值归零 等待下次输入
@@ -36,12 +34,12 @@ struct AddTabView: View {
 
             Spacer()
 
-            /// 临时预览输入的效果
+            // FIXME: 临时预览输入的效果
             ItemView(item: item_being_input)
                 .foregroundColor(isEditing ? .red : .blue) // 正在编辑设置为红色，结束编辑设置为蓝色
                 .border(Color(UIColor.separator))
-
-        }.padding()
+        }
+        .padding()
     }
 }
 
@@ -89,7 +87,8 @@ struct ItemFloatField: View {
                 }
             }) // 把数字的值显示出来，但不能遮挡hint
 
-            .keyboardType(.decimalPad) // 点击输入数字的框图显示数字键盘 这里显示小数点
+            .keyboardType(.numbersAndPunctuation) // 点击输入数字的框图显示数字键盘 这里显示小数点
+            // .decimalPad 这个键盘太糟糕了！出来之后收不起来
 
             .border(Color(UIColor.separator))
             .autocapitalization(.none)
