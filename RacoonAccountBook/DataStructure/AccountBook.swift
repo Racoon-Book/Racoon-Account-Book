@@ -6,38 +6,40 @@ import Foundation
 struct AccountBook {
     // MARK: - Main Data & init
 
-    var bookItems: [SpendingItem] = [] // 记账本中的所有条目用一个列表表示
-
-    var bookItemsNumber: Int = 0 // 账本中总共有多少条账目
+    var items: [Item] = [] // 记账本中的所有条目用一个列表表示
+    var itemsAmount: Int = 0 // 账本中总共有多少条账目
 
     // MARK: - Logic
 
     init() {
-        bookItems = []
-        bookItemsNumber = 0
+        items = []
+        itemsAmount = 0
 
         // FIXME: 这里插入的是测试数据
-        bookItems.append(SpendingItem(id: bookItemsNumber, originalText: "今天买水果花了20", category: "生活", amount: 20, createdAt: Date(), updatedAt: Date()))
-        bookItemsNumber = bookItemsNumber + 1
-        bookItems.append(SpendingItem(id: bookItemsNumber, originalText: "早上买了一本22元的书", category: "学习", amount: 22, createdAt: Date(), updatedAt: Date()))
-        bookItemsNumber = bookItemsNumber + 1
-
-        for item in bookItems {
+        items.append(Item(id: itemsAmount, originalText: "今天买水果花了20", category: "生活", amount: 20, createdAt: Date(), updatedAt: Date()))
+        itemsAmount = itemsAmount + 1
+        items.append(Item(id: itemsAmount, originalText: "早上买了一本22元的书", category: "学习", amount: 22, createdAt: Date(), updatedAt: Date()))
+        itemsAmount = itemsAmount + 1
+        for item in items {
             print("插入了一条测试数据 \(item)")
         }
+        // END: 插入的是测试数据
     }
 
-//    mutating func reset()
-    mutating func createItem(originalText: String, category: String, amount: Float) {
-        bookItems.append(SpendingItem(id: bookItemsNumber, originalText: originalText, category: category, amount: amount, createdAt: Date(), updatedAt: Date())) // 创建Item的同时算作第一次更新
-        bookItemsNumber = bookItemsNumber + 1
-        print("用户插入了一条Item id为\(bookItemsNumber)")
+    mutating func createItem(
+        originalText: String,
+        category: String,
+        amount: Float)
+    {
+        items.append(Item(id: itemsAmount, originalText: originalText, category: category, amount: amount, createdAt: Date(), updatedAt: Date())) // 创建Item的同时算作第一次更新
+        itemsAmount = itemsAmount + 1
+        print("用户插入了一条Item id为\(itemsAmount)")
     }
 
     // MARK: - Basic Data Structure
 
-    /// [Basic Data Structure] 记账本的基础数据结构是一个花销条目(Item)
-    struct SpendingItem: Identifiable {
+    /// [Basic Data Structure] 记账本的基础数据结构是一个花销条目 - Item
+    struct Item: Identifiable {
         /// [Identifiable]
         var id: Int
 
@@ -52,7 +54,7 @@ struct AccountBook {
         var amount: Float // 正则表达式，模型训练/机器学习，现成的module
 
         /// [生成Item时自动生成]
-        var createdAt: Date
+        var createdAt: Date = Date()
         var updatedAt: Date
     }
 }

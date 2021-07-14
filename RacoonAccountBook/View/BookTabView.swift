@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct BookTabView: View {
-    @ObservedObject var MyBook: MySpendingBook // FIXME: 这里应该用绑定的
+    @ObservedObject var RacoonAccountBook: AccountBookModel // FIXME: 这里应该用绑定的
 
     var body: some View {
         VStack {
@@ -9,7 +9,7 @@ struct BookTabView: View {
             Spacer()
 
             List {
-                ForEach(MyBook.myItems) { item in
+                ForEach(RacoonAccountBook.items) { item in
                     SpeedingItemView(originalText: item.originalText, category: item.category, amount: Float(item.amount))
                 }
             }
@@ -46,9 +46,9 @@ struct SpeedingItemView: View {
 }
 
 struct BookTabView_Previews: PreviewProvider {
-    @StateObject static var MyBook: MySpendingBook = MySpendingBook()
+    @StateObject static var PreviewAccountBook: AccountBookModel = AccountBookModel()
 
     static var previews: some View {
-        BookTabView(MyBook: MyBook)
+        BookTabView(RacoonAccountBook: PreviewAccountBook)
     }
 }

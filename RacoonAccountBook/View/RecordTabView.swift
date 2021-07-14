@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct RecordTabView: View {
-    @ObservedObject var MyBook: MySpendingBook
+    @ObservedObject var RacoonAccountBook: AccountBookModel
 
     @State private var inputOriginalText: String = ""
     @State private var inputCategory: String = ""
@@ -50,7 +50,7 @@ struct RecordTabView: View {
 
             Button(
                 action: {
-                    MyBook.createItem(originalText: inputOriginalText, category: inputCategory, amount: Float(inputAmount) ?? 0)
+                    RacoonAccountBook.createItem(originalText: inputOriginalText, category: inputCategory, amount: Float(inputAmount) ?? 0)
                     inputOriginalText = ""
                     inputCategory = ""
                     inputAmount = ""
@@ -73,9 +73,9 @@ struct RecordTabView: View {
 }
 
 struct RecordTabView_Previews: PreviewProvider {
-    @StateObject static var MyBook: MySpendingBook = MySpendingBook()
+    @StateObject static var PreviewAccountBook: AccountBookModel = AccountBookModel()
 
     static var previews: some View {
-        RecordTabView(MyBook: MyBook)
+        RecordTabView(RacoonAccountBook: PreviewAccountBook)
     }
 }

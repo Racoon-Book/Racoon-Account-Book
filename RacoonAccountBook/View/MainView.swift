@@ -1,16 +1,16 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var MyBook: MySpendingBook
+    @ObservedObject var RacoonAccountBook: AccountBookModel
 
     var body: some View {
         TabView {
-            RecordTabView(MyBook: MyBook)
+            RecordTabView(RacoonAccountBook: RacoonAccountBook)
                 .tabItem {
                     Image(systemName: "1.square.fill")
                     Text("Record")
                 }
-            BookTabView(MyBook: MyBook)
+            BookTabView(RacoonAccountBook: RacoonAccountBook)
                 .tabItem {
                     Image(systemName: "2.square.fill")
                     Text("List")
@@ -20,9 +20,9 @@ struct MainView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    @StateObject static var MyBook: MySpendingBook = MySpendingBook()
+    @StateObject static var PreviewAccountBook: AccountBookModel = AccountBookModel()
 
     static var previews: some View {
-        MainView(MyBook: MyBook)
+        MainView(RacoonAccountBook: PreviewAccountBook)
     }
 }
