@@ -54,7 +54,7 @@ struct AccountBook {
         var amount: Float // 正则表达式，模型训练/机器学习，现成的module
 
         /// [生成Item时自动生成]
-        var createdAt: Date = Date()
-        var updatedAt: Date
+        var createdAt: Date = Date() // 创建时自动生成日期
+        var updatedAt: Date = Date() // 创建时自动生成日期 只在创建时自动生成
     }
 }

@@ -5,15 +5,22 @@ struct MainView: View {
 
     var body: some View {
         TabView {
-            RecordTabView(RacoonAccountBook: RacoonAccountBook)
-                .tabItem {
-                    Image(systemName: "1.square.fill")
-                    Text("Record")
-                }
             BookTabView(RacoonAccountBook: RacoonAccountBook)
                 .tabItem {
-                    Image(systemName: "2.square.fill")
-                    Text("List")
+                    Image(systemName: "text.book.closed.fill")
+                    Text("财记")
+                }
+
+            RecordTabView(RacoonAccountBook: RacoonAccountBook)
+                .tabItem {
+                    Image(systemName: "plus.circle.fill")
+                    Text("添加")
+                }
+
+            ReportTabView(RacoonAccountBook: RacoonAccountBook)
+                .tabItem {
+                    Image(systemName: "chart.pie.fill")
+                    Text("报告")
                 }
         }
     }
