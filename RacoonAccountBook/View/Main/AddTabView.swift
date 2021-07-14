@@ -37,7 +37,7 @@ struct AddTabView: View {
             Spacer()
 
             /// 临时预览输入的效果
-            ItemView(originalText: inputOriginalText, category: inputCategory, amount: Float(inputAmount) ?? 0)
+            ItemView(item: item_being_input)
                 .foregroundColor(isEditing ? .red : .blue) // 正在编辑设置为红色，结束编辑设置为蓝色
                 .border(Color(UIColor.separator))
 

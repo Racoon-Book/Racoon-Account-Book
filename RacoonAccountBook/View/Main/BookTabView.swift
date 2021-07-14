@@ -5,12 +5,9 @@ struct BookTabView: View {
 
     var body: some View {
         VStack {
-            Text("BookTabView")
-            Spacer()
-
             List {
                 ForEach(RacoonAccountBook.items) { item in
-                    ItemView(originalText: item.originalText, category: item.category, amount: Float(item.amount))
+                    ItemView(item: item)
                 }
             }
         }
