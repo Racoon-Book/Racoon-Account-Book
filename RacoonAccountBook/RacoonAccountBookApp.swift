@@ -1,17 +1,14 @@
-//
-//  RacoonAccountBookApp.swift
-//  RacoonAccountBook
-//
-//  Created by 杨希杰 on 2021/7/14.
-//
+// App Entrance
 
 import SwiftUI
 
 @main
 struct RacoonAccountBookApp: App {
+    @StateObject var MyBook = MySpendingBook() // 实例化Model，用`@StateObject`
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView(MyBook: MyBook)
         }
     }
 }
