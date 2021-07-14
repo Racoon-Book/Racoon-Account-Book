@@ -6,7 +6,7 @@ struct MetaItemView: View {
 
     var body: some View {
         let event: String = metadata.event
-        let date: String = metadata.spentMoneyAt.toFormat("MM/dd, EEEE",locale: Locales.chineseChina)
+        let date: String = metadata.spentMoneyAt.toFormat("M/d EEEE",locale: Locales.chineseChina)
         let amount: String = String(format: "%.1f", metadata.amount_float)
 
         HStack {

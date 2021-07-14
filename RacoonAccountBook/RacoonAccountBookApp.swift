@@ -4,7 +4,7 @@ import SwiftUI
 
 @main
 struct RacoonAccountBookApp: App {
-    @StateObject var RacoonAccountBook = AccountBookModel() // 实例化Model，用`@StateObject`
+    @StateObject var RacoonAccountBook = AccountBookModel()
 
     var body: some Scene {
         WindowGroup {

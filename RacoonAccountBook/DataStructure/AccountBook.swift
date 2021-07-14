@@ -20,7 +20,7 @@ struct AccountBook {
         // FIXME: 这里插入的是测试数据
         for metadata in testMetaItems {
             let item = createItem(metadata: metadata)
-            print("插入了一条测试数据 Item: \(item)")
+            print("[AccountBook.init()] [Add testdata] " + "\(item)")
         }
         // END: 插入的是测试数据
     }
@@ -32,7 +32,7 @@ struct AccountBook {
 
         // 添加这一条item
         items.append(item) // 创建Item的同时算作第一次更新
-        print("用户插入了一条Item id为\(itemsAmount)\n内容为\(item.metadata)")
+        print("[AccountBook.createItem()] " + "id: \(item.id)" + "\n" + "\(item.metadata)")
         // 由于添加了Item所以数量加1
         itemsAmount = itemsAmount + 1
 
@@ -90,6 +90,7 @@ struct AccountBook {
         // TODO: ps. 如果是丢失的欠款，好像也不是为了自己花的吧？
         var forWho: [String] = ["Me"]
 
+        // 财记
         var story: Story? = nil
 
         struct Story {

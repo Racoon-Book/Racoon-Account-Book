@@ -17,7 +17,6 @@ class AccountBookModel: ObservableObject {
     // get private property from Model
     var items: [AccountBook.Item] {
         model.items // 相当于 get { return model.items }
-        // 这里定义变量的目的是能拿到数据中的 private var，可以看作是一个中间桥梁/并没有新建变量
     }
 
     var itemsAmount: Int {

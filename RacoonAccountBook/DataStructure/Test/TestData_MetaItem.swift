@@ -1,17 +1,11 @@
-//
-//  TestData_MetaItem.swift
-//  RacoonAccountBook
-//
-//  Created by 杨希杰 on 2021/7/15.
-//
-
 import Foundation
 import SwiftDate
+
 // [测试数据]
 
 let testMetaItem_1 = AccountBook.MetaItem(
     originalText: "买水果花了二十",
-    spentMoneyAt: "2021-07-12".toDate("yyyy-MM-dd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "2020-12-12".toDate("yyyy-MM-dd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "买水果",
     amount_float: 20)
 let testMetaItem_2 = AccountBook.MetaItem(
@@ -30,4 +24,4 @@ let testMetaItem_4 = AccountBook.MetaItem(
     event: "快餐",
     amount_float: 33)
 
-let testMetaItems: [AccountBook.MetaItem] = [testMetaItem_1, testMetaItem_2, testMetaItem_3, testMetaItem_3]
+let testMetaItems: [AccountBook.MetaItem] = [testMetaItem_1, testMetaItem_2, testMetaItem_3, testMetaItem_4]
