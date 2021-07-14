@@ -11,7 +11,7 @@ struct AddTabView: View {
     var body: some View {
         VStack {
             VStack {
-                ItemTextField(hint: "花销说明", input_text: $metadata_being_input.originalText, isEditing: $isEditing)
+                ItemTextField(hint: "用一句话写出你的花销", input_text: $metadata_being_input.originalText, isEditing: $isEditing)
                 ItemTextField(hint: "花销种类", input_text: $metadata_being_input.category, isEditing: $isEditing)
                 ItemFloatField(hint: "花销金额(小数)", input_float: $metadata_being_input.amount_float, input_string: $metadata_being_input.amount_string, isEditing: $isEditing)
             }

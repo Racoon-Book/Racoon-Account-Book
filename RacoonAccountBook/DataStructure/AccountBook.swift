@@ -1,6 +1,7 @@
 // Fundamental Data Structure
 
 import Foundation
+import SwiftDate
 
 // [一个记账本，里面存储着App所需的全部信息]
 struct AccountBook {
@@ -27,7 +28,7 @@ struct AccountBook {
     // [使用MetaItem插入]
     mutating func createItem(metadata: AccountBook.MetaItem) -> AccountBook.Item {
         // 由MetaItem创建Item
-        let item = Item(id: itemsAmount, createdAt: Date(), updatedAt: Date(), metadata: metadata)
+        let item = Item(id: itemsAmount, metadata: metadata)
 
         // 添加这一条item
         items.append(item) // 创建Item的同时算作第一次更新
@@ -46,8 +47,8 @@ struct AccountBook {
         var id: Int
 
         // [生成Item时自动生成]
-        var createdAt = Date() // 创建时自动生成日期 // TODO 让这个值生成之后无法更改
-        var updatedAt = Date() // 创建时自动生成日期 只在创建时自动生成
+        var createdAt = DateInRegion(region: regionChina) // 创建时自动生成日期 // TODO 让这个值生成之后无法更改
+        var updatedAt = DateInRegion(region: regionChina) // 创建时自动生成日期 只在创建时自动生成
 
         var metadata: MetaItem
     }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,8 @@
 		488D3A9D269F339800287A50 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A9C269F339800287A50 /* ItemView.swift */; };
 		488D3A9F269F42AF00287A50 /* PutKeyboardBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A9E269F42AF00287A50 /* PutKeyboardBack.swift */; };
 		488D3AA1269F5A2A00287A50 /* MetaItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AA0269F5A2A00287A50 /* MetaItemView.swift */; };
+		488D3AA5269F689B00287A50 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 488D3AA4269F689B00287A50 /* SwiftDate */; };
+		488D3AA7269F6AD000287A50 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AA6269F6AD000287A50 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,7 @@
 		488D3A9C269F339800287A50 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		488D3A9E269F42AF00287A50 /* PutKeyboardBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutKeyboardBack.swift; sourceTree = "<group>"; };
 		488D3AA0269F5A2A00287A50 /* MetaItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaItemView.swift; sourceTree = "<group>"; };
+		488D3AA6269F6AD000287A50 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				488D3AA5269F689B00287A50 /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +78,7 @@
 				488D3A86269F0EF400287A50 /* DataStructure */,
 				488D3A8B269F0F2400287A50 /* ViewModel */,
 				488D3A8E269F0F3D00287A50 /* View */,
+				488D3A97269F27C500287A50 /* Auxiliary */,
 				488D3A7B269F0E5E00287A50 /* Assets.xcassets */,
 				488D3A80269F0E5E00287A50 /* Info.plist */,
 				488D3A7D269F0E5E00287A50 /* Preview Content */,
@@ -111,7 +116,6 @@
 			children = (
 				488D3A9A269F337B00287A50 /* Main */,
 				488D3A9B269F338800287A50 /* Component */,
-				488D3A97269F27C500287A50 /* Auxiliary */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -120,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				488D3A9E269F42AF00287A50 /* PutKeyboardBack.swift */,
+				488D3AA6269F6AD000287A50 /* Date.swift */,
 			);
 			path = Auxiliary;
 			sourceTree = "<group>";
@@ -160,6 +165,9 @@
 			dependencies = (
 			);
 			name = RacoonAccountBook;
+			packageProductDependencies = (
+				488D3AA4269F689B00287A50 /* SwiftDate */,
+			);
 			productName = RacoonAccountBook;
 			productReference = 488D3A74269F0E5B00287A50 /* RacoonAccountBook.app */;
 			productType = "com.apple.product-type.application";
@@ -187,6 +195,9 @@
 				Base,
 			);
 			mainGroup = 488D3A6B269F0E5B00287A50;
+			packageReferences = (
+				488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */,
+			);
 			productRefGroup = 488D3A75269F0E5B00287A50 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -220,6 +231,7 @@
 				488D3AA1269F5A2A00287A50 /* MetaItemView.swift in Sources */,
 				488D3A8D269F0F3700287A50 /* AccountBookModel.swift in Sources */,
 				488D3A9D269F339800287A50 /* ItemView.swift in Sources */,
+				488D3AA7269F6AD000287A50 /* Date.swift in Sources */,
 				488D3A96269F188100287A50 /* ReportTabView.swift in Sources */,
 				488D3A78269F0E5B00287A50 /* RacoonAccountBookApp.swift in Sources */,
 				488D3A90269F0F5500287A50 /* AddTabView.swift in Sources */,
@@ -412,6 +424,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		488D3AA4269F689B00287A50 /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 488D3A6C269F0E5B00287A50 /* Project object */;
 }
