@@ -1,6 +1,5 @@
 import SwiftUI
 
-/// 显示一个Item
 struct ItemView: View {
     // 上层View需要给当层View传值的话，当前View中定义该值为`var`
     // 当层View使用的不可更改的值，定义该值为`let`

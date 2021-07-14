@@ -69,6 +69,8 @@ struct AccountBook {
     }
 }
 
+// --------------------------------------------------------------
+// [测试数据]
 let testMetaItem_1 = AccountBook.MetaItem(originalText: "买水果花了二十", category: "生活", amount_float: 20, amount_string: "二十")
 let testMetaItem_2 = AccountBook.MetaItem(originalText: "花二十二块五买了课本", category: "学习", amount_float: 22.5, amount_string: "二十二块五")
 let testMetaItem_3 = AccountBook.MetaItem(originalText: "和朋友一起出去吃饭花了一百二", category: "社交", amount_float: 120, amount_string: "一百二")
