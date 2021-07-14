@@ -14,7 +14,7 @@ struct MainView: View {
                 }
                 .tag("财记")
 
-            RecordTabView(RacoonAccountBook: RacoonAccountBook)
+            AddTabView(RacoonAccountBook: RacoonAccountBook)
                 .tabItem {
                     Image(systemName: "plus.circle.fill")
                     Text("添加")

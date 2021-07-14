@@ -10,7 +10,7 @@ struct BookTabView: View {
 
             List {
                 ForEach(RacoonAccountBook.items) { item in
-                    SpeedingItemView(originalText: item.originalText, category: item.category, amount: Float(item.amount))
+                    ItemView(originalText: item.originalText, category: item.category, amount: Float(item.amount))
                 }
             }
         }
@@ -18,7 +18,7 @@ struct BookTabView: View {
 }
 
 /// 显示一个Item
-struct SpeedingItemView: View {
+struct ItemView: View {
     // 上层View需要给当层View传值的话，当前View中定义该值为`var`
     // 当层View使用的不可更改的值，定义该值为`let`
 

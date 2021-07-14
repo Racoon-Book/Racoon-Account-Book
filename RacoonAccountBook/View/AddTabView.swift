@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct RecordTabView: View {
+struct AddTabView: View {
     @ObservedObject var RacoonAccountBook: AccountBookModel
 
     @State private var inputOriginalText: String = ""
@@ -36,7 +36,7 @@ struct RecordTabView: View {
             Spacer()
 
             /// 临时预览输入的效果
-            SpeedingItemView(originalText: inputOriginalText, category: inputCategory, amount: Float(inputAmount) ?? 0)
+            ItemView(originalText: inputOriginalText, category: inputCategory, amount: Float(inputAmount) ?? 0)
                 .foregroundColor(isEditing ? .red : .blue) // 正在编辑设置为红色，结束编辑设置为蓝色
                 .border(Color(UIColor.separator))
 
@@ -62,10 +62,10 @@ struct MyTextField: View {
     }
 }
 
-struct RecordTabView_Previews: PreviewProvider {
+struct AddTabView_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
-        RecordTabView(RacoonAccountBook: PreviewAccountBook)
+        AddTabView(RacoonAccountBook: PreviewAccountBook)
     }
 }
