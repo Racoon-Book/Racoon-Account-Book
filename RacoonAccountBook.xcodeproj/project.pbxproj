@@ -107,8 +107,16 @@
 				488D3A91269F0F5E00287A50 /* BookTabView.swift */,
 				488D3A8F269F0F5500287A50 /* AddTabView.swift */,
 				488D3A95269F188100287A50 /* ReportTabView.swift */,
+				488D3A97269F27C500287A50 /* Auxiliary */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		488D3A97269F27C500287A50 /* Auxiliary */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auxiliary;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

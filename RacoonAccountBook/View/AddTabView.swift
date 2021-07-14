@@ -1,7 +1,11 @@
+import Combine
 import SwiftUI
 
 struct AddTabView: View {
     @ObservedObject var RacoonAccountBook: AccountBookModel
+
+    // 这里只是为了方便插入数据，不然要写一堆的state
+    @State private var item_being_input = AccountBook.Item(id: 0, originalText: "", category: "", amount: 0.0) // FIXME: 测试数据
 
     @State private var inputOriginalText: String = ""
     @State private var inputCategory: String = ""
@@ -12,16 +16,16 @@ struct AddTabView: View {
     var body: some View {
         VStack {
             VStack {
-                MyTextField(defaultDescription: "花销说明", inputOriginalText: $inputOriginalText, isEditing: $isEditing)
-                MyTextField(defaultDescription: "花销种类", inputOriginalText: $inputOriginalText, isEditing: $isEditing)
-                MyTextField(defaultDescription: "花销金额(小数)", inputOriginalText: $inputOriginalText, isEditing: $isEditing)
+                ItemTextField(hint: "花销说明", input_text: $item_being_input.originalText, isEditing: $isEditing)
+                ItemTextField(hint: "花销种类", input_text: $item_being_input.category, isEditing: $isEditing)
+                ItemFloatField(hint: "花销金额(小数)", input_float: $item_being_input.amount, isEditing: $isEditing)
             }
 
             // FIXME: 加输入判断，不能随便就把用户的输入写进数据库
 
             Button(
                 action: {
-                    RacoonAccountBook.createItem(originalText: inputOriginalText, category: inputCategory, amount: Float(inputAmount) ?? 0)
+                    RacoonAccountBook.createItem(originalText: item_being_input.originalText, category: item_being_input.category, amount: item_being_input.amount)
                     inputOriginalText = ""
                     inputCategory = ""
                     inputAmount = ""
@@ -44,18 +48,52 @@ struct AddTabView: View {
     }
 }
 
-struct MyTextField: View {
-    var defaultDescription: String = ""
-    @Binding var inputOriginalText: String
+struct ItemTextField: View {
+    var hint: String = ""
+    @Binding var input_text: String
     @Binding var isEditing: Bool
 
     var body: some View {
         TextField(
-            defaultDescription,
-            text: $inputOriginalText
+            hint,
+            text: $input_text
         ) { isEditing in
             self.isEditing = isEditing
         } onCommit: {}
+
+            .border(Color(UIColor.separator))
+            .autocapitalization(.none)
+            .disableAutocorrection(false)
+    }
+}
+
+// 传入一个 @Binding 的 float，修改这个float
+// Check https://stackoverflow.com/a/61236221/14298786
+struct ItemFloatField: View {
+    var hint: String = ""
+    @Binding var input_float: Float
+    @Binding var isEditing: Bool
+
+    @State private var input_string: String = ""
+
+    var body: some View {
+        return TextField(hint, text: $input_string) { isEditing in
+            self.isEditing = isEditing
+        } onCommit: {}
+
+            .onReceive(Just(input_string)) { typedValue in
+                if let newValue = Float(typedValue) {
+                    self.input_float = newValue
+                }
+            }
+            .onAppear(perform: {
+                if input_float != 0.0 {
+                    self.input_string = "\(self.input_float)"
+                }
+            }) // 把数字的值显示出来，但不能遮挡hint
+
+            .keyboardType(.decimalPad) // 点击输入数字的框图显示数字键盘 这里显示小数点
+
             .border(Color(UIColor.separator))
             .autocapitalization(.none)
             .disableAutocorrection(false)
@@ -67,5 +105,6 @@ struct AddTabView_Previews: PreviewProvider {
 
     static var previews: some View {
         AddTabView(RacoonAccountBook: PreviewAccountBook)
+//        EmptyView()
     }
 }
