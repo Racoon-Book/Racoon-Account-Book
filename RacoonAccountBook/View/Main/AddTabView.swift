@@ -21,14 +21,11 @@ struct AddTabView: View {
                 ItemFloatField(hint: "花销金额(小数)", input_float: $item_being_input.amount, isEditing: $isEditing)
             }
 
-            // FIXME: 加输入判断，不能随便就把用户的输入写进数据库
-
             Button(
                 action: {
+                    // FIXME: 加输入判断，不能随便就把用户的输入写进数据库
                     RacoonAccountBook.createItem(originalText: item_being_input.originalText, category: item_being_input.category, amount: item_being_input.amount)
-                    inputOriginalText = ""
-                    inputCategory = ""
-                    inputAmount = ""
+                    item_being_input = AccountBook.Item(id: 0, originalText: "", category: "", amount: 0.0) // 值归零 等待下次输入
                 },
                 label: {
                     Text("记账")

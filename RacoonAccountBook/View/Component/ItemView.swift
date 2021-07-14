@@ -1,22 +1,5 @@
 import SwiftUI
 
-struct BookTabView: View {
-    @ObservedObject var RacoonAccountBook: AccountBookModel // FIXME: 这里应该用绑定的
-
-    var body: some View {
-        VStack {
-            Text("BookTabView")
-            Spacer()
-
-            List {
-                ForEach(RacoonAccountBook.items) { item in
-                    ItemView(originalText: item.originalText, category: item.category, amount: Float(item.amount))
-                }
-            }
-        }
-    }
-}
-
 /// 显示一个Item
 struct ItemView: View {
     // 上层View需要给当层View传值的话，当前View中定义该值为`var`
@@ -42,13 +25,5 @@ struct ItemView: View {
             Spacer()
             Text(String(format: "%.1f", amount)).font(.title)
         }
-    }
-}
-
-struct BookTabView_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook: AccountBookModel = AccountBookModel()
-
-    static var previews: some View {
-        BookTabView(RacoonAccountBook: PreviewAccountBook)
     }
 }

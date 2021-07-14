@@ -17,6 +17,7 @@
 		488D3A90269F0F5500287A50 /* AddTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A8F269F0F5500287A50 /* AddTabView.swift */; };
 		488D3A92269F0F5E00287A50 /* BookTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A91269F0F5E00287A50 /* BookTabView.swift */; };
 		488D3A96269F188100287A50 /* ReportTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A95269F188100287A50 /* ReportTabView.swift */; };
+		488D3A9D269F339800287A50 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A9C269F339800287A50 /* ItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		488D3A8F269F0F5500287A50 /* AddTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTabView.swift; sourceTree = "<group>"; };
 		488D3A91269F0F5E00287A50 /* BookTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTabView.swift; sourceTree = "<group>"; };
 		488D3A95269F188100287A50 /* ReportTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTabView.swift; sourceTree = "<group>"; };
+		488D3A9C269F339800287A50 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +105,8 @@
 		488D3A8E269F0F3D00287A50 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				488D3A79269F0E5B00287A50 /* MainView.swift */,
-				488D3A91269F0F5E00287A50 /* BookTabView.swift */,
-				488D3A8F269F0F5500287A50 /* AddTabView.swift */,
-				488D3A95269F188100287A50 /* ReportTabView.swift */,
+				488D3A9A269F337B00287A50 /* Main */,
+				488D3A9B269F338800287A50 /* Component */,
 				488D3A97269F27C500287A50 /* Auxiliary */,
 			);
 			path = View;
@@ -117,6 +117,25 @@
 			children = (
 			);
 			path = Auxiliary;
+			sourceTree = "<group>";
+		};
+		488D3A9A269F337B00287A50 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				488D3A79269F0E5B00287A50 /* MainView.swift */,
+				488D3A91269F0F5E00287A50 /* BookTabView.swift */,
+				488D3A8F269F0F5500287A50 /* AddTabView.swift */,
+				488D3A95269F188100287A50 /* ReportTabView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		488D3A9B269F338800287A50 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				488D3A9C269F339800287A50 /* ItemView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +211,7 @@
 				488D3A8A269F0F1D00287A50 /* AccountBook+String.swift in Sources */,
 				488D3A88269F0F0800287A50 /* AccountBook.swift in Sources */,
 				488D3A8D269F0F3700287A50 /* AccountBookModel.swift in Sources */,
+				488D3A9D269F339800287A50 /* ItemView.swift in Sources */,
 				488D3A96269F188100287A50 /* ReportTabView.swift in Sources */,
 				488D3A78269F0E5B00287A50 /* RacoonAccountBookApp.swift in Sources */,
 				488D3A90269F0F5500287A50 /* AddTabView.swift in Sources */,
