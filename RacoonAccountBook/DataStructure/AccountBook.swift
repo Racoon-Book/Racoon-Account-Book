@@ -7,7 +7,7 @@ struct AccountBook {
     // MARK: - Main Data & init
 
     var items: [Item] = [] // 记账本中的所有条目用一个列表表示
-    var itemsAmount: Int = 0 // 账本中总共有多少条账目
+    var itemsAmount: Int = 0 // 账本中总共有多少条账目 这个是真实的数量
 
     // MARK: - Logic
 
@@ -63,13 +63,15 @@ struct AccountBook {
         // var forWho: String //
 
         // 花销数额
-        var amount: Float
+        var amount_float: Float
+        // 从originalText提取出来的文字 or 用户直接在输入框中输入的汉字；最终会转换为`amount_float`
+        var amount_string: String
     }
 }
 
-let testMetaItem_1 = AccountBook.MetaItem(originalText: "买水果花了二十", category: "生活", amount: 20)
-let testMetaItem_2 = AccountBook.MetaItem(originalText: "花二十二块五买了课本", category: "学习", amount: 22.5)
-let testMetaItem_3 = AccountBook.MetaItem(originalText: "和朋友一起出去吃饭花了一百二", category: "社交", amount: 120)
+let testMetaItem_1 = AccountBook.MetaItem(originalText: "买水果花了二十", category: "生活", amount_float: 20, amount_string: "二十")
+let testMetaItem_2 = AccountBook.MetaItem(originalText: "花二十二块五买了课本", category: "学习", amount_float: 22.5, amount_string: "二十二块五")
+let testMetaItem_3 = AccountBook.MetaItem(originalText: "和朋友一起出去吃饭花了一百二", category: "社交", amount_float: 120, amount_string: "一百二")
 
 let testMetaItems: [AccountBook.MetaItem] = [testMetaItem_1, testMetaItem_2, testMetaItem_3]
 

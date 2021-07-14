@@ -4,6 +4,6 @@ import Foundation
 
 extension AccountBook.Item: CustomStringConvertible {
     var description: String {
-        "Item {id:\(id), originalText:\(metadata.originalText), category:\(metadata.category), amount:\(metadata.amount), createdAt:\(createdAt), updatedAt:\(updatedAt)}"
+        "Item {id:\(id), originalText:\(metadata.originalText), category:\(metadata.category), amount:\(metadata.amount_float), createdAt:\(createdAt), updatedAt:\(updatedAt)}"
     }
 }

@@ -14,7 +14,7 @@ struct MetaItemView: View {
                     .foregroundColor(.secondary)
             }
             Spacer()
-            Text(String(format: "%.1f", metadata.amount)).font(.title)
+            Text(String(format: "%.1f", metadata.amount_float)).font(.title)
         }
     }
 }

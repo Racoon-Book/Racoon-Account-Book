@@ -22,7 +22,7 @@ struct ItemView: View {
                     .foregroundColor(.secondary)
             }
             Spacer()
-            Text(String(format: "%.1f", item.metadata.amount)).font(.title)
+            Text(String(format: "%.1f", item.metadata.amount_float)).font(.title)
         }
     }
 }

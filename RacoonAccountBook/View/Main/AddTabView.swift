@@ -6,7 +6,7 @@ struct AddTabView: View {
 
     // 这里只是为了方便插入数据，不然要写一堆的state；id随便起的
     // FIXME: 测试数据
-    @State private var metadata_being_input = AccountBook.MetaItem(originalText: "", category: "", amount: 0.0)
+    @State private var metadata_being_input = AccountBook.MetaItem(originalText: "", category: "", amount_float: 0.0, amount_string: "")
 
     @State private var isEditing: Bool = false
 
@@ -15,7 +15,7 @@ struct AddTabView: View {
             VStack {
                 ItemTextField(hint: "花销说明", input_text: $metadata_being_input.originalText, isEditing: $isEditing)
                 ItemTextField(hint: "花销种类", input_text: $metadata_being_input.category, isEditing: $isEditing)
-                ItemFloatField(hint: "花销金额(小数)", input_float: $metadata_being_input.amount, isEditing: $isEditing)
+                ItemFloatField(hint: "花销金额(小数)", input_float: $metadata_being_input.amount_float, input_string: $metadata_being_input.amount_string, isEditing: $isEditing)
             }
 
             Button(
@@ -24,7 +24,7 @@ struct AddTabView: View {
 
                     // FIXME: 加输入判断，不能随便就把用户的输入写进数据库
                     RacoonAccountBook.createItem(metadata: metadata_being_input)
-                    metadata_being_input = AccountBook.MetaItem(originalText: "", category: "", amount: 0.0) // 值归零 等待下次输入
+                    metadata_being_input = AccountBook.MetaItem(originalText: "", category: "", amount_float: 0.0, amount_string: "") // 值归零 等待下次输入
                 },
                 label: {
                     Text("记账")
@@ -57,7 +57,6 @@ struct ItemTextField: View {
             self.isEditing = isEditing
         } onCommit: {}
 
-//            .border(Color(UIColor.separator))
             .autocapitalization(.none)
             .disableAutocorrection(false)
             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -69,26 +68,24 @@ struct ItemTextField: View {
 struct ItemFloatField: View {
     var hint: String = ""
     @Binding var input_float: Float
-//    @Binding var input_string: String
+    @Binding var input_string: String
     @Binding var isEditing: Bool
 
-    @State private var input_string: String = ""
+//    @State private var input_string: String = ""
 
     var body: some View {
         return TextField(hint, text: $input_string) { isEditing in
             // 每次isEditing改变就会触发这个函数
-
             self.isEditing = isEditing
-
         } onCommit: { input_string = "" }
 
             .onAppear(perform: {
                 // 注意只appear一次
                 // 如果是0.0，说明新的一轮已经开始；我们需要更新`@State input_string`的值
                 // 这里解决的是添加数据之后 原来的框没清除掉的问题
-                if input_float == 0.0 {
-                    self.input_string = ""
-                }
+//                if input_float == 0.0 {
+//                    self.input_string = ""
+//                }
 
                 // 如果不是0.0，那需要把这个值显示出来
                 if input_float != 0.0 {
@@ -97,6 +94,8 @@ struct ItemFloatField: View {
             }) // 把数字的值显示出来，但不能遮挡hint
 
             .onReceive(Just(input_string)) { typedValue in
+                // 把输入的东西转为小数
+                // TODO: 如果用户将中文输入在输入框中，可以在这里做转换
                 if let newValue = Float(typedValue) {
                     self.input_float = newValue
                 }
@@ -117,6 +116,5 @@ struct AddTabView_Previews: PreviewProvider {
 
     static var previews: some View {
         AddTabView(RacoonAccountBook: PreviewAccountBook)
-//        EmptyView()
     }
 }
