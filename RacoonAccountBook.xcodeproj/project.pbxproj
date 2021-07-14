@@ -19,6 +19,7 @@
 		488D3A96269F188100287A50 /* ReportTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A95269F188100287A50 /* ReportTabView.swift */; };
 		488D3A9D269F339800287A50 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A9C269F339800287A50 /* ItemView.swift */; };
 		488D3A9F269F42AF00287A50 /* PutKeyBoardBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A9E269F42AF00287A50 /* PutKeyBoardBack.swift */; };
+		488D3AA1269F5A2A00287A50 /* MetaItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AA0269F5A2A00287A50 /* MetaItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		488D3A95269F188100287A50 /* ReportTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTabView.swift; sourceTree = "<group>"; };
 		488D3A9C269F339800287A50 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		488D3A9E269F42AF00287A50 /* PutKeyBoardBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutKeyBoardBack.swift; sourceTree = "<group>"; };
+		488D3AA0269F5A2A00287A50 /* MetaItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				488D3A9C269F339800287A50 /* ItemView.swift */,
+				488D3AA0269F5A2A00287A50 /* MetaItemView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				488D3A8A269F0F1D00287A50 /* AccountBookItem+StringConvertible.swift in Sources */,
 				488D3A88269F0F0800287A50 /* AccountBook.swift in Sources */,
 				488D3A9F269F42AF00287A50 /* PutKeyBoardBack.swift in Sources */,
+				488D3AA1269F5A2A00287A50 /* MetaItemView.swift in Sources */,
 				488D3A8D269F0F3700287A50 /* AccountBookModel.swift in Sources */,
 				488D3A9D269F339800287A50 /* ItemView.swift in Sources */,
 				488D3A96269F188100287A50 /* ReportTabView.swift in Sources */,

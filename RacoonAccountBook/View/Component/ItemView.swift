@@ -14,15 +14,15 @@ struct ItemView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(item.category)
+                Text(item.metadata.category)
                     .bold()
                     .font(.title2)
                     .foregroundColor(.primary)
-                Text(item.originalText)
+                Text(item.metadata.originalText)
                     .foregroundColor(.secondary)
             }
             Spacer()
-            Text(String(format: "%.1f", item.amount)).font(.title)
+            Text(String(format: "%.1f", item.metadata.amount)).font(.title)
         }
     }
 }

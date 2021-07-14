@@ -2,7 +2,7 @@
 
 import Foundation
 
-/// [一个记账本，里面存储着App所需的全部信息]
+// [一个记账本，里面存储着App所需的全部信息]
 struct AccountBook {
     // MARK: - Main Data & init
 
@@ -11,60 +11,68 @@ struct AccountBook {
 
     // MARK: - Logic
 
+    // [初始化]
     init() {
         items = []
         itemsAmount = 0
 
         // FIXME: 这里插入的是测试数据
-        for item in testItems {
-            print("插入了一条测试数据 \(item)")
-            createItem(item: item)
+        for metadata in testMetaItems {
+            let item = createItem(metadata: metadata)
+            print("插入了一条测试数据 Item: \(item)")
         }
         // END: 插入的是测试数据
     }
 
-    // 一个元素一个元素插入
-    mutating func createItem(
-        originalText: String,
-        category: String,
-        amount: Float)
-    {
-        items.append(Item(id: itemsAmount, originalText: originalText, category: category, amount: amount, createdAt: Date(), updatedAt: Date())) // 创建Item的同时算作第一次更新
-        itemsAmount = itemsAmount + 1
-        print("用户插入了一条Item id为\(itemsAmount)")
-    }
+    // [使用MetaItem插入]
+    mutating func createItem(metadata: AccountBook.MetaItem) -> AccountBook.Item {
+        // 由MetaItem创建Item
+        let item = Item(id: itemsAmount, createdAt: Date(), updatedAt: Date(), metadata: metadata)
 
-    // 一次插入一个item
-    mutating func createItem(item: AccountBook.Item) {
+        // 添加这一条item
         items.append(item) // 创建Item的同时算作第一次更新
+        print("用户插入了一条Item id为\(itemsAmount)\n内容为\(item.metadata)")
+        // 由于添加了Item所以数量加1
         itemsAmount = itemsAmount + 1
-        print("用户插入了一条Item id为\(itemsAmount)\n内容为\(item)")
+
+        return item
     }
 
     // MARK: - Basic Data Structure
 
-    /// [Basic Data Structure] 记账本的基础数据结构是一个花销条目 - Item
+    // [Item] - 基础数据结构加上软件管理用的其他数据为一个完整的Item
     struct Item: Identifiable {
-        /// [Identifiable]
+        // [Identifiable]
         var id: Int
 
-        /// [用户输入]
-        var originalText: String // 需要用户来输入——语音转为文字或直接写入文字或直接写入备注（说明）
+        // [生成Item时自动生成]
+        var createdAt = Date() // 创建时自动生成日期 // TODO 让这个值生成之后无法更改
+        var updatedAt = Date() // 创建时自动生成日期 只在创建时自动生成
 
-        /// [可输入可自动生成]
+        var metadata: MetaItem
+    }
+
+    // [MetaItem] - 记账本的基础数据结构是一个元条目 用户所需要输入和生成的是这些数据
+    struct MetaItem {
+        // 语音转文字的结果 or 用户键盘输入的一段话
+        var originalText: String
+
+        // 可输入可自动生成
         var category: String // 判断字符串中有没有关键词 -> 数据关联
         // var motive: String // 大部分写死 自动关联category
         // var forWho: String //
 
-        var amount: Float // 正则表达式，模型训练/机器学习，现成的module
-
-        /// [生成Item时自动生成]
-        var createdAt = Date() // 创建时自动生成日期
-        var updatedAt = Date() // 创建时自动生成日期 只在创建时自动生成
+        // 花销数额
+        var amount: Float
     }
 }
 
-let testItem_1 = AccountBook.Item(id: 0, originalText: "买水果花了20", category: "生活", amount: 20, createdAt: Date(), updatedAt: Date())
-let testItem_2 = AccountBook.Item(id: 1, originalText: "花二十二块五买了课本", category: "学习", amount: 22.5, createdAt: Date(), updatedAt: Date())
+let testMetaItem_1 = AccountBook.MetaItem(originalText: "买水果花了二十", category: "生活", amount: 20)
+let testMetaItem_2 = AccountBook.MetaItem(originalText: "花二十二块五买了课本", category: "学习", amount: 22.5)
+let testMetaItem_3 = AccountBook.MetaItem(originalText: "和朋友一起出去吃饭花了一百二", category: "社交", amount: 120)
 
-let testItems: [AccountBook.Item] = [testItem_1, testItem_2]
+let testMetaItems: [AccountBook.MetaItem] = [testMetaItem_1, testMetaItem_2, testMetaItem_3]
+
+// 备注：
+// id、date 应该是由struct来管的；这里应该新建一个更小的结构体
+// 所有数数的从0开始！

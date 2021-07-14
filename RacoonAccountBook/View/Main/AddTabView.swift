@@ -5,16 +5,17 @@ struct AddTabView: View {
     @ObservedObject var RacoonAccountBook: AccountBookModel
 
     // 这里只是为了方便插入数据，不然要写一堆的state；id随便起的
-    @State private var item_being_input = AccountBook.Item(id: 0, originalText: "", category: "", amount: 0.0) // FIXME: 测试数据
+    // FIXME: 测试数据
+    @State private var metadata_being_input = AccountBook.MetaItem(originalText: "", category: "", amount: 0.0)
 
     @State private var isEditing: Bool = false
 
     var body: some View {
         VStack {
             VStack {
-                ItemTextField(hint: "花销说明", input_text: $item_being_input.originalText, isEditing: $isEditing)
-                ItemTextField(hint: "花销种类", input_text: $item_being_input.category, isEditing: $isEditing)
-                ItemFloatField(hint: "花销金额(小数)", input_float: $item_being_input.amount, isEditing: $isEditing)
+                ItemTextField(hint: "花销说明", input_text: $metadata_being_input.originalText, isEditing: $isEditing)
+                ItemTextField(hint: "花销种类", input_text: $metadata_being_input.category, isEditing: $isEditing)
+                ItemFloatField(hint: "花销金额(小数)", input_float: $metadata_being_input.amount, isEditing: $isEditing)
             }
 
             Button(
@@ -22,8 +23,8 @@ struct AddTabView: View {
                     PutKeyboardBack() // 收起键盘
 
                     // FIXME: 加输入判断，不能随便就把用户的输入写进数据库
-                    RacoonAccountBook.createItem(originalText: item_being_input.originalText, category: item_being_input.category, amount: item_being_input.amount)
-                    item_being_input = AccountBook.Item(id: 0, originalText: "", category: "", amount: 0.0) // 值归零 等待下次输入
+                    RacoonAccountBook.createItem(metadata: metadata_being_input)
+                    metadata_being_input = AccountBook.MetaItem(originalText: "", category: "", amount: 0.0) // 值归零 等待下次输入
                 },
                 label: {
                     Text("记账")
@@ -35,7 +36,7 @@ struct AddTabView: View {
             Spacer()
 
             // FIXME: 临时预览输入的效果
-            ItemView(item: item_being_input)
+            MetaItemView(metadata: metadata_being_input)
                 .foregroundColor(isEditing ? .red : .blue) // 正在编辑设置为红色，结束编辑设置为蓝色
                 .border(Color(UIColor.separator))
         }
