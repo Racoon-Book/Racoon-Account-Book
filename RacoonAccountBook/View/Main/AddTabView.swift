@@ -39,10 +39,8 @@ struct AddTabView: View {
             Spacer()
 
             // FIXME: 临时预览输入的效果
-            MetaItemView(
-                metadata: metadata_inputting)
+            MetaItemView(metadata: metadata_inputting)
                 .foregroundColor(isEditing ? .red : .blue) // 正在编辑设置为红色，结束编辑设置为蓝色
-                .border(Color(UIColor.separator))
 
             LargeButton(title: "记账",
                         backgroundColor: Color.blue,
@@ -59,7 +57,8 @@ struct AddTabView: View {
                     event: "",
                     amount_float: 0.0)
                 amount_string_inputting = ""
-            }.font(.system(.title))
+            }
+            .font(.system(.title)) // TODO: 字有点小
         }
         .padding()
     }
@@ -123,6 +122,5 @@ struct AddTabView_Previews: PreviewProvider {
 
     static var previews: some View {
         AddTabView(RacoonAccountBook: PreviewAccountBook)
-        EmptyView()
     }
 }

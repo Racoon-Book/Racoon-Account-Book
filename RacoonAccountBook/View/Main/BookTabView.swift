@@ -14,10 +14,10 @@ struct BookTabView: View {
     }
 }
 
-//struct BookTabView_Previews: PreviewProvider {
-//    @StateObject static var PreviewAccountBook: AccountBookModel = AccountBookModel()
-//
-//    static var previews: some View {
-//        BookTabView(RacoonAccountBook: PreviewAccountBook)
-//    }
-//}
+struct BookTabView_Previews: PreviewProvider {
+    @StateObject static var PreviewAccountBook: AccountBookModel = AccountBookModel()
+
+    static var previews: some View {
+        BookTabView(RacoonAccountBook: PreviewAccountBook)
+    }
+}
