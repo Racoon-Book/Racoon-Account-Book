@@ -6,6 +6,7 @@ struct AddTabView: View {
     @ObservedObject var RacoonAccountBook: AccountBookModel
 
     // 是否正在编辑某个文本框
+    // TODO: 这个没啥必要感觉 先留着吧
     @State private var isEditing: Bool = false
 
     // 为了方便 直接使用结构体MetaItem；每次添加数据之后把它们归零
@@ -18,6 +19,8 @@ struct AddTabView: View {
 
     var body: some View {
         VStack {
+            Spacer()
+
             VStack {
                 ItemTextField(
                     hint: "用一句话写出你的花销",
@@ -35,12 +38,10 @@ struct AddTabView: View {
                         isEditing: $isEditing)
                 }
             }
+            .padding([.vertical])
 
-            Spacer()
-
-            // FIXME: 临时预览输入的效果
-            MetaItemView(metadata: metadata_inputting)
-                .foregroundColor(isEditing ? .red : .blue) // 正在编辑设置为红色，结束编辑设置为蓝色
+            // 预览输入的效果 - 如果用户觉得没问题，那就点击添加按钮
+            ItemPreviewView(metadata: metadata_inputting)
 
             LargeButton(title: "记账",
                         backgroundColor: Color.blue,
@@ -48,6 +49,7 @@ struct AddTabView: View {
                 PutKeyboardBack() // 收起键盘
 
                 // FIXME: 加输入判断，不能随便就把用户的输入写进数据库
+                // 至少amount不能为0，event不能为空
                 RacoonAccountBook.createItem(metadata: metadata_inputting)
 
                 // 写好了之后将inputting的数据都清零
@@ -61,6 +63,25 @@ struct AddTabView: View {
             .font(.system(.title)) // TODO: 字有点小
         }
         .padding()
+    }
+}
+
+// 在添加界面预览条目
+struct ItemPreviewView: View {
+    var metadata: AccountBook.MetaItem
+
+    var body: some View {
+        VStack {
+            HStack {
+                Text("将添加的内容")
+                    .padding([.horizontal])
+                Spacer() // 把 Text 顶到左边去
+            }
+
+            MetaItemView(metadata: metadata)
+                .padding()
+                .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.blue, lineWidth: 1))
+        }
     }
 }
 
