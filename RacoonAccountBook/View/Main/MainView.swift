@@ -31,10 +31,10 @@ struct MainView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook = AccountBookModel()
-
-    static var previews: some View {
-        MainView(RacoonAccountBook: PreviewAccountBook)
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    @StateObject static var PreviewAccountBook = AccountBookModel()
+//
+//    static var previews: some View {
+//        MainView(RacoonAccountBook: PreviewAccountBook)
+//    }
+//}

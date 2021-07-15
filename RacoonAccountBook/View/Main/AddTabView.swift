@@ -23,37 +23,18 @@ struct AddTabView: View {
                     hint: "用一句话写出你的花销",
                     input_text: $metadata_inputting.originalText ?? "",
                     isEditing: $isEditing)
-                ItemTextField(
-                    hint: "事件",
-                    input_text: $metadata_inputting.event,
-                    isEditing: $isEditing)
-                ItemFloatField(
-                    hint: "花销金额(小数)",
-                    input_float: $metadata_inputting.amount_float,
-                    input_string: $amount_string_inputting,
-                    isEditing: $isEditing)
+                HStack {
+                    ItemTextField(
+                        hint: "事件",
+                        input_text: $metadata_inputting.event,
+                        isEditing: $isEditing)
+                    ItemFloatField(
+                        hint: "金额",
+                        input_float: $metadata_inputting.amount_float,
+                        input_string: $amount_string_inputting,
+                        isEditing: $isEditing)
+                }
             }
-
-            Button(
-                action: {
-                    PutKeyboardBack() // 收起键盘
-
-                    // FIXME: 加输入判断，不能随便就把用户的输入写进数据库
-                    RacoonAccountBook.createItem(metadata: metadata_inputting)
-
-                    // 写好了之后将inputting的数据都清零
-                    metadata_inputting = AccountBook.MetaItem(
-                        originalText: "",
-                        spentMoneyAt: DateInRegion(region: regionChina),
-                        event: "",
-                        amount_float: 0.0)
-                    amount_string_inputting = ""
-                },
-                label: {
-                    Text("记账")
-                        .font(.title)
-                        .border(Color(UIColor.separator))
-                })
 
             Spacer()
 
@@ -62,6 +43,23 @@ struct AddTabView: View {
                 metadata: metadata_inputting)
                 .foregroundColor(isEditing ? .red : .blue) // 正在编辑设置为红色，结束编辑设置为蓝色
                 .border(Color(UIColor.separator))
+
+            LargeButton(title: "记账",
+                        backgroundColor: Color.blue,
+                        foregroundColor: Color.white) {
+                PutKeyboardBack() // 收起键盘
+
+                // FIXME: 加输入判断，不能随便就把用户的输入写进数据库
+                RacoonAccountBook.createItem(metadata: metadata_inputting)
+
+                // 写好了之后将inputting的数据都清零
+                metadata_inputting = AccountBook.MetaItem(
+                    originalText: "",
+                    spentMoneyAt: DateInRegion(region: regionChina),
+                    event: "",
+                    amount_float: 0.0)
+                amount_string_inputting = ""
+            }.font(.system(.title))
         }
         .padding()
     }
@@ -78,7 +76,6 @@ struct ItemTextField: View {
             text: $input_text) { isEditing in
             self.isEditing = isEditing
         } onCommit: {}
-
             .autocapitalization(.none)
             .disableAutocorrection(false)
             .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -125,7 +122,7 @@ struct AddTabView_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
-//        AddTabView(RacoonAccountBook: PreviewAccountBook)
+        AddTabView(RacoonAccountBook: PreviewAccountBook)
         EmptyView()
     }
 }

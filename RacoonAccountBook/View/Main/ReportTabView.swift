@@ -11,11 +11,10 @@ struct ReportTabView: View {
     }
 }
 
-struct ReportTabView_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook = AccountBookModel()
-
-    static var previews: some View {
+//struct ReportTabView_Previews: PreviewProvider {
+//    @StateObject static var PreviewAccountBook = AccountBookModel()
+//
+//    static var previews: some View {
 //        BookTabView(RacoonAccountBook: PreviewAccountBook)
-        EmptyView()
-    }
-}
+//    }
+//}
