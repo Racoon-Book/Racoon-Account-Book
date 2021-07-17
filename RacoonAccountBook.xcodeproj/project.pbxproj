@@ -32,7 +32,7 @@
 
 /* Begin PBXFileReference section */
 		4823CD2C269FFE6900C7217F /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
-		488D3A74269F0E5B00287A50 /* RacoonAccountBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RacoonAccountBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		488D3A74269F0E5B00287A50 /* 浣熊财记.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "浣熊财记.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacoonAccountBookApp.swift; sourceTree = "<group>"; };
 		488D3A79269F0E5B00287A50 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		488D3A7B269F0E5E00287A50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		488D3A75269F0E5B00287A50 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				488D3A74269F0E5B00287A50 /* RacoonAccountBook.app */,
+				488D3A74269F0E5B00287A50 /* 浣熊财记.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,7 +195,7 @@
 				488D3AA4269F689B00287A50 /* SwiftDate */,
 			);
 			productName = RacoonAccountBook;
-			productReference = 488D3A74269F0E5B00287A50 /* RacoonAccountBook.app */;
+			productReference = 488D3A74269F0E5B00287A50 /* 浣熊财记.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -406,7 +406,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.racoon.RacoonAccountBook;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "浣熊财记";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -428,7 +428,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.racoon.RacoonAccountBook;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "浣熊财记";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
