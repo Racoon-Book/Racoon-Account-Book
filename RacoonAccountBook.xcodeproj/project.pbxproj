@@ -27,6 +27,7 @@
 		488D3AAB269F86E400287A50 /* TestData_MetaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AAA269F86E400287A50 /* TestData_MetaItem.swift */; };
 		488D3AAE269F8C5400287A50 /* print+time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AAD269F8C5400287A50 /* print+time.swift */; };
 		488D3AB0269F8F2F00287A50 /* MetaItem+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AAF269F8F2F00287A50 /* MetaItem+String.swift */; };
+		48C8D8E426A2B98B00E61A01 /* StarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		488D3AAA269F86E400287A50 /* TestData_MetaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData_MetaItem.swift; sourceTree = "<group>"; };
 		488D3AAD269F8C5400287A50 /* print+time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "print+time.swift"; sourceTree = "<group>"; };
 		488D3AAF269F8F2F00287A50 /* MetaItem+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MetaItem+String.swift"; sourceTree = "<group>"; };
+		48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				488D3A9C269F339800287A50 /* ItemView.swift */,
+				48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */,
 				488D3AA0269F5A2A00287A50 /* MetaItemView.swift */,
 				4823CD2C269FFE6900C7217F /* LargeButton.swift */,
 			);
@@ -251,6 +254,7 @@
 				4823CD2D269FFE6900C7217F /* LargeButton.swift in Sources */,
 				488D3A8A269F0F1D00287A50 /* Item+String.swift in Sources */,
 				488D3A88269F0F0800287A50 /* AccountBook.swift in Sources */,
+				48C8D8E426A2B98B00E61A01 /* StarButtonView.swift in Sources */,
 				488D3A9F269F42AF00287A50 /* PutKeyboardBack.swift in Sources */,
 				488D3AA9269F837300287A50 /* Binding+Optional.swift in Sources */,
 				488D3AAE269F8C5400287A50 /* print+time.swift in Sources */,
