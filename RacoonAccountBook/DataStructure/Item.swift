@@ -2,7 +2,16 @@ import Foundation
 import SwiftDate
 
 // [Item] - 基础数据结构加上软件管理用的其他数据为一个完整的Item
-struct Item: Identifiable {
+struct Item: Identifiable, Hashable {
+    static func == (lhs: Item, rhs: Item) -> Bool {
+        return lhs.id == rhs.id
+    }
+
+    // https://stackoverflow.com/a/56401466/14298786 虽然看不懂
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
     // [Identifiable]
     var id: Int
 

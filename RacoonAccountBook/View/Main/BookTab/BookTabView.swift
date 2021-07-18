@@ -3,7 +3,7 @@ import SwiftUI
 
 struct BookTabView: View {
     @ObservedObject var RacoonAccountBook: AccountBookModel // FIXME: 这里应该用绑定的
-    let today: DateInRegion = DateInRegion(region: regionChina)
+    let today = DateInRegion(region: regionChina)
     let thisYear: Int = DateInRegion(region: regionChina).year
     let thisMonth: Int = DateInRegion(region: regionChina).month
 
@@ -15,22 +15,32 @@ struct BookTabView: View {
             Text("当月支出")
                 .font(.system(.title))
 
-            List {
-                // 在BookTabView中只显示当月的支出详情
-                if let items = RacoonAccountBook.book[MyYear(rawValue: thisYear) ?? .Y2024]?
-                    .monthlyInEx[MyMonth(rawValue: thisMonth) ?? .Jan]?
-                    .items {
-                    ForEach(items) { item in
-                        MetaItemView(metadata: item.metadata)
+            if let items = RacoonAccountBook.book[MyYear(rawValue: thisYear) ?? .Y2024]?
+                .monthlyInEx[MyMonth(rawValue: thisMonth) ?? .Dec]?
+                .items {
+                ScrollViewReader { scrollView in
+                    ScrollView(.vertical) {
+                        LazyVStack {
+                            ForEach(items) { item in
+                                MetaItemView(metadata: item.metadata)
+                                    .padding(10)
+                            }
+                        }
+                        .onAppear {
+                            // 出现的时候滑到最下面
+                            scrollView.scrollTo(items[items.endIndex - 1])
+                        }
                     }
                 }
+            } else {
+                Text("ScrollViewReader Error")
             }
         }
     }
 }
 
 struct BookTabView_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook: AccountBookModel = AccountBookModel()
+    @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
         BookTabView(RacoonAccountBook: PreviewAccountBook)
