@@ -12,6 +12,7 @@ struct BookTabView: View {
                 ForEach(RacoonAccountBook.items) { item in
                     MetaItemView(metadata: item.metadata)
                 }
+//                ForEach(RacoonAccountBook.)
             }
         }
     }

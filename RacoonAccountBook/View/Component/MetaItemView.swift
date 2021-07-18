@@ -2,7 +2,7 @@ import SwiftDate
 import SwiftUI
 
 struct MetaItemView: View {
-    var metadata: AccountBook.MetaItem
+    var metadata: MetaItem
 
     var body: some View {
         let event_display: String = metadata.event

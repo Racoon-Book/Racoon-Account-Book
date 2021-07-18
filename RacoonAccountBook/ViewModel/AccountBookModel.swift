@@ -15,17 +15,21 @@ class AccountBookModel: ObservableObject {
     // MARK: - Access to Data of Model
 
     // get private property from Model
-    var items: [AccountBook.Item] {
+    var items: [Item] {
         model.items // 相当于 get { return model.items }
     }
 
     var itemsAmount: Int {
         model.itemsAmount
     }
+    
+//    var book: [MyYear: YearlyInEx] = {
+//        model.book
+//    }
 
     // MARK: - Deal with Intents from View
 
-    func createItem(metadata: AccountBook.MetaItem) {
+    func createItem(metadata: MetaItem) {
         _ = model.createItem(metadata: metadata)
     }
 }

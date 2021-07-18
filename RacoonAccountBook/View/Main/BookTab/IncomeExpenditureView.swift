@@ -43,8 +43,7 @@ struct WeeklyView: View {
                 .font(.system(.headline))
 
             Text(String(format: "%.1f", expenditure))
-                .font(.system(.title))
-                .padding([.vertical], 1)
+                .font(.system(size: 45))
 
             Text(isWeek ? "本周收入\(String(format: "%.1f", income))元" : "7日收入\(String(format: "%.1f", income))元")
                 .font(.system(.subheadline))
@@ -64,8 +63,7 @@ struct MonthlyView: View {
                 .font(.system(.headline))
 
             Text(String(format: "%.1f", expenditure))
-                .font(.system(.title))
-                .padding([.vertical], 1)
+                .font(.system(size: 45))
 
             Text(isMonth ? "本月收入\(String(format: "%.1f", income))元" : "30日收入\(String(format: "%.1f", income))元")
                 .font(.system(.subheadline))

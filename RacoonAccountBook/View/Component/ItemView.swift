@@ -1,7 +1,7 @@
 import SwiftUI
 
 //struct ItemView: View {
-//    var item: AccountBook.Item
+//    var item: Item
 //
 //    var body: some View {
 //        HStack {

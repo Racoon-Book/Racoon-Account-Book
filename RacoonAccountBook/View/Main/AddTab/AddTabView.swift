@@ -10,7 +10,7 @@ struct AddTabView: View {
     @State private var isEditing: Bool = false
 
     // 为了方便 直接使用结构体MetaItem；每次添加数据之后把它们归零
-    @State private var metadata_inputting = AccountBook.MetaItem(
+    @State private var metadata_inputting = MetaItem(
         originalText: "",
         spentMoneyAt: DateInRegion(region: regionChina),
         event: "",
@@ -53,7 +53,7 @@ struct AddTabView: View {
                 RacoonAccountBook.createItem(metadata: metadata_inputting)
 
                 // 写好了之后将inputting的数据都清零
-                metadata_inputting = AccountBook.MetaItem(
+                metadata_inputting = MetaItem(
                     originalText: "",
                     spentMoneyAt: DateInRegion(region: regionChina),
                     event: "",
@@ -68,7 +68,7 @@ struct AddTabView: View {
 
 // 在添加界面预览条目
 struct ItemPreviewView: View {
-    var metadata: AccountBook.MetaItem
+    var metadata: MetaItem
 
     var body: some View {
         VStack {
