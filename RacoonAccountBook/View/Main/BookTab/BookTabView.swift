@@ -6,6 +6,7 @@ struct BookTabView: View {
     var body: some View {
         VStack {
             IncomeExpenditureView()
+                .padding(10)
 
             List {
                 ForEach(RacoonAccountBook.items) { item in
