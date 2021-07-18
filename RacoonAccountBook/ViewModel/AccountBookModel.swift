@@ -22,10 +22,10 @@ class AccountBookModel: ObservableObject {
     var itemsAmount: Int {
         model.itemsAmount
     }
-    
-//    var book: [MyYear: YearlyInEx] = {
-//        model.book
-//    }
+
+    var book: [MyYear: YearlyInEx] {
+        model.book
+    }
 
     // MARK: - Deal with Intents from View
 
