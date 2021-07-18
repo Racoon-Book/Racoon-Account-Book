@@ -3,6 +3,17 @@ import SwiftDate
 
 // [Item] - 基础数据结构加上软件管理用的其他数据为一个完整的Item
 struct Item: Identifiable, Hashable {
+    // [Identifiable]
+    var id: Int
+
+    // [生成Item时自动生成]
+    let createdAt = DateInRegion(region: regionChina) // 创建时自动生成日期
+    var updatedAt = DateInRegion(region: regionChina) // 创建时自动生成日期 只在创建时自动生成
+
+    // [Core Data]
+    var metadata: MetaItem
+
+    // [Hashable]
     static func == (lhs: Item, rhs: Item) -> Bool {
         return lhs.id == rhs.id
     }
@@ -11,15 +22,6 @@ struct Item: Identifiable, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-    // [Identifiable]
-    var id: Int
-
-    // [生成Item时自动生成]
-    var createdAt = DateInRegion(region: regionChina) // 创建时自动生成日期 // TODO 让这个值生成之后无法更改
-    var updatedAt = DateInRegion(region: regionChina) // 创建时自动生成日期 只在创建时自动生成
-
-    var metadata: MetaItem
 }
 
 extension Item: CustomStringConvertible {

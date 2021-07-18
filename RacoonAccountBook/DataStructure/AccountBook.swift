@@ -14,12 +14,12 @@ struct AccountBook {
     // [To Calculate]
     var expenditureSumSinceUseApp: Float = 0 // 为了性能，这个值每次都进行存取，而不是每次打开App都计算
 
-    var book: [MyYear: YearlyInEx] = [ // TODO：这个是用来取代items的
-        .Y2020: YearlyInEx(year: 2020),
-        .Y2021: YearlyInEx(year: 2021),
-        .Y2022: YearlyInEx(year: 2022),
-        .Y2023: YearlyInEx(year: 2023),
-        .Y2024: YearlyInEx(year: 2024),
+    var book: [SupportedYear: YearlyEx] = [ // TODO：这个是用来取代items的
+        .Y2020: YearlyEx(year: 2020),
+        .Y2021: YearlyEx(year: 2021),
+        .Y2022: YearlyEx(year: 2022),
+        .Y2023: YearlyEx(year: 2023),
+        .Y2024: YearlyEx(year: 2024),
     ] // TODO: 这里先支持个五年
 
     // MARK: - Logic
@@ -33,7 +33,7 @@ struct AccountBook {
         // FIXME: 这里插入的是测试数据
         for metadata in testMetaItems {
             let item = createItem(metadata: metadata)
-            print("[AccountBook.init()] [Add testdata] " + "\(item)")
+            printLog("[AccountBook.init()] [Add testdata] " + "\(item)")
         }
         // END: 插入的是测试数据
     }
@@ -49,12 +49,12 @@ struct AccountBook {
         // TODO: 添加这一条item
         // 尝试新的架构
         // FIXME: 如果没有对应的年份和月份，则添加到2024年1月
-        book[MyYear(rawValue: year) ?? .Y2024]?
-            .monthlyInEx[MyMonth(rawValue: month) ?? .Jan]?
+        book[SupportedYear(rawValue: year) ?? .Y2024]?
+            .monthlyInEx[Month(rawValue: month) ?? .Jan]?
             .items.append(item)
         // END: 尝试新的架构
         items.append(item) // 创建Item的同时算作第一次更新
-        print("[AccountBook.createItem()] " + "id: \(item.id)" + "\n" + "\(item.metadata)")
+        printLog("[AccountBook.createItem()] " + "id: \(item.id)" + "\n" + "\(item.metadata)")
         // 由于添加了Item所以数量加1
         itemsAmount = itemsAmount + 1
 

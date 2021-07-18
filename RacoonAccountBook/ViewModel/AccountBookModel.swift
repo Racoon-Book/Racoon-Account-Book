@@ -23,7 +23,7 @@ class AccountBookModel: ObservableObject {
         model.itemsAmount
     }
 
-    var book: [MyYear: YearlyInEx] {
+    var book: [SupportedYear: YearlyEx] {
         model.book
     }
 

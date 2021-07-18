@@ -39,7 +39,7 @@ struct SingleStarButtonView: View {
                 rating = starPosition
             }
 
-            print("[SingleStarButtonView] 用户评了\(starPosition.rawValue)星")
+            printLog("[SingleStarButtonView] 用户评了\(starPosition.rawValue)星")
         }) {
             Image(systemName: rating.rawValue >= starPosition.rawValue ? "star.fill" : "star")
         }

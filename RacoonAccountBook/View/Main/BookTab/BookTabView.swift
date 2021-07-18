@@ -15,15 +15,16 @@ struct BookTabView: View {
             Text("当月支出")
                 .font(.system(.title))
 
-            if let items = RacoonAccountBook.book[MyYear(rawValue: thisYear) ?? .Y2024]?
-                .monthlyInEx[MyMonth(rawValue: thisMonth) ?? .Dec]?
+            if let items = RacoonAccountBook.book[SupportedYear(rawValue: thisYear) ?? .Y2024]?
+                .monthlyInEx[Month(rawValue: thisMonth) ?? .Dec]?
                 .items {
                 ScrollViewReader { scrollView in
                     ScrollView(.vertical) {
                         LazyVStack {
                             ForEach(items) { item in
                                 MetaItemView(metadata: item.metadata)
-                                    .padding(10)
+                                    .padding([.horizontal], 10)
+                                    .padding([.vertical], 2)
                             }
                         }
                         .onAppear {
@@ -39,10 +40,10 @@ struct BookTabView: View {
     }
 }
 
-struct BookTabView_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook = AccountBookModel()
-
-    static var previews: some View {
-        BookTabView(RacoonAccountBook: PreviewAccountBook)
-    }
-}
+// struct BookTabView_Previews: PreviewProvider {
+//    @StateObject static var PreviewAccountBook = AccountBookModel()
+//
+//    static var previews: some View {
+//        BookTabView(RacoonAccountBook: PreviewAccountBook)
+//    }
+// }

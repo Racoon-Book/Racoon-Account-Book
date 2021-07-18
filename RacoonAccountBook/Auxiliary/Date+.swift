@@ -1,9 +1,10 @@
 import Foundation
 import SwiftDate
 
+// 之后所有生成的`DataInRegion`都需要添加`region: regionChina`
 let regionChina = Region(calendar: Calendars.gregorian, zone: Zones.asiaShanghai, locale: Locales.chineseChina)
 
-enum MyMonth: Int {
+enum Month: Int {
     case Jan = 1
     case Feb = 2
     case Mar = 3
@@ -18,7 +19,8 @@ enum MyMonth: Int {
     case Dec = 12
 }
 
-enum MyYear: Int {
+// 只支持能看得到的年份
+enum SupportedYear: Int {
     case Y2020 = 2020
     case Y2021 = 2021
     case Y2022 = 2022

@@ -40,7 +40,8 @@ struct LargeButton: View {
          disabled: Bool = false,
          backgroundColor: Color = Color.green,
          foregroundColor: Color = Color.white,
-         action: @escaping () -> Void) {
+         action: @escaping () -> Void)
+    {
         self.backgroundColor = backgroundColor
         self.foregroundColor = foregroundColor
         self.title = title
@@ -71,7 +72,7 @@ struct LargeButton_Previews: PreviewProvider {
             LargeButton(title: "Invite a Friend",
                         backgroundColor: Color.blue,
                         foregroundColor: Color.white) {
-                print("Hello World")
+                printLog("Hello World")
             }
             Text("haha")
         }
@@ -84,11 +85,11 @@ struct LargeButton_Previews: PreviewProvider {
 // LargeButton(title: "Invite a Friend",
 //            backgroundColor: Color.white,
 //            foregroundColor: Color.green) {
-//    print("Hello World")
+//    printLog("Hello World")
 // }
 //
 //// Yellow button without a border
 // LargeButton(title: "Invite a Friend",
 //            backgroundColor: Color.yellow) {
-//    print("Hello World")
+//    printLog("Hello World")
 // }

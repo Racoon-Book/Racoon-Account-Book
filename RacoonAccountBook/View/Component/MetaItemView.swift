@@ -1,6 +1,8 @@
 import SwiftDate
 import SwiftUI
 
+
+// [用来显示一个条目的View]
 struct MetaItemView: View {
     var metadata: MetaItem
 
