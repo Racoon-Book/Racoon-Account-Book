@@ -7,14 +7,10 @@ import SwiftDate
 struct AccountBook {
     // MARK: - Main Data & init
 
-    // [Basic]
-    var items: [Item] = [] // 记账本中的所有条目用一个列表表示
-    var itemsAmount: Int = 0 // 账本中总共有多少条账目 这个是真实的数量
-
-    // [To Calculate]
-    var expenditureSumSinceUseApp: Float = 0 // 为了性能，这个值每次都进行存取，而不是每次打开App都计算
-
-    var book: [SupportedYear: YearlyEx] = [ // TODO：这个是用来取代items的
+    // 存储所有的条目
+    var wholeBook = wholeEx() // 这里sign随便填一个就可以了
+    // 按照月来存储所有条目 方便进行统计
+    var monthlyBook: [SupportedYear: YearlyEx] = [ // TODO：这个是用来取代items的
         .Y2020: YearlyEx(year: 2020),
         .Y2021: YearlyEx(year: 2021),
         .Y2022: YearlyEx(year: 2022),
@@ -27,9 +23,6 @@ struct AccountBook {
     // [初始化]
     init() {
         // FIXME: 这里之后初始化就变成从数据库读数据了！
-        items = []
-        itemsAmount = 0
-
         // FIXME: 这里插入的是测试数据
         for metadata in testMetaItems {
             let item = createItem(metadata: metadata)
@@ -41,26 +34,49 @@ struct AccountBook {
     // [使用MetaItem插入]
     mutating func createItem(metadata: MetaItem) -> Item {
         // 由MetaItem创建Item
-        let item = Item(id: itemsAmount, metadata: metadata)
+        let item = Item(id: wholeBook.exCounter, metadata: metadata) // FIXME: 这里id只用wholeBook的 不清楚将来会不会发生什么问题
 
+        // 其他辅助变量
         let year: Int = item.metadata.spentMoneyAt.year
         let month: Int = item.metadata.spentMoneyAt.month
 
-        // TODO: 添加这一条item
-        // 尝试新的架构
-        // FIXME: 如果没有对应的年份和月份，则添加到2024年1月
-        book[SupportedYear(rawValue: year) ?? .Y2024]?
-            .monthlyInEx[Month(rawValue: month) ?? .Jan]?
+        // 添加item
+        // [monthlyBook]
+        // FIXME: 如果没有对应的年份和月份，则添加到2024年1月 —— 但其实应该不添加然后报错 但这是UI的事情 相当于双重验证
+        // 添加
+        monthlyBook[SupportedYear(rawValue: year) ?? .Y2024]?
+            .monthlyEx[Month(rawValue: month) ?? .Dec]?
             .items.append(item)
-        // END: 尝试新的架构
-        items.append(item) // 创建Item的同时算作第一次更新
+        // 计数
+        let monthlyAmount = monthlyBook[SupportedYear(rawValue: year) ?? .Y2024]?
+            .monthlyEx[Month(rawValue: month) ?? .Dec]?
+            .exCounter ?? 0
+        monthlyBook[SupportedYear(rawValue: year) ?? .Y2024]?
+            .monthlyEx[Month(rawValue: month) ?? .Dec]?
+            .exCounter = monthlyAmount + 1
+        // 计算总额
+        let monthlySum = monthlyBook[SupportedYear(rawValue: year) ?? .Y2024]?
+            .monthlyEx[Month(rawValue: month) ?? .Dec]?
+            .exSum ?? 0
+        monthlyBook[SupportedYear(rawValue: year) ?? .Y2024]?
+            .monthlyEx[Month(rawValue: month) ?? .Dec]?
+            .exSum = monthlySum + metadata.amount_float
+
+        // [wholeBook]
+        // 添加
+        wholeBook.items.append(item)
+        // 计数
+        wholeBook.exCounter = wholeBook.exCounter + 1
+        // 计算总额
+        wholeBook.exSum = wholeBook.exSum + metadata.amount_float
+
+        // Log
         printLog("[AccountBook.createItem()] " + "id: \(item.id)" + "\n" + "\(item.metadata)")
-        // 由于添加了Item所以数量加1
-        itemsAmount = itemsAmount + 1
 
         return item
     }
 
     // MARK: - Basic Data Structure
+
     // View in DataStructure Folder
 }

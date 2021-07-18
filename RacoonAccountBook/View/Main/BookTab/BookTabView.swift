@@ -15,26 +15,26 @@ struct BookTabView: View {
             Text("当月支出")
                 .font(.system(.title))
 
-            if let items = RacoonAccountBook.book[SupportedYear(rawValue: thisYear) ?? .Y2024]?
-                .monthlyInEx[Month(rawValue: thisMonth) ?? .Dec]?
-                .items {
-                ScrollViewReader { scrollView in
-                    ScrollView(.vertical) {
-                        LazyVStack {
-                            ForEach(items) { item in
-                                MetaItemView(metadata: item.metadata)
-                                    .padding([.horizontal], 10)
-                                    .padding([.vertical], 2)
-                            }
-                        }
-                        .onAppear {
-                            // 出现的时候滑到最下面
-                            scrollView.scrollTo(items[items.endIndex - 1])
+            ScrollViewReader { scrollView in
+                let items = RacoonAccountBook.monthlyBook[SupportedYear(rawValue: thisYear) ?? .Y2024]?
+                    .monthlyEx[Month(rawValue: thisMonth) ?? .Dec]?
+                    .items ?? []
+
+                ScrollView(.vertical) {
+                    LazyVStack {
+                        // `id: \.self` is a must. Check https://developer.apple.com/forums/thread/667640
+                        ForEach(items, id: \.self) { item in
+                            MetaItemView(metadata: item.metadata)
+                                .padding([.horizontal], 10)
+                                .padding([.vertical], 2)
                         }
                     }
+                    .onAppear {
+                        // 出现的时候滑到最下面
+                        scrollView.scrollTo(items[items.count - 1])
+                        printLog("ScrollView: all \(items.count) and scrolled to \(items[items.count - 1]) ")
+                    }
                 }
-            } else {
-                Text("ScrollViewReader Error")
             }
         }
     }

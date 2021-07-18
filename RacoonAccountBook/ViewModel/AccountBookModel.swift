@@ -15,16 +15,13 @@ class AccountBookModel: ObservableObject {
     // MARK: - Access to Data of Model
 
     // get private property from Model
-    var items: [Item] {
-        model.items // 相当于 get { return model.items }
+
+    var monthlyBook: [SupportedYear: YearlyEx] {
+        model.monthlyBook
     }
 
-    var itemsAmount: Int {
-        model.itemsAmount
-    }
-
-    var book: [SupportedYear: YearlyEx] {
-        model.book
+    var wholeBook: wholeEx {
+        model.wholeBook
     }
 
     // MARK: - Deal with Intents from View

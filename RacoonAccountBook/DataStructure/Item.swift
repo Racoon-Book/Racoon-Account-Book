@@ -29,7 +29,7 @@ extension Item: CustomStringConvertible {
         let createdAt: String = createdAt.toFormat("yyyy/M/d", locale: Locales.chineseChina)
         let updatedAt: String = updatedAt.toFormat("yyyy/M/d, H:mm:ss", locale: Locales.chineseChina)
 
-        let result = "Item: {id:\(id), createdAt:\(createdAt), updatedAt:\(updatedAt)}" + "\n" + "\(metadata)"
+        let result = "Item: {id:\(id), createdAt:\(createdAt), updatedAt:\(updatedAt)}" + " " + "\(metadata)"
 
         return result
     }
