@@ -5,6 +5,8 @@ struct BookTabView: View {
 
     var body: some View {
         VStack {
+            IncomeExpenditureView()
+
             List {
                 ForEach(RacoonAccountBook.items) { item in
                     MetaItemView(metadata: item.metadata)
