@@ -3,13 +3,14 @@
 import Foundation
 import SwiftDate
 
-// [一个记账本，里面存储着App所需的全部信息]
+// [App所需的全部信息]
 struct AccountBook {
     // MARK: - Main Data & init
 
-    // 存储所有的条目
-    var wholeBook = Ex() // 这里sign随便填一个就可以了
-    // 按照月来存储所有条目 方便进行统计
+    // [存储所有的条目的账本]
+    var wholeBook = Ex()
+
+    // [按照月来生成账本 方便进行统计]
     var monthlyBook: [SupportedYear: YearlyEx] = [ // TODO：这个是用来取代items的
         .Y2020: YearlyEx(year: 2020),
         .Y2021: YearlyEx(year: 2021),
@@ -23,12 +24,12 @@ struct AccountBook {
     // [初始化]
     init() {
         // FIXME: 这里之后初始化就变成从数据库读数据了！
-        // FIXME: 这里插入的是测试数据
+        // 插入测试数据
         for metadata in testMetaItems {
             let item = createItem(metadata: metadata)
             printLog("[AccountBook.init()] [Add testdata] " + "\(item)")
         }
-        // END: 插入的是测试数据
+        // END: 插入测试数据
     }
 
     // [使用MetaItem插入]
@@ -70,7 +71,7 @@ struct AccountBook {
         // 计算总额
         wholeBook.exSum = wholeBook.exSum + metadata.amount_float
 
-        // Log
+        // [Log]
         printLog("[AccountBook.createItem()] " + "id: \(item.id)" + "\n" + "\(item.metadata)")
 
         return item
@@ -78,5 +79,5 @@ struct AccountBook {
 
     // MARK: - Basic Data Structure
 
-    // View in DataStructure Folder
+    // View in `DataStructure` Folder
 }

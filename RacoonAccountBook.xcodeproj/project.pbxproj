@@ -15,21 +15,22 @@
 		488D3A88269F0F0800287A50 /* AccountBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A87269F0F0800287A50 /* AccountBook.swift */; };
 		488D3A8A269F0F1D00287A50 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A89269F0F1D00287A50 /* Item.swift */; };
 		488D3A8D269F0F3700287A50 /* AccountBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A8C269F0F3700287A50 /* AccountBookModel.swift */; };
-		488D3A90269F0F5500287A50 /* AddTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A8F269F0F5500287A50 /* AddTabView.swift */; };
-		488D3A92269F0F5E00287A50 /* BookTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A91269F0F5E00287A50 /* BookTabView.swift */; };
-		488D3A96269F188100287A50 /* ReportTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A95269F188100287A50 /* ReportTabView.swift */; };
+		488D3A90269F0F5500287A50 /* AddTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A8F269F0F5500287A50 /* AddTab.swift */; };
+		488D3A92269F0F5E00287A50 /* BookTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A91269F0F5E00287A50 /* BookTab.swift */; };
+		488D3A96269F188100287A50 /* ReportTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A95269F188100287A50 /* ReportTab.swift */; };
 		488D3A9F269F42AF00287A50 /* PutKeyboardBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A9E269F42AF00287A50 /* PutKeyboardBack.swift */; };
 		488D3AA1269F5A2A00287A50 /* MetaItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AA0269F5A2A00287A50 /* MetaItemView.swift */; };
 		488D3AA5269F689B00287A50 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 488D3AA4269F689B00287A50 /* SwiftDate */; };
 		488D3AA7269F6AD000287A50 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AA6269F6AD000287A50 /* Date+.swift */; };
 		488D3AA9269F837300287A50 /* Binding+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AA8269F837300287A50 /* Binding+Optional.swift */; };
 		488D3AAB269F86E400287A50 /* TestData_MetaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AAA269F86E400287A50 /* TestData_MetaItem.swift */; };
-		488D3AAE269F8C5400287A50 /* print+time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AAD269F8C5400287A50 /* print+time.swift */; };
+		488D3AAE269F8C5400287A50 /* Print+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AAD269F8C5400287A50 /* Print+.swift */; };
 		488D3AB0269F8F2F00287A50 /* MetaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AAF269F8F2F00287A50 /* MetaItem.swift */; };
 		48C6360326A44B0B00E7BF15 /* IncomeExpenditureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C6360226A44B0B00E7BF15 /* IncomeExpenditureView.swift */; };
 		48C6361E26A480D100E7BF15 /* Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C6361D26A480D100E7BF15 /* Ex.swift */; };
 		48C8D8E426A2B98B00E61A01 /* StarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */; };
 		48F0A09C26A4CED6004898C0 /* DayItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F0A09B26A4CED6004898C0 /* DayItemsView.swift */; };
+		48F0A09E26A55DFA004898C0 /* StoryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F0A09D26A55DF9004898C0 /* StoryTab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,21 +44,22 @@
 		488D3A87269F0F0800287A50 /* AccountBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBook.swift; sourceTree = "<group>"; };
 		488D3A89269F0F1D00287A50 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		488D3A8C269F0F3700287A50 /* AccountBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBookModel.swift; sourceTree = "<group>"; };
-		488D3A8F269F0F5500287A50 /* AddTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTabView.swift; sourceTree = "<group>"; };
-		488D3A91269F0F5E00287A50 /* BookTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTabView.swift; sourceTree = "<group>"; };
-		488D3A95269F188100287A50 /* ReportTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTabView.swift; sourceTree = "<group>"; };
+		488D3A8F269F0F5500287A50 /* AddTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTab.swift; sourceTree = "<group>"; };
+		488D3A91269F0F5E00287A50 /* BookTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTab.swift; sourceTree = "<group>"; };
+		488D3A95269F188100287A50 /* ReportTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTab.swift; sourceTree = "<group>"; };
 		488D3A9E269F42AF00287A50 /* PutKeyboardBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutKeyboardBack.swift; sourceTree = "<group>"; };
 		488D3AA0269F5A2A00287A50 /* MetaItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaItemView.swift; sourceTree = "<group>"; };
 		488D3AA6269F6AD000287A50 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		488D3AA8269F837300287A50 /* Binding+Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Optional.swift"; sourceTree = "<group>"; };
 		488D3AAA269F86E400287A50 /* TestData_MetaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData_MetaItem.swift; sourceTree = "<group>"; };
-		488D3AAD269F8C5400287A50 /* print+time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "print+time.swift"; sourceTree = "<group>"; };
+		488D3AAD269F8C5400287A50 /* Print+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Print+.swift"; sourceTree = "<group>"; };
 		488D3AAF269F8F2F00287A50 /* MetaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaItem.swift; sourceTree = "<group>"; };
 		48C6360226A44B0B00E7BF15 /* IncomeExpenditureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeExpenditureView.swift; sourceTree = "<group>"; };
 		48C6360926A4682700E7BF15 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		48C6361D26A480D100E7BF15 /* Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex.swift; sourceTree = "<group>"; };
 		48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButtonView.swift; sourceTree = "<group>"; };
 		48F0A09B26A4CED6004898C0 /* DayItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayItemsView.swift; sourceTree = "<group>"; };
+		48F0A09D26A55DF9004898C0 /* StoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +148,7 @@
 			children = (
 				488D3A9E269F42AF00287A50 /* PutKeyboardBack.swift */,
 				488D3AA8269F837300287A50 /* Binding+Optional.swift */,
-				488D3AAD269F8C5400287A50 /* print+time.swift */,
+				488D3AAD269F8C5400287A50 /* Print+.swift */,
 				488D3AA6269F6AD000287A50 /* Date+.swift */,
 			);
 			path = Auxiliary;
@@ -185,7 +187,7 @@
 		48C6360426A44B1400E7BF15 /* BookTab */ = {
 			isa = PBXGroup;
 			children = (
-				488D3A91269F0F5E00287A50 /* BookTabView.swift */,
+				488D3A91269F0F5E00287A50 /* BookTab.swift */,
 				48F0A09A26A4CEBB004898C0 /* Component */,
 			);
 			path = BookTab;
@@ -194,7 +196,7 @@
 		48C6360526A44B5700E7BF15 /* AddTab */ = {
 			isa = PBXGroup;
 			children = (
-				488D3A8F269F0F5500287A50 /* AddTabView.swift */,
+				488D3A8F269F0F5500287A50 /* AddTab.swift */,
 			);
 			path = AddTab;
 			sourceTree = "<group>";
@@ -202,7 +204,7 @@
 		48C6360626A44B6000E7BF15 /* ReportTab */ = {
 			isa = PBXGroup;
 			children = (
-				488D3A95269F188100287A50 /* ReportTabView.swift */,
+				488D3A95269F188100287A50 /* ReportTab.swift */,
 			);
 			path = ReportTab;
 			sourceTree = "<group>";
@@ -210,6 +212,7 @@
 		48C6360726A44B8300E7BF15 /* StoryTab */ = {
 			isa = PBXGroup;
 			children = (
+				48F0A09D26A55DF9004898C0 /* StoryTab.swift */,
 			);
 			path = StoryTab;
 			sourceTree = "<group>";
@@ -313,7 +316,7 @@
 				48C8D8E426A2B98B00E61A01 /* StarButtonView.swift in Sources */,
 				488D3A9F269F42AF00287A50 /* PutKeyboardBack.swift in Sources */,
 				488D3AA9269F837300287A50 /* Binding+Optional.swift in Sources */,
-				488D3AAE269F8C5400287A50 /* print+time.swift in Sources */,
+				488D3AAE269F8C5400287A50 /* Print+.swift in Sources */,
 				48C6361E26A480D100E7BF15 /* Ex.swift in Sources */,
 				48C6360326A44B0B00E7BF15 /* IncomeExpenditureView.swift in Sources */,
 				488D3AA1269F5A2A00287A50 /* MetaItemView.swift in Sources */,
@@ -321,11 +324,12 @@
 				48F0A09C26A4CED6004898C0 /* DayItemsView.swift in Sources */,
 				488D3AB0269F8F2F00287A50 /* MetaItem.swift in Sources */,
 				488D3AA7269F6AD000287A50 /* Date+.swift in Sources */,
-				488D3A96269F188100287A50 /* ReportTabView.swift in Sources */,
+				488D3A96269F188100287A50 /* ReportTab.swift in Sources */,
 				488D3A78269F0E5B00287A50 /* RacoonAccountBookApp.swift in Sources */,
+				48F0A09E26A55DFA004898C0 /* StoryTab.swift in Sources */,
 				488D3AAB269F86E400287A50 /* TestData_MetaItem.swift in Sources */,
-				488D3A90269F0F5500287A50 /* AddTabView.swift in Sources */,
-				488D3A92269F0F5E00287A50 /* BookTabView.swift in Sources */,
+				488D3A90269F0F5500287A50 /* AddTab.swift in Sources */,
+				488D3A92269F0F5E00287A50 /* BookTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

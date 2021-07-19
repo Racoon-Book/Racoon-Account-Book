@@ -18,16 +18,18 @@ struct BookTab: View {
             // TODO: 这里也许可以加个阴影？
 
             ScrollViewReader { scrollView in
-                if let (dict, lastDayWithItems) = RacoonAccountBook.GetDayItemsInOneMonth(date: today),
-                   let keys = dict.keys.sorted() {
+                if let (dayItemsDict, maxDayHavingItems) = RacoonAccountBook.GetDayItemsInOneMonth(date: today),
+                   let days = dayItemsDict.keys.sorted() {
                     ScrollView(.vertical) {
                         LazyVStack {
                             // Check https://stackoverflow.com/questions/56675532/swiftui-iterating-through-dictionary-with-foreach
                             // WWDC21可以替换为OrderedDictionary https://stackoverflow.com/a/68023633/14298786
-                            ForEach(keys, id: \.self) { key in
-                                if let day = Day(rawValue: key.rawValue),
+
+                            // 一天的开销在一个圆角矩形中
+                            ForEach(days, id: \.self) { day in
+                                if let day = Day(rawValue: day.rawValue),
                                    let date = DateInRegion(year: thisYear, month: thisMonth, day: day.rawValue),
-                                   let ex = dict[key],
+                                   let ex = dayItemsDict[day],
                                    let dayItems = ex.items {
                                     DayItemsView(
                                         date: date,
@@ -37,12 +39,13 @@ struct BookTab: View {
                                 }
                             }
                         }
+
                         .onAppear {
                             // 出现的时候滑到最下面
-                            if let day = lastDayWithItems {
+                            if let day = maxDayHavingItems {
                                 printLog("[BookTabView] Scrolled to day \(day.rawValue - 1)")
                                 // 这里需要获取一下最后一个有值的天 然后才能滑动到对应的位置
-                                scrollView.scrollTo(keys[day.rawValue - 1])
+                                scrollView.scrollTo(days[day.rawValue - 1])
                             }
                         }
                     }
@@ -50,12 +53,12 @@ struct BookTab: View {
                     Text("Error in ScrollView: nil in monthlyBook")
                 }
             }
-            .padding([.bottom], 10)
+            .padding([.bottom], 10) // 最下方别贴着屏幕底端
         }
     }
 }
 
-struct BookTabView_Previews: PreviewProvider {
+struct BookTab_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {

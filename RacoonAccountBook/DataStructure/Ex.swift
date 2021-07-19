@@ -1,6 +1,7 @@
 import Foundation
 import SwiftDate
 
+// [一年的花销]
 struct YearlyEx {
     var year: Int // 年份
     var monthlyEx: [Month: PeriodicEx] // 每月的支出，共12项
@@ -24,7 +25,7 @@ struct YearlyEx {
     }
 }
 
-// 用来记录一段时间的支出 最大单位：月
+// [一段时间的花销] 最大单位：月
 struct PeriodicEx {
     var sign: DateInRegion // 这段时间的标志（比如标志它是哪月/哪年/哪周）
 
@@ -35,6 +36,7 @@ struct PeriodicEx {
     var exCounter: Int = 0 // 支出的条数
 }
 
+// [花销]
 struct Ex {
     var items: [Item] = []
 

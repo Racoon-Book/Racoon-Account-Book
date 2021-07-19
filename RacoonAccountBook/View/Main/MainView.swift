@@ -3,30 +3,37 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var RacoonAccountBook: AccountBookModel
 
-    @State private var selectedTab = "添加" // 当前的Tab，默认为添加界面
+    @State private var selectedTab = "添加" // 打开之后呈现的Tab (默认为添加界面)
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            BookTabView(RacoonAccountBook: RacoonAccountBook)
+            BookTab(RacoonAccountBook: RacoonAccountBook)
                 .tabItem {
                     Image(systemName: "text.book.closed.fill")
+                    Text("账本")
+                }
+                .tag("账本")
+            
+            StoryTab(RacoonAccountBook: RacoonAccountBook)
+                .tabItem {
+                    Image(systemName: "books.vertical.fill")
                     Text("财记")
                 }
                 .tag("财记")
 
-            AddTabView(RacoonAccountBook: RacoonAccountBook)
+            AddTab(RacoonAccountBook: RacoonAccountBook)
                 .tabItem {
                     Image(systemName: "plus.circle.fill")
                     Text("添加")
                 }
                 .tag("添加")
 
-            ReportTabView(RacoonAccountBook: RacoonAccountBook)
+            ReportTab(RacoonAccountBook: RacoonAccountBook)
                 .tabItem {
                     Image(systemName: "chart.pie.fill")
                     Text("报告")
                 }
-                .tag("报告")
+                .tag("统计")
         }
     }
 }

@@ -36,7 +36,7 @@ struct MetaItemView_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
-        BookTabView(RacoonAccountBook: PreviewAccountBook)
-        AddTabView(RacoonAccountBook: PreviewAccountBook)
+        BookTab(RacoonAccountBook: PreviewAccountBook)
+        AddTab(RacoonAccountBook: PreviewAccountBook)
     }
 }

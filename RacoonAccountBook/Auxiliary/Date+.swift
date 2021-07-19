@@ -53,6 +53,7 @@ enum Day: Int {
     case D31 = 31
 }
 
+// sort
 extension Day: Comparable {
     static func < (lhs: Day, rhs: Day) -> Bool { lhs.rawValue < rhs.rawValue }
 }

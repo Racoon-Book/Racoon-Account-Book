@@ -27,6 +27,8 @@ class AccountBookModel: ObservableObject {
 
     // MARK: - Access to calculated Data
 
+    // 给进一个月份
+    // 返回`这个月份按天分组后的字典`和`最后有item的天数`
     func GetDayItemsInOneMonth(date: DateInRegion) -> ([Day: Ex], Day?) {
         let year: Int = date.year
         let month: Int = date.month
@@ -70,30 +72,30 @@ class AccountBookModel: ObservableObject {
         ]
 
         for item in itemsInMonth {
-            let day = Day(rawValue: item.metadata.spentMoneyAt.day) ?? .D1
-
-            // 这里用叹号没有危险 因为Day全用的枚举
-            dayItems[day]!.items.append(item)
-            dayItems[day]!.exCounter = dayItems[day]?.exCounter ?? 0 + 1
-            dayItems[day]!.exSum = dayItems[day]?.exSum ?? 0.0 + item.metadata.amount_float
+            if let day = Day(rawValue: item.metadata.spentMoneyAt.day) {
+                // 这里用叹号没有危险 因为Day全用的枚举
+                dayItems[day]!.items.append(item)
+                dayItems[day]!.exCounter = dayItems[day]?.exCounter ?? 0 + 1
+                dayItems[day]!.exSum = dayItems[day]?.exSum ?? 0.0 + item.metadata.amount_float
+            } else {
+                print("Error in model.GetDayItemsInOneMonth()")
+            }
         }
 
-        // 如果没有 这里就要是可选类型了
+        // 中间变量 记录有item的天
         var daysWithItems: [Day] = []
-
         for (key, value) in dayItems {
             if value.items.count != 0 {
                 daysWithItems.append(key)
             }
         }
 
-        print("::::::  \(daysWithItems)")
-
         return (dayItems, daysWithItems.max())
     }
 
     // MARK: - Deal with Intents from View
 
+    // 通过MetaItem给Book中插入Item
     func createItem(metadata: MetaItem) {
         _ = model.createItem(metadata: metadata)
     }

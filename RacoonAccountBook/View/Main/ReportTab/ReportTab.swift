@@ -1,20 +1,20 @@
 import SwiftDate
 import SwiftUI
 
-struct ReportTabView: View {
+struct ReportTab: View {
     @ObservedObject var RacoonAccountBook: AccountBookModel // FIXME: 这里应该用绑定的
 
     var body: some View {
         VStack {
-            Text("ReportTabView")
+            Text("ReportTab")
         }
     }
 }
 
-//struct ReportTabView_Previews: PreviewProvider {
+//struct ReportTab_Previews: PreviewProvider {
 //    @StateObject static var PreviewAccountBook = AccountBookModel()
 //
 //    static var previews: some View {
-//        BookTabView(RacoonAccountBook: PreviewAccountBook)
+//        BookTab(RacoonAccountBook: PreviewAccountBook)
 //    }
 //}

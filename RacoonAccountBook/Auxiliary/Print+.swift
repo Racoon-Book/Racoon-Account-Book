@@ -8,3 +8,9 @@ public func printLog(_ items: Any..., separator: String = " ", terminator: Strin
     output = "[" + time + "] " + output
     Swift.print(output, terminator: terminator)
 }
+
+public func printError(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+    var output = items.map { "\($0)" }.joined(separator: separator)
+    output = "[[ERROR]] " + output
+    Swift.print(output, terminator: terminator)
+}
