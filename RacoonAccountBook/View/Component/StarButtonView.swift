@@ -55,7 +55,7 @@ enum StarRating: Float {
     case five = 5
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct RatingButtonView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             RatingButtonView(rating: .constant(.three))

@@ -16,7 +16,6 @@ struct IncomeExpenditureView: View {
                         .foregroundColor(Color("AntiqueWhite"))
 
                     HStack {
-                        // TODO: 这里要用geometryreader
                         WeeklyView(isWeek: true, expenditure: 130.5, income: 0)
                             .frame(width: geo.size.width * 0.5, alignment: .leading)
                         MonthlyView(isMonth: true, expenditure: 650.5, income: 0)

@@ -8,7 +8,7 @@ struct AccountBook {
     // MARK: - Main Data & init
 
     // 存储所有的条目
-    var wholeBook = wholeEx() // 这里sign随便填一个就可以了
+    var wholeBook = Ex() // 这里sign随便填一个就可以了
     // 按照月来存储所有条目 方便进行统计
     var monthlyBook: [SupportedYear: YearlyEx] = [ // TODO：这个是用来取代items的
         .Y2020: YearlyEx(year: 2020),

@@ -29,6 +29,7 @@
 		48C6360326A44B0B00E7BF15 /* IncomeExpenditureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C6360226A44B0B00E7BF15 /* IncomeExpenditureView.swift */; };
 		48C6361E26A480D100E7BF15 /* Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C6361D26A480D100E7BF15 /* Ex.swift */; };
 		48C8D8E426A2B98B00E61A01 /* StarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */; };
+		48F0A09C26A4CED6004898C0 /* DayItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F0A09B26A4CED6004898C0 /* DayItemsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		48C6360926A4682700E7BF15 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		48C6361D26A480D100E7BF15 /* Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex.swift; sourceTree = "<group>"; };
 		48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButtonView.swift; sourceTree = "<group>"; };
+		48F0A09B26A4CED6004898C0 /* DayItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayItemsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				488D3A91269F0F5E00287A50 /* BookTabView.swift */,
-				48C6360226A44B0B00E7BF15 /* IncomeExpenditureView.swift */,
+				48F0A09A26A4CEBB004898C0 /* Component */,
 			);
 			path = BookTab;
 			sourceTree = "<group>";
@@ -218,6 +220,15 @@
 				48C6360926A4682700E7BF15 /* TODO.md */,
 			);
 			path = Docs;
+			sourceTree = "<group>";
+		};
+		48F0A09A26A4CEBB004898C0 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				48C6360226A44B0B00E7BF15 /* IncomeExpenditureView.swift */,
+				48F0A09B26A4CED6004898C0 /* DayItemsView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +318,7 @@
 				48C6360326A44B0B00E7BF15 /* IncomeExpenditureView.swift in Sources */,
 				488D3AA1269F5A2A00287A50 /* MetaItemView.swift in Sources */,
 				488D3A8D269F0F3700287A50 /* AccountBookModel.swift in Sources */,
+				48F0A09C26A4CED6004898C0 /* DayItemsView.swift in Sources */,
 				488D3AB0269F8F2F00287A50 /* MetaItem.swift in Sources */,
 				488D3AA7269F6AD000287A50 /* Date+.swift in Sources */,
 				488D3A96269F188100287A50 /* ReportTabView.swift in Sources */,
