@@ -93,6 +93,18 @@ class AccountBookModel: ObservableObject {
         return (dayItems, daysWithItems.max())
     }
 
+    // TODO: 我知道这样性能很差，但不知道怎么改得更好。因为这一周还可能是去年的事情；加上处理不如直接遍历；如果太卡还是得换
+    func GetSumOfThisWeek() -> Float {
+        var sum: Float = 0
+        for item in wholeBook.items {
+            if item.metadata.spentMoneyAt.compare(.isThisWeek) {
+                // FIXME: 它从周六开始计算的，我无了！！！
+                sum = sum + item.metadata.amount_float
+            }
+        }
+        return sum
+    }
+
     // MARK: - Deal with Intents from View
 
     // 通过MetaItem给Book中插入Item

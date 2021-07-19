@@ -3,17 +3,24 @@ import SwiftUI
 
 struct BookTab: View {
     @ObservedObject var RacoonAccountBook: AccountBookModel // FIXME: 这里应该用绑定的
-    let today = DateInRegion(region: regionChina)
-    let thisYear: Int = DateInRegion(region: regionChina).year
-    let thisMonth: Int = DateInRegion(region: regionChina).month
 
     var body: some View {
+        let today = DateInRegion(region: regionChina)
+        let thisYear: Int = today.year
+        let thisMonth: Int = today.month
+
         VStack {
             // TOOD: 这个之后换成月份选择下拉框
             Text("\(String(thisYear))年\(thisMonth)月 花销") // 为了不出现`,`使用`String()`
                 .font(.system(.title2))
 
-            IncomeExpenditureView()
+            IncomeExpenditureView(usingRelativeDays: false,
+                                  sevenEx: RacoonAccountBook.GetSumOfThisWeek(), // TODO: 添加本周支出
+                                  sevenIn: 0,
+                                  thirtyEx: RacoonAccountBook.monthlyBook[SupportedYear(rawValue: thisYear) ?? .Y2024]?
+                                      .monthlyEx[Month(rawValue: thisMonth) ?? .Dec]?
+                                      .exSum ?? 0,
+                                  thirtyIn: 0)
                 .padding(10)
             // TODO: 这里也许可以加个阴影？
 
