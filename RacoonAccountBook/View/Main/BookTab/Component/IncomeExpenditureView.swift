@@ -1,6 +1,14 @@
 import SwiftUI
 
 struct IncomeExpenditureView: View {
+    var usingRelativeDays: Bool = false // 是否以近7/30日显示 // TODO: 还没做
+
+    var sevenEx: Float = 0
+    var sevenIn: Float = 0
+
+    var thirtyEx: Float = 0
+    var thirtyIn: Float = 0
+
     var body: some View {
         ZStack {
             // 背景
@@ -16,9 +24,11 @@ struct IncomeExpenditureView: View {
                         .foregroundColor(Color("AntiqueWhite"))
 
                     HStack {
-                        WeeklyView(isWeek: true, expenditure: 130.5, income: 0)
+                        PeriodExInView(period: .seven, usingRelativeDays: usingRelativeDays,
+                                       expenditure: sevenEx, income: sevenIn)
                             .frame(width: geo.size.width * 0.5, alignment: .leading)
-                        MonthlyView(isMonth: true, expenditure: 650.5, income: 0)
+                        PeriodExInView(period: .thirty, usingRelativeDays: usingRelativeDays,
+                                       expenditure: thirtyEx, income: thirtyIn)
                             .frame(width: geo.size.width * 0.5, alignment: .leading)
                     }
                 }
@@ -31,44 +41,42 @@ struct IncomeExpenditureView: View {
     let frameHeight: CGFloat = 160
 }
 
-struct WeeklyView: View {
-    var isWeek: Bool = true
+struct PeriodExInView: View {
+    var period: DisplayPeriod
+
+    var usingRelativeDays: Bool = false
+
     var expenditure: Float
     var income: Float
 
     var body: some View {
+        let exName = (usingRelativeDays ?
+            period == .seven ? "7日" : "30日" :
+            period == .seven ? "本周" : "本月")
+            + "支出"
+
+        let inName = (usingRelativeDays ?
+            period == .seven ? "7日" : "30日" :
+            period == .seven ? "本周" : "本月")
+            + "收入"
+
         VStack(alignment: .leading) {
-            Text(isWeek ? "本周支出" : "7日支出")
+            Text(exName)
                 .font(.system(.headline))
 
             Text(String(format: "%.1f", expenditure))
                 .font(.system(size: 45))
 
-            Text(isWeek ? "本周收入\(String(format: "%.1f", income))元" : "7日收入\(String(format: "%.1f", income))元")
+            Text(inName + "\(String(format: "%.1f", income))元")
                 .font(.system(.subheadline))
         }
         .foregroundColor(.white)
     }
 }
 
-struct MonthlyView: View {
-    var isMonth: Bool = true
-    var expenditure: Float
-    var income: Float
-
-    var body: some View {
-        VStack(alignment: .leading) {
-            Text(isMonth ? "本月支出" : "30日支出")
-                .font(.system(.headline))
-
-            Text(String(format: "%.1f", expenditure))
-                .font(.system(size: 45))
-
-            Text(isMonth ? "本月收入\(String(format: "%.1f", income))元" : "30日收入\(String(format: "%.1f", income))元")
-                .font(.system(.subheadline))
-        }
-        .foregroundColor(.white)
-    }
+enum DisplayPeriod {
+    case seven
+    case thirty
 }
 
 struct IncomeExpenditureView_Previews: PreviewProvider {
