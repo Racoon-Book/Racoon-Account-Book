@@ -3,7 +3,7 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var RacoonAccountBook: AccountBookModel
 
-    @State private var selectedTab = "添加" // 打开之后呈现的Tab (默认为添加界面)
+    @State private var selectedTab = "账本" // 打开之后呈现的Tab (默认为添加界面) // TODO: 改回去
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -13,7 +13,7 @@ struct MainView: View {
                     Text("账本")
                 }
                 .tag("账本")
-            
+
             StoryTab(RacoonAccountBook: RacoonAccountBook)
                 .tabItem {
                     Image(systemName: "books.vertical.fill")
