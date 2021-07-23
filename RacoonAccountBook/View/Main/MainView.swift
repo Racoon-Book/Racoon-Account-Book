@@ -3,9 +3,9 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var RacoonAccountBook: AccountBookModel
 
-    @State private var selectedTab = "账本" // 打开之后呈现的Tab (默认为添加界面) // TODO: 改回去
-    @State var displayingOrdinaryAddView: Bool = false
-    @State var displayingVoiceInputView: Bool = false
+    @State private var selectedTab = "账本" // 打开之后呈现的Tab (默认为账本界面)
+    @State var displayingOrdinaryAddView: Bool = false // TODO: 名字改成showing吧
+    @State var displayingVoiceInputView: Bool = false // TODO: 名字改成showing吧
 
     var body: some View {
         ZStack {
@@ -41,8 +41,7 @@ struct MainView: View {
 
             FloatingAddButton(
                 displayingOrdinaryAddView: $displayingOrdinaryAddView,
-                displayingVoiceInputView: $displayingVoiceInputView
-            )
+                displayingVoiceInputView: $displayingVoiceInputView)
         }
     }
 }
@@ -79,7 +78,7 @@ struct FloatingAddButton: View {
                                 // 长按弹出语音界面
                                 print("[FloatingAddButton] LongPressed")
                                 displayingVoiceInputView.toggle()
-                            }
+                            } // 注意onTapGesture在前onLongPressGesture在后
 
                     })
                 }
@@ -87,8 +86,52 @@ struct FloatingAddButton: View {
                 .padding([.vertical], 80)
             }
         }
+        .sheet(
+            isPresented: $displayingOrdinaryAddView,
+            onDismiss: didDismiss) {
+                OrdinaryAddSheet(isPresented: $displayingOrdinaryAddView)
+        }
+    }
+
+    func didDismiss() {
+        printLog("[FloatingAddButton] Dismissed.")
     }
 }
+
+struct OrdinaryAddSheet: View {
+    @Binding var isPresented: Bool
+
+    var body: some View {
+        NavigationView {
+            Text("Sheet View content") // TODO: 修改为添加界面
+                .navigationBarTitle(
+                    Text("记一笔账"),
+                    displayMode: .inline)
+                .navigationBarItems(
+                    leading: Button(action: {
+                        printLog("[OrdinaryAddSheet] `Cancle` clicked.")
+                        isPresented = false // 收回sheet
+                    }) { Text("取消").bold() },
+                    trailing: Button(action: {
+                        printLog("[OrdinaryAddSheet] `Done` clicked.")
+                        isPresented = false // 收回sheet
+                    }) { Text("添加").bold() })
+        }
+    }
+}
+
+// struct ShowLicenseAgreement: View {
+//    @Binding var isShowingSheet: Bool
+//    var body: some View {
+//        Button(action: {
+//            isShowingSheet.toggle()
+//        }) {
+//            Text("Show License Agreement")
+//        }
+//    }
+//
+//
+// }
 
 struct ContentView_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook = AccountBookModel()
