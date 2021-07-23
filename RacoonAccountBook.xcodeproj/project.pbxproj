@@ -26,6 +26,7 @@
 		488D3AAB269F86E400287A50 /* TestData_MetaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AAA269F86E400287A50 /* TestData_MetaItem.swift */; };
 		488D3AAE269F8C5400287A50 /* Print+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AAD269F8C5400287A50 /* Print+.swift */; };
 		488D3AB0269F8F2F00287A50 /* MetaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AAF269F8F2F00287A50 /* MetaItem.swift */; };
+		48B40E2D26AAE05C0030AAF6 /* SwiftSpeech in Frameworks */ = {isa = PBXBuildFile; productRef = 48B40E2C26AAE05C0030AAF6 /* SwiftSpeech */; };
 		48C6360326A44B0B00E7BF15 /* IncomeExpenditureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C6360226A44B0B00E7BF15 /* IncomeExpenditureView.swift */; };
 		48C6361E26A480D100E7BF15 /* Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C6361D26A480D100E7BF15 /* Ex.swift */; };
 		48C8D8E426A2B98B00E61A01 /* StarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */; };
@@ -69,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B40E2D26AAE05C0030AAF6 /* SwiftSpeech in Frameworks */,
 				488D3AA5269F689B00287A50 /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,6 +249,7 @@
 			name = RacoonAccountBook;
 			packageProductDependencies = (
 				488D3AA4269F689B00287A50 /* SwiftDate */,
+				48B40E2C26AAE05C0030AAF6 /* SwiftSpeech */,
 			);
 			productName = RacoonAccountBook;
 			productReference = 488D3A74269F0E5B00287A50 /* 浣熊财记.app */;
@@ -277,6 +280,7 @@
 			mainGroup = 488D3A6B269F0E5B00287A50;
 			packageReferences = (
 				488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */,
+				48B40E2B26AAE05C0030AAF6 /* XCRemoteSwiftPackageReference "SwiftSpeech" */,
 			);
 			productRefGroup = 488D3A75269F0E5B00287A50 /* Products */;
 			projectDirPath = "";
@@ -524,6 +528,14 @@
 				minimumVersion = 6.3.1;
 			};
 		};
+		48B40E2B26AAE05C0030AAF6 /* XCRemoteSwiftPackageReference "SwiftSpeech" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Cay-Zhang/SwiftSpeech";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -531,6 +543,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */;
 			productName = SwiftDate;
+		};
+		48B40E2C26AAE05C0030AAF6 /* SwiftSpeech */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48B40E2B26AAE05C0030AAF6 /* XCRemoteSwiftPackageReference "SwiftSpeech" */;
+			productName = SwiftSpeech;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

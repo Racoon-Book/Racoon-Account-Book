@@ -9,6 +9,15 @@
           "revision": "6190d0cefff3013e77ed567e6b074f324e5c5bf5",
           "version": "6.3.1"
         }
+      },
+      {
+        "package": "SwiftSpeech",
+        "repositoryURL": "https://github.com/Cay-Zhang/SwiftSpeech",
+        "state": {
+          "branch": null,
+          "revision": "5c876a9fe44ebf21591fa13b07970936d599859c",
+          "version": "0.9.2"
+        }
       }
     ]
   },
