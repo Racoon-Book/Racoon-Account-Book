@@ -2,7 +2,29 @@ import Combine
 import SwiftDate
 import SwiftUI
 
-struct AddTab: View {
+struct OrdinaryAddSheet: View {
+    @Binding var isPresented: Bool
+
+    var body: some View {
+        NavigationView {
+            OrdinaryAddView()
+                .navigationBarTitle(
+                    Text("记一笔账"),
+                    displayMode: .inline)
+                .navigationBarItems(
+                    leading: Button(action: {
+                        printLog("[OrdinaryAddSheet] `Cancle` clicked.")
+                        isPresented = false // 收回sheet
+                    }) { Text("取消").bold() },
+                    trailing: Button(action: {
+                        printLog("[OrdinaryAddSheet] `Done` clicked.")
+                        isPresented = false // 收回sheet
+                    }) { Text("添加").bold() })
+        }
+    }
+}
+
+struct OrdinaryAddView: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
 
     // 是否正在编辑某个文本框
@@ -142,7 +164,7 @@ struct AddTabView_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
-        AddTab()
+        OrdinaryAddSheet(isPresented: .constant(true))
             .environmentObject(PreviewAccountBook)
     }
 }

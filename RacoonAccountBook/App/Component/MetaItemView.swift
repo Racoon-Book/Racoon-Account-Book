@@ -38,7 +38,7 @@ struct MetaItemView_Previews: PreviewProvider {
     static var previews: some View {
         BookTab()
             .environmentObject(PreviewAccountBook)
-        AddTab()
+        OrdinaryAddView()
             .environmentObject(PreviewAccountBook)
     }
 }

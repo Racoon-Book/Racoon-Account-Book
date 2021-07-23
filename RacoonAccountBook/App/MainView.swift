@@ -22,7 +22,7 @@ struct MainView: View {
                     }
                     .tag("财记")
 
-                AddTab()
+                OrdinaryAddView()
                     .tabItem {
                         Image(systemName: "plus.circle.fill")
                         Text("添加")
@@ -38,82 +38,8 @@ struct MainView: View {
             }
 
             FloatingAddButton(
-                displayingOrdinaryAddView: $displayingOrdinaryAddView,
-                displayingVoiceInputView: $displayingVoiceInputView)
-        }
-    }
-}
-
-struct FloatingAddButton: View {
-    let addButtonSize = CGFloat(50)
-
-    @Binding var displayingOrdinaryAddView: Bool
-    @Binding var displayingVoiceInputView: Bool
-
-    var body: some View {
-        HStack {
-            // 用Spacer()将加好怼到最右边
-            Spacer()
-            VStack {
-                Spacer()
-                ZStack {
-                    Circle()
-                        .fill(Color.yellow)
-                        .frame(width: addButtonSize, height: addButtonSize)
-                    Button(action: {}, label: {
-                        Text(Image(systemName: "plus"))
-                            .foregroundColor(.black)
-                            .bold()
-                            .font(.system(size: addButtonSize * 0.75))
-
-                            .onTapGesture {
-                                // 点击弹出一般添加界面
-                                print("[FloatingAddButton] Tapped")
-                                displayingOrdinaryAddView.toggle()
-                            }
-
-                            .onLongPressGesture {
-                                // 长按弹出语音界面
-                                print("[FloatingAddButton] LongPressed")
-                                displayingVoiceInputView.toggle()
-                            } // 注意onTapGesture在前onLongPressGesture在后
-
-                    })
-                }
-                .padding([.horizontal], 25)
-                .padding([.vertical], 80)
-            }
-        }
-        .sheet(
-            isPresented: $displayingOrdinaryAddView,
-            onDismiss: didDismiss) {
-            OrdinaryAddSheet(isPresented: $displayingOrdinaryAddView)
-        }
-    }
-
-    func didDismiss() {
-        printLog("[FloatingAddButton] Dismissed.")
-    }
-}
-
-struct OrdinaryAddSheet: View {
-    @Binding var isPresented: Bool
-
-    var body: some View {
-        NavigationView {
-            Text("Sheet View content") // TODO: 修改为添加界面
-                .navigationBarTitle(
-                    Text("记一笔账"),
-                    displayMode: .inline)
-                .navigationBarItems(
-                    leading: Button(action: {
-                        printLog("[OrdinaryAddSheet] `Cancle` clicked.")
-                        isPresented = false // 收回sheet
-                    }) { Text("取消").bold() },
-                    trailing: Button(action: {
-                        printLog("[OrdinaryAddSheet] `Done` clicked.")
-                        isPresented = false // 收回sheet
-                    }) { Text("添加").bold() })
+                showingOrdinaryAddView: $displayingOrdinaryAddView,
+                showingVoiceInputView: $displayingVoiceInputView)
         }
     }
 }

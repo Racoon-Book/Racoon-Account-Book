@@ -48,6 +48,7 @@ struct BookTab: View {
                                 // 出现的时候滑到最下面
                                 if let day = maxDayHavingItems {
                                     printLog("[BookTabView] Scrolled to day \(day.rawValue - 1)")
+                                    // FIXME: 每次这里都会打印两次 看看是为什么
                                     // 这里需要获取一下最后一个有值的天 然后才能滑动到对应的位置
                                     scrollView.scrollTo(days[day.rawValue - 1])
                                 }
