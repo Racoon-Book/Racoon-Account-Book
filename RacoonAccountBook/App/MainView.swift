@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var RacoonAccountBook: AccountBookModel
-
     @State private var selectedTab = "账本" // 打开之后呈现的Tab (默认为账本界面)
     @State var displayingOrdinaryAddView: Bool = false // TODO: 名字改成showing吧
     @State var displayingVoiceInputView: Bool = false // TODO: 名字改成showing吧
@@ -10,28 +8,28 @@ struct MainView: View {
     var body: some View {
         ZStack {
             TabView(selection: $selectedTab) {
-                BookTab(RacoonAccountBook: RacoonAccountBook)
+                BookTab()
                     .tabItem {
                         Image(systemName: "text.book.closed.fill")
                         Text("账本")
                     }
                     .tag("账本")
 
-                StoryTab(RacoonAccountBook: RacoonAccountBook)
+                StoryTab()
                     .tabItem {
                         Image(systemName: "books.vertical.fill")
                         Text("财记")
                     }
                     .tag("财记")
 
-                AddTab(RacoonAccountBook: RacoonAccountBook)
+                AddTab()
                     .tabItem {
                         Image(systemName: "plus.circle.fill")
                         Text("添加")
                     }
                     .tag("添加")
 
-                ReportTab(RacoonAccountBook: RacoonAccountBook)
+                ReportTab()
                     .tabItem {
                         Image(systemName: "chart.pie.fill")
                         Text("报告")
@@ -89,7 +87,7 @@ struct FloatingAddButton: View {
         .sheet(
             isPresented: $displayingOrdinaryAddView,
             onDismiss: didDismiss) {
-                OrdinaryAddSheet(isPresented: $displayingOrdinaryAddView)
+            OrdinaryAddSheet(isPresented: $displayingOrdinaryAddView)
         }
     }
 
@@ -120,23 +118,11 @@ struct OrdinaryAddSheet: View {
     }
 }
 
-// struct ShowLicenseAgreement: View {
-//    @Binding var isShowingSheet: Bool
-//    var body: some View {
-//        Button(action: {
-//            isShowingSheet.toggle()
-//        }) {
-//            Text("Show License Agreement")
-//        }
-//    }
-//
-//
-// }
-
 struct ContentView_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
-        MainView(RacoonAccountBook: PreviewAccountBook)
+        MainView()
+            .environmentObject(PreviewAccountBook)
     }
 }

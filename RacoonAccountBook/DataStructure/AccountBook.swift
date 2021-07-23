@@ -11,7 +11,7 @@ struct AccountBook {
     var wholeBook = Ex()
 
     // [按照月来生成账本 方便进行统计]
-    var monthlyBook: [SupportedYear: YearlyEx] = [ // TODO：这个是用来取代items的
+    var monthlyBook: [SupportedYear: YearlyEx] = [
         .Y2020: YearlyEx(year: 2020),
         .Y2021: YearlyEx(year: 2021),
         .Y2022: YearlyEx(year: 2022),

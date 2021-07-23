@@ -3,7 +3,7 @@ import SwiftDate
 import SwiftUI
 
 struct AddTab: View {
-    @ObservedObject var RacoonAccountBook: AccountBookModel
+    @EnvironmentObject var RacoonAccountBook: AccountBookModel
 
     // 是否正在编辑某个文本框
     // TODO: 这个没啥必要感觉 先留着吧
@@ -142,6 +142,7 @@ struct AddTabView_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
-        AddTab(RacoonAccountBook: PreviewAccountBook)
+        AddTab()
+            .environmentObject(PreviewAccountBook)
     }
 }

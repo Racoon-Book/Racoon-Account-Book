@@ -2,7 +2,7 @@ import SwiftDate
 import SwiftUI
 
 struct BookTab: View {
-    @ObservedObject var RacoonAccountBook: AccountBookModel // FIXME: 这里应该用绑定的
+    @EnvironmentObject var RacoonAccountBook: AccountBookModel
 
     var body: some View {
         let today = DateInRegion(region: regionChina)
@@ -72,6 +72,7 @@ struct BookTab_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
-        BookTab(RacoonAccountBook: PreviewAccountBook)
+        BookTab()
+            .environmentObject(PreviewAccountBook)
     }
 }

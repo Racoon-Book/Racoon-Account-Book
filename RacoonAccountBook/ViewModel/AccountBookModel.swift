@@ -27,6 +27,7 @@ class AccountBookModel: ObservableObject {
 
     // MARK: - Access to calculated Data
 
+    // [返回某个月的花销 和 这个月最后有花销的天数]
     // 给进一个月份
     // 返回`这个月份按天分组后的字典`和`最后有item的天数`
     func GetDayItemsInOneMonth(date: DateInRegion) -> ([Day: Ex], Day?) {
@@ -93,7 +94,8 @@ class AccountBookModel: ObservableObject {
         return (dayItems, daysWithItems.max())
     }
 
-    // TODO: 我知道这样性能很差，但不知道怎么改得更好。因为这一周还可能是去年的事情；加上处理不如直接遍历；如果太卡还是得换
+    // [计算这一周的花销总额]
+    // 我知道这样性能很差，但和别的方法相比也还差不多。因为这一周还可能是去年的事情；加上处理不如直接遍历；如果太卡还是得换
     func GetSumOfThisWeek() -> Float {
         var sum: Float = 0
         for item in wholeBook.items {

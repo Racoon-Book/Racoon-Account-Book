@@ -10,12 +10,15 @@ struct DayItemsView: View {
         let isToday: Bool = date.compare(.isToday)
         let isTomorrow: Bool = date.compare(.isTomorrow)
 
-        // `今天` `昨天` `明天`各自显示；是`这一周`和`上一周`则显示星期；其他的不显示星期
+        
         let date_display: String =
+            // `今天` `昨天` `明天`各自显示
             isToday ? date.toFormat("M月d日  今天", locale: Locales.chineseChina) :
             isYesterday ? date.toFormat("M月d日  昨天", locale: Locales.chineseChina) :
             isTomorrow ? date.toFormat("M月d日  明天", locale: Locales.chineseChina) :
+            // 是`这一周`和`上一周`显示星期
             date.compare(.isThisWeek) || date.compare(.isLastWeek) ? date.toFormat("M月d日 EEEE", locale: Locales.chineseChina) :
+            // 其他的只显示星期
             date.toFormat("M月d日", locale: Locales.chineseChina)
 
         if dayItems.count != 0 {
@@ -50,7 +53,8 @@ struct DayItemsView_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
-        BookTab(RacoonAccountBook: PreviewAccountBook)
+        BookTab()
+            .environmentObject(PreviewAccountBook)
 
         let items: [Item] = [PreviewAccountBook.wholeBook.items[0], PreviewAccountBook.wholeBook.items[1], PreviewAccountBook.wholeBook.items[2]]
         VStack {

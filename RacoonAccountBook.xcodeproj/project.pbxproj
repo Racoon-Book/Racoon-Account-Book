@@ -93,10 +93,9 @@
 		488D3A76269F0E5B00287A50 /* RacoonAccountBook */ = {
 			isa = PBXGroup;
 			children = (
-				488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */,
 				488D3A86269F0EF400287A50 /* DataStructure */,
 				488D3A8B269F0F2400287A50 /* ViewModel */,
-				488D3A8E269F0F3D00287A50 /* View */,
+				488D3A8E269F0F3D00287A50 /* App */,
 				488D3A97269F27C500287A50 /* Auxiliary */,
 				488D3A7B269F0E5E00287A50 /* Assets.xcassets */,
 				48C6360826A4681300E7BF15 /* Docs */,
@@ -134,13 +133,18 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		488D3A8E269F0F3D00287A50 /* View */ = {
+		488D3A8E269F0F3D00287A50 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				488D3A9A269F337B00287A50 /* Main */,
+				488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */,
+				488D3A79269F0E5B00287A50 /* MainView.swift */,
+				48C6360426A44B1400E7BF15 /* BookTab */,
+				48C6360526A44B5700E7BF15 /* AddTab */,
+				48C6360726A44B8300E7BF15 /* StoryTab */,
+				48C6360626A44B6000E7BF15 /* ReportTab */,
 				488D3A9B269F338800287A50 /* Component */,
 			);
-			path = View;
+			path = App;
 			sourceTree = "<group>";
 		};
 		488D3A97269F27C500287A50 /* Auxiliary */ = {
@@ -152,18 +156,6 @@
 				488D3AA6269F6AD000287A50 /* Date+.swift */,
 			);
 			path = Auxiliary;
-			sourceTree = "<group>";
-		};
-		488D3A9A269F337B00287A50 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				488D3A79269F0E5B00287A50 /* MainView.swift */,
-				48C6360426A44B1400E7BF15 /* BookTab */,
-				48C6360526A44B5700E7BF15 /* AddTab */,
-				48C6360726A44B8300E7BF15 /* StoryTab */,
-				48C6360626A44B6000E7BF15 /* ReportTab */,
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		488D3A9B269F338800287A50 /* Component */ = {
