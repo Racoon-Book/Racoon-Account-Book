@@ -2,8 +2,8 @@ import SwiftUI
 
 struct MainView: View {
     @State private var selectedTab = "账本" // 打开之后呈现的Tab (默认为账本界面)
-    @State var displayingOrdinaryAddView: Bool = false // TODO: 名字改成showing吧
-    @State var displayingVoiceInputView: Bool = false // TODO: 名字改成showing吧
+    @State var showingOrdinaryAddView: Bool = false // TODO: 名字改成showing吧
+    @State var showingVoiceInputView: Bool = false // TODO: 名字改成showing吧
 
     var body: some View {
         ZStack {
@@ -38,8 +38,12 @@ struct MainView: View {
             }
 
             FloatingAddButton(
-                showingOrdinaryAddView: $displayingOrdinaryAddView,
-                showingVoiceInputView: $displayingVoiceInputView)
+                showingOrdinaryAddView: $showingOrdinaryAddView,
+                showingVoiceInputView: $showingVoiceInputView)
+
+            if showingVoiceInputView {
+                VoiceInputView(isShowing: $showingVoiceInputView)
+            }
         }
     }
 }
