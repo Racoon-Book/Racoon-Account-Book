@@ -39,3 +39,19 @@ struct FloatingAddButton: View {
         }
     }
 }
+
+struct FloatingAddButton_Previews: PreviewProvider {
+    @StateObject static var PreviewAccountBook = AccountBookModel()
+
+    static var previews: some View {
+        FloatingAddButton(addUIConfig: .constant(
+            AddUIConfig(
+                isShowingOrdinaryAddView: false,
+                isShowingVoiceInputView: false))
+        )
+        .environmentObject(PreviewAccountBook)
+
+        MainView()
+            .environmentObject(PreviewAccountBook)
+    }
+}

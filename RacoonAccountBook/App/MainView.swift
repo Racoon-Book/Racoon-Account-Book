@@ -82,11 +82,11 @@ struct AddUIConfig {
     var isShowingVoiceInputView: Bool = false
 }
 
-// struct ContentView_Previews: PreviewProvider {
-//    @StateObject static var PreviewAccountBook = AccountBookModel()
-//
-//    static var previews: some View {
-////        MainView()
-////            .environmentObject(PreviewAccountBook)
-//    }
-// }
+struct MainView_Previews: PreviewProvider {
+    @StateObject static var PreviewAccountBook = AccountBookModel()
+
+    static var previews: some View {
+        MainView()
+            .environmentObject(PreviewAccountBook)
+    }
+}

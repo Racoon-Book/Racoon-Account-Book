@@ -1,3 +1,4 @@
+import SwiftDate
 import SwiftSpeech
 import SwiftUI
 
@@ -74,7 +75,7 @@ struct ClearSpeechButton: View {
 struct CommitSpeechButton: View {
     @Binding var addUIConfig: AddUIConfig
     @Binding var metadata_inputting: MetaItem
-    
+
     @Binding var recognizedText: String // （自用）用来动态显示识别结果
 
     var body: some View {
@@ -94,8 +95,24 @@ struct CommitSpeechButton: View {
 }
 
 struct VoiceInputView_Previews: PreviewProvider {
+    @StateObject static var PreviewAccountBook = AccountBookModel()
+
     static var previews: some View {
-//        VoiceInputView(isShowingVoiceInputView: .constant(true))
-        EmptyView()
+        VoiceInputView(
+            addUIConfig: .constant(
+                AddUIConfig(
+                    isShowingOrdinaryAddView: false,
+                    isShowingVoiceInputView: true
+                )
+            ),
+            metadata_inputting: .constant(
+                MetaItem(
+                    originalText: "",
+                    spentMoneyAt: DateInRegion(),
+                    event: "买饮料",
+                    amount_float: 3.5
+                )
+            )
+        )
     }
 }
