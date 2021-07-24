@@ -82,6 +82,9 @@ struct CommitSpeechButton: View {
         Button(action: {
             printLog("[CommitSpeechButton] Clicked.")
             metadata_inputting.originalText = recognizedText // 将结果传给 OrdinaryAddSheet
+
+            UpdateMetaItem()
+
             withAnimation { // TODO: 不太清楚这个动画有没有作用
                 addUIConfig.isShowingVoiceInputView = false // 提交之后收起语音添加界面
                 addUIConfig.isShowingOrdinaryAddView = true // 呈现 OrdinaryAddSheet
@@ -91,6 +94,16 @@ struct CommitSpeechButton: View {
             Text(Image(systemName: "checkmark"))
                 .font(.system(.title))
         })
+    }
+
+    func UpdateMetaItem() {
+        metadata_inputting.amount_float = OriginalText2Amount(
+            from: metadata_inputting.originalText ?? "") ?? 0.0
+
+        metadata_inputting.event = OriginalText2Event(
+            from: metadata_inputting.originalText ?? "") ?? ""
+        metadata_inputting.generatedTags = OriginalText2GeneratedTags(
+            from: metadata_inputting.originalText ?? "")
     }
 }
 

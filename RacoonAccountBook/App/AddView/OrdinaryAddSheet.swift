@@ -146,7 +146,7 @@ struct OriginalTextField: View {
 
     func UpdateMetaItem() {
         metadata_inputting.amount_float = OriginalText2Amount(
-            from: metadata_inputting.originalText ?? "") ?? 0.0 // FIXME: 这里小数还要写出来的
+            from: metadata_inputting.originalText ?? "") ?? 0.0
         amount_string_inputting = String(metadata_inputting.amount_float)
 
         metadata_inputting.event = OriginalText2Event(
