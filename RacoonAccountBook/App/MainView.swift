@@ -2,6 +2,7 @@ import SwiftDate
 import SwiftUI
 
 struct MainView: View {
+    // [TabView需要用到的东西]
     @State private var selectedTab = "账本" // 打开之后呈现的Tab (默认为账本界面)
 
     // [Add需要用到的东西]
@@ -16,6 +17,8 @@ struct MainView: View {
         event: "",
         amount_float: 0.0
     )
+
+    @State private var amount_string_inputting: String = "" // 用来转换输入的可能不是小数的小数
 
     var body: some View {
         ZStack {
@@ -54,13 +57,23 @@ struct MainView: View {
             isPresented: $addUIConfig.isShowingOrdinaryAddView,
             onDismiss: didDismissOrdinaryAddSheet
         ) {
-            OrdinaryAddSheet(addUIConfig: $addUIConfig, metadata_inputting: $metadata_inputting)
+            OrdinaryAddSheet(
+                addUIConfig: $addUIConfig,
+                metadata_inputting: $metadata_inputting,
+                amount_string_inputting: $amount_string_inputting
+            )
         }
     }
 
     func didDismissOrdinaryAddSheet() {
-        // TODO: 下滑的话 会产生dismiss的效果
+        DiscardCurrentMetaItem()
+
         printLog("[FloatingAddButton] Dismissed.")
+
+        func DiscardCurrentMetaItem() {
+            metadata_inputting.clear()
+            amount_string_inputting = ""
+        }
     }
 }
 

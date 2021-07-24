@@ -2,17 +2,6 @@ import Combine
 import SwiftDate
 import SwiftUI
 
-// struct OrdinaryAddSheet: View {
-//    @Binding var addUIConfig: AddUIConfig
-//    @Binding var metadata_inputting: MetaItem
-//
-//    var body: some View {
-//
-//            OrdinaryAddView(addUIConfig: $addUIConfig, metadata_inputting: $metadata_inputting)
-//        }
-//    }
-// }
-
 struct OrdinaryAddSheet: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
 
@@ -21,11 +10,11 @@ struct OrdinaryAddSheet: View {
     // 为了方便 直接使用结构体MetaItem；每次添加数据之后把它们归零
     @Binding var metadata_inputting: MetaItem
 
+    @Binding var amount_string_inputting: String // 用来转换输入的可能不是小数的小数
+
     // 是否正在编辑某个文本框
     // TODO: 这个没啥必要感觉 先留着吧
     @State private var isEditing: Bool = false
-
-    @State private var amount_string_inputting: String = "" // 用来转换输入的可能不是小数的小数
 
     var body: some View {
         NavigationView {
@@ -91,8 +80,6 @@ struct OrdinaryAddSheet: View {
                     printLog("[OrdinaryAddSheet] `Done` clicked.")
 
                     AddNewMetaItem() // 用MetaItem添加Item
-
-                    addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
                 }) { Text("添加").bold() })
         }
     }
@@ -106,6 +93,8 @@ struct OrdinaryAddSheet: View {
 
         // 写好了之后将inputting的数据都清零
         DiscardCurrentMetaItem()
+
+        addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
     }
 
     func DiscardCurrentMetaItem() {

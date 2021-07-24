@@ -27,8 +27,8 @@ struct Item: Identifiable, Hashable {
 
 extension Item: CustomStringConvertible {
     var description: String {
-        let createdAt: String = createdAt.toFormat("yyyy/M/d", locale: Locales.chineseChina)
-        let updatedAt: String = updatedAt.toFormat("yyyy/M/d, H:mm:ss", locale: Locales.chineseChina)
+        let createdAt: String = self.createdAt.toFormat("yyyy/M/d", locale: Locales.chineseChina)
+        let updatedAt: String = self.updatedAt.toFormat("yyyy/M/d, H:mm:ss", locale: Locales.chineseChina)
 
         let result = "Item: {id:\(id), createdAt:\(createdAt), updatedAt:\(updatedAt)}" + " " + "\(metadata)"
 
