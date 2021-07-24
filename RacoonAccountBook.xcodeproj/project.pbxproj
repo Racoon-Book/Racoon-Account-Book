@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4823CD2D269FFE6900C7217F /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823CD2C269FFE6900C7217F /* LargeButton.swift */; };
+		4878A75B26AC652700DCBC8D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A75A26AC652700DCBC8D /* String+.swift */; };
 		488D3A78269F0E5B00287A50 /* RacoonAccountBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */; };
 		488D3A7A269F0E5B00287A50 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A79269F0E5B00287A50 /* MainView.swift */; };
 		488D3A7C269F0E5E00287A50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 488D3A7B269F0E5E00287A50 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		4823CD2C269FFE6900C7217F /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
+		4878A75A26AC652700DCBC8D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		488D3A74269F0E5B00287A50 /* 浣熊财记.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "浣熊财记.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacoonAccountBookApp.swift; sourceTree = "<group>"; };
 		488D3A79269F0E5B00287A50 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				488D3AA8269F837300287A50 /* Binding+Optional.swift */,
 				488D3A9E269F42AF00287A50 /* PutKeyboardBack.swift */,
 				488D3AAD269F8C5400287A50 /* Print+.swift */,
+				4878A75A26AC652700DCBC8D /* String+.swift */,
 			);
 			path = Auxiliary;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				48C6361E26A480D100E7BF15 /* Ex.swift in Sources */,
 				48C6360326A44B0B00E7BF15 /* IncomeExpenditureView.swift in Sources */,
 				488D3AA1269F5A2A00287A50 /* MetaItemView.swift in Sources */,
+				4878A75B26AC652700DCBC8D /* String+.swift in Sources */,
 				488D3A8D269F0F3700287A50 /* AccountBookModel.swift in Sources */,
 				48F0A09C26A4CED6004898C0 /* DayItemsView.swift in Sources */,
 				488D3AB0269F8F2F00287A50 /* MetaItem.swift in Sources */,
