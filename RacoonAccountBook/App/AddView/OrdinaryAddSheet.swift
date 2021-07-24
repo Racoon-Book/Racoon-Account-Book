@@ -2,18 +2,18 @@ import Combine
 import SwiftDate
 import SwiftUI
 
+// struct OrdinaryAddSheet: View {
+//    @Binding var addUIConfig: AddUIConfig
+//    @Binding var metadata_inputting: MetaItem
+//
+//    var body: some View {
+//
+//            OrdinaryAddView(addUIConfig: $addUIConfig, metadata_inputting: $metadata_inputting)
+//        }
+//    }
+// }
+
 struct OrdinaryAddSheet: View {
-    @Binding var addUIConfig: AddUIConfig
-    @Binding var metadata_inputting: MetaItem
-
-    var body: some View {
-        NavigationView {
-            OrdinaryAddView(addUIConfig: $addUIConfig, metadata_inputting: $metadata_inputting)
-        }
-    }
-}
-
-struct OrdinaryAddView: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
 
     @Binding var addUIConfig: AddUIConfig
@@ -28,71 +28,73 @@ struct OrdinaryAddView: View {
     @State private var amount_string_inputting: String = "" // 用来转换输入的可能不是小数的小数
 
     var body: some View {
-        VStack {
-            Spacer()
-
+        NavigationView {
             VStack {
-                // TODO: 每次打开sheet直接将光标放在这里，键盘默认弹出
-                ItemTextField(
-                    hint: "用一句话写出你的花销",
-                    input_text: $metadata_inputting.originalText ?? "",
-                    isEditing: $isEditing)
-                HStack {
+                Spacer()
+
+                VStack {
+                    // TODO: 每次打开sheet直接将光标放在这里，键盘默认弹出
                     ItemTextField(
-                        hint: "事件",
-                        input_text: $metadata_inputting.event,
+                        hint: "用一句话写出你的花销",
+                        input_text: $metadata_inputting.originalText ?? "",
                         isEditing: $isEditing)
-                    ItemFloatField(
-                        hint: "金额",
-                        input_float: $metadata_inputting.amount_float,
-                        input_string: $amount_string_inputting,
-                        isEditing: $isEditing)
+                    HStack {
+                        ItemTextField(
+                            hint: "事件",
+                            input_text: $metadata_inputting.event,
+                            isEditing: $isEditing)
+                        ItemFloatField(
+                            hint: "金额",
+                            input_float: $metadata_inputting.amount_float,
+                            input_string: $amount_string_inputting,
+                            isEditing: $isEditing)
+                    }
                 }
-            }
-            .padding([.vertical])
+                .padding([.vertical])
 
-            // 预览输入的效果 - 如果用户觉得没问题，那就点击添加按钮
-            ItemPreviewView(metadata: metadata_inputting)
+                // 预览输入的效果 - 如果用户觉得没问题，那就点击添加按钮
+                ItemPreviewView(metadata: metadata_inputting)
 
-            LargeButton(title: "记账",
-                        backgroundColor: Color.blue,
-                        foregroundColor: Color.white) {
+                LargeButton(title: "记账",
+                            backgroundColor: Color.blue,
+                            foregroundColor: Color.white) {
                     AddNewMetaItem()
+                }
+                .font(.system(.title)) // TODO: 字有点小
             }
-            .font(.system(.title)) // TODO: 字有点小
-        }
-        .padding()
+            .padding()
 
-        .navigationBarTitle(
-            Text("记一笔账"),
-            displayMode: .inline)
-        .navigationBarItems(
-            // 左边有两个按钮
-            leading:
-            HStack {
+            .navigationBarTitle(
+                Text("记一笔账"),
+                displayMode: .inline)
+            .navigationBarItems(
+                // 左边有两个按钮
+                leading:
+                HStack {
+                    Button(action: {
+                        printLog("[OrdinaryAddSheet] `Cancle` clicked.")
+
+                        DiscardCurrentMetaItem() // 清空正在输入的 MetaItem
+
+                        addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
+                    }) { Text("取消").bold() }
+
+                    Button(action: {
+                        printLog("[OrdinaryAddSheet] `Clear` clicked.")
+
+                        DiscardCurrentMetaItem() // 清空正在输入的 MetaItem
+                    }) { Text("清除").bold() }
+                },
+                // 右边有一个按钮
+                trailing:
                 Button(action: {
-                    printLog("[OrdinaryAddSheet] `Cancle` clicked.")
+                    printLog("[OrdinaryAddSheet] `Done` clicked.")
 
-                    DiscardCurrentMetaItem() // 清空正在输入的 MetaItem
+                    AddNewMetaItem() // 用MetaItem添加Item
 
                     addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
-                }) { Text("取消").bold() }
-
-                Button(action: {
-                    printLog("[OrdinaryAddSheet] `Clear` clicked.")
-
-                    DiscardCurrentMetaItem() // 清空正在输入的 MetaItem
-                }) { Text("清除").bold() }
-            },
-            // 右边有一个按钮
-            trailing:
-            Button(action: {
-                printLog("[OrdinaryAddSheet] `Done` clicked.")
-
-                AddNewMetaItem() // 用MetaItem添加Item
-
-                addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
-            }) { Text("添加").bold() })
+                }) { Text("添加").bold() })
+        }
     }
 
     func AddNewMetaItem() {
@@ -140,7 +142,7 @@ struct ItemTextField: View {
         TextField(
             hint,
             text: $input_text) { isEditing in
-                self.isEditing = isEditing
+            self.isEditing = isEditing
         } onCommit: {}
             .autocapitalization(.none)
             .disableAutocorrection(false)
