@@ -23,16 +23,17 @@ struct OrdinaryAddSheet: View {
 
                 VStack {
                     // TODO: 每次打开sheet直接将光标放在这里，键盘默认弹出
-                    ItemTextField(
+                    OriginalTextField(
                         hint: "用一句话写出你的花销",
-                        input_text: $metadata_inputting.originalText ?? "",
-                        isEditing: $isEditing)
+                        metadata_inputting: $metadata_inputting,
+                        isEditing: $isEditing,
+                        amount_string_inputting: $amount_string_inputting)
                     HStack {
-                        ItemTextField(
+                        MetaItemTextField(
                             hint: "事件",
                             input_text: $metadata_inputting.event,
                             isEditing: $isEditing)
-                        ItemFloatField(
+                        MetaItemFloatField(
                             hint: "金额",
                             input_float: $metadata_inputting.amount_float,
                             input_string: $amount_string_inputting,
@@ -122,7 +123,40 @@ struct ItemPreviewView: View {
     }
 }
 
-struct ItemTextField: View {
+struct OriginalTextField: View {
+    var hint: String = ""
+    @Binding var metadata_inputting: MetaItem
+
+    @Binding var isEditing: Bool
+    @Binding var amount_string_inputting: String
+
+    var body: some View {
+        TextField(
+            hint,
+            text: $metadata_inputting.originalText ?? "") { isEditing in
+            self.isEditing = isEditing
+        } onCommit: {
+            printLog("[OriginalTextField] Commit")
+            UpdateMetaItem()
+        }
+        .autocapitalization(.none)
+        .disableAutocorrection(false)
+        .textFieldStyle(RoundedBorderTextFieldStyle())
+    }
+
+    func UpdateMetaItem() {
+        metadata_inputting.amount_float = OriginalText2Amount(
+            from: metadata_inputting.originalText ?? "") ?? 0.0 // FIXME: 这里小数还要写出来的
+        amount_string_inputting = String(metadata_inputting.amount_float)
+
+        metadata_inputting.event = OriginalText2Event(
+            from: metadata_inputting.originalText ?? "") ?? ""
+        metadata_inputting.generatedTags = OriginalText2GeneratedTags(
+            from: metadata_inputting.originalText ?? "")
+    }
+}
+
+struct MetaItemTextField: View {
     var hint: String = ""
     @Binding var input_text: String
     @Binding var isEditing: Bool
@@ -139,7 +173,7 @@ struct ItemTextField: View {
     }
 }
 
-struct ItemFloatField: View {
+struct MetaItemFloatField: View {
     var hint: String = ""
     @Binding var input_float: Float
     @Binding var input_string: String
