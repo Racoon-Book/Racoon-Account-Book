@@ -22,13 +22,6 @@ struct MainView: View {
                     }
                     .tag("财记")
 
-                OrdinaryAddView()
-                    .tabItem {
-                        Image(systemName: "plus.circle.fill")
-                        Text("添加")
-                    }
-                    .tag("添加")
-
                 ReportTab()
                     .tabItem {
                         Image(systemName: "chart.pie.fill")
