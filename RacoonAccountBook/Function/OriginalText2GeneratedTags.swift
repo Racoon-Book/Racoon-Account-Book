@@ -3,6 +3,10 @@ import NaturalLanguage
 
 // 从originalText中提取名词 这些名字就是自动生成的tag
 func OriginalText2GeneratedTags(from originalText: String) -> [String] {
+    if originalText == "" {
+        return []
+    }
+
     var generatedTags: [String] = []
 
     let tagger = NLTagger(tagSchemes: [.lexicalClass])

@@ -3,14 +3,16 @@ import Foundation
 // 传入一个含有金额的字符串 提取其中的金额 以Float的形式返回
 // 返回nil说明无法提取到金额
 func OriginalText2Amount(from originalText: String) -> Float? {
-    if let amount: Float = GetFloatAmount(from: originalText) {
+    if originalText == "" {
+        return nil
+    }
+    if let amount_float: Float = GetFloatAmount(from: originalText) {
         // 可以直接提取数字
-        print(amount)
+        return amount_float
     } else {
         // 提取不到就先提取中文的金额表达 然后转成Float返回
         if let ChineseAmount: String = GetChineseAmount(from: originalText),
-           let amount_float: Float = ChineseAmount2Float(from: ChineseAmount)
-        {
+           let amount_float: Float = ChineseAmount2Float(from: ChineseAmount) {
             return amount_float
         }
     }
