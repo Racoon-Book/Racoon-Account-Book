@@ -25,14 +25,14 @@ struct MetaItem {
     // App自动识别originalText得到的关键词
     // 多为名词
     // TODO: 用户可在设置中添加自定义的词以提高准确度
-    var tag_auto_generated: [String]? = nil
+    var generatedTags: [String]? = nil
 
     // 花销中的要素(elements) 包括但不限于 具体事件(时间(特殊纪念日)) 地点 人物 心情
     // 用户编辑后的 `tag_auto_generated` + 用户自己添加的
     // 用户第一时间想到的，相关的要素，随意添加，越多越好；用户自己灵活使用
     // TODO: 多次出现的`tag`产生新`focus`
     // TODO: 可用来生成词云
-    var tag: [String]? = nil
+    var tags: [String]? = nil
 
     // 用户所关注的花销的点 不关心这笔花销就不设置focus
     // 多为支出的目的 for what、用户最关心的分类
@@ -71,8 +71,8 @@ struct MetaItem {
         event = ""
         amount_float = 0.0
 
-        tag_auto_generated = nil
-        tag = nil
+        generatedTags = nil
+        tags = nil
         focus = nil
         forWho = ["Me"]
         story = nil
