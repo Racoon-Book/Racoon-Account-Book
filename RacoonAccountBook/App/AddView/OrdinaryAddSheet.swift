@@ -3,40 +3,42 @@ import SwiftDate
 import SwiftUI
 
 struct OrdinaryAddSheet: View {
-    @Binding var isPresented: Bool
+    @Binding var addUIConfig: AddUIConfig
+    @Binding var metadata_inputting: MetaItem
 
     var body: some View {
         NavigationView {
-            OrdinaryAddView()
+            OrdinaryAddView(addUIConfig: $addUIConfig, metadata_inputting: $metadata_inputting)
                 .navigationBarTitle(
                     Text("记一笔账"),
-                    displayMode: .inline)
+                    displayMode: .inline
+                )
                 .navigationBarItems(
                     leading: Button(action: {
                         printLog("[OrdinaryAddSheet] `Cancle` clicked.")
-                        isPresented = false // 收回sheet
+                        addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
                     }) { Text("取消").bold() },
                     trailing: Button(action: {
                         printLog("[OrdinaryAddSheet] `Done` clicked.")
-                        isPresented = false // 收回sheet
-                    }) { Text("添加").bold() })
+                        addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
+                    }) { Text("添加").bold() }
+                )
         }
     }
 }
 
 struct OrdinaryAddView: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
+    
+    @Binding var addUIConfig: AddUIConfig
+    
+    // 为了方便 直接使用结构体MetaItem；每次添加数据之后把它们归零
+    @Binding var metadata_inputting: MetaItem
 
     // 是否正在编辑某个文本框
     // TODO: 这个没啥必要感觉 先留着吧
     @State private var isEditing: Bool = false
 
-    // 为了方便 直接使用结构体MetaItem；每次添加数据之后把它们归零
-    @State private var metadata_inputting = MetaItem(
-        originalText: "",
-        spentMoneyAt: DateInRegion(region: regionChina),
-        event: "",
-        amount_float: 0.0)
     @State private var amount_string_inputting: String = "" // 用来转换输入的可能不是小数的小数
 
     var body: some View {
@@ -164,7 +166,8 @@ struct AddTabView_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
-        OrdinaryAddSheet(isPresented: .constant(true))
-            .environmentObject(PreviewAccountBook)
+//        OrdinaryAddSheet(isPresented: .constant(true))
+//            .environmentObject(PreviewAccountBook)
+        EmptyView()
     }
 }
