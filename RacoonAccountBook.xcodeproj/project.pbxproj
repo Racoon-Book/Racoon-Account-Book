@@ -11,6 +11,7 @@
 		4878A75B26AC652700DCBC8D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A75A26AC652700DCBC8D /* String+.swift */; };
 		4878A75E26AC65D600DCBC8D /* OriginalText2Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A75D26AC65D600DCBC8D /* OriginalText2Amount.swift */; };
 		4878A76026AC68D400DCBC8D /* OriginalText2GeneratedTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A75F26AC68D400DCBC8D /* OriginalText2GeneratedTags.swift */; };
+		4878A76226AC6AA900DCBC8D /* OriginalText2Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76126AC6AA900DCBC8D /* OriginalText2Event.swift */; };
 		488D3A78269F0E5B00287A50 /* RacoonAccountBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */; };
 		488D3A7A269F0E5B00287A50 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A79269F0E5B00287A50 /* MainView.swift */; };
 		488D3A7C269F0E5E00287A50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 488D3A7B269F0E5E00287A50 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		4878A75A26AC652700DCBC8D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		4878A75D26AC65D600DCBC8D /* OriginalText2Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2Amount.swift; sourceTree = "<group>"; };
 		4878A75F26AC68D400DCBC8D /* OriginalText2GeneratedTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2GeneratedTags.swift; sourceTree = "<group>"; };
+		4878A76126AC6AA900DCBC8D /* OriginalText2Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2Event.swift; sourceTree = "<group>"; };
 		488D3A74269F0E5B00287A50 /* 浣熊财记.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "浣熊财记.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacoonAccountBookApp.swift; sourceTree = "<group>"; };
 		488D3A79269F0E5B00287A50 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				4878A75D26AC65D600DCBC8D /* OriginalText2Amount.swift */,
 				4878A75F26AC68D400DCBC8D /* OriginalText2GeneratedTags.swift */,
+				4878A76126AC6AA900DCBC8D /* OriginalText2Event.swift */,
 			);
 			path = Function;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				48C6360326A44B0B00E7BF15 /* IncomeExpenditureView.swift in Sources */,
 				488D3AA1269F5A2A00287A50 /* MetaItemView.swift in Sources */,
 				4878A75B26AC652700DCBC8D /* String+.swift in Sources */,
+				4878A76226AC6AA900DCBC8D /* OriginalText2Event.swift in Sources */,
 				488D3A8D269F0F3700287A50 /* AccountBookModel.swift in Sources */,
 				48F0A09C26A4CED6004898C0 /* DayItemsView.swift in Sources */,
 				488D3AB0269F8F2F00287A50 /* MetaItem.swift in Sources */,
