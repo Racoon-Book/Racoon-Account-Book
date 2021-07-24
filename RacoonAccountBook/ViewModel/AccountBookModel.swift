@@ -79,7 +79,7 @@ class AccountBookModel: ObservableObject {
                 dayItems[day]!.exCounter = dayItems[day]?.exCounter ?? 0 + 1
                 dayItems[day]!.exSum = dayItems[day]?.exSum ?? 0.0 + item.metadata.amount_float
             } else {
-                print("Error in model.GetDayItemsInOneMonth()")
+                printLog("Error in model.GetDayItemsInOneMonth()")
             }
         }
 

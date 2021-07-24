@@ -23,12 +23,12 @@ struct FloatingAddButton: View {
                             .font(.system(size: addButtonSize * 0.75))
                             .onTapGesture {
                                 // 点击弹出一般添加界面
-                                print("[FloatingAddButton] Tapped")
+                                printLog("[FloatingAddButton] Tapped")
                                 addUIConfig.isShowingOrdinaryAddView.toggle()
                             }
                             .onLongPressGesture {
                                 // 长按弹出语音界面
-                                print("[FloatingAddButton] LongPressed")
+                                printLog("[FloatingAddButton] LongPressed")
                                 addUIConfig.isShowingVoiceInputView.toggle()
                             } // 注意onTapGesture在前onLongPressGesture在后
                     })
