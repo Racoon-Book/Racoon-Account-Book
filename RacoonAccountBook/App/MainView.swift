@@ -5,7 +5,7 @@ struct MainView: View {
     @State private var selectedTab = "账本" // 打开之后呈现的Tab (默认为账本界面)
 
     // [Add需要用到的东西]
-    @State private var addUIConfig: AddUIConfig = AddUIConfig(
+    @State private var addUIConfig = AddUIConfig(
         isShowingOrdinaryAddView: false,
         isShowingVoiceInputView: false // 最开始都不显示
     )
@@ -52,7 +52,8 @@ struct MainView: View {
         .sheet(
             // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
             isPresented: $addUIConfig.isShowingOrdinaryAddView,
-            onDismiss: didDismissOrdinaryAddSheet) {
+            onDismiss: didDismissOrdinaryAddSheet
+        ) {
             OrdinaryAddSheet(addUIConfig: $addUIConfig, metadata_inputting: $metadata_inputting)
         }
     }

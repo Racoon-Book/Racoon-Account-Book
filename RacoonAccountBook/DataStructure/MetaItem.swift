@@ -61,6 +61,22 @@ struct MetaItem {
         // 用户在添加花销或回顾时找感兴趣的花销添加与这笔钱相关的故事
         var text: String? = nil
     }
+
+    // MARK: - func
+
+    // 重置self
+    mutating func clear() {
+        originalText = ""
+        spentMoneyAt = DateInRegion(region: regionChina)
+        event = ""
+        amount_float = 0.0
+
+        tag_auto_generated = nil
+        tag = nil
+        focus = nil
+        forWho = ["Me"]
+        story = nil
+    }
 }
 
 extension MetaItem: CustomStringConvertible {

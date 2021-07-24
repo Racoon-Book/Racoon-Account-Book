@@ -198,8 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				48EBFC9826AADD20005D9ECB /* FloatingAddButton.swift */,
-				48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */,
 				488D3A8F269F0F5500287A50 /* OrdinaryAddSheet.swift */,
+				48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */,
 			);
 			path = AddView;
 			sourceTree = "<group>";
