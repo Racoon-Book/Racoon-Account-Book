@@ -12,6 +12,10 @@
 		4878A75E26AC65D600DCBC8D /* OriginalText2Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A75D26AC65D600DCBC8D /* OriginalText2Amount.swift */; };
 		4878A76026AC68D400DCBC8D /* OriginalText2GeneratedTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A75F26AC68D400DCBC8D /* OriginalText2GeneratedTags.swift */; };
 		4878A76226AC6AA900DCBC8D /* OriginalText2Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76126AC6AA900DCBC8D /* OriginalText2Event.swift */; };
+		4878A76526AD926C00DCBC8D /* originalText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76426AD926C00DCBC8D /* originalText.swift */; };
+		4878A76726AD931B00DCBC8D /* amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76626AD931B00DCBC8D /* amount.swift */; };
+		4878A76926AD93DD00DCBC8D /* otherMetaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76826AD93DD00DCBC8D /* otherMetaItem.swift */; };
+		4878A76B26AD944900DCBC8D /* tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76A26AD944900DCBC8D /* tag.swift */; };
 		488D3A78269F0E5B00287A50 /* RacoonAccountBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */; };
 		488D3A7A269F0E5B00287A50 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A79269F0E5B00287A50 /* MainView.swift */; };
 		488D3A7C269F0E5E00287A50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 488D3A7B269F0E5E00287A50 /* Assets.xcassets */; };
@@ -49,6 +53,10 @@
 		4878A75D26AC65D600DCBC8D /* OriginalText2Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2Amount.swift; sourceTree = "<group>"; };
 		4878A75F26AC68D400DCBC8D /* OriginalText2GeneratedTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2GeneratedTags.swift; sourceTree = "<group>"; };
 		4878A76126AC6AA900DCBC8D /* OriginalText2Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2Event.swift; sourceTree = "<group>"; };
+		4878A76426AD926C00DCBC8D /* originalText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = originalText.swift; sourceTree = "<group>"; };
+		4878A76626AD931B00DCBC8D /* amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = amount.swift; sourceTree = "<group>"; };
+		4878A76826AD93DD00DCBC8D /* otherMetaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otherMetaItem.swift; sourceTree = "<group>"; };
+		4878A76A26AD944900DCBC8D /* tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tag.swift; sourceTree = "<group>"; };
 		488D3A74269F0E5B00287A50 /* 浣熊财记.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "浣熊财记.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacoonAccountBookApp.swift; sourceTree = "<group>"; };
 		488D3A79269F0E5B00287A50 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -102,6 +110,24 @@
 				4878A76126AC6AA900DCBC8D /* OriginalText2Event.swift */,
 			);
 			path = Function;
+			sourceTree = "<group>";
+		};
+		4878A76326AD922000DCBC8D /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				4878A76426AD926C00DCBC8D /* originalText.swift */,
+				4878A76A26AD944900DCBC8D /* tag.swift */,
+				4878A76626AD931B00DCBC8D /* amount.swift */,
+				4878A76826AD93DD00DCBC8D /* otherMetaItem.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		4878A76C26AD952800DCBC8D /* Component */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		488D3A6B269F0E5B00287A50 = {
@@ -223,6 +249,8 @@
 			children = (
 				4897FE9B26AC0CCC001AE9BA /* FloatingAddButton.swift */,
 				488D3A8F269F0F5500287A50 /* OrdinaryAddSheet.swift */,
+				4878A76326AD922000DCBC8D /* TextField */,
+				4878A76C26AD952800DCBC8D /* Component */,
 				48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */,
 			);
 			path = AddView;
@@ -363,6 +391,7 @@
 				488D3AA1269F5A2A00287A50 /* MetaItemView.swift in Sources */,
 				4878A75B26AC652700DCBC8D /* String+.swift in Sources */,
 				4878A76226AC6AA900DCBC8D /* OriginalText2Event.swift in Sources */,
+				4878A76526AD926C00DCBC8D /* originalText.swift in Sources */,
 				488D3A8D269F0F3700287A50 /* AccountBookModel.swift in Sources */,
 				48F0A09C26A4CED6004898C0 /* DayItemsView.swift in Sources */,
 				488D3AB0269F8F2F00287A50 /* MetaItem.swift in Sources */,
@@ -374,9 +403,12 @@
 				6E6EA6A426AD2EAD0084055E /* ItemStoryView.swift in Sources */,
 				48B40E3126AAE1290030AAF6 /* Locale+.swift in Sources */,
 				48B40E2F26AAE0F20030AAF6 /* VoiceInputView.swift in Sources */,
+				4878A76726AD931B00DCBC8D /* amount.swift in Sources */,
 				488D3AAB269F86E400287A50 /* TestData_MetaItem.swift in Sources */,
+				4878A76926AD93DD00DCBC8D /* otherMetaItem.swift in Sources */,
 				488D3A90269F0F5500287A50 /* OrdinaryAddSheet.swift in Sources */,
 				488D3A92269F0F5E00287A50 /* BookTab.swift in Sources */,
+				4878A76B26AD944900DCBC8D /* tag.swift in Sources */,
 				4878A76026AC68D400DCBC8D /* OriginalText2GeneratedTags.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
