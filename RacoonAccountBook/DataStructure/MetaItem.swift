@@ -25,7 +25,7 @@ struct MetaItem {
     // App自动识别originalText得到的关键词
     // 多为名词
     // TODO: 用户可在设置中添加自定义的词以提高准确度
-    var generatedTags: [String]? = nil
+    var generatedTags: [String] = []
 
     // 花销中的要素(elements) 包括但不限于 具体事件(时间(特殊纪念日)) 地点 人物 心情
     // 用户编辑后的 `tag_auto_generated` + 用户自己添加的
@@ -67,15 +67,45 @@ struct MetaItem {
     // 重置self
     mutating func clear() {
         originalText = ""
+
         spentMoneyAt = DateInRegion(region: regionChina)
         event = ""
         amount_float = 0.0
 
-        generatedTags = nil
+        generatedTags = []
         tags = []
+
         focus = nil
         forWho = []
         story = nil
+    }
+
+    // 更新self
+    // 传nil进来表示不更新 或者直接不传
+    mutating func update(originalText: String? = nil,
+
+                         spentMoneyAt: DateInRegion? = nil,
+                         event: String? = nil,
+                         amount_float: Float? = nil,
+
+                         generatedTags: [String]? = nil,
+                         tags: [String]? = nil,
+
+                         focus: String? = nil,
+                         forWho: [String]? = nil,
+                         story: Story? = nil) {
+        if originalText != nil { self.originalText = originalText }
+
+        if spentMoneyAt != nil { self.spentMoneyAt = spentMoneyAt! }
+        if event != nil { self.event = event! }
+        if amount_float != nil { self.amount_float = amount_float! }
+
+        if generatedTags != nil { self.generatedTags = generatedTags! }
+        if tags != nil { self.tags = tags! }
+
+        if focus != nil { self.focus = focus! }
+        if forWho != nil { self.forWho = forWho! }
+        if story != nil { self.story = story! }
     }
 }
 

@@ -96,14 +96,11 @@ struct CommitSpeechButton: View {
         })
     }
 
-    func UpdateMetaItem() {
-        metadata_inputting.amount_float = OriginalText2Amount(
-            from: metadata_inputting.originalText ?? "") ?? 0.0
-
-        metadata_inputting.event = OriginalText2Event(
-            from: metadata_inputting.originalText ?? "") ?? ""
-        metadata_inputting.generatedTags = OriginalText2GeneratedTags(
-            from: metadata_inputting.originalText ?? "")
+    private func UpdateMetaItem() {
+        metadata_inputting.update(
+            event: OriginalText2Event(from: metadata_inputting.originalText ?? "") ?? "",
+            amount_float: OriginalText2Amount(from: metadata_inputting.originalText ?? "") ?? 0.0,
+            generatedTags: OriginalText2GeneratedTags(from: metadata_inputting.originalText ?? ""))
     }
 }
 
