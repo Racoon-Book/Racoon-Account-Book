@@ -10,7 +10,7 @@ struct TagsInputView: View {
         HStack {
             Text("标签")
                 .font(.system(.headline))
-            VStack {
+            VStack(alignment: .leading) {
                 MultilineTagsView(
                     tags: $metadata_inputting.tags,
                     isEditMode: isEditMode,

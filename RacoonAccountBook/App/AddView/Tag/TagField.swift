@@ -8,7 +8,7 @@ struct TagField: View {
     var body: some View {
         TextField(
             hint,
-            text: $input_text) {_ in }
+            text: $input_text) { _ in }
         onCommit: {
             metadata_inputting.tags.append(input_text)
             input_text = ""
@@ -16,5 +16,7 @@ struct TagField: View {
         .autocapitalization(.none)
         .disableAutocorrection(false)
         .textFieldStyle(RoundedBorderTextFieldStyle())
+        .frame(width: 120)
+        .padding([.horizontal], 4) // 这里的与`MultilineTagsView`保持一致
     }
 }
