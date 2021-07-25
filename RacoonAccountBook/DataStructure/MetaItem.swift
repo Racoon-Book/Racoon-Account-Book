@@ -42,7 +42,7 @@ struct MetaItem {
     // 为谁产生的花销
     // 一般开销都是自己的 如果不是为了自己的开销 用户选择更改
     // TODO: ps. 如果是丢失的欠款，好像也不是为了自己花的吧？所以加一个lost项？
-    var forWho: [String] = ["Me"]
+    var forWho: [String]? = nil
 
     // 财记
     var story: Story? = nil
@@ -74,7 +74,7 @@ struct MetaItem {
         generatedTags = nil
         tags = nil
         focus = nil
-        forWho = ["Me"]
+        forWho = nil
         story = nil
     }
 }
