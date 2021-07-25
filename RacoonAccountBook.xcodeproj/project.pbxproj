@@ -16,6 +16,8 @@
 		4878A76726AD931B00DCBC8D /* amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76626AD931B00DCBC8D /* amount.swift */; };
 		4878A76926AD93DD00DCBC8D /* otherMetaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76826AD93DD00DCBC8D /* otherMetaItem.swift */; };
 		4878A76B26AD944900DCBC8D /* tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76A26AD944900DCBC8D /* tag.swift */; };
+		4878A76E26AD962F00DCBC8D /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76D26AD962F00DCBC8D /* TagsView.swift */; };
+		4878A77026AD9BBA00DCBC8D /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76F26AD9BBA00DCBC8D /* Array+.swift */; };
 		488D3A78269F0E5B00287A50 /* RacoonAccountBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */; };
 		488D3A7A269F0E5B00287A50 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A79269F0E5B00287A50 /* MainView.swift */; };
 		488D3A7C269F0E5E00287A50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 488D3A7B269F0E5E00287A50 /* Assets.xcassets */; };
@@ -57,6 +59,8 @@
 		4878A76626AD931B00DCBC8D /* amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = amount.swift; sourceTree = "<group>"; };
 		4878A76826AD93DD00DCBC8D /* otherMetaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otherMetaItem.swift; sourceTree = "<group>"; };
 		4878A76A26AD944900DCBC8D /* tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tag.swift; sourceTree = "<group>"; };
+		4878A76D26AD962F00DCBC8D /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
+		4878A76F26AD9BBA00DCBC8D /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		488D3A74269F0E5B00287A50 /* 浣熊财记.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "浣熊财记.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacoonAccountBookApp.swift; sourceTree = "<group>"; };
 		488D3A79269F0E5B00287A50 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 		4878A76C26AD952800DCBC8D /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				4878A76D26AD962F00DCBC8D /* TagsView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -210,6 +215,7 @@
 				48B40E3026AAE1290030AAF6 /* Locale+.swift */,
 				488D3AA6269F6AD000287A50 /* Date+.swift */,
 				488D3AA8269F837300287A50 /* Binding+Optional.swift */,
+				4878A76F26AD9BBA00DCBC8D /* Array+.swift */,
 				488D3A9E269F42AF00287A50 /* PutKeyboardBack.swift */,
 				488D3AAD269F8C5400287A50 /* Print+.swift */,
 				4878A75A26AC652700DCBC8D /* String+.swift */,
@@ -248,10 +254,10 @@
 			isa = PBXGroup;
 			children = (
 				4897FE9B26AC0CCC001AE9BA /* FloatingAddButton.swift */,
+				48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */,
 				488D3A8F269F0F5500287A50 /* OrdinaryAddSheet.swift */,
 				4878A76326AD922000DCBC8D /* TextField */,
 				4878A76C26AD952800DCBC8D /* Component */,
-				48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */,
 			);
 			path = AddView;
 			sourceTree = "<group>";
@@ -389,6 +395,7 @@
 				48C6361E26A480D100E7BF15 /* Ex.swift in Sources */,
 				48C6360326A44B0B00E7BF15 /* IncomeExpenditureView.swift in Sources */,
 				488D3AA1269F5A2A00287A50 /* MetaItemView.swift in Sources */,
+				4878A77026AD9BBA00DCBC8D /* Array+.swift in Sources */,
 				4878A75B26AC652700DCBC8D /* String+.swift in Sources */,
 				4878A76226AC6AA900DCBC8D /* OriginalText2Event.swift in Sources */,
 				4878A76526AD926C00DCBC8D /* originalText.swift in Sources */,
@@ -404,6 +411,7 @@
 				48B40E3126AAE1290030AAF6 /* Locale+.swift in Sources */,
 				48B40E2F26AAE0F20030AAF6 /* VoiceInputView.swift in Sources */,
 				4878A76726AD931B00DCBC8D /* amount.swift in Sources */,
+				4878A76E26AD962F00DCBC8D /* TagsView.swift in Sources */,
 				488D3AAB269F86E400287A50 /* TestData_MetaItem.swift in Sources */,
 				4878A76926AD93DD00DCBC8D /* otherMetaItem.swift in Sources */,
 				488D3A90269F0F5500287A50 /* OrdinaryAddSheet.swift in Sources */,
