@@ -66,17 +66,17 @@ struct OrdinaryAddSheet: View {
                     }
 
                     // [标签]
-                    TagsInputView(
-                        metadata_inputting: $metadata_inputting,
-                        isEditMode: true,
-                        color: Color("AntiqueWhite"))
+                    TagsInputView(metadata_inputting: $metadata_inputting)
+
+                    // [建议]
+                    TagsSuggestionView(metadata_inputting: $metadata_inputting)
                 }
                 .padding([.vertical]) // 所有输入框离手机边框远一点
 
                 LargeButton(title: "记账",
                             backgroundColor: Color.blue,
                             foregroundColor: Color.white) {
-                        AddNewMetaItem()
+                    AddNewMetaItem()
                 }
                 .font(.system(.title)) // TODO: 字有点小
             }

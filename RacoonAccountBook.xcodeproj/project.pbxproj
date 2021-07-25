@@ -20,6 +20,7 @@
 		4878A77026AD9BBA00DCBC8D /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76F26AD9BBA00DCBC8D /* Array+.swift */; };
 		4878A77226ADAA8000DCBC8D /* MultilineTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77126ADAA8000DCBC8D /* MultilineTagsView.swift */; };
 		4878A77426ADAF1E00DCBC8D /* SingleTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77326ADAF1E00DCBC8D /* SingleTagView.swift */; };
+		4878A77626ADBD5D00DCBC8D /* TagsSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77526ADBD5D00DCBC8D /* TagsSuggestionView.swift */; };
 		488D3A78269F0E5B00287A50 /* RacoonAccountBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */; };
 		488D3A7A269F0E5B00287A50 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A79269F0E5B00287A50 /* MainView.swift */; };
 		488D3A7C269F0E5E00287A50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 488D3A7B269F0E5E00287A50 /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		4878A76F26AD9BBA00DCBC8D /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		4878A77126ADAA8000DCBC8D /* MultilineTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTagsView.swift; sourceTree = "<group>"; };
 		4878A77326ADAF1E00DCBC8D /* SingleTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTagView.swift; sourceTree = "<group>"; };
+		4878A77526ADBD5D00DCBC8D /* TagsSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsSuggestionView.swift; sourceTree = "<group>"; };
 		488D3A74269F0E5B00287A50 /* 浣熊财记.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "浣熊财记.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacoonAccountBookApp.swift; sourceTree = "<group>"; };
 		488D3A79269F0E5B00287A50 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				4878A76D26AD962F00DCBC8D /* TagsInputView.swift */,
+				4878A77526ADBD5D00DCBC8D /* TagsSuggestionView.swift */,
 				4878A77126ADAA8000DCBC8D /* MultilineTagsView.swift */,
 				4878A77326ADAF1E00DCBC8D /* SingleTagView.swift */,
 				4878A76A26AD944900DCBC8D /* TagField.swift */,
@@ -398,6 +401,7 @@
 				48C8D8E426A2B98B00E61A01 /* StarButtonView.swift in Sources */,
 				488D3A9F269F42AF00287A50 /* PutKeyboardBack.swift in Sources */,
 				488D3AA9269F837300287A50 /* Binding+Optional.swift in Sources */,
+				4878A77626ADBD5D00DCBC8D /* TagsSuggestionView.swift in Sources */,
 				488D3AAE269F8C5400287A50 /* Print+.swift in Sources */,
 				48C6361E26A480D100E7BF15 /* Ex.swift in Sources */,
 				4878A77226ADAA8000DCBC8D /* MultilineTagsView.swift in Sources */,

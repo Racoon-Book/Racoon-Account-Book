@@ -5,8 +5,10 @@ import SwiftUI
 
 struct MultilineTagsView: View {
     @Binding var tags: [String] // 点击x号需要在tags中删除tag
+    @Binding var metadata_inputting: MetaItem
 
     var isEditMode: Bool // 是的话会显示x号
+    var isSuggestion: Bool = false
     var color: Color
 
     @State private var totalHeight
@@ -56,7 +58,7 @@ struct MultilineTagsView: View {
     }
 
     private func item(for tag: String) -> some View {
-        SingleTagView(tags: $tags, tag: tag, isEditMode: isEditMode, color: color)
+        SingleTagView(metadata_inputting: $metadata_inputting, tag: tag, isEditMode: isEditMode, isSuggestedTag: isSuggestion, color: color)
     }
 
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {

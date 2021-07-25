@@ -3,9 +3,6 @@ import SwiftUI
 struct TagsInputView: View {
     @Binding var metadata_inputting: MetaItem
 
-    var isEditMode: Bool // true的话会显示x号
-    var color: Color
-
     var body: some View {
         HStack {
             Text("标签")
@@ -13,8 +10,9 @@ struct TagsInputView: View {
             VStack(alignment: .leading) {
                 MultilineTagsView(
                     tags: $metadata_inputting.tags,
-                    isEditMode: isEditMode,
-                    color: color
+                    metadata_inputting: $metadata_inputting,
+                    isEditMode: true,
+                    color: Color("AntiqueWhite")
                 )
                 TagField(
                     hint: "添加新标签",
