@@ -118,7 +118,7 @@ struct VoiceInputView_Previews: PreviewProvider {
             metadata_inputting: .constant(
                 MetaItem(
                     originalText: "",
-                    spentMoneyAt: DateInRegion(),
+                    spentMoneyAt: DateInRegion(region: regionChina),
                     event: "买饮料",
                     amount_float: 3.5
                 )

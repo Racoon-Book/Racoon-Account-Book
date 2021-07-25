@@ -20,7 +20,7 @@ struct ItemStoryView: View {
                 let text = data.story?.text ?? "为本次花销添加一段财记吧"
                 let amountFormatted = String(format: "%.2f", data.amount_float)
                 
-                Text(data.spentMoneyAt.toFormat("yyyy年M月d日"))
+                Text(DisplayDate(data.spentMoneyAt))
                     .font(.caption)
                     .padding(.top, 6.0)
                 

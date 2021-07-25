@@ -43,7 +43,7 @@ struct OrdinaryAddSheet: View {
                         VStack {
                             HStack {
                                 // TODO: 这个之后要改成可以点击修改的日期选择框
-                                Text(metadata_inputting.spentMoneyAt.toFormat("yyyy年M月d日")) // TODO: 更改这里的日期显示为人性化 提取函数
+                                Text(DisplayDate(metadata_inputting.spentMoneyAt))
                                     .font(.body)
                                     .padding(.top, 6.0)
                                 Spacer()
@@ -144,7 +144,7 @@ struct OrdinaryAddSheet_Previews: PreviewProvider {
             metadata_inputting: .constant(
                 MetaItem(
                     originalText: "",
-                    spentMoneyAt: DateInRegion(),
+                    spentMoneyAt: DateInRegion(region: regionChina),
                     event: "买饮料",
                     amount_float: 3.5)),
             amount_string_inputting: .constant("3.5"))

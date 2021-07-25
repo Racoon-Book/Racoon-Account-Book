@@ -32,7 +32,11 @@ struct BookTab: View {
                                 // 一天的开销在一个圆角矩形中
                                 ForEach(days, id: \.self) { day in
                                     if let day = Day(rawValue: day.rawValue),
-                                       let date = DateInRegion(year: thisYear, month: thisMonth, day: day.rawValue),
+                                       let date = DateInRegion(
+                                           year: thisYear,
+                                           month: thisMonth,
+                                           day: day.rawValue,
+                                           region: regionChina),
                                        let ex = dayItemsDict[day],
                                        let dayItems = ex.items {
                                         DayItemsView(
