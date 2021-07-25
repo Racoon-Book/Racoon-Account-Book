@@ -66,23 +66,17 @@ struct OrdinaryAddSheet: View {
                     }
 
                     // [标签]
-                    HStack {
-                        Text("标签")
-                            .font(.system(.headline))
-                        // TODO: 添加TagsView
-                        TagField(
-                            hint: "添加新标签",
-                            isEditing: $isEditing,
-                            metadata_inputting: $metadata_inputting
-                        )
-                    }
+                    TagsInputView(
+                        metadata_inputting: $metadata_inputting,
+                        isEditMode: true,
+                        color: Color("AntiqueWhite"))
                 }
                 .padding([.vertical]) // 所有输入框离手机边框远一点
 
                 LargeButton(title: "记账",
                             backgroundColor: Color.blue,
                             foregroundColor: Color.white) {
-                    AddNewMetaItem()
+                        AddNewMetaItem()
                 }
                 .font(.system(.title)) // TODO: 字有点小
             }

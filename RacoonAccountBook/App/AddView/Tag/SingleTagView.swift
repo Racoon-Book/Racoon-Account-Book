@@ -1,21 +1,6 @@
 import SwiftUI
 
-struct TagsView: View {
-    @Binding var tags: [String] // 点击x号需要在tags中删除tag
-
-    var isEditMode: Bool // 是的话会显示x号
-    var color: Color
-
-    var body: some View {
-        HStack {
-            ForEach(tags, id: \.self) { tag in
-                TagView(tags: $tags, tag: tag, isEditMode: isEditMode, color: color)
-            }
-        }
-    }
-}
-
-struct TagView: View {
+struct SingleTagView: View {
     @Binding var tags: [String] // 点击x号需要在tags中删除tag
     var tag: String
 
@@ -40,18 +25,12 @@ struct TagView: View {
     }
 }
 
-struct SingelTagView_Previews: PreviewProvider {
+struct SingleTagView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            TagView(
+            SingleTagView(
                 tags: .constant(["牛奶", "面包"]),
                 tag: "牛奶",
-                isEditMode: true,
-                color: .blue
-            )
-
-            TagsView(
-                tags: .constant(["牛奶", "面包"]),
                 isEditMode: true,
                 color: .blue
             )

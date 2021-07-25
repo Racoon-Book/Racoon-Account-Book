@@ -32,7 +32,7 @@ struct MetaItem {
     // 用户第一时间想到的，相关的要素，随意添加，越多越好；用户自己灵活使用
     // TODO: 多次出现的`tag`产生新`focus`
     // TODO: 可用来生成词云
-    var tags: [String]? = nil
+    var tags: [String] = []
 
     // 用户所关注的花销的点 不关心这笔花销就不设置focus
     // 多为支出的目的 for what、用户最关心的分类
@@ -42,7 +42,7 @@ struct MetaItem {
     // 为谁产生的花销
     // 一般开销都是自己的 如果不是为了自己的开销 用户选择更改
     // TODO: ps. 如果是丢失的欠款，好像也不是为了自己花的吧？所以加一个lost项？
-    var forWho: [String]? = nil
+    var forWho: [String] = []
 
     // 财记
     var story: Story? = nil
@@ -72,9 +72,9 @@ struct MetaItem {
         amount_float = 0.0
 
         generatedTags = nil
-        tags = nil
+        tags = []
         focus = nil
-        forWho = nil
+        forWho = []
         story = nil
     }
 }
