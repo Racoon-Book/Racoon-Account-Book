@@ -15,12 +15,12 @@ struct RatingView: View {
             Text("价值")
                 .font(.title3)
             
-            ForEach((0..<rating)) {_ in
+            ForEach(0..<rating) { _ in
                 Image(systemName: "star.fill")
                     .foregroundColor(.yellow)
             }
             
-            ForEach((rating..<5)) {_ in
+            ForEach(rating..<5) { _ in
                 Image(systemName: "star")
                     .foregroundColor(.yellow)
             }
