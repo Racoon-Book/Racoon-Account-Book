@@ -978,8 +978,10 @@ let testMetaItem_162 = MetaItem(
 let testMetaItem_163 = MetaItem(
     originalText: "",
     spentMoneyAt: "210712".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
-    event: "话费",
-    amount_float: 200.0)
+    event: "话费s",
+    amount_float: 200.0,
+    story: testStory_4
+)
 
 let testMetaItem_164 = MetaItem(
     originalText: "",
@@ -990,20 +992,26 @@ let testMetaItem_164 = MetaItem(
 let testMetaItem_165 = MetaItem(
     originalText: "",
     spentMoneyAt: "210716".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
-    event: "Pencil",
-    amount_float: 895.0)
+    event: "Pencil s",
+    amount_float: 895.0,
+    story: testStory_5
+)
 
 let testMetaItem_166 = MetaItem(
     originalText: "",
     spentMoneyAt: "210716".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
-    event: "AirPods Pro",
-    amount_float: 753.0)
+    event: "AirPods Pro s",
+    amount_float: 753.0,
+    story: testStory_7
+)
 
 let testMetaItem_167 = MetaItem(
     originalText: "",
     spentMoneyAt: "210716".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
-    event: "洗衣",
-    amount_float: 3.0)
+    event: "洗衣s",
+    amount_float: 3.0,
+    story: testStory_3
+)
 
 let testMetaItem_168 = MetaItem(
     originalText: "",
@@ -1014,13 +1022,50 @@ let testMetaItem_168 = MetaItem(
 let testMetaItem_169 = MetaItem(
     originalText: "",
     spentMoneyAt: "210717".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
-    event: "夜宵",
-    amount_float: 11.5)
+    event: "夜宵s",
+    amount_float: 11.5,
+    story: testStory_2
+)
 
 let testMetaItem_170 = MetaItem(
     originalText: "",
     spentMoneyAt: "210718".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
-    event: "充话费",
-    amount_float: 100.0)
+    event: "充话费s",
+    amount_float: 100.0,
+    story: testStory_1
+)
+
+let testStory_1 = MetaItem.Story(
+    rating: 3,
+    text: "有text和rating的一个story"
+)
+
+let testStory_2 = MetaItem.Story(
+    text: "只有text的story"
+)
+
+let testStory_3 = MetaItem.Story(
+    emoji: "🥺",
+    text: "有text和emoji的一个story"
+)
+
+let testStory_4 = MetaItem.Story(
+    rating: 4,
+    emoji: "👀",
+    text: "有text、rating和emoji的一个story"
+)
+
+let testStory_5 = MetaItem.Story(
+    rating: 2,
+    emoji: "🤔"
+)
+
+let testStory_6 = MetaItem.Story(
+    rating: 5
+)
+
+let testStory_7 = MetaItem.Story(
+    emoji: "🤔"
+)
 
 let testMetaItems: [MetaItem] = [testMetaItem_1, testMetaItem_2, testMetaItem_3, testMetaItem_4, testMetaItem_5, testMetaItem_6, testMetaItem_7, testMetaItem_8, testMetaItem_9, testMetaItem_10, testMetaItem_11, testMetaItem_12, testMetaItem_13, testMetaItem_14, testMetaItem_15, testMetaItem_16, testMetaItem_17, testMetaItem_18, testMetaItem_19, testMetaItem_20, testMetaItem_21, testMetaItem_22, testMetaItem_23, testMetaItem_24, testMetaItem_25, testMetaItem_26, testMetaItem_27, testMetaItem_28, testMetaItem_29, testMetaItem_30, testMetaItem_31, testMetaItem_32, testMetaItem_33, testMetaItem_34, testMetaItem_35, testMetaItem_36, testMetaItem_37, testMetaItem_38, testMetaItem_39, testMetaItem_40, testMetaItem_41, testMetaItem_42, testMetaItem_43, testMetaItem_44, testMetaItem_45, testMetaItem_46, testMetaItem_47, testMetaItem_48, testMetaItem_49, testMetaItem_50, testMetaItem_51, testMetaItem_52, testMetaItem_53, testMetaItem_54, testMetaItem_55, testMetaItem_56, testMetaItem_57, testMetaItem_58, testMetaItem_59, testMetaItem_60, testMetaItem_61, testMetaItem_62, testMetaItem_63, testMetaItem_64, testMetaItem_65, testMetaItem_66, testMetaItem_67, testMetaItem_68, testMetaItem_69, testMetaItem_70, testMetaItem_71, testMetaItem_72, testMetaItem_73, testMetaItem_74, testMetaItem_75, testMetaItem_76, testMetaItem_77, testMetaItem_78, testMetaItem_79, testMetaItem_80, testMetaItem_81, testMetaItem_82, testMetaItem_83, testMetaItem_84, testMetaItem_85, testMetaItem_86, testMetaItem_87, testMetaItem_88, testMetaItem_89, testMetaItem_90, testMetaItem_91, testMetaItem_92, testMetaItem_93, testMetaItem_94, testMetaItem_95, testMetaItem_96, testMetaItem_97, testMetaItem_98, testMetaItem_99, testMetaItem_100, testMetaItem_101, testMetaItem_102, testMetaItem_103, testMetaItem_104, testMetaItem_105, testMetaItem_106, testMetaItem_107, testMetaItem_108, testMetaItem_109, testMetaItem_110, testMetaItem_111, testMetaItem_112, testMetaItem_113, testMetaItem_114, testMetaItem_115, testMetaItem_116, testMetaItem_117, testMetaItem_118, testMetaItem_119, testMetaItem_120, testMetaItem_121, testMetaItem_122, testMetaItem_123, testMetaItem_124, testMetaItem_125, testMetaItem_126, testMetaItem_127, testMetaItem_128, testMetaItem_129, testMetaItem_130, testMetaItem_131, testMetaItem_132, testMetaItem_133, testMetaItem_134, testMetaItem_135, testMetaItem_136, testMetaItem_137, testMetaItem_138, testMetaItem_139, testMetaItem_140, testMetaItem_141, testMetaItem_142, testMetaItem_143, testMetaItem_144, testMetaItem_145, testMetaItem_146, testMetaItem_147, testMetaItem_148, testMetaItem_149, testMetaItem_150, testMetaItem_151, testMetaItem_152, testMetaItem_153, testMetaItem_154, testMetaItem_155, testMetaItem_156, testMetaItem_157, testMetaItem_158, testMetaItem_159, testMetaItem_160, testMetaItem_161, testMetaItem_162, testMetaItem_163, testMetaItem_164, testMetaItem_165, testMetaItem_166, testMetaItem_167, testMetaItem_168, testMetaItem_169, testMetaItem_170]
