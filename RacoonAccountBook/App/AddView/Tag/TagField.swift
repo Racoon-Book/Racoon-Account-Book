@@ -10,8 +10,10 @@ struct TagField: View {
             hint,
             text: $input_text) { _ in }
         onCommit: {
-            metadata_inputting.tags.append(input_text)
-            input_text = ""
+            if input_text != "" {
+                metadata_inputting.tags.append(input_text)
+                input_text = ""
+            }
         }
         .autocapitalization(.none)
         .disableAutocorrection(false)
