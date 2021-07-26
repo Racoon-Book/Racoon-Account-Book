@@ -70,7 +70,7 @@ struct MainView: View {
         }
     }
 
-    func didDismissOrdinaryAddSheet() {
+    private func didDismissOrdinaryAddSheet() {
         DiscardCurrentMetaItem()
 
         printLog("[FloatingAddButton] Dismissed.")

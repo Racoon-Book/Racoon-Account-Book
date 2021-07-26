@@ -120,7 +120,7 @@ struct OrdinaryAddSheet: View {
         }
     }
 
-    func AddNewMetaItem() {
+    private func AddNewMetaItem() {
         PutKeyboardBack() // 收起键盘
 
         // FIXME: 加输入判断，不能随便就把用户的输入写进数据库
@@ -133,7 +133,7 @@ struct OrdinaryAddSheet: View {
         addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
     }
 
-    func DiscardCurrentMetaItem() {
+    private func DiscardCurrentMetaItem() {
         metadata_inputting.clear()
         amount_string_inputting = ""
     }
