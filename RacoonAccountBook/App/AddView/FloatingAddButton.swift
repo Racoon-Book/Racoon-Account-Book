@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 
 struct FloatingAddButton: View {
-    let addButtonSize = CGFloat(50)
+    private static let addButtonSize = CGFloat(50)
 
     @Binding var addUIConfig: AddUIConfig
 
@@ -15,12 +15,14 @@ struct FloatingAddButton: View {
                 ZStack {
                     Circle()
                         .fill(Color.yellow)
-                        .frame(width: addButtonSize, height: addButtonSize)
+                        .frame(
+                            width: FloatingAddButton.addButtonSize,
+                            height: FloatingAddButton.addButtonSize)
                     Button(action: {}, label: {
                         Text(Image(systemName: "plus"))
                             .foregroundColor(.black)
                             .bold()
-                            .font(.system(size: addButtonSize * 0.75))
+                            .font(.system(size: FloatingAddButton.addButtonSize * 0.75))
                             .onTapGesture {
                                 // 点击弹出一般添加界面
                                 printLog("[FloatingAddButton] Tapped")

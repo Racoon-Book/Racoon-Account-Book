@@ -3,10 +3,10 @@ import SwiftUI
 
 struct MainView: View {
     // [TabView需要用到的东西]
-    let Tab1: String = "账本"
-    let Tab2: String = "财记"
-    let Tab3: String = "统计"
-    @State private var selectedTab = "账本" // 打开之后呈现的Tab (默认为账本界面)
+    private static let Tab1: String = "账本"
+    private static let Tab2: String = "财记"
+    private static let Tab3: String = "统计"
+    @State private var selectedTab = MainView.Tab1 // 打开之后呈现的Tab (默认为账本界面)
 
     // [Add需要用到的东西]
     @State private var addUIConfig = AddUIConfig(
@@ -29,26 +29,26 @@ struct MainView: View {
                 BookTab()
                     .tabItem {
                         Image(systemName: "text.book.closed.fill")
-                        Text(Tab1)
+                        Text(MainView.Tab1)
                     }
-                    .tag(Tab1)
+                    .tag(MainView.Tab1)
 
                 StoryTab()
                     .tabItem {
                         Image(systemName: "books.vertical.fill")
-                        Text(Tab2)
+                        Text(MainView.Tab2)
                     }
-                    .tag(Tab2)
+                    .tag(MainView.Tab2)
 
                 ReportTab()
                     .tabItem {
                         Image(systemName: "chart.pie.fill")
-                        Text(Tab3)
+                        Text(MainView.Tab3)
                     }
-                    .tag(Tab3)
+                    .tag(MainView.Tab3)
             }
 
-            if selectedTab != Tab3 {
+            if selectedTab != MainView.Tab3 {
                 FloatingAddButton(addUIConfig: $addUIConfig)
             }
 
