@@ -12,17 +12,19 @@ var emojiStickers: [String] = [
 ]
 
 struct EmojiPicker: View {
-    var colors = ["Red", "Green", "Blue", "Tartan"]
-    @State private var selectedColor = "Red"
+    static let width: CGFloat = CGFloat(50)
+    
+    @Binding var selectedEmoji: String
 
     var body: some View {
         VStack {
-            Picker("Please choose a color", selection: $selectedColor) {
-                ForEach(colors, id: \.self) {
+            Picker("Please choose an emoji", selection: $selectedEmoji) {
+                ForEach(emojiStickers, id: \.self) {
                     Text($0)
                 }
             }
-            Text("You selected: \(selectedColor)")
+            .frame(width: EmojiPicker.width)
+            .clipped()
         }
     }
 }

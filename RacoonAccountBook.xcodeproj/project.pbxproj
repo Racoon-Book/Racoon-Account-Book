@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4823CD2D269FFE6900C7217F /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823CD2C269FFE6900C7217F /* LargeButton.swift */; };
+		486ECDF826AEFCEC00EF00B1 /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDF726AEFCEC00EF00B1 /* EmojiPicker.swift */; };
 		4878A75B26AC652700DCBC8D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A75A26AC652700DCBC8D /* String+.swift */; };
 		4878A75E26AC65D600DCBC8D /* OriginalText2Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A75D26AC65D600DCBC8D /* OriginalText2Amount.swift */; };
 		4878A76026AC68D400DCBC8D /* OriginalText2GeneratedTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A75F26AC68D400DCBC8D /* OriginalText2GeneratedTags.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		4823CD2C269FFE6900C7217F /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
+		486ECDF726AEFCEC00EF00B1 /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
 		4878A75A26AC652700DCBC8D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		4878A75D26AC65D600DCBC8D /* OriginalText2Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2Amount.swift; sourceTree = "<group>"; };
 		4878A75F26AC68D400DCBC8D /* OriginalText2GeneratedTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2GeneratedTags.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				4878A77826AE8CE900DCBC8D /* StoryInputView.swift */,
 				48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */,
 				4878A77A26AE8DB800DCBC8D /* StoryField.swift */,
+				486ECDF726AEFCEC00EF00B1 /* EmojiPicker.swift */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				4878A77026AD9BBA00DCBC8D /* Array+.swift in Sources */,
 				4878A75B26AC652700DCBC8D /* String+.swift in Sources */,
 				4878A76226AC6AA900DCBC8D /* OriginalText2Event.swift in Sources */,
+				486ECDF826AEFCEC00EF00B1 /* EmojiPicker.swift in Sources */,
 				4878A76526AD926C00DCBC8D /* originalText.swift in Sources */,
 				488D3A8D269F0F3700287A50 /* AccountBookModel.swift in Sources */,
 				48F0A09C26A4CED6004898C0 /* DayItemsView.swift in Sources */,

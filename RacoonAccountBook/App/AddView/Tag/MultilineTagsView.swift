@@ -11,6 +11,8 @@ struct MultilineTagsView: View {
     var isSuggestion: Bool = false
     var color: Color
 
+    static let oneLineTagHeight = CGFloat(30)
+
     @State private var totalHeight
 //        = CGFloat.zero // << variant for ScrollView/List
         = CGFloat.infinity // << variant for VStack
@@ -22,7 +24,10 @@ struct MultilineTagsView: View {
             }
         }
 //        .frame(height: totalHeight) // << variant for ScrollView/List
-        .frame(maxHeight: totalHeight) // << variant for VStack
+        .frame(
+            minHeight: tags == [] ? 0 : MultilineTagsView.oneLineTagHeight,
+            maxHeight: max(totalHeight, MultilineTagsView.oneLineTagHeight)) // << variant for VStack
+        // 这里以一行的tag为基准 确保tag不会出现被挤没的情况
     }
 
     private func generateContent(in g: GeometryProxy) -> some View {

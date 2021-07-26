@@ -5,6 +5,9 @@ import SwiftUI
 struct OrdinaryAddSheet: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
 
+    static let coreMetaItemHeight: CGFloat = CGFloat(100) // 刚好呈下三个元素
+    static let amountFieldHeight: CGFloat = CGFloat(70) // 刚好容下四位数字带一个小数点
+
     @Binding var addUIConfig: AddUIConfig
 
     // 为了方便 直接使用结构体MetaItem；每次添加数据之后把它们归零
@@ -38,7 +41,6 @@ struct OrdinaryAddSheet: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 15)
                             .foregroundColor(Color("Add-MetaItemBG"))
-                            .frame(maxHeight: 100, alignment: .center)
 
                         VStack {
                             HStack {
@@ -59,11 +61,14 @@ struct OrdinaryAddSheet: View {
                                     input_float: $metadata_inputting.amount_float,
                                     input_string: $amount_string_inputting,
                                     isEditing: $isEditing)
-                                    .frame(maxWidth: 70, alignment: .trailing)
+                                    .frame(
+                                        maxWidth: OrdinaryAddSheet.amountFieldHeight,
+                                        alignment: .trailing)
                             }
                         }
                         .padding([.horizontal], 10) // 三个要素离矩形边框远一点
                     }
+                    .frame(height: OrdinaryAddSheet.coreMetaItemHeight)
 
                     // [标签]
                     TagsInputView(metadata_inputting: $metadata_inputting)

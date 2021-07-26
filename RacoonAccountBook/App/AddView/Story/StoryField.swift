@@ -18,7 +18,6 @@ struct StoryField: View {
                         .stroke(Color("Add-Tag"), lineWidth: 2)
                 )
         }
-        .frame(minHeight: 50, maxHeight: 125) // 别撑满页面
         .onChange(of: text) { _ in
             printLog("[StoryField] Changed.")
             UpdateStoryText()
