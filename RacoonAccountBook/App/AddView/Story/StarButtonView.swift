@@ -24,7 +24,7 @@ struct RatingButtonView: View {
             SingleStarButtonView(rating: $rating, starPosition: .five)
         }
         .foregroundColor(Color.yellow)
-        .font(.system(size: 40))
+        .font(.system(size: 20))
     }
 }
 
@@ -38,7 +38,6 @@ struct SingleStarButtonView: View {
             withAnimation(.default) {
                 rating = starPosition
             }
-
             printLog("[SingleStarButtonView] 用户评了\(starPosition.rawValue)星")
         }) {
             Image(systemName: rating.rawValue >= starPosition.rawValue ? "star.fill" : "star")

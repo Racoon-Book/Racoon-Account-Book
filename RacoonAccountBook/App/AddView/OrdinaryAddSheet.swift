@@ -70,6 +70,12 @@ struct OrdinaryAddSheet: View {
 
                     // [建议]
                     TagsSuggestionView(metadata_inputting: $metadata_inputting)
+
+                    // [关注]
+                    // TODO: 添加focus
+
+                    // [财记]
+                    StoryInputView(metadata_inputting: $metadata_inputting)
                 }
                 .padding([.vertical]) // 所有输入框离手机边框远一点
 

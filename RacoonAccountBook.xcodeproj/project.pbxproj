@@ -21,6 +21,8 @@
 		4878A77226ADAA8000DCBC8D /* MultilineTagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77126ADAA8000DCBC8D /* MultilineTagsView.swift */; };
 		4878A77426ADAF1E00DCBC8D /* SingleTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77326ADAF1E00DCBC8D /* SingleTagView.swift */; };
 		4878A77626ADBD5D00DCBC8D /* TagsSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77526ADBD5D00DCBC8D /* TagsSuggestionView.swift */; };
+		4878A77926AE8CE900DCBC8D /* StoryInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77826AE8CE900DCBC8D /* StoryInputView.swift */; };
+		4878A77B26AE8DB800DCBC8D /* StoryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77A26AE8DB800DCBC8D /* StoryField.swift */; };
 		488D3A78269F0E5B00287A50 /* RacoonAccountBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */; };
 		488D3A7A269F0E5B00287A50 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A79269F0E5B00287A50 /* MainView.swift */; };
 		488D3A7C269F0E5E00287A50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 488D3A7B269F0E5E00287A50 /* Assets.xcassets */; };
@@ -67,6 +69,8 @@
 		4878A77126ADAA8000DCBC8D /* MultilineTagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTagsView.swift; sourceTree = "<group>"; };
 		4878A77326ADAF1E00DCBC8D /* SingleTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTagView.swift; sourceTree = "<group>"; };
 		4878A77526ADBD5D00DCBC8D /* TagsSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsSuggestionView.swift; sourceTree = "<group>"; };
+		4878A77826AE8CE900DCBC8D /* StoryInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryInputView.swift; sourceTree = "<group>"; };
+		4878A77A26AE8DB800DCBC8D /* StoryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryField.swift; sourceTree = "<group>"; };
 		488D3A74269F0E5B00287A50 /* 浣熊财记.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "浣熊财记.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacoonAccountBookApp.swift; sourceTree = "<group>"; };
 		488D3A79269F0E5B00287A50 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -142,6 +146,16 @@
 				4878A76A26AD944900DCBC8D /* TagField.swift */,
 			);
 			path = Tag;
+			sourceTree = "<group>";
+		};
+		4878A77726AE8CC700DCBC8D /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				4878A77826AE8CE900DCBC8D /* StoryInputView.swift */,
+				48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */,
+				4878A77A26AE8DB800DCBC8D /* StoryField.swift */,
+			);
+			path = Story;
 			sourceTree = "<group>";
 		};
 		488D3A6B269F0E5B00287A50 = {
@@ -236,7 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				488D3AA0269F5A2A00287A50 /* MetaItemView.swift */,
-				48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */,
 				4823CD2C269FFE6900C7217F /* LargeButton.swift */,
 			);
 			path = Component;
@@ -267,6 +280,7 @@
 				488D3A8F269F0F5500287A50 /* OrdinaryAddSheet.swift */,
 				4878A76326AD922000DCBC8D /* TextField */,
 				4878A76C26AD952800DCBC8D /* Tag */,
+				4878A77726AE8CC700DCBC8D /* Story */,
 			);
 			path = AddView;
 			sourceTree = "<group>";
@@ -418,11 +432,13 @@
 				488D3A96269F188100287A50 /* ReportTab.swift in Sources */,
 				4878A75E26AC65D600DCBC8D /* OriginalText2Amount.swift in Sources */,
 				488D3A78269F0E5B00287A50 /* RacoonAccountBookApp.swift in Sources */,
+				4878A77926AE8CE900DCBC8D /* StoryInputView.swift in Sources */,
 				48F0A09E26A55DFA004898C0 /* StoryTab.swift in Sources */,
 				6E6EA6A426AD2EAD0084055E /* ItemStoryView.swift in Sources */,
 				48B40E3126AAE1290030AAF6 /* Locale+.swift in Sources */,
 				48B40E2F26AAE0F20030AAF6 /* VoiceInputView.swift in Sources */,
 				4878A76726AD931B00DCBC8D /* amount.swift in Sources */,
+				4878A77B26AE8DB800DCBC8D /* StoryField.swift in Sources */,
 				4878A76E26AD962F00DCBC8D /* TagsInputView.swift in Sources */,
 				488D3AAB269F86E400287A50 /* TestData_MetaItem.swift in Sources */,
 				4878A76926AD93DD00DCBC8D /* otherMetaItem.swift in Sources */,
