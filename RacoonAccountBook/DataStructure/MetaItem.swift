@@ -60,6 +60,14 @@ struct MetaItem {
 
         // 用户在添加花销或回顾时找感兴趣的花销添加与这笔钱相关的故事
         var text: String? = nil
+
+        mutating func update(rating: Int? = nil,
+                             emoji: String? = nil,
+                             text: String? = nil) {
+            if rating != nil { self.rating = rating! }
+            if emoji != nil { self.emoji = emoji! }
+            if text != nil { self.text = text! }
+        }
     }
 
     // MARK: - func
@@ -111,10 +119,33 @@ struct MetaItem {
 
 extension MetaItem: CustomStringConvertible {
     var description: String {
-        let event: String = event
+        let originalText: String = self.originalText ?? "nil"
+
+        let event: String = self.event
         let amount = String(format: "%.1f", amount_float)
         let date: String = spentMoneyAt.toFormat("yyyy/M/d", locale: Locales.chineseChina)
 
-        return "MetaItem: {spentMoneyAt: \(date), event: \(event), amount: \(amount)}"
+        var generatedTags: String = ""
+        for gTag in self.generatedTags { generatedTags.append(gTag + " ") }
+        var tags: String = ""
+        for tag in self.tags { tags.append(tag + " ") }
+
+        let focus: String = self.focus ?? "nil"
+        var forWho: String = ""
+        for sb in self.forWho { forWho.append(sb + " ") }
+
+        let rating: String = String(self.story?.rating ?? 0)
+        let emoji: String = self.story?.emoji ?? "nil"
+        let text: String = self.story?.text ?? "nil"
+        let story: String = self.story == nil ? "nil" : "\(emoji) \(rating) stars - \(text)"
+
+        return """
+        MetaItem: {
+        "originalText": \(originalText),
+        "spentMoneyAt": \(date), "event": \(event), "amount": \(amount),
+        "generatedTags": \(generatedTags), "tags": \(tags),
+        "focus": \(focus), "forWho": \(forWho),
+        "story": \(story)}
+        """
     }
 }
