@@ -1,4 +1,3 @@
-import Combine
 import SwiftUI
 
 struct OriginalTextField: View {
@@ -12,7 +11,7 @@ struct OriginalTextField: View {
         TextField(
             hint,
             text: $metadata_inputting.originalText ?? "") { isEditing in
-                self.isEditing = isEditing
+            self.isEditing = isEditing
         }
         onCommit: {
             printLog("[OriginalTextField] Committed")
@@ -26,6 +25,7 @@ struct OriginalTextField: View {
         .autocapitalization(.none)
         .disableAutocorrection(false)
         .textFieldStyle(RoundedBorderTextFieldStyle())
+        .keyboardType(.default) // TODO: Check https://stackoverflow.com/a/67892400/14298786 to change submitLabel after iOS 15. Also there's a `.onSubmit()` in which you can do some operations.
     }
 
     private func UpdateMetaItem() {
