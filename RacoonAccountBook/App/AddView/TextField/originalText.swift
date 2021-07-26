@@ -12,19 +12,17 @@ struct OriginalTextField: View {
         TextField(
             hint,
             text: $metadata_inputting.originalText ?? "") { isEditing in
-            self.isEditing = isEditing
+                self.isEditing = isEditing
         }
         onCommit: {
             printLog("[OriginalTextField] Committed")
             UpdateMetaItem()
         }
-        // Check https://stackoverflow.com/a/63694929/14298786
-        // 解决用户可能在输入之后不按键盘上的回车直接点击添加按钮而未添加的问题
-        .onReceive(Just(metadata_inputting.originalText)) { _ in
+        // 注意这里最好不用`.onReceive` 因为`Just()`所认为的修改应该不仅仅有值上的改变 还有地址上的改变 好像一赋值就会执行 这并不是所期望的
+        .onChange(of: metadata_inputting.originalText) { _ in
             printLog("[OriginalTextField] Changed.")
             UpdateMetaItem()
         }
-
         .autocapitalization(.none)
         .disableAutocorrection(false)
         .textFieldStyle(RoundedBorderTextFieldStyle())

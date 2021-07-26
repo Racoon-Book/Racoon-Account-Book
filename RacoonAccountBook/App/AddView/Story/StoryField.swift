@@ -1,4 +1,5 @@
 import Combine
+import SwiftDate
 import SwiftUI
 
 struct StoryField: View {
@@ -9,16 +10,17 @@ struct StoryField: View {
     @State private var text: String = ""
 
     var body: some View {
-        TextField(
-            hint,
-            text: $text) { _ in }
-        onCommit: {
-            printLog("[StoryField] Committed.")
-            UpdateStory()
+        ZStack {
+            TextEditor(text: $text)
+                .padding(.all, 4)
+                .cornerRadius(6)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(Color("Add-Tag"), lineWidth: 2)
+                )
         }
-        // Check https://stackoverflow.com/a/63694929/14298786
-        // 解决用户可能在输入之后不按键盘上的回车直接点击添加按钮而未添加的问题
-        .onReceive(Just(text)) { _ in
+        .frame(minHeight: 50, maxHeight: 125) // 别撑满页面
+        .onChange(of: text) { _ in
             printLog("[StoryField] Changed.")
             UpdateStory()
         }
@@ -33,5 +35,23 @@ struct StoryField: View {
         } else {
             metadata_inputting.story!.update(text: text)
         }
+    }
+}
+
+struct StoryFieldView_Previews: PreviewProvider {
+    @StateObject static var PreviewAccountBook = AccountBookModel()
+
+    static var previews: some View {
+        OrdinaryAddSheet(
+            addUIConfig: .constant(
+                AddUIConfig(isShowingOrdinaryAddView: true,
+                            isShowingVoiceInputView: false)),
+            metadata_inputting: .constant(
+                MetaItem(
+                    originalText: "",
+                    spentMoneyAt: DateInRegion(region: regionChina),
+                    event: "买饮料",
+                    amount_float: 3.5)),
+            amount_string_inputting: .constant("3.5"))
     }
 }

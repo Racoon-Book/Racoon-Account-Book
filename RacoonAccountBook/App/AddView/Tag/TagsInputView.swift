@@ -12,7 +12,7 @@ struct TagsInputView: View {
                     tags: $metadata_inputting.tags,
                     metadata_inputting: $metadata_inputting,
                     isEditMode: true,
-                    color: Color("AntiqueWhite")
+                    color: Color("Add-Tag")
                 )
                 TagField(
                     hint: "添加新标签",
