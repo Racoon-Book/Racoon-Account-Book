@@ -14,6 +14,9 @@ struct StoryInputView: View {
             VStack {
                 HStack {
                     RatingButtonView(rating: $rating)
+                        .onChange(of: rating) { _ in
+                            UpdateStoryRating()
+                        }
                     Spacer()
                     Text("😶") // TODO: Sticker
                 }
@@ -25,6 +28,17 @@ struct StoryInputView: View {
             }
         }
         .padding([.vertical], 5) // 别和上下挨的太近
+    }
+
+    private func UpdateStoryRating() {
+        if metadata_inputting.story == nil {
+            metadata_inputting.story = MetaItem.Story(
+                rating: Int(rating.rawValue),
+                emoji: nil,
+                text: nil)
+        } else {
+            metadata_inputting.story!.update(rating: Int(rating.rawValue))
+        }
     }
 }
 

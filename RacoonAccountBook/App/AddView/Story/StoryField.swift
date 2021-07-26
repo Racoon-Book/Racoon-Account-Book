@@ -21,14 +21,14 @@ struct StoryField: View {
         .frame(minHeight: 50, maxHeight: 125) // 别撑满页面
         .onChange(of: text) { _ in
             printLog("[StoryField] Changed.")
-            UpdateStory()
+            UpdateStoryText()
         }
         .autocapitalization(.none)
         .disableAutocorrection(false)
         .textFieldStyle(RoundedBorderTextFieldStyle())
     }
 
-    private func UpdateStory() {
+    private func UpdateStoryText() {
         if metadata_inputting.story == nil {
             metadata_inputting.story = MetaItem.Story(rating: nil, emoji: nil, text: text)
         } else {
