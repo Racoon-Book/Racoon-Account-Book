@@ -3,6 +3,9 @@ import SwiftUI
 
 struct MainView: View {
     // [TabView需要用到的东西]
+    let Tab1: String = "账本"
+    let Tab2: String = "财记"
+    let Tab3: String = "统计"
     @State private var selectedTab = "账本" // 打开之后呈现的Tab (默认为账本界面)
 
     // [Add需要用到的东西]
@@ -26,26 +29,28 @@ struct MainView: View {
                 BookTab()
                     .tabItem {
                         Image(systemName: "text.book.closed.fill")
-                        Text("账本")
+                        Text(Tab1)
                     }
-                    .tag("账本")
+                    .tag(Tab1)
 
                 StoryTab()
                     .tabItem {
                         Image(systemName: "books.vertical.fill")
-                        Text("财记")
+                        Text(Tab2)
                     }
-                    .tag("财记")
+                    .tag(Tab2)
 
                 ReportTab()
                     .tabItem {
                         Image(systemName: "chart.pie.fill")
-                        Text("报告")
+                        Text(Tab3)
                     }
-                    .tag("统计")
+                    .tag(Tab3)
             }
 
-            FloatingAddButton(addUIConfig: $addUIConfig)
+            if selectedTab != Tab3 {
+                FloatingAddButton(addUIConfig: $addUIConfig)
+            }
 
             // 悬浮在所有界面之上的语音识别界面 所以在ZStack最下方
             if addUIConfig.isShowingVoiceInputView {
