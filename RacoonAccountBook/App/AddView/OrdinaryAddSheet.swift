@@ -19,6 +19,10 @@ struct OrdinaryAddSheet: View {
     // TODO: 这个没啥必要感觉 先留着吧
     @State private var isEditing: Bool = false
 
+    // 是否显示一些默认不显示的MetaData
+    @State private var showingStoryInputView: Bool = false
+    @State private var showingForWhoInputView: Bool = false
+
     var body: some View {
         NavigationView {
             VStack {
@@ -80,7 +84,21 @@ struct OrdinaryAddSheet: View {
                     FocusSelectView(metadata_inputting: $metadata_inputting)
 
                     // [财记]
-                    StoryInputView(metadata_inputting: $metadata_inputting)
+                    if showingStoryInputView {
+                        StoryInputView(
+                            metadata_inputting: $metadata_inputting,
+                            showingStoryInputView: $showingStoryInputView)
+                    } else {
+                        EmptyView()
+                    }
+
+                    // [新添加的项]
+                    // 任意一个没在呈现就要出现
+                    if !showingStoryInputView || !showingForWhoInputView {
+                        NewMetaDataButtons(metadata_inputting: $metadata_inputting,
+                                           showingStoryInputView: $showingStoryInputView,
+                                           showingForWhoInputView: $showingForWhoInputView)
+                    }
                 }
                 .padding([.vertical]) // 所有输入框离手机边框远一点
 

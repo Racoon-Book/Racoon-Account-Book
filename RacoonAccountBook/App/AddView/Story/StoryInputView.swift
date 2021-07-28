@@ -10,10 +10,26 @@ struct StoryInputView: View {
 
     static let height = CGFloat(90)
 
+    @Binding var showingStoryInputView: Bool
+
     var body: some View {
         HStack {
-            Text("财记")
-                .font(.system(.headline))
+            VStack {
+                Text("财记")
+                    .font(.system(.headline))
+                    .padding([.bottom], 1)
+
+                // 关闭财记的按钮：删除财记且设置showing为false
+                Button(action: {
+                    metadata_inputting.story = nil
+                    showingStoryInputView = false
+                }, label: {
+                    Text(Image(systemName: "multiply.square"))
+                        .font(.system(.headline))
+                        .foregroundColor(.black)
+//                        .padding() // 和财记的标题离远一点
+                })
+            }
 
             HStack {
                 VStack {
