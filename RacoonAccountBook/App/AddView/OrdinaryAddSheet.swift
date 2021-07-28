@@ -88,6 +88,13 @@ struct OrdinaryAddSheet: View {
                         StoryInputView(
                             metadata_inputting: $metadata_inputting,
                             showingStoryInputView: $showingStoryInputView)
+                            .onAppear {
+                                // 出现的时候置为三星
+                                metadata_inputting.story = MetaItem.Story(
+                                    rating: 3,
+                                    emoji: nil,
+                                    text: nil)
+                            }
                     } else {
                         EmptyView()
                     }

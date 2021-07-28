@@ -27,7 +27,6 @@ struct StoryInputView: View {
                     Text(Image(systemName: "multiply.square"))
                         .font(.system(.headline))
                         .foregroundColor(.black)
-//                        .padding() // 和财记的标题离远一点
                 })
             }
 
