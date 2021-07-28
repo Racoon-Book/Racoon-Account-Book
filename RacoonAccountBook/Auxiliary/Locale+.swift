@@ -11,10 +11,12 @@ import SwiftDate
 
 // SwiftDate
 // 之后所有生成的`DataInRegion`都需要添加`region: regionChina`
-let regionChina = Region(calendar: Calendars.gregorian, zone: Zones.asiaShanghai, locale: Locales.chineseChina)
+let regionChina = Region(calendar: Calendars.republicOfChina,
+                         zone: Zones.asiaShanghai,
+                         locale: Locales.chineseChina)
 
 // SwiftSpeech
 let ChineseSpeechIdentifier: String = "zh_Hans_CN"
 
 // NLP
-let NLChinese: NLLanguage = NLLanguage.simplifiedChinese
+let NLChinese = NLLanguage.simplifiedChinese

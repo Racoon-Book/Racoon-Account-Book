@@ -1,3 +1,4 @@
+import SwiftDate
 import SwiftUI
 
 struct OriginalTextField: View {
@@ -11,7 +12,7 @@ struct OriginalTextField: View {
         TextField(
             hint,
             text: $metadata_inputting.originalText ?? "") { isEditing in
-            self.isEditing = isEditing
+                self.isEditing = isEditing
         }
         onCommit: {
             printLog("[OriginalTextField] Committed")
@@ -30,6 +31,7 @@ struct OriginalTextField: View {
 
     private func UpdateMetaItem() {
         metadata_inputting.update(
+            spentMoneyAt: OriginalText2SpentMoneyAt(from: metadata_inputting.originalText ?? "") ?? DateInRegion(region: regionChina),
             event: OriginalText2Event(from: metadata_inputting.originalText ?? "") ?? "",
             amount_float: OriginalText2Amount(from: metadata_inputting.originalText ?? "") ?? 0.0,
             generatedTags: OriginalText2GeneratedTags(from: metadata_inputting.originalText ?? ""))
