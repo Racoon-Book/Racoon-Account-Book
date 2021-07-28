@@ -11,7 +11,7 @@ import SwiftDate
 
 // SwiftDate
 // 之后所有生成的`DataInRegion`都需要添加`region: regionChina`
-let regionChina = Region(calendar: Calendars.republicOfChina,
+let regionChina = Region(calendar: Calendars.gregorian,
                          zone: Zones.asiaShanghai,
                          locale: Locales.chineseChina)
 

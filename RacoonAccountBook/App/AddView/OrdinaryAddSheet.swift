@@ -77,7 +77,7 @@ struct OrdinaryAddSheet: View {
                     TagsSuggestionView(metadata_inputting: $metadata_inputting)
 
                     // [关注]
-                    // TODO: 添加focus
+                    FocusSelectView(metadata_inputting: $metadata_inputting)
 
                     // [财记]
                     StoryInputView(metadata_inputting: $metadata_inputting)
