@@ -19,6 +19,10 @@ struct AccountBook {
         .Y2024: YearlyEx(year: 2024),
     ] // TODO: 这里先支持个五年
 
+    // [记录用户添加的所有focus]
+    // TODO: 之后需要改成可以修改的，用户在设置中进行添加和删除
+    static var focusList: [String] = ["电子设备", "软件服务", "聚餐", "游戏", "宿舍"]
+
     // MARK: - Logic
 
     // [初始化]

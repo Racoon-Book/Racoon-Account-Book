@@ -17,7 +17,6 @@
 		486ECDFA26B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDF926B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift */; };
 		486ECDFD26B0E36200EF00B1 /* FocusSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDFC26B0E36200EF00B1 /* FocusSelectView.swift */; };
 		486ECDFF26B0E36F00EF00B1 /* SingleFocusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDFE26B0E36F00EF00B1 /* SingleFocusView.swift */; };
-		486ECE0126B0E3CB00EF00B1 /* UserFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECE0026B0E3CB00EF00B1 /* UserFocus.swift */; };
 		486ECE0326B0E81500EF00B1 /* MultilineFociView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECE0226B0E81500EF00B1 /* MultilineFociView.swift */; };
 		486ECE0626B1473A00EF00B1 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 486ECE0526B1473A00EF00B1 /* Charts */; };
 		4878A75B26AC652700DCBC8D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A75A26AC652700DCBC8D /* String+.swift */; };
@@ -77,7 +76,6 @@
 		486ECDF926B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2SpentMoneyAt.swift; sourceTree = "<group>"; };
 		486ECDFC26B0E36200EF00B1 /* FocusSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSelectView.swift; sourceTree = "<group>"; };
 		486ECDFE26B0E36F00EF00B1 /* SingleFocusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleFocusView.swift; sourceTree = "<group>"; };
-		486ECE0026B0E3CB00EF00B1 /* UserFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFocus.swift; sourceTree = "<group>"; };
 		486ECE0226B0E81500EF00B1 /* MultilineFociView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineFociView.swift; sourceTree = "<group>"; };
 		4878A75A26AC652700DCBC8D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		4878A75D26AC65D600DCBC8D /* OriginalText2Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2Amount.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				486ECDFC26B0E36200EF00B1 /* FocusSelectView.swift */,
 				486ECE0226B0E81500EF00B1 /* MultilineFociView.swift */,
 				486ECDFE26B0E36F00EF00B1 /* SingleFocusView.swift */,
-				486ECE0026B0E3CB00EF00B1 /* UserFocus.swift */,
 			);
 			path = Focus;
 			sourceTree = "<group>";
@@ -477,7 +474,6 @@
 				488D3A9F269F42AF00287A50 /* PutKeyboardBack.swift in Sources */,
 				488D3AA9269F837300287A50 /* Binding+Optional.swift in Sources */,
 				4878A77626ADBD5D00DCBC8D /* TagsSuggestionView.swift in Sources */,
-				486ECE0126B0E3CB00EF00B1 /* UserFocus.swift in Sources */,
 				4830D9CC26B25CF0007710FD /* ForWhoInputView.swift in Sources */,
 				488D3AAE269F8C5400287A50 /* Print+.swift in Sources */,
 				48C6361E26A480D100E7BF15 /* Ex.swift in Sources */,

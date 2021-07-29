@@ -9,7 +9,7 @@ struct FocusSelectView: View {
                 .font(.system(.headline))
             VStack(alignment: .leading) {
                 MultilineFociView(
-                    foci: .constant(UserFocus),
+                    foci: .constant(AccountBook.focusList),
                     metadata_inputting: $metadata_inputting,
                     selectedColor: Color("focus"),
                     unselectedColor: Color("focus-unselected")
