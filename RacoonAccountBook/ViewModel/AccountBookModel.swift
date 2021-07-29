@@ -35,6 +35,22 @@ class AccountBookModel: ObservableObject {
             .monthlyEx[Month(rawValue: today.month) ?? .Dec] ?? PeriodicEx(sign: today)
     }
 
+    func GetBookOfThisMonthOfTag(tag: String) -> PeriodicEx {
+        let today = DateInRegion(region: regionChina)
+        var book = monthlyBook[SupportedYear(rawValue: today.year) ?? .Y2024]?
+            .monthlyEx[Month(rawValue: today.month) ?? .Dec] ?? PeriodicEx(sign: today)
+
+        // 筛选包含tag的记录
+        // book.items = book.items.filter { $0.metadata.tags.contains(tag) }
+
+        // 重新计算ExSum等
+        book.exCounter = book.items.count
+        book.exHighest = book.items.max { $0.metadata.amount_float < $1.metadata.amount_float }?.metadata.amount_float ?? 0
+        book.exSum = book.items.reduce(0.0) { $0 + $1.metadata.amount_float }
+
+        return book
+    }
+
     // [返回某个月的花销 和 这个月最后有花销的天数]
     // 给进一个月份
     // 返回`这个月份按天分组后的字典`和`最后有item的天数`
