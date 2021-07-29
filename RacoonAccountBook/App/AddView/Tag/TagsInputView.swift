@@ -18,6 +18,7 @@ struct TagsInputView: View {
                     hint: "添加新标签",
                     metadata_inputting: $metadata_inputting
                 )
+                .padding([.vertical], 5) // 不和下面的挨太近
             }
         }
     }

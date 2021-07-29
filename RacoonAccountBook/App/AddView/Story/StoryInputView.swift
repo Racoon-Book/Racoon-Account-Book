@@ -29,6 +29,7 @@ struct StoryInputView: View {
                         .foregroundColor(.black)
                 })
             }
+            .frame(height: StoryInputView.height)
 
             HStack {
                 VStack {

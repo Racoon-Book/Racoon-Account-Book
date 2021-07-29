@@ -5,8 +5,8 @@ import SwiftUI
 struct OrdinaryAddSheet: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
 
-    static let coreMetaItemHeight: CGFloat = CGFloat(100) // 刚好呈下三个元素
-    static let amountFieldHeight: CGFloat = CGFloat(70) // 刚好容下四位数字带一个小数点
+    static let coreMetaItemHeight = CGFloat(100) // 刚好呈下三个元素
+    static let amountFieldHeight = CGFloat(70) // 刚好容下四位数字带一个小数点
 
     @Binding var addUIConfig: AddUIConfig
 
@@ -25,105 +25,107 @@ struct OrdinaryAddSheet: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                Spacer()
-
+            ScrollView {
                 VStack {
-                    // [originalText输入]
-                    HStack {
-                        Text("输入")
-                            .font(.system(.headline))
-                        // TODO: 每次打开sheet直接将光标放在这里，键盘默认弹出
-                        OriginalTextField(
-                            hint: "用一句话写出你的花销",
-                            metadata_inputting: $metadata_inputting,
-                            isEditing: $isEditing,
-                            amount_string_inputting: $amount_string_inputting)
-                    }
+                    Spacer()
 
-                    // 三个要素 [spentMoneyAt event amount]
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 15)
-                            .foregroundColor(Color("Add-MetaItemBG"))
-
-                        VStack {
-                            HStack {
-                                // TODO: 这个之后要改成可以点击修改的日期选择框
-                                Text(DisplayDate(metadata_inputting.spentMoneyAt))
-                                    .font(.body)
-                                    .padding(.top, 6.0)
-                                Spacer()
-                            }
-                            HStack {
-                                MetaItemTextField(
-                                    hint: "事件",
-                                    input_text: $metadata_inputting.event,
-                                    isEditing: $isEditing)
-
-                                AmountField(
-                                    hint: "金额",
-                                    input_float: $metadata_inputting.amount_float,
-                                    input_string: $amount_string_inputting,
-                                    isEditing: $isEditing)
-                                    .frame(
-                                        maxWidth: OrdinaryAddSheet.amountFieldHeight,
-                                        alignment: .trailing)
-                            }
+                    VStack {
+                        // [originalText输入]
+                        HStack {
+                            Text("输入")
+                                .font(.system(.headline))
+                            // TODO: 每次打开sheet直接将光标放在这里，键盘默认弹出
+                            OriginalTextField(
+                                hint: "用一句话写出你的花销",
+                                metadata_inputting: $metadata_inputting,
+                                isEditing: $isEditing,
+                                amount_string_inputting: $amount_string_inputting)
                         }
-                        .padding([.horizontal], 10) // 三个要素离矩形边框远一点
-                    }
-                    .frame(height: OrdinaryAddSheet.coreMetaItemHeight)
 
-                    // [标签]
-                    TagsInputView(metadata_inputting: $metadata_inputting)
+                        // 三个要素 [spentMoneyAt event amount]
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 15)
+                                .foregroundColor(Color("Add-MetaItemBG"))
 
-                    // [建议]
-                    TagsSuggestionView(metadata_inputting: $metadata_inputting)
+                            VStack {
+                                HStack {
+                                    // TODO: 这个之后要改成可以点击修改的日期选择框
+                                    Text(DisplayDate(metadata_inputting.spentMoneyAt))
+                                        .font(.body)
+                                        .padding(.top, 6.0)
+                                    Spacer()
+                                }
+                                HStack {
+                                    MetaItemTextField(
+                                        hint: "事件",
+                                        input_text: $metadata_inputting.event,
+                                        isEditing: $isEditing)
 
-                    // [关注]
-                    FocusSelectView(metadata_inputting: $metadata_inputting)
-
-                    // [财记]
-                    if showingStoryInputView {
-                        StoryInputView(
-                            metadata_inputting: $metadata_inputting,
-                            showingStoryInputView: $showingStoryInputView)
-                            .onAppear {
-                                // 出现的时候置为三星
-                                metadata_inputting.story = MetaItem.Story(
-                                    rating: 3,
-                                    emoji: nil,
-                                    text: nil)
+                                    AmountField(
+                                        hint: "金额",
+                                        input_float: $metadata_inputting.amount_float,
+                                        input_string: $amount_string_inputting,
+                                        isEditing: $isEditing)
+                                        .frame(
+                                            maxWidth: OrdinaryAddSheet.amountFieldHeight,
+                                            alignment: .trailing)
+                                }
                             }
-                    } else {
-                        EmptyView()
-                    }
+                            .padding([.horizontal], 10) // 三个要素离矩形边框远一点
+                        }
+                        .frame(height: OrdinaryAddSheet.coreMetaItemHeight)
 
-                    // [为谁]
-                    if showingForWhoInputView {
-                        ForWhoInputView(
-                            metadata_inputting: $metadata_inputting,
-                            showingForWhoInputView: $showingForWhoInputView)
-                    } else {
-                        EmptyView()
-                    }
+                        // [标签]
+                        TagsInputView(metadata_inputting: $metadata_inputting)
 
-                    // [新添加的项]
-                    // 任意一个没在呈现就要出现
-                    if !showingStoryInputView || !showingForWhoInputView {
-                        NewMetaDataButtons(metadata_inputting: $metadata_inputting,
-                                           showingStoryInputView: $showingStoryInputView,
-                                           showingForWhoInputView: $showingForWhoInputView)
+                        // [建议]
+                        TagsSuggestionView(metadata_inputting: $metadata_inputting)
+
+                        // [关注]
+                        FocusSelectView(metadata_inputting: $metadata_inputting)
+
+                        // [财记]
+                        if showingStoryInputView {
+                            StoryInputView(
+                                metadata_inputting: $metadata_inputting,
+                                showingStoryInputView: $showingStoryInputView)
+                                .onAppear {
+                                    // 出现的时候置为三星
+                                    metadata_inputting.story = MetaItem.Story(
+                                        rating: 3,
+                                        emoji: nil,
+                                        text: nil)
+                                }
+                        } else {
+                            EmptyView()
+                        }
+
+                        // [为谁]
+                        if showingForWhoInputView {
+                            ForWhoInputView(
+                                metadata_inputting: $metadata_inputting,
+                                showingForWhoInputView: $showingForWhoInputView)
+                        } else {
+                            EmptyView()
+                        }
+
+                        // [新添加的项]
+                        // 任意一个没在呈现就要出现
+                        if !showingStoryInputView || !showingForWhoInputView {
+                            NewMetaDataButtons(metadata_inputting: $metadata_inputting,
+                                               showingStoryInputView: $showingStoryInputView,
+                                               showingForWhoInputView: $showingForWhoInputView)
+                        }
                     }
+                    .padding([.vertical]) // 所有输入框离手机边框远一点
+
+                    LargeButton(title: "记账",
+                                backgroundColor: Color.blue,
+                                foregroundColor: Color.white) {
+                            AddNewMetaItem()
+                    }
+                    .font(.system(.title)) // TODO: 字有点小
                 }
-                .padding([.vertical]) // 所有输入框离手机边框远一点
-
-                LargeButton(title: "记账",
-                            backgroundColor: Color.blue,
-                            foregroundColor: Color.white) {
-                    AddNewMetaItem()
-                }
-                .font(.system(.title)) // TODO: 字有点小
             }
             .padding()
             // [Sheet最上方的标题]

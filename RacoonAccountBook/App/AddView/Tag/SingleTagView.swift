@@ -13,6 +13,7 @@ struct SingleTagView: View {
         HStack {
             if isEditMode {
                 Button(action: {
+                    metadata_inputting.generatedTags.append(tag)
                     metadata_inputting.tags.remove(object: tag)
                 }, label: {
                     Text(Image(systemName: "multiply.circle"))

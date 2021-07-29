@@ -6,6 +6,8 @@ struct ForWhoInputView: View {
 
     @Binding var showingForWhoInputView: Bool
 
+    static let height = CGFloat(47)
+
     var body: some View {
         HStack {
             VStack {
@@ -31,12 +33,14 @@ struct ForWhoInputView: View {
                                        isEditMode: true,
                                        color: Color.orange)
                 }
+                .padding([.leading], 4) // 和上下的对齐
             }
 
             ForWhoField(metadata_inputting: $metadata_inputting)
 
             Spacer()
         }
+        .frame(height: ForWhoInputView.height)
         .padding([.vertical], 5) // 别和上下挨的太近
     }
 }
