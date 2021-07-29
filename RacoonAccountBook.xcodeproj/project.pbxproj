@@ -452,7 +452,6 @@
 			packageReferences = (
 				488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */,
 				48B40E2B26AAE05C0030AAF6 /* XCRemoteSwiftPackageReference "SwiftSpeech" */,
-				486ECE0426B1473A00EF00B1 /* XCRemoteSwiftPackageReference "Charts" */,
 				4830D9D126B2DAF9007710FD /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = 488D3A75269F0E5B00287A50 /* Products */;
@@ -731,14 +730,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.5.5;
-			};
-		};
-		486ECE0426B1473A00EF00B1 /* XCRemoteSwiftPackageReference "Charts" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/danielgindi/Charts.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.1;
 			};
 		};
 		488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
