@@ -10,6 +10,9 @@
 		4823CD2D269FFE6900C7217F /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823CD2C269FFE6900C7217F /* LargeButton.swift */; };
 		4830D9C126B1FD1C007710FD /* NewMetaDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9C026B1FD1C007710FD /* NewMetaDataView.swift */; };
 		4830D9C426B1FDA5007710FD /* SingleNewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9C326B1FDA5007710FD /* SingleNewItemView.swift */; };
+		4830D9CC26B25CF0007710FD /* ForWhoInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9CB26B25CF0007710FD /* ForWhoInputView.swift */; };
+		4830D9CE26B25D73007710FD /* ForWhoField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9CD26B25D73007710FD /* ForWhoField.swift */; };
+		4830D9D026B260A2007710FD /* SingleSomebodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9CF26B260A2007710FD /* SingleSomebodyView.swift */; };
 		486ECDF826AEFCEC00EF00B1 /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDF726AEFCEC00EF00B1 /* EmojiPicker.swift */; };
 		486ECDFA26B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDF926B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift */; };
 		486ECDFD26B0E36200EF00B1 /* FocusSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDFC26B0E36200EF00B1 /* FocusSelectView.swift */; };
@@ -67,6 +70,9 @@
 		4823CD2C269FFE6900C7217F /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
 		4830D9C026B1FD1C007710FD /* NewMetaDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMetaDataView.swift; sourceTree = "<group>"; };
 		4830D9C326B1FDA5007710FD /* SingleNewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleNewItemView.swift; sourceTree = "<group>"; };
+		4830D9CB26B25CF0007710FD /* ForWhoInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForWhoInputView.swift; sourceTree = "<group>"; };
+		4830D9CD26B25D73007710FD /* ForWhoField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForWhoField.swift; sourceTree = "<group>"; };
+		4830D9CF26B260A2007710FD /* SingleSomebodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSomebodyView.swift; sourceTree = "<group>"; };
 		486ECDF726AEFCEC00EF00B1 /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
 		486ECDF926B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2SpentMoneyAt.swift; sourceTree = "<group>"; };
 		486ECDFC26B0E36200EF00B1 /* FocusSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSelectView.swift; sourceTree = "<group>"; };
@@ -141,6 +147,16 @@
 				4830D9C326B1FDA5007710FD /* SingleNewItemView.swift */,
 			);
 			path = NewMetaData;
+			sourceTree = "<group>";
+		};
+		4830D9CA26B25CD7007710FD /* ForWho */ = {
+			isa = PBXGroup;
+			children = (
+				4830D9CB26B25CF0007710FD /* ForWhoInputView.swift */,
+				4830D9CD26B25D73007710FD /* ForWhoField.swift */,
+				4830D9CF26B260A2007710FD /* SingleSomebodyView.swift */,
+			);
+			path = ForWho;
 			sourceTree = "<group>";
 		};
 		486ECDFB26B0E34200EF00B1 /* Focus */ = {
@@ -322,6 +338,7 @@
 				4878A76C26AD952800DCBC8D /* Tag */,
 				486ECDFB26B0E34200EF00B1 /* Focus */,
 				4878A77726AE8CC700DCBC8D /* Story */,
+				4830D9CA26B25CD7007710FD /* ForWho */,
 				4830D9C226B1FD5A007710FD /* NewMetaData */,
 			);
 			path = AddView;
@@ -461,6 +478,7 @@
 				488D3AA9269F837300287A50 /* Binding+Optional.swift in Sources */,
 				4878A77626ADBD5D00DCBC8D /* TagsSuggestionView.swift in Sources */,
 				486ECE0126B0E3CB00EF00B1 /* UserFocus.swift in Sources */,
+				4830D9CC26B25CF0007710FD /* ForWhoInputView.swift in Sources */,
 				488D3AAE269F8C5400287A50 /* Print+.swift in Sources */,
 				48C6361E26A480D100E7BF15 /* Ex.swift in Sources */,
 				4878A77226ADAA8000DCBC8D /* MultilineTagsView.swift in Sources */,
@@ -486,6 +504,7 @@
 				6E6EA6A426AD2EAD0084055E /* ItemStoryView.swift in Sources */,
 				48B40E3126AAE1290030AAF6 /* Locale+.swift in Sources */,
 				48B40E2F26AAE0F20030AAF6 /* VoiceInputView.swift in Sources */,
+				4830D9D026B260A2007710FD /* SingleSomebodyView.swift in Sources */,
 				486ECE0326B0E81500EF00B1 /* MultilineFociView.swift in Sources */,
 				4830D9C126B1FD1C007710FD /* NewMetaDataView.swift in Sources */,
 				4878A76726AD931B00DCBC8D /* amount.swift in Sources */,
@@ -498,6 +517,7 @@
 				488D3A92269F0F5E00287A50 /* BookTab.swift in Sources */,
 				4878A76B26AD944900DCBC8D /* TagField.swift in Sources */,
 				4878A76026AC68D400DCBC8D /* OriginalText2GeneratedTags.swift in Sources */,
+				4830D9CE26B25D73007710FD /* ForWhoField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

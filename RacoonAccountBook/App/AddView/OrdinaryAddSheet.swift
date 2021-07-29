@@ -99,6 +99,15 @@ struct OrdinaryAddSheet: View {
                         EmptyView()
                     }
 
+                    // [为谁]
+                    if showingForWhoInputView {
+                        ForWhoInputView(
+                            metadata_inputting: $metadata_inputting,
+                            showingForWhoInputView: $showingForWhoInputView)
+                    } else {
+                        EmptyView()
+                    }
+
                     // [新添加的项]
                     // 任意一个没在呈现就要出现
                     if !showingStoryInputView || !showingForWhoInputView {
