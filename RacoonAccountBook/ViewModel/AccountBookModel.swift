@@ -27,6 +27,14 @@ class AccountBookModel: ObservableObject {
 
     // MARK: - Access to calculated Data
 
+    // 返回本月的PeriodicEx
+    func GetBookOfThisMonth() -> PeriodicEx {
+        let today = DateInRegion(region: regionChina)
+
+        return monthlyBook[SupportedYear(rawValue: today.year) ?? .Y2024]?
+            .monthlyEx[Month(rawValue: today.month) ?? .Dec] ?? PeriodicEx(sign: today)
+    }
+
     // [返回某个月的花销 和 这个月最后有花销的天数]
     // 给进一个月份
     // 返回`这个月份按天分组后的字典`和`最后有item的天数`
