@@ -23,7 +23,7 @@ struct DayItemsView: View {
                     ForEach(dayItems, id: \.self) { item in
                         // TODO: 一天内的花销按添加顺序排列
                         MetaItemView(metadata: item.metadata)
-                            .padding([.top], 1)
+                            .padding([.top], 6) // 不同 MetaItemView 之间上下
                     }
                 }
                 .padding([.horizontal], 10) // 日期和花销两边的padding
