@@ -22,6 +22,7 @@ struct ReportTab: View {
                         switch selectedSegment {
                         case .focus:
                             FocusExView()
+                            FocusPieChartView()
                             
                         case .report:
                             ExView(monthBook: monthBook)
