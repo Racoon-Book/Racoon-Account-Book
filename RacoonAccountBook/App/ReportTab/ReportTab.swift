@@ -35,7 +35,10 @@ struct ReportTab: View {
                     }
                 }
             }
+            .navigationTitle("本月的统计")
+            .navigationBarTitleDisplayMode(.inline)
         }
+        .edgesIgnoringSafeArea(.top)
     }
     
     enum SegmentChoice {
