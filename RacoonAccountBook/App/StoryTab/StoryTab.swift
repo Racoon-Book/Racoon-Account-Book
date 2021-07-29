@@ -5,22 +5,29 @@ struct StoryTab: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
 
     var body: some View {
-        let items = RacoonAccountBook.wholeBook.items
-            .filter { $0.metadata.story != nil }
-
         NavigationView {
             VStack {
                 // TODO: 像账本那样做一个深色的统计页面应该比较好
-                Text("像账本那样做一个深色的统计页面应该比较好")
-                    .padding(10)
-
-                ScrollView(.vertical) {
-                    LazyVStack {
-                        ForEach(items) { item in
-                            ItemStoryView(item: item)
-                        }
-                        .padding(.horizontal, 10) // 让圆角矩形边框不靠边
+                if let items = RacoonAccountBook.GetItemsWithStory() {
+                    ScrollViewReader { scrollView in
+                        ScrollView(.vertical) {
+                            LazyVStack {
+                                ForEach(items, id: \.id) { item in
+                                    ItemStoryView(item: item)
+                                }
+                                .padding(.horizontal, 10) // 让圆角矩形边框不靠边
+                            }
+                            .onAppear {
+                                // 出现的时候滑到最下面
+                                printLog(items.count)
+                                printLog(items.first!)
+                                printLog(items.last!)
+                                scrollView.scrollTo(items.last?.id) // FIXME: 这个没效果不知道为什么 感觉好像和账本页面的ScrollView冲突了
+                            }
+                        }.padding([.vertical], 5) // 让上下两个stroy不靠边
                     }
+                } else {
+                    Text("Error in StoryTab")
                 }
             }
             .navigationTitle("最近的财记")

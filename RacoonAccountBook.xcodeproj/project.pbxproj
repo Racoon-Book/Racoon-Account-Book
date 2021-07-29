@@ -338,8 +338,8 @@
 		48C6360726A44B8300E7BF15 /* StoryTab */ = {
 			isa = PBXGroup;
 			children = (
-				6E6EA6A026AD23250084055E /* Component */,
 				48F0A09D26A55DF9004898C0 /* StoryTab.swift */,
+				6E6EA6A026AD23250084055E /* Component */,
 			);
 			path = StoryTab;
 			sourceTree = "<group>";

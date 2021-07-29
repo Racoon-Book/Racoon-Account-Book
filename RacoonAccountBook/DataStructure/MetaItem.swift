@@ -125,14 +125,7 @@ extension MetaItem: CustomStringConvertible {
         let amount = String(format: "%.1f", amount_float)
         let date: String = spentMoneyAt.toFormat("yyyy/M/d", locale: Locales.chineseChina)
 
-        var generatedTags: String = ""
-        for gTag in self.generatedTags { generatedTags.append(gTag + " ") }
-        var tags: String = ""
-        for tag in self.tags { tags.append(tag + " ") }
-
         let focus: String = self.focus ?? "nil"
-        var forWho: String = ""
-        for sb in self.forWho { forWho.append(sb + " ") }
 
         let rating: String = String(self.story?.rating ?? 0)
         let emoji: String = self.story?.emoji ?? "nil"

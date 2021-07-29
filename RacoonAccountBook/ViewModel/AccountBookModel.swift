@@ -107,6 +107,14 @@ class AccountBookModel: ObservableObject {
         return sum
     }
 
+    func GetItemsWithStory() -> [Item] {
+        let item_with_story: [Item] = wholeBook.items.filter {
+            $0.metadata.story != nil
+        }
+
+        return item_with_story
+    }
+
     // MARK: - Deal with Intents from View
 
     // 通过MetaItem给Book中插入Item
