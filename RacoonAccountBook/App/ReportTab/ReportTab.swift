@@ -25,6 +25,7 @@ struct ReportTab: View {
                             
                         case .report:
                             ExView(monthBook: monthBook)
+                            ExChartView(monthBook: monthBook)
                             DayCounterView(monthBook: monthBook)
                             FocusExView()
                             
