@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+
 var emojiStickers: [String] = [
     // 喜
     "😄", "😃", "☺️", "😌", "😆", "🤓", "😎", "🥰", "😍", "🥳",
