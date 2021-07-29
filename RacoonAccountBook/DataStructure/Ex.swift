@@ -34,6 +34,7 @@ struct PeriodicEx {
     // 由上面这些条目统计得到的：
     var exSum: Float = 0 // 支出总数 // 为了性能，这个值每次存取都进行计算，而不是每次都遍历求和
     var exCounter: Int = 0 // 支出的条数
+    var exHighest: Float = 0 // 最高支出的金额
 }
 
 // [花销]
@@ -42,4 +43,5 @@ struct Ex {
 
     var exSum: Float = 0 // 支出总数 // 为了性能，这个值每次存取都进行计算，而不是每次都遍历求和
     var exCounter: Int = 0 // 支出的条数
+    var exHighest: Float = 0 // 最高支出的金额
 }

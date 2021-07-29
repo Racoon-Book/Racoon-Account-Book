@@ -66,6 +66,13 @@ struct AccountBook {
         monthlyBook[SupportedYear(rawValue: year) ?? .Y2024]?
             .monthlyEx[Month(rawValue: month) ?? .Dec]?
             .exSum = monthlySum + metadata.amount_float
+        // 计算最高金额
+        let monthlyHigh = monthlyBook[SupportedYear(rawValue: year) ?? .Y2024]?
+            .monthlyEx[Month(rawValue: month) ?? .Dec]?
+            .exHighest ?? 0
+        monthlyBook[SupportedYear(rawValue: year) ?? .Y2024]?
+            .monthlyEx[Month(rawValue: month) ?? .Dec]?
+            .exHighest = max(metadata.amount_float, monthlyHigh)
 
         // [wholeBook]
         // 添加
@@ -74,6 +81,8 @@ struct AccountBook {
         wholeBook.exCounter = wholeBook.exCounter + 1
         // 计算总额
         wholeBook.exSum = wholeBook.exSum + metadata.amount_float
+        // 计算最高金额
+        wholeBook.exHighest = max(wholeBook.exHighest, metadata.amount_float)
 
         // [Log]
         printLog("[AccountBook.createItem()] " + "id: \(item.id)" + "\n" + "\(item.metadata)")
