@@ -1,6 +1,5 @@
 import SwiftDate
 import SwiftUI
-import Charts
 
 struct ReportTab: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
