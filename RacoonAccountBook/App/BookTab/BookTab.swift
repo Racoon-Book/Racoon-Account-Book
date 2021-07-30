@@ -8,8 +8,9 @@ struct BookTab: View {
         let today = DateInRegion(region: regionChina)
         let thisYear: Int = today.year
         let thisMonth: Int = today.month
+
+        let cardPadding: CGFloat = CGFloat(10)
         
-        let cardPadding: Int = 10
         NavigationView {
             VStack {
                 IncomeExpenditureView(usingRelativeDays: false,
