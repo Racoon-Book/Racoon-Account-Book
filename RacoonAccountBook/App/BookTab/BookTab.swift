@@ -8,7 +8,8 @@ struct BookTab: View {
         let today = DateInRegion(region: regionChina)
         let thisYear: Int = today.year
         let thisMonth: Int = today.month
-
+        
+        let cardPadding: Int = 10
         NavigationView {
             VStack {
                 IncomeExpenditureView(usingRelativeDays: false,
@@ -18,7 +19,7 @@ struct BookTab: View {
                                           .monthlyEx[Month(rawValue: thisMonth) ?? .Dec]?
                                           .exSum ?? 0,
                                       thirtyIn: 0)
-                    .padding(10)
+                    .padding(cardPadding)
                 // TODO: 这里也许可以加个阴影？
 
                 ScrollViewReader { scrollView in
@@ -43,7 +44,7 @@ struct BookTab: View {
                                             date: date,
                                             dayItems: dayItems
                                         )
-                                        .padding([.horizontal], 10) // 让圆角矩形边框不靠边
+                                        .padding([.horizontal], cardPadding) // 让圆角矩形边框不靠边
                                     }
                                 }
                             }
@@ -62,7 +63,7 @@ struct BookTab: View {
                         Text("Error in ScrollView: nil in monthlyBook")
                     }
                 }
-                .padding([.bottom], 10) // 最下方别贴着屏幕底端
+                .padding([.bottom], cardPadding) // 最下方别贴着屏幕底端
             }
             .navigationTitle("\(String(thisYear))年\(thisMonth)月 花销")
             // 为了不出现`,`使用`String()`
