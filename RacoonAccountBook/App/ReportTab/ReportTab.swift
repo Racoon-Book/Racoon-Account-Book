@@ -34,7 +34,9 @@ struct ReportTab: View {
                             DayCounterView(monthBook: monthBook)
                         }
                     }
+                    .padding(.all, 10.0)
                 }
+                .padding(.bottom, 10.0)
             }
             .navigationTitle("本月的统计")
             .navigationBarTitleDisplayMode(.inline)
