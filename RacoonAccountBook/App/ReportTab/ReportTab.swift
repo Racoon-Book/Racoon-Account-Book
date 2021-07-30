@@ -7,7 +7,7 @@ struct ReportTab: View {
 
     var body: some View {
         let monthBook = RacoonAccountBook.GetBookOfThisMonth()
-        
+
         NavigationView {
             VStack {
                 Picker(selection: $selectedSegment, label: Text("页面")) {
@@ -16,20 +16,20 @@ struct ReportTab: View {
                     Text("习惯").tag(SegmentChoice.habit)
                 }
                 .pickerStyle(SegmentedPickerStyle())
-                
+
                 ScrollView {
                     VStack {
                         switch selectedSegment {
                         case .focus:
                             FocusExView()
                             FocusPieChartView()
-                            
+
                         case .report:
                             ExView(monthBook: monthBook)
                             ExChartView(monthBook: monthBook)
                             DayCounterView(monthBook: monthBook)
                             FocusExView()
-                            
+
                         case .habit:
                             DayCounterView(monthBook: monthBook)
                         }
@@ -43,7 +43,7 @@ struct ReportTab: View {
         }
         .edgesIgnoringSafeArea(.top)
     }
-    
+
     enum SegmentChoice {
         case focus
         case report

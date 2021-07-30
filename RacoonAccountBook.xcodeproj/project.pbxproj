@@ -290,9 +290,8 @@
 				488D3A79269F0E5B00287A50 /* MainView.swift */,
 				48C6360526A44B5700E7BF15 /* AddView */,
 				48C6360426A44B1400E7BF15 /* BookTab */,
-				48C6360626A44B6000E7BF15 /* ReportTab */,
 				48C6360726A44B8300E7BF15 /* StoryTab */,
-				488D3A9B269F338800287A50 /* Component */,
+				48C6360626A44B6000E7BF15 /* ReportTab */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -348,6 +347,7 @@
 				4878A77726AE8CC700DCBC8D /* Story */,
 				4830D9CA26B25CD7007710FD /* ForWho */,
 				4830D9C226B1FD5A007710FD /* NewMetaData */,
+				488D3A9B269F338800287A50 /* Component */,
 			);
 			path = AddView;
 			sourceTree = "<group>";
