@@ -41,7 +41,8 @@ class AccountBookModel: ObservableObject {
             .monthlyEx[Month(rawValue: today.month) ?? .Dec] ?? PeriodicEx(sign: today)
 
         // 筛选包含tag的记录
-        // book.items = book.items.filter { $0.metadata.tags.contains(tag) }
+        // FIXME: 对关注标签的理解似乎不对
+        book.items = book.items.filter { $0.metadata.tags.contains(tag) || $0.metadata.focus == tag }
 
         // 重新计算ExSum等
         book.exCounter = book.items.count
