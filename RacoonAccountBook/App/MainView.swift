@@ -11,7 +11,8 @@ struct MainView: View {
     // [Add需要用到的东西]
     @State private var addUIConfig = AddUIConfig(
         isShowingOrdinaryAddView: false,
-        isShowingVoiceInputView: false // 最开始都不显示
+        isShowingVoiceInputView: false, // 最开始都不显示
+        blurRadius: 0 // 控制TabView模糊的程度，语音输入时模糊画面
     )
 
     @State private var metadata_inputting = MetaItem(
@@ -47,14 +48,13 @@ struct MainView: View {
                     }
                     .tag(MainView.Tab3)
             }
+            .blur(radius: addUIConfig.blurRadius)
 
+            // VoiceInputView 在 FloatingAddButton 中显示
             if selectedTab != MainView.Tab3 {
-                FloatingAddButton(addUIConfig: $addUIConfig)
-            }
-
-            // 悬浮在所有界面之上的语音识别界面 所以在ZStack最下方
-            if addUIConfig.isShowingVoiceInputView {
-                VoiceInputView(addUIConfig: $addUIConfig, metadata_inputting: $metadata_inputting)
+                FloatingAddButton(addUIConfig: $addUIConfig,
+                                  metadata_inputting: $metadata_inputting
+                )
             }
         }
         .sheet(
@@ -85,6 +85,7 @@ struct MainView: View {
 struct AddUIConfig {
     var isShowingOrdinaryAddView: Bool = false
     var isShowingVoiceInputView: Bool = false
+    var blurRadius: CGFloat = 0
 }
 
 struct MainView_Previews: PreviewProvider {

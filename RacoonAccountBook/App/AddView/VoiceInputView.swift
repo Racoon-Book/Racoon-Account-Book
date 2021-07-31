@@ -5,30 +5,19 @@ import SwiftUI
 struct VoiceInputView: View {
     @Binding var addUIConfig: AddUIConfig
     @Binding var metadata_inputting: MetaItem
-
-    @State private var recognizedText: String = "" // （自用）动态识别出的结果
+    @Binding var recognizedText: String
 
     var body: some View {
         ZStack {
-            // [暗淡背景]
-            RoundedRectangle(cornerRadius: 25)
-                .fill(Color.black)
-                .opacity(0.5)
-
             VStack {
                 // 实时显示语音识别结果
-                // TODO: 这里可以改成TextFiekd 这样用户看到错别字就可以直接修改
+                // TODO: 这里可以改成TextField 这样用户看到错别字就可以直接修改
                 Text(recognizedText)
                     .font(.system(.title))
 
                 HStack {
                     // 清除按钮
                     ClearSpeechButton(recognizedText: $recognizedText)
-                    // 按住输入语音按钮
-                    SwiftSpeech.RecordButton()
-                        .font(.system(.title))
-                        .swiftSpeechRecordOnHold(locale: Locale(identifier: ChineseSpeechIdentifier))
-                        .onRecognizeLatest(update: $recognizedText)
                     // 确定语音输入没问题 提交
                     CommitSpeechButton(addUIConfig: $addUIConfig,
                                        metadata_inputting: $metadata_inputting,
@@ -41,8 +30,9 @@ struct VoiceInputView: View {
 
                 // 关闭语音输入
                 Button {
-                    // 除了关闭VoiceInputView什么都不用做
-                    addUIConfig.isShowingVoiceInputView = false
+                    addUIConfig.blurRadius = 0 // 取消模糊
+                    addUIConfig.isShowingVoiceInputView = false // 关闭VoiceInputView
+                    recognizedText = "" // 清除已识别文字
                 } label: {
                     Text(Image(systemName: "xmark"))
                         .font(.system(.title))
@@ -86,6 +76,7 @@ struct CommitSpeechButton: View {
             UpdateMetaItem()
 
             withAnimation { // TODO: 不太清楚这个动画有没有作用
+                addUIConfig.blurRadius = 0 // 取消模糊
                 addUIConfig.isShowingVoiceInputView = false // 提交之后收起语音添加界面
                 addUIConfig.isShowingOrdinaryAddView = true // 呈现 OrdinaryAddSheet
             }
@@ -100,7 +91,8 @@ struct CommitSpeechButton: View {
         metadata_inputting.update(
             event: OriginalText2Event(from: metadata_inputting.originalText ?? "") ?? "",
             amount_float: OriginalText2Amount(from: metadata_inputting.originalText ?? "") ?? 0.0,
-            generatedTags: OriginalText2GeneratedTags(from: metadata_inputting.originalText ?? ""))
+            generatedTags: OriginalText2GeneratedTags(from: metadata_inputting.originalText ?? "")
+        )
     }
 }
 
@@ -122,7 +114,8 @@ struct VoiceInputView_Previews: PreviewProvider {
                     event: "买饮料",
                     amount_float: 3.5
                 )
-            )
+            ),
+            recognizedText: .constant("")
         )
     }
 }
