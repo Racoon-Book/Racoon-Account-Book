@@ -122,7 +122,6 @@
 		48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputView.swift; sourceTree = "<group>"; };
 		48B40E3026AAE1290030AAF6 /* Locale+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+.swift"; sourceTree = "<group>"; };
 		48C6360226A44B0B00E7BF15 /* IncomeExpenditureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeExpenditureView.swift; sourceTree = "<group>"; };
-		48C6360926A4682700E7BF15 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		48C6361D26A480D100E7BF15 /* Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ex.swift; sourceTree = "<group>"; };
 		48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButtonView.swift; sourceTree = "<group>"; };
 		48F0A09B26A4CED6004898C0 /* DayItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayItemsView.swift; sourceTree = "<group>"; };
@@ -248,7 +247,6 @@
 				488D3A8E269F0F3D00287A50 /* App */,
 				488D3A97269F27C500287A50 /* Auxiliary */,
 				488D3A7B269F0E5E00287A50 /* Assets.xcassets */,
-				48C6360826A4681300E7BF15 /* Docs */,
 				488D3A80269F0E5E00287A50 /* Info.plist */,
 				488D3A7D269F0E5E00287A50 /* Preview Content */,
 			);
@@ -355,8 +353,8 @@
 		48C6360626A44B6000E7BF15 /* ReportTab */ = {
 			isa = PBXGroup;
 			children = (
-				6EAD04E226B2D60100DB5FBA /* Component */,
 				488D3A95269F188100287A50 /* ReportTab.swift */,
+				6EAD04E226B2D60100DB5FBA /* Component */,
 			);
 			path = ReportTab;
 			sourceTree = "<group>";
@@ -368,14 +366,6 @@
 				6E6EA6A026AD23250084055E /* Component */,
 			);
 			path = StoryTab;
-			sourceTree = "<group>";
-		};
-		48C6360826A4681300E7BF15 /* Docs */ = {
-			isa = PBXGroup;
-			children = (
-				48C6360926A4682700E7BF15 /* TODO.md */,
-			);
-			path = Docs;
 			sourceTree = "<group>";
 		};
 		48F0A09A26A4CEBB004898C0 /* Component */ = {
