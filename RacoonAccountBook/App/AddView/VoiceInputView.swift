@@ -21,11 +21,7 @@ struct VoiceInputView: View {
 
                     // 提交、关闭按钮
                     HStack {
-                        // 确定语音输入没问题 提交
-                        CommitSpeechButton(addUIConfig: $addUIConfig,
-                                           metadata_inputting: $metadata_inputting,
-                                           recognizedText: $recognizedText)
-                            .padding(.horizontal, 15.0)
+                        Spacer()
                         Button {
                             addUIConfig.blurRadius = 0 // 取消模糊
                             addUIConfig.isShowingVoiceInputView = false // 关闭VoiceInputView
@@ -34,7 +30,12 @@ struct VoiceInputView: View {
                             Text(Image(systemName: "xmark"))
                                 .font(.system(.title))
                         }
-                        .padding(.horizontal, 15.0)
+                        Spacer()
+                        // 确定语音输入没问题 提交
+                        CommitSpeechButton(addUIConfig: $addUIConfig,
+                                           metadata_inputting: $metadata_inputting,
+                                           recognizedText: $recognizedText)
+                        Spacer()
                     }
                     .padding(.vertical, 15.0)
 
