@@ -8,36 +8,44 @@ struct VoiceInputView: View {
     @Binding var recognizedText: String
 
     var body: some View {
-        ZStack {
-            VStack {
-                // 提示，当存在已识别文本时显示语音识别结果
-                Text(recognizedText == "" ? "长按添加按钮来录入" : recognizedText)
-                    .font(.system(.title))
+        GeometryReader { geo in
+            // ZStack 用于将 GeometryReader 内部元素居中：https://stackoverflow.com/a/64125081
+            ZStack {
+                VStack {
+                    Spacer(minLength: geo.size.height * 0.55)
+
+                    // 提示，当存在已识别文本时显示语音识别结果
+                    Text(recognizedText == "" ? "长按添加按钮来录入" : recognizedText)
+                        .font(.system(.title))
+                        .padding(.vertical, 15.0)
+
+                    // 提交、关闭按钮
+                    HStack {
+                        // 确定语音输入没问题 提交
+                        CommitSpeechButton(addUIConfig: $addUIConfig,
+                                           metadata_inputting: $metadata_inputting,
+                                           recognizedText: $recognizedText)
+                            .padding(.horizontal, 15.0)
+                        Button {
+                            addUIConfig.blurRadius = 0 // 取消模糊
+                            addUIConfig.isShowingVoiceInputView = false // 关闭VoiceInputView
+                            recognizedText = "" // 清除已识别文字
+                        } label: {
+                            Text(Image(systemName: "xmark"))
+                                .font(.system(.title))
+                        }
+                        .padding(.horizontal, 15.0)
+                    }
                     .padding(.vertical, 15.0)
 
-                // 提交、关闭按钮
-                HStack {
-                    // 确定语音输入没问题 提交
-                    CommitSpeechButton(addUIConfig: $addUIConfig,
-                                       metadata_inputting: $metadata_inputting,
-                                       recognizedText: $recognizedText)
-                        .padding(.horizontal, 15.0)
-                    Button {
-                        addUIConfig.blurRadius = 0 // 取消模糊
-                        addUIConfig.isShowingVoiceInputView = false // 关闭VoiceInputView
-                        recognizedText = "" // 清除已识别文字
-                    } label: {
-                        Text(Image(systemName: "xmark"))
-                            .font(.system(.title))
-                    }
-                    .padding(.horizontal, 15.0)
+                    Spacer()
                 }
-                .padding(.vertical, 15.0)
+                .onAppear {
+                    SwiftSpeech.requestSpeechRecognitionAuthorization() // 获取SwiftSpeech录音和语音识别的权限
+                    // TODO: 如果用户不给权限可能需要加一些处理
+                }
             }
-        }
-        .onAppear {
-            SwiftSpeech.requestSpeechRecognitionAuthorization() // 获取SwiftSpeech录音和语音识别的权限
-            // TODO: 如果用户不给权限可能需要加一些处理
+            .frame(width: geo.size.width, height: geo.size.height)
         }
     }
 }
