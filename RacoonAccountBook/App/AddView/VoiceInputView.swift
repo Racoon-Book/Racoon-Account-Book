@@ -10,55 +10,35 @@ struct VoiceInputView: View {
     var body: some View {
         ZStack {
             VStack {
-                // 实时显示语音识别结果
-                // TODO: 这里可以改成TextField 这样用户看到错别字就可以直接修改
-                Text(recognizedText)
+                // 提示，当存在已识别文本时显示语音识别结果
+                Text(recognizedText == "" ? "长按添加按钮来录入" : recognizedText)
                     .font(.system(.title))
+                    .padding(.vertical, 15.0)
 
+                // 提交、关闭按钮
                 HStack {
-                    // 清除按钮
-                    ClearSpeechButton(recognizedText: $recognizedText)
                     // 确定语音输入没问题 提交
                     CommitSpeechButton(addUIConfig: $addUIConfig,
                                        metadata_inputting: $metadata_inputting,
                                        recognizedText: $recognizedText)
+                        .padding(.horizontal, 15.0)
+                    Button {
+                        addUIConfig.blurRadius = 0 // 取消模糊
+                        addUIConfig.isShowingVoiceInputView = false // 关闭VoiceInputView
+                        recognizedText = "" // 清除已识别文字
+                    } label: {
+                        Text(Image(systemName: "xmark"))
+                            .font(.system(.title))
+                    }
+                    .padding(.horizontal, 15.0)
                 }
-
-                // 提示
-                Text("按住来录入")
-                    .font(.system(.title))
-
-                // 关闭语音输入
-                Button {
-                    addUIConfig.blurRadius = 0 // 取消模糊
-                    addUIConfig.isShowingVoiceInputView = false // 关闭VoiceInputView
-                    recognizedText = "" // 清除已识别文字
-                } label: {
-                    Text(Image(systemName: "xmark"))
-                        .font(.system(.title))
-                }
+                .padding(.vertical, 15.0)
             }
         }
         .onAppear {
             SwiftSpeech.requestSpeechRecognitionAuthorization() // 获取SwiftSpeech录音和语音识别的权限
             // TODO: 如果用户不给权限可能需要加一些处理
         }
-    }
-}
-
-struct ClearSpeechButton: View {
-    @Binding var recognizedText: String
-
-    var body: some View {
-        Button(action: {
-            printLog("[ClearSpeechButton] Clicked.")
-            withAnimation {
-                recognizedText = ""
-            }
-        }, label: {
-            Text(Image(systemName: "arrow.counterclockwise"))
-                .font(.system(.title))
-        })
     }
 }
 
