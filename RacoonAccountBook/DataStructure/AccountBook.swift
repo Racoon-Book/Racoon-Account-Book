@@ -21,11 +21,11 @@ struct AccountBook {
 
     // [记录用户添加的所有focus]
     // TODO: 之后需要改成可以修改的，用户在设置中进行添加和删除
-    let defaultFocusList: [String] = ["学习", "生活"] // TODO: 添加默认的关注列表
+    static let defaultFocusList: [String] = ["学习", "生活"] // TODO: 添加默认的关注列表
     #if DEV
         static var focusList: [String] = ["电子设备", "软件服务", "聚餐", "游戏", "宿舍"]
     #else
-        static var focusList: [String] = defaultFocusList
+        static var focusList: [String] = AccountBook.defaultFocusList
     #endif
 
     // MARK: - Logic
