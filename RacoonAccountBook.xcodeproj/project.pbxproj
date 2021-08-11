@@ -779,7 +779,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.racoon.RacoonAccountBook;
+				PRODUCT_BUNDLE_IDENTIFIER = com.racoon.RacoonAccountBook.dev;
 				PRODUCT_NAME = "浣熊财记";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
