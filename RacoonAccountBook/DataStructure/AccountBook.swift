@@ -34,6 +34,10 @@ struct AccountBook {
             printLog("[AccountBook.init()] [Add testdata] " + "\(item)")
         }
         // END: 插入测试数据
+
+        #if DEV
+        print("DEVDEVDEV")
+        #endif
     }
 
     // [使用MetaItem插入]
