@@ -21,22 +21,27 @@ struct AccountBook {
 
     // [记录用户添加的所有focus]
     // TODO: 之后需要改成可以修改的，用户在设置中进行添加和删除
-    static var focusList: [String] = ["电子设备", "软件服务", "聚餐", "游戏", "宿舍"]
+    let defaultFocusList: [String] = ["学习", "生活"] // TODO: 添加默认的关注列表
+    #if DEV
+        static var focusList: [String] = ["电子设备", "软件服务", "聚餐", "游戏", "宿舍"]
+    #else
+        static var focusList: [String] = defaultFocusList
+    #endif
 
     // MARK: - Logic
 
     // [初始化]
     init() {
         // FIXME: 这里之后初始化就变成从数据库读数据了！
-        // 插入测试数据
-        for metadata in testMetaItems {
-            let item = createItem(metadata: metadata)
-            printLog("[AccountBook.init()] [Add testdata] " + "\(item)")
-        }
-        // END: 插入测试数据
-
         #if DEV
-        print("DEVDEVDEV")
+            // 插入测试数据
+            for metadata in testMetaItems {
+                let item = createItem(metadata: metadata)
+                printLog("[AccountBook.init()] [Add testdata] " + "\(item)")
+            }
+        #else
+            // TODO: 从本地数据库读取数据放入Model
+            print("AccountBook.init()")
         #endif
     }
 
