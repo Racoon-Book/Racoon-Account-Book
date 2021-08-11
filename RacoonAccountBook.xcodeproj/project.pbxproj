@@ -676,7 +676,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.racoon.RacoonAccountBook;
 				PRODUCT_NAME = "浣熊财记";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -698,7 +698,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.racoon.RacoonAccountBook;
 				PRODUCT_NAME = "浣熊财记";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -782,7 +782,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.racoon.RacoonAccountBook;
 				PRODUCT_NAME = "浣熊财记";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Dev;
 		};
