@@ -1,4 +1,5 @@
 #if DEV
+
 import Foundation
 import SwiftDate
 
@@ -1435,7 +1436,7 @@ let testMetaItem_163 = MetaItem(
 )
 
 let testMetaItem_164 = MetaItem(
-    originalText: " AirPods Pro教育优惠753",
+    originalText: "AirPods Pro教育优惠753",
     spentMoneyAt: "210716".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "AirPods Pro",
     amount_float: 753.0,
@@ -1569,6 +1570,123 @@ let testMetaItem_178 = MetaItem(
     focus: "聚餐"
 )
 
-let testMetaItems: [MetaItem] = [testMetaItem_1, testMetaItem_2, testMetaItem_3, testMetaItem_4, testMetaItem_5, testMetaItem_6, testMetaItem_7, testMetaItem_8, testMetaItem_9, testMetaItem_10, testMetaItem_11, testMetaItem_12, testMetaItem_13, testMetaItem_14, testMetaItem_15, testMetaItem_16, testMetaItem_17, testMetaItem_18, testMetaItem_19, testMetaItem_20, testMetaItem_21, testMetaItem_22, testMetaItem_23, testMetaItem_24, testMetaItem_25, testMetaItem_26, testMetaItem_27, testMetaItem_28, testMetaItem_29, testMetaItem_30, testMetaItem_31, testMetaItem_32, testMetaItem_33, testMetaItem_34, testMetaItem_35, testMetaItem_36, testMetaItem_37, testMetaItem_38, testMetaItem_39, testMetaItem_40, testMetaItem_41, testMetaItem_42, testMetaItem_43, testMetaItem_44, testMetaItem_45, testMetaItem_46, testMetaItem_47, testMetaItem_48, testMetaItem_49, testMetaItem_50, testMetaItem_51, testMetaItem_52, testMetaItem_53, testMetaItem_54, testMetaItem_55, testMetaItem_56, testMetaItem_57, testMetaItem_58, testMetaItem_59, testMetaItem_60, testMetaItem_61, testMetaItem_62, testMetaItem_63, testMetaItem_64, testMetaItem_65, testMetaItem_66, testMetaItem_67, testMetaItem_68, testMetaItem_69, testMetaItem_70, testMetaItem_71, testMetaItem_72, testMetaItem_73, testMetaItem_74, testMetaItem_75, testMetaItem_76, testMetaItem_77, testMetaItem_78, testMetaItem_79, testMetaItem_80, testMetaItem_81, testMetaItem_82, testMetaItem_83, testMetaItem_84, testMetaItem_85, testMetaItem_86, testMetaItem_87, testMetaItem_88, testMetaItem_89, testMetaItem_90, testMetaItem_91, testMetaItem_92, testMetaItem_93, testMetaItem_94, testMetaItem_95, testMetaItem_96, testMetaItem_97, testMetaItem_98, testMetaItem_99, testMetaItem_100, testMetaItem_101, testMetaItem_102, testMetaItem_103, testMetaItem_104, testMetaItem_105, testMetaItem_106, testMetaItem_107, testMetaItem_108, testMetaItem_109, testMetaItem_110, testMetaItem_111, testMetaItem_112, testMetaItem_113, testMetaItem_114, testMetaItem_115, testMetaItem_116, testMetaItem_117, testMetaItem_118, testMetaItem_119, testMetaItem_120, testMetaItem_121, testMetaItem_122, testMetaItem_123, testMetaItem_124, testMetaItem_125, testMetaItem_126, testMetaItem_127, testMetaItem_128, testMetaItem_129, testMetaItem_130, testMetaItem_131, testMetaItem_132, testMetaItem_133, testMetaItem_134, testMetaItem_135, testMetaItem_136, testMetaItem_137, testMetaItem_138, testMetaItem_139, testMetaItem_140, testMetaItem_141, testMetaItem_142, testMetaItem_143, testMetaItem_144, testMetaItem_145, testMetaItem_146, testMetaItem_147, testMetaItem_148, testMetaItem_149, testMetaItem_150, testMetaItem_151, testMetaItem_152, testMetaItem_153, testMetaItem_154, testMetaItem_155, testMetaItem_156, testMetaItem_157, testMetaItem_158, testMetaItem_159, testMetaItem_160, testMetaItem_161, testMetaItem_162, testMetaItem_163, testMetaItem_164, testMetaItem_165, testMetaItem_166, testMetaItem_167, testMetaItem_168, testMetaItem_169, testMetaItem_170, testMetaItem_171, testMetaItem_172, testMetaItem_173, testMetaItem_174, testMetaItem_175, testMetaItem_176, testMetaItem_177, testMetaItem_178]
+let testMetaItem_179 = MetaItem(
+    originalText: "洗衣花了三块八",
+    spentMoneyAt: "210727".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "洗衣",
+    amount_float: 3.8,
+    tags: ["洗衣"]
+)
+
+let testMetaItem_180 = MetaItem(
+    originalText: "楼下买吃的花了二十",
+    spentMoneyAt: "210731".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "楼下吃的",
+    amount_float: 20.0,
+    tags: ["零食"]
+)
+
+let testMetaItem_181 = MetaItem(
+    originalText: "超市买东西花了八十二块七",
+    spentMoneyAt: "210801".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "超市买东西",
+    amount_float: 82.7,
+    tags: ["超市", "奶"]
+)
+
+let testMetaItem_182 = MetaItem(
+    originalText: "一份面皮三块五",
+    spentMoneyAt: "210801".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "面皮",
+    amount_float: 3.5,
+    tags: ["面皮"]
+)
+
+let testMetaItem_183 = MetaItem(
+    originalText: "买打气筒给自行车充气花了二十八块五",
+    spentMoneyAt: "210803".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "打气筒",
+    amount_float: 28.5,
+    tags: ["打气筒", "自行车"]
+)
+
+let testMetaItem_184 = MetaItem(
+    originalText: "买礼品卡花了二十",
+    spentMoneyAt: "210804".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "中国app store礼品卡",
+    amount_float: 20.0,
+    tags: ["礼品卡"]
+)
+
+let testMetaItem_185 = MetaItem(
+    originalText: "淘宝礼品卡代充花了七十",
+    spentMoneyAt: "210804".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "美区app store礼品卡",
+    amount_float: 70.0,
+    tags: ["礼品卡"],
+    focus: "游戏"
+)
+
+let testMetaItem_186 = MetaItem(
+    originalText: "买Office套件花了八块",
+    spentMoneyAt: "210804".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "office",
+    amount_float: 8.0,
+    tags: ["Microsoft", "Office"],
+    focus: "软件服务",
+    story: MetaItem.Story(rating: 5,
+                          emoji: "🧐",
+                          text: "学校给的Office不知道怎么就装不上，某宝买了一个非常好用！iPad上也下载好了，而且还是自己改密码的那种；虽然不知道哪天就跑路了，但是先用着吧")
+)
+
+let testMetaItem_187 = MetaItem(
+    originalText: "去钓鱼台花了20",
+    spentMoneyAt: "210807".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "钓鱼台",
+    amount_float: 20.0,
+    tags: ["旅游"],
+    story: MetaItem.Story(rating: 5,
+                          emoji: "😆",
+                          text: "超级不错！虽然景区不大，但里面的水库惊艳到我了，看到了彩虹色的水雾！太棒了")
+)
+
+let testMetaItem_188 = MetaItem(
+    originalText: "九成宫门票四十",
+    spentMoneyAt: "210808".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "九成宫",
+    amount_float: 40.0,
+    tags: ["旅游"]
+)
+
+let testMetaItem_189 = MetaItem(
+    originalText: "买DLSite点数",
+    spentMoneyAt: "210808".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "dlsite1000点数",
+    amount_float: 60.0,
+    tags: ["音声", "DLSite"],
+    focus: "软件服务",
+    story: MetaItem.Story(rating: 5,
+                          emoji: "🥰",
+                          text: "又遇到了一个超级棒的音声！直接去买了")
+)
+
+let testMetaItem_190 = MetaItem(
+    originalText: "买湿巾花了三十八块八",
+    spentMoneyAt: "210811".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "湿巾",
+    amount_float: 38.8,
+    tags: ["湿巾", "餐桌"]
+)
+
+let testMetaItem_191 = MetaItem(
+    originalText: "买macOS开发书花了八十一",
+    spentMoneyAt: "210811".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "macOS开发书",
+    amount_float: 81.0,
+    tags: ["AppKit", "macOS", "Xcode"],
+    focus: "软件服务"
+)
+
+let testMetaItems: [MetaItem] = [testMetaItem_1, testMetaItem_2, testMetaItem_3, testMetaItem_4, testMetaItem_5, testMetaItem_6, testMetaItem_7, testMetaItem_8, testMetaItem_9, testMetaItem_10, testMetaItem_11, testMetaItem_12, testMetaItem_13, testMetaItem_14, testMetaItem_15, testMetaItem_16, testMetaItem_17, testMetaItem_18, testMetaItem_19, testMetaItem_20, testMetaItem_21, testMetaItem_22, testMetaItem_23, testMetaItem_24, testMetaItem_25, testMetaItem_26, testMetaItem_27, testMetaItem_28, testMetaItem_29, testMetaItem_30, testMetaItem_31, testMetaItem_32, testMetaItem_33, testMetaItem_34, testMetaItem_35, testMetaItem_36, testMetaItem_37, testMetaItem_38, testMetaItem_39, testMetaItem_40, testMetaItem_41, testMetaItem_42, testMetaItem_43, testMetaItem_44, testMetaItem_45, testMetaItem_46, testMetaItem_47, testMetaItem_48, testMetaItem_49, testMetaItem_50, testMetaItem_51, testMetaItem_52, testMetaItem_53, testMetaItem_54, testMetaItem_55, testMetaItem_56, testMetaItem_57, testMetaItem_58, testMetaItem_59, testMetaItem_60, testMetaItem_61, testMetaItem_62, testMetaItem_63, testMetaItem_64, testMetaItem_65, testMetaItem_66, testMetaItem_67, testMetaItem_68, testMetaItem_69, testMetaItem_70, testMetaItem_71, testMetaItem_72, testMetaItem_73, testMetaItem_74, testMetaItem_75, testMetaItem_76, testMetaItem_77, testMetaItem_78, testMetaItem_79, testMetaItem_80, testMetaItem_81, testMetaItem_82, testMetaItem_83, testMetaItem_84, testMetaItem_85, testMetaItem_86, testMetaItem_87, testMetaItem_88, testMetaItem_89, testMetaItem_90, testMetaItem_91, testMetaItem_92, testMetaItem_93, testMetaItem_94, testMetaItem_95, testMetaItem_96, testMetaItem_97, testMetaItem_98, testMetaItem_99, testMetaItem_100, testMetaItem_101, testMetaItem_102, testMetaItem_103, testMetaItem_104, testMetaItem_105, testMetaItem_106, testMetaItem_107, testMetaItem_108, testMetaItem_109, testMetaItem_110, testMetaItem_111, testMetaItem_112, testMetaItem_113, testMetaItem_114, testMetaItem_115, testMetaItem_116, testMetaItem_117, testMetaItem_118, testMetaItem_119, testMetaItem_120, testMetaItem_121, testMetaItem_122, testMetaItem_123, testMetaItem_124, testMetaItem_125, testMetaItem_126, testMetaItem_127, testMetaItem_128, testMetaItem_129, testMetaItem_130, testMetaItem_131, testMetaItem_132, testMetaItem_133, testMetaItem_134, testMetaItem_135, testMetaItem_136, testMetaItem_137, testMetaItem_138, testMetaItem_139, testMetaItem_140, testMetaItem_141, testMetaItem_142, testMetaItem_143, testMetaItem_144, testMetaItem_145, testMetaItem_146, testMetaItem_147, testMetaItem_148, testMetaItem_149, testMetaItem_150, testMetaItem_151, testMetaItem_152, testMetaItem_153, testMetaItem_154, testMetaItem_155, testMetaItem_156, testMetaItem_157, testMetaItem_158, testMetaItem_159, testMetaItem_160, testMetaItem_161, testMetaItem_162, testMetaItem_163, testMetaItem_164, testMetaItem_165, testMetaItem_166, testMetaItem_167, testMetaItem_168, testMetaItem_169, testMetaItem_170, testMetaItem_171, testMetaItem_172, testMetaItem_173, testMetaItem_174, testMetaItem_175, testMetaItem_176, testMetaItem_177, testMetaItem_178, testMetaItem_179, testMetaItem_180, testMetaItem_181, testMetaItem_182, testMetaItem_183, testMetaItem_184, testMetaItem_185, testMetaItem_186, testMetaItem_187, testMetaItem_188, testMetaItem_189, testMetaItem_190, testMetaItem_191]
 
 #endif
