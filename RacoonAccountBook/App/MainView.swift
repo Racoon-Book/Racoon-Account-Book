@@ -1,7 +1,10 @@
 import SwiftDate
 import SwiftUI
+import UIKit
 
 struct MainView: View {
+    @EnvironmentObject var RacoonAccountBook: AccountBookModel
+
     // [TabView需要用到的东西]
     private static let Tab1: String = "账本"
     private static let Tab2: String = "财记"
@@ -23,6 +26,8 @@ struct MainView: View {
     )
 
     @State private var amount_string_inputting: String = "" // 用来转换输入的可能不是小数的小数
+
+    @State private var showAddSuccessfullyAlert: Bool = false // 添加之后显示成功添加的提示
 
     var body: some View {
         ZStack {
@@ -50,11 +55,15 @@ struct MainView: View {
             }
             .blur(radius: addUIConfig.blurRadius)
 
+            // 成功记账提示
+            if showAddSuccessfullyAlert {
+                SuccessfullyAddAlert(showAddSuccessfullyAlert: $showAddSuccessfullyAlert, metadata: RacoonAccountBook.wholeBook.items.last!.metadata)
+            }
+
             // VoiceInputView 在 FloatingAddButton 中显示
             if selectedTab != MainView.Tab3 {
                 FloatingAddButton(addUIConfig: $addUIConfig,
-                                  metadata_inputting: $metadata_inputting
-                )
+                                  metadata_inputting: $metadata_inputting)
             }
         }
         .sheet(
@@ -65,7 +74,8 @@ struct MainView: View {
             OrdinaryAddSheet(
                 addUIConfig: $addUIConfig,
                 metadata_inputting: $metadata_inputting,
-                amount_string_inputting: $amount_string_inputting
+                amount_string_inputting: $amount_string_inputting,
+                showAddSuccessfullyAlert: $showAddSuccessfullyAlert
             )
         }
     }
@@ -88,11 +98,41 @@ struct AddUIConfig {
     var blurRadius: CGFloat = 0
 }
 
-struct MainView_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook = AccountBookModel()
+struct SuccessfullyAddAlert: View {
+    @Binding var showAddSuccessfullyAlert: Bool
+    var metadata: MetaItem
+    var body: some View {
+        VStack {
+            Text("记了一笔账")
+                .foregroundColor(.black)
+                .font(.system(.title))
+                .padding([.horizontal, .top])
 
-    static var previews: some View {
-        MainView()
-            .environmentObject(PreviewAccountBook)
+            MetaItemView(metadata: metadata)
+                .padding()
+        }
+        .frame(width: UIScreen.main.bounds.width - 100)
+        .background(Color("alert.background").opacity(0.95))
+        .cornerRadius(12)
+        .clipped()
+        .padding() // 和右边离远一点
+        .onAppear {
+            // 过一段时间自行消失
+            let appearingTimeInterval: TimeInterval = 3 // seconds
+            Timer.scheduledTimer(withTimeInterval: appearingTimeInterval, repeats: false) { _ in
+                withAnimation(.easeInOut) {
+                    showAddSuccessfullyAlert = false
+                }
+            }
+        }
     }
 }
+
+// struct MainView_Previews: PreviewProvider {
+//    @StateObject static var PreviewAccountBook = AccountBookModel()
+//
+//    static var previews: some View {
+//        MainView()
+//            .environmentObject(PreviewAccountBook)
+//    }
+// }

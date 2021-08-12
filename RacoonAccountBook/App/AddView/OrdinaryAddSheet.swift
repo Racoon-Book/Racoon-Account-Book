@@ -22,6 +22,7 @@ struct OrdinaryAddSheet: View {
 
     @State private var showUnsuccessfullyAddAlert: Bool = false // 是否出现提示框
     @State private var unsuccessfullyAddAlertMessage: String = "" // 添加时出现错误的提示
+    @Binding var showAddSuccessfullyAlert: Bool
 
     // MARK: - 添加界面额外的添加选项
 
@@ -30,8 +31,7 @@ struct OrdinaryAddSheet: View {
 
     // MARK: - 是否正在编辑某个文本框
 
-    // TODO: 这个没啥必要感觉 先留着吧
-    @State private var isEditing: Bool = false
+    @State private var isEditing: Bool = false // TODO: 这个没啥必要感觉 先留着吧
 
     var body: some View {
         NavigationView {
@@ -188,8 +188,14 @@ struct OrdinaryAddSheet: View {
         print("-" + metadata_inputting.event + "-")
 
         if !noEvent && !noAmount {
+            // [确认添加]
             RacoonAccountBook.createItem(metadata: metadata_inputting)
-            DiscardCurrentMetaItem() // 写好了之后将inputting的数据都清零
+
+            // [添加成功显示提示]
+            showAddSuccessfullyAlert = true
+
+            // [创建好数据之后将临时数据归零了]
+            DiscardCurrentMetaItem()
             addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
         } else {
             if noEvent, noAmount {
@@ -210,20 +216,20 @@ struct OrdinaryAddSheet: View {
     }
 }
 
-struct OrdinaryAddSheet_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook = AccountBookModel()
-
-    static var previews: some View {
-        OrdinaryAddSheet(
-            addUIConfig: .constant(
-                AddUIConfig(isShowingOrdinaryAddView: true,
-                            isShowingVoiceInputView: false)),
-            metadata_inputting: .constant(
-                MetaItem(
-                    originalText: "",
-                    spentMoneyAt: DateInRegion(region: regionChina),
-                    event: "买饮料",
-                    amount_float: 3.5)),
-            amount_string_inputting: .constant("3.5"))
-    }
-}
+// struct OrdinaryAddSheet_Previews: PreviewProvider {
+//    @StateObject static var PreviewAccountBook = AccountBookModel()
+//
+//    static var previews: some View {
+//        OrdinaryAddSheet(
+//            addUIConfig: .constant(
+//                AddUIConfig(isShowingOrdinaryAddView: true,
+//                            isShowingVoiceInputView: false)),
+//            metadata_inputting: .constant(
+//                MetaItem(
+//                    originalText: "",
+//                    spentMoneyAt: DateInRegion(region: regionChina),
+//                    event: "买饮料",
+//                    amount_float: 3.5)),
+//            amount_string_inputting: .constant("3.5"))
+//    }
+// }
