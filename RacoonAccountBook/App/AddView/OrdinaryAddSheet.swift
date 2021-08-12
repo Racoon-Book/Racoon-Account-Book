@@ -19,6 +19,11 @@ struct OrdinaryAddSheet: View {
     // TODO: 这个没啥必要感觉 先留着吧
     @State private var isEditing: Bool = false
 
+    // 是否出现提示框
+    @State private var showAlert: Bool = false
+    // 输入错误的提示
+    @State private var addUnsuccessfullyMessage: String = ""
+
     // 是否显示一些默认不显示的MetaData
     @State private var showingStoryInputView: Bool = false
     @State private var showingForWhoInputView: Bool = false
@@ -122,7 +127,7 @@ struct OrdinaryAddSheet: View {
                     LargeButton(title: "记账",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                            AddNewMetaItem()
+                        AddNewMetaItem()
                     }
                     .font(.system(.title)) // TODO: 字有点小
                 }
@@ -159,6 +164,12 @@ struct OrdinaryAddSheet: View {
                     AddNewMetaItem() // 用MetaItem添加Item
                 }) { Text("添加").bold() })
         }
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("提示"),
+                message: Text(addUnsuccessfullyMessage),
+                dismissButton: .default(Text("OK")))
+        }
     }
 
     private func AddNewMetaItem() {
@@ -166,12 +177,26 @@ struct OrdinaryAddSheet: View {
 
         // FIXME: 加输入判断，不能随便就把用户的输入写进数据库
         // 至少amount不能为0，event不能为空
-        RacoonAccountBook.createItem(metadata: metadata_inputting)
+        let noEvent: Bool = metadata_inputting.event == ""
+        let noAmount: Bool = metadata_inputting.amount_float == 0
 
-        // 写好了之后将inputting的数据都清零
-        DiscardCurrentMetaItem()
+        print("-" + metadata_inputting.event + "-")
 
-        addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
+        if !noEvent && !noAmount {
+            RacoonAccountBook.createItem(metadata: metadata_inputting)
+            DiscardCurrentMetaItem() // 写好了之后将inputting的数据都清零
+            addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
+        } else {
+            if noEvent, noAmount {
+                addUnsuccessfullyMessage = "未输入事件和金额"
+            } else if noEvent {
+                addUnsuccessfullyMessage = "未输入事件"
+            } else if noAmount {
+                addUnsuccessfullyMessage = "未输入金额"
+            }
+
+            showAlert = true
+        }
     }
 
     private func DiscardCurrentMetaItem() {
