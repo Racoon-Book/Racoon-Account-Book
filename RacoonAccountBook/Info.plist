@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.finance</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app uses the mircrophone to record audio for speech recognition.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
