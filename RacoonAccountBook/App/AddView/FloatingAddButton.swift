@@ -62,6 +62,12 @@ struct FloatingAddButton: View {
                                recognizedText: $recognizedText)
             }
         }
+        .onAppear {
+            // 获取SwiftSpeech录音和语音识别的权限
+            // 按钮一出现就申请权限 -- 申请过了就不会再出现了。没有这个权限 SwiftSpeech 相关的 View 出不来
+            SwiftSpeech.requestSpeechRecognitionAuthorization()
+            // TODO: 如果用户不给权限可能需要加一些处理
+        }
     }
 }
 

@@ -41,10 +41,6 @@ struct VoiceInputView: View {
 
                     Spacer()
                 }
-                .onAppear {
-                    SwiftSpeech.requestSpeechRecognitionAuthorization() // 获取SwiftSpeech录音和语音识别的权限
-                    // TODO: 如果用户不给权限可能需要加一些处理
-                }
             }
             .frame(width: geo.size.width, height: geo.size.height)
         }
