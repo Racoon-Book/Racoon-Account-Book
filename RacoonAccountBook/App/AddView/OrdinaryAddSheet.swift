@@ -8,25 +8,30 @@ struct OrdinaryAddSheet: View {
     static let coreMetaItemHeight = CGFloat(100) // 刚好呈下三个元素
     static let amountFieldHeight = CGFloat(70) // 刚好容下四位数字带一个小数点
 
+    // MARK: - 普通输入和语音输入是否显示
+
     @Binding var addUIConfig: AddUIConfig
+
+    // MARK: - 当前正在输入的值
 
     // 为了方便 直接使用结构体MetaItem；每次添加数据之后把它们归零
     @Binding var metadata_inputting: MetaItem
-
     @Binding var amount_string_inputting: String // 用来转换输入的可能不是小数的小数
 
-    // 是否正在编辑某个文本框
-    // TODO: 这个没啥必要感觉 先留着吧
-    @State private var isEditing: Bool = false
+    // MARK: - Alert
 
-    // 是否出现提示框
-    @State private var showAlert: Bool = false
-    // 输入错误的提示
-    @State private var addUnsuccessfullyMessage: String = ""
+    @State private var showUnsuccessfullyAddAlert: Bool = false // 是否出现提示框
+    @State private var unsuccessfullyAddAlertMessage: String = "" // 添加时出现错误的提示
 
-    // 是否显示一些默认不显示的MetaData
+    // MARK: - 添加界面额外的添加选项
+
     @State private var showingStoryInputView: Bool = false
     @State private var showingForWhoInputView: Bool = false
+
+    // MARK: - 是否正在编辑某个文本框
+
+    // TODO: 这个没啥必要感觉 先留着吧
+    @State private var isEditing: Bool = false
 
     var body: some View {
         NavigationView {
@@ -127,7 +132,7 @@ struct OrdinaryAddSheet: View {
                     LargeButton(title: "记账",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                        AddNewMetaItem()
+                            AddNewMetaItem()
                     }
                     .font(.system(.title)) // TODO: 字有点小
                 }
@@ -164,10 +169,10 @@ struct OrdinaryAddSheet: View {
                     AddNewMetaItem() // 用MetaItem添加Item
                 }) { Text("添加").bold() })
         }
-        .alert(isPresented: $showAlert) {
+        .alert(isPresented: $showUnsuccessfullyAddAlert) {
             Alert(
                 title: Text("提示"),
-                message: Text(addUnsuccessfullyMessage),
+                message: Text(unsuccessfullyAddAlertMessage),
                 dismissButton: .default(Text("OK")))
         }
     }
@@ -188,14 +193,14 @@ struct OrdinaryAddSheet: View {
             addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
         } else {
             if noEvent, noAmount {
-                addUnsuccessfullyMessage = "未输入事件和金额"
+                unsuccessfullyAddAlertMessage = "未输入事件和金额"
             } else if noEvent {
-                addUnsuccessfullyMessage = "未输入事件"
+                unsuccessfullyAddAlertMessage = "未输入事件"
             } else if noAmount {
-                addUnsuccessfullyMessage = "未输入金额"
+                unsuccessfullyAddAlertMessage = "未输入金额"
             }
 
-            showAlert = true
+            showUnsuccessfullyAddAlert = true
         }
     }
 
