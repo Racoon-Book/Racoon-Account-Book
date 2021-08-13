@@ -19,9 +19,8 @@ struct AccountBook {
         static var focusList: [String] = AccountBook.defaultFocusList
     #endif
 
-    // MARK: - Logic
+    // MARK: - 一些简单的操作数据的函数
 
-    // [初始化]
     init() {
         // FIXME: 这里之后初始化就变成从数据库读数据了！
         #if DEV
@@ -36,7 +35,7 @@ struct AccountBook {
         #endif
     }
 
-    // [使用MetaItem插入]
+    /// 使用MetaItem插入
     mutating func createItem(metadata: MetaItem) -> Item {
         // 由MetaItem创建Item
         let item = Item(id: wholeBook.exCounter, metadata: metadata) // FIXME: 这里id只用wholeBook的 不清楚将来会不会发生什么问题
@@ -49,8 +48,4 @@ struct AccountBook {
 
         return item
     }
-
-    // MARK: - Basic Data Structure
-
-    // View in `DataStructure` Folder
 }

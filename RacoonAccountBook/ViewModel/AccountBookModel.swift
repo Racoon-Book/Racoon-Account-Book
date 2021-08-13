@@ -9,6 +9,7 @@ class AccountBookModel: ObservableObject {
     @Published private var model = AccountBookModel.newAccountBook() // init the model
 
     // Initialize Model (not able to directly initialize the model after equal)
+    // TODO: 这里要确保数据在App开启和关闭时顺利更新
     private static func newAccountBook() -> AccountBook {
         return AccountBook()
     }
@@ -16,13 +17,68 @@ class AccountBookModel: ObservableObject {
     // MARK: - Access to Data of Model
 
     // get private property from Model
-
     var wholeBook: Ex {
         model.wholeBook
     }
 
-    // MARK: - Access to calculated Data
+    // MARK: - 对数据进行添加修改操作
 
+    /// 通过MetaItem给AccountBook中插入Item
+    func createItem(metadata: MetaItem) {
+        _ = model.createItem(metadata: metadata)
+    }
+
+    // MARK: - 返回某个时间段的Ex
+
+    /// 返回当月的Ex
+    func getExOfCurrentMonth() -> Ex {
+        let today = DateInRegion(region: regionChina)
+
+        let itemsInCurrentMonth: [Item] = wholeBook.items.filter {
+            $0.metadata.spentMoneyAt.compare(.isSameMonth(today))
+        }
+        return Ex(items: itemsInCurrentMonth)
+    }
+
+    /// 返回某个月的Ex
+    func getExOfMonth(year: Int, month: Int) -> Ex {
+        let targetMonth = DateInRegion(year: year, month: month, day: 1)
+
+        let itemsInMonth: [Item] = wholeBook.items.filter {
+            $0.metadata.spentMoneyAt.compare(.isSameMonth(targetMonth))
+        }
+        return Ex(items: itemsInMonth)
+    }
+
+    /// 返回某个月的Ex
+    func getExOfMonth(_ targetMonth: DateInRegion) -> Ex {
+        let itemsInMonth: [Item] = wholeBook.items.filter {
+            $0.metadata.spentMoneyAt.compare(.isSameMonth(targetMonth))
+        }
+        return Ex(items: itemsInMonth)
+    }
+
+    /// 返回这周的Ex
+    func getExOfCurrentWeek() -> Ex {
+        let today = DateInRegion(region: regionChina)
+
+        let itemsInCurrentWeek: [Item] = wholeBook.items.filter {
+            $0.metadata.spentMoneyAt.compare(.isSameWeek(today))
+        }
+        return Ex(items: itemsInCurrentWeek)
+    }
+
+    // MARK: - 返回符合要求的Ex
+
+    func getExWithStory() -> Ex {
+        let itemsWithStory: [Item] = wholeBook.items.filter {
+            $0.metadata.story != nil
+        }
+
+        return Ex(items: itemsWithStory)
+    }
+
+    // FIXME: 改成Ex
     func GetBookOfThisMonthOfTag(tag: String) -> Ex {
         var book = getExOfCurrentMonth()
 
@@ -33,10 +89,14 @@ class AccountBookModel: ObservableObject {
         return book
     }
 
-    // [返回某个月的花销 和 这个月最后有花销的天数]
-    // 给进一个月份
-    // 返回`这个月份按天分组后的字典`和`最后有item的天数`
-    func GetDayItemsInOneMonth(date: DateInRegion) -> ([Day: Ex], Day?) {
+    // MARK: - 计算一些属性
+
+    // MARK: - 特殊函数
+
+    /// 返回某个月的花销 和 该月最后有花销的天数
+    /// - Parameter date: 某个月
+    /// - Returns: `这个月份按天分组后的字典`和`最后有item的天数`
+    func getExDiviedByDaysInMonth(_ month: DateInRegion) -> ([Day: Ex], Day?) {
         let itemsInMonth = getExOfCurrentMonth().items
 
         var dayItems: [Day: Ex] = [
@@ -91,61 +151,5 @@ class AccountBookModel: ObservableObject {
         }
 
         return (dayItems, daysWithItems.max())
-    }
-
-    // [计算这一周的花销总额]
-    // 我知道这样性能很差，但和别的方法相比也还差不多。因为这一周还可能是去年的事情；加上处理不如直接遍历；如果太卡还是得换
-    func GetSumOfThisWeek() -> Float {
-        var sum: Float = 0
-        for item in wholeBook.items {
-            if item.metadata.spentMoneyAt.compare(.isThisWeek) {
-                // FIXME: 它从周六开始计算的，我无了！！！
-                sum = sum + item.metadata.amount_float
-            }
-        }
-        return sum
-    }
-
-    func GetItemsWithStory() -> [Item] {
-        let item_with_story: [Item] = wholeBook.items.filter {
-            $0.metadata.story != nil
-        }
-
-        return item_with_story
-    }
-
-    // MARK: - Deal with Intents from View
-
-    // 通过MetaItem给Book中插入Item
-    func createItem(metadata: MetaItem) {
-        _ = model.createItem(metadata: metadata)
-    }
-
-    /// 返回当月的Ex
-    func getExOfCurrentMonth() -> Ex {
-        let today = DateInRegion(region: regionChina)
-
-        let itemsInCurrentMonth: [Item] = wholeBook.items.filter {
-            $0.metadata.spentMoneyAt.compare(.isSameMonth(today))
-        }
-        return Ex(items: itemsInCurrentMonth)
-    }
-
-    /// 返回某个月的Ex
-    func getExOfMonth(year: Int, month: Int) -> Ex {
-        let targetMonth = DateInRegion(year: year, month: month, day: 1)
-
-        let itemsInMonth: [Item] = wholeBook.items.filter {
-            $0.metadata.spentMoneyAt.compare(.isSameMonth(targetMonth))
-        }
-        return Ex(items: itemsInMonth)
-    }
-
-    /// 返回某个月的Ex
-    func getExOfMonth(_ targetMonth: DateInRegion) -> [Item] {
-        let itemsInMonth: [Item] = wholeBook.items.filter {
-            $0.metadata.spentMoneyAt.compare(.isSameMonth(targetMonth))
-        }
-        return itemsInMonth
     }
 }

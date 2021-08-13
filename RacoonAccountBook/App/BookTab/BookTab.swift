@@ -14,7 +14,7 @@ struct BookTab: View {
         NavigationView {
             VStack {
                 IncomeExpenditureView(usingRelativeDays: false,
-                                      sevenEx: RacoonAccountBook.GetSumOfThisWeek(), // TODO: 添加本周支出
+                                      sevenEx: RacoonAccountBook.getExOfCurrentWeek().exSum, // TODO: 添加本周支出
                                       sevenIn: 0,
                                       thirtyEx: RacoonAccountBook.getExOfCurrentMonth().exSum,
                                       thirtyIn: 0)
@@ -22,9 +22,8 @@ struct BookTab: View {
                 // TODO: 这里也许可以加个阴影？
 
                 ScrollViewReader { scrollView in
-                    if let (dayItemsDict, maxDayHavingItems) = RacoonAccountBook.GetDayItemsInOneMonth(date: today),
-                       let days = dayItemsDict.keys.sorted()
-                    {
+                    if let (dayItemsDict, maxDayHavingItems) = RacoonAccountBook.getExDiviedByDaysInMonth(today),
+                       let days = dayItemsDict.keys.sorted() {
                         ScrollView(.vertical) {
                             LazyVStack {
                                 // Check https://stackoverflow.com/questions/56675532/swiftui-iterating-through-dictionary-with-foreach
@@ -40,8 +39,7 @@ struct BookTab: View {
                                            region: regionChina
                                        ),
                                        let ex = dayItemsDict[day],
-                                       let dayItems = ex.items
-                                    {
+                                       let dayItems = ex.items {
                                         DayItemsView(
                                             date: date,
                                             dayItems: dayItems

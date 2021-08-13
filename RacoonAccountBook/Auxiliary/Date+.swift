@@ -19,22 +19,6 @@ func DisplayDate(_ date: DateInRegion) -> String {
         date.toFormat("yyyy年M月d日", locale: Locales.chineseChina)
 }
 
-// 日期枚举
-enum Month: Int {
-    case Jan = 1
-    case Feb = 2
-    case Mar = 3
-    case Apr = 4
-    case May = 5
-    case Jun = 6
-    case Jul = 7
-    case Aug = 8
-    case Sept = 9
-    case Oct = 10
-    case Nov = 11
-    case Dec = 12
-}
-
 enum Day: Int {
     case D1 = 1
     case D2 = 2
@@ -72,13 +56,4 @@ enum Day: Int {
 // sort
 extension Day: Comparable {
     static func < (lhs: Day, rhs: Day) -> Bool { lhs.rawValue < rhs.rawValue }
-}
-
-// 只支持能看得到的年份
-enum SupportedYear: Int {
-    case Y2020 = 2020
-    case Y2021 = 2021
-    case Y2022 = 2022
-    case Y2023 = 2023
-    case Y2024 = 2024
 }
