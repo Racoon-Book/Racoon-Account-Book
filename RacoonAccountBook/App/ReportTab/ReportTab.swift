@@ -6,7 +6,7 @@ struct ReportTab: View {
     @State private var selectedSegment: SegmentChoice = .report
 
     var body: some View {
-        let monthBook = RacoonAccountBook.GetBookOfThisMonth()
+        let monthBook = RacoonAccountBook.getExOfCurrentMonth()
 
         NavigationView {
             VStack {

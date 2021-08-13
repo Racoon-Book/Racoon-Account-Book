@@ -3,24 +3,15 @@
 import Foundation
 import SwiftDate
 
-// [App所需的全部信息]
+/// 一个账本的全部信息
 struct AccountBook {
-    // MARK: - Main Data & init
+    // MARK: - 核心数据
 
-    // [存储所有的条目的账本]
+    /// 存储所有条目的账本
     var wholeBook = Ex()
 
-    // [按照月来生成账本 方便进行统计]
-    var monthlyBook: [SupportedYear: YearlyEx] = [
-        .Y2020: YearlyEx(year: 2020),
-        .Y2021: YearlyEx(year: 2021),
-        .Y2022: YearlyEx(year: 2022),
-        .Y2023: YearlyEx(year: 2023),
-        .Y2024: YearlyEx(year: 2024),
-    ] // TODO: 这里先支持个五年
-
-    // [记录用户添加的所有focus]
-    // TODO: 之后需要改成可以修改的，用户在设置中进行添加和删除
+    // 记录用户添加的所有focus
+    // TODO: 之后需要改成可以修改的，用户在设置中进行添加和删除 也就是说不能再是static了
     static let defaultFocusList: [String] = ["学习", "生活"] // TODO: 添加默认的关注列表
     #if DEV
         static var focusList: [String] = ["电子设备", "软件服务", "聚餐", "游戏", "宿舍"]
@@ -50,20 +41,7 @@ struct AccountBook {
         // 由MetaItem创建Item
         let item = Item(id: wholeBook.exCounter, metadata: metadata) // FIXME: 这里id只用wholeBook的 不清楚将来会不会发生什么问题
 
-        // 其他辅助变量
-        let year: Int = item.metadata.spentMoneyAt.year
-        let month: Int = item.metadata.spentMoneyAt.month
-
-        // 添加item
-        // [monthlyBook]
-        // FIXME: 如果没有对应的年份和月份，则添加到2024年1月 —— 但其实应该不添加然后报错 但这是UI的事情 相当于双重验证
-        // 添加
-        monthlyBook[SupportedYear(rawValue: year) ?? .Y2024]?
-            .monthlyEx[Month(rawValue: month) ?? .Dec]?
-            .items.append(item)
-
-        // [wholeBook]
-        // 添加
+        // 添加item到wholeBook
         wholeBook.items.append(item)
 
         // [Log]

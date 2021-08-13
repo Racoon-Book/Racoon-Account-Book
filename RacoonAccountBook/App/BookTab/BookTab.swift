@@ -16,9 +16,7 @@ struct BookTab: View {
                 IncomeExpenditureView(usingRelativeDays: false,
                                       sevenEx: RacoonAccountBook.GetSumOfThisWeek(), // TODO: 添加本周支出
                                       sevenIn: 0,
-                                      thirtyEx: RacoonAccountBook.monthlyBook[SupportedYear(rawValue: thisYear) ?? .Y2024]?
-                                          .monthlyEx[Month(rawValue: thisMonth) ?? .Dec]?
-                                          .exSum ?? 0,
+                                      thirtyEx: RacoonAccountBook.getExOfCurrentMonth().exSum,
                                       thirtyIn: 0)
                     .padding(cardPadding)
                 // TODO: 这里也许可以加个阴影？

@@ -17,37 +17,18 @@ class AccountBookModel: ObservableObject {
 
     // get private property from Model
 
-    var monthlyBook: [SupportedYear: YearlyEx] {
-        model.monthlyBook
-    }
-
     var wholeBook: Ex {
         model.wholeBook
     }
 
     // MARK: - Access to calculated Data
 
-    // 返回本月的PeriodicEx
-    func GetBookOfThisMonth() -> Ex {
-        let today = DateInRegion(region: regionChina)
-
-        return monthlyBook[SupportedYear(rawValue: today.year) ?? .Y2024]?
-            .monthlyEx[Month(rawValue: today.month) ?? .Dec] ?? Ex()
-    }
-
     func GetBookOfThisMonthOfTag(tag: String) -> Ex {
-        let today = DateInRegion(region: regionChina)
-        var book = monthlyBook[SupportedYear(rawValue: today.year) ?? .Y2024]?
-            .monthlyEx[Month(rawValue: today.month) ?? .Dec] ?? Ex()
+        var book = getExOfCurrentMonth()
 
         // 筛选包含tag的记录
         // FIXME: 对关注标签的理解似乎不对
         book.items = book.items.filter { $0.metadata.tags.contains(tag) || $0.metadata.focus == tag }
-
-//        // 重新计算ExSum等
-//        book.exCounter = book.items.count
-//        book.exHighest = book.items.max { $0.metadata.amount_float < $1.metadata.amount_float }?.metadata.amount_float ?? 0
-//        book.exSum = book.items.reduce(0.0) { $0 + $1.metadata.amount_float }
 
         return book
     }
@@ -56,12 +37,7 @@ class AccountBookModel: ObservableObject {
     // 给进一个月份
     // 返回`这个月份按天分组后的字典`和`最后有item的天数`
     func GetDayItemsInOneMonth(date: DateInRegion) -> ([Day: Ex], Day?) {
-        let year: Int = date.year
-        let month: Int = date.month
-
-        let itemsInMonth = monthlyBook[SupportedYear(rawValue: year) ?? .Y2024]?
-            .monthlyEx[Month(rawValue: month) ?? .Dec]?
-            .items ?? []
+        let itemsInMonth = getExOfCurrentMonth().items
 
         var dayItems: [Day: Ex] = [
             .D1: Ex(),
@@ -143,5 +119,33 @@ class AccountBookModel: ObservableObject {
     // 通过MetaItem给Book中插入Item
     func createItem(metadata: MetaItem) {
         _ = model.createItem(metadata: metadata)
+    }
+
+    /// 返回当月的Ex
+    func getExOfCurrentMonth() -> Ex {
+        let today = DateInRegion(region: regionChina)
+
+        let itemsInCurrentMonth: [Item] = wholeBook.items.filter {
+            $0.metadata.spentMoneyAt.compare(.isSameMonth(today))
+        }
+        return Ex(items: itemsInCurrentMonth)
+    }
+
+    /// 返回某个月的Ex
+    func getExOfMonth(year: Int, month: Int) -> Ex {
+        let targetMonth = DateInRegion(year: year, month: month, day: 1)
+
+        let itemsInMonth: [Item] = wholeBook.items.filter {
+            $0.metadata.spentMoneyAt.compare(.isSameMonth(targetMonth))
+        }
+        return Ex(items: itemsInMonth)
+    }
+
+    /// 返回某个月的Ex
+    func getExOfMonth(_ targetMonth: DateInRegion) -> [Item] {
+        let itemsInMonth: [Item] = wholeBook.items.filter {
+            $0.metadata.spentMoneyAt.compare(.isSameMonth(targetMonth))
+        }
+        return itemsInMonth
     }
 }
