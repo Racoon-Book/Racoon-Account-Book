@@ -28,17 +28,17 @@ class AccountBookModel: ObservableObject {
     // MARK: - Access to calculated Data
 
     // 返回本月的PeriodicEx
-    func GetBookOfThisMonth() -> PeriodicEx {
+    func GetBookOfThisMonth() -> Ex {
         let today = DateInRegion(region: regionChina)
 
         return monthlyBook[SupportedYear(rawValue: today.year) ?? .Y2024]?
-            .monthlyEx[Month(rawValue: today.month) ?? .Dec] ?? PeriodicEx(sign: today)
+            .monthlyEx[Month(rawValue: today.month) ?? .Dec] ?? Ex()
     }
 
-    func GetBookOfThisMonthOfTag(tag: String) -> PeriodicEx {
+    func GetBookOfThisMonthOfTag(tag: String) -> Ex {
         let today = DateInRegion(region: regionChina)
         var book = monthlyBook[SupportedYear(rawValue: today.year) ?? .Y2024]?
-            .monthlyEx[Month(rawValue: today.month) ?? .Dec] ?? PeriodicEx(sign: today)
+            .monthlyEx[Month(rawValue: today.month) ?? .Dec] ?? Ex()
 
         // 筛选包含tag的记录
         // FIXME: 对关注标签的理解似乎不对

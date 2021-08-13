@@ -1,15 +1,8 @@
-//
-//  DayCounterView.swift
-//  RacoonAccountBook
-//
-//  Created by c0per chen on 7/29/21.
-//
-
-import SwiftUI
 import SwiftDate
+import SwiftUI
 
 struct DayCounterView: View {
-    var monthBook: PeriodicEx
+    var monthBook: Ex
     
     var body: some View {
         let days = GetDays()
@@ -74,7 +67,7 @@ struct DayCounterView: View {
             return 0
         } else {
             for (index, day) in days.enumerated() {
-                if index > 0 && day < days[index - 1] - 1 {
+                if index > 0, day < days[index - 1] - 1 {
                     return index
                 }
             }

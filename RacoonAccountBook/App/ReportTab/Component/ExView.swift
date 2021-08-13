@@ -1,15 +1,8 @@
-//
-//  ExView.swift
-//  RacoonAccountBook
-//
-//  Created by c0per chen on 7/29/21.
-//
-
-import SwiftUI
 import SwiftDate
+import SwiftUI
 
 struct ExView: View {
-    var monthBook: PeriodicEx
+    var monthBook: Ex
     
     var body: some View {
         ZStack(alignment: .leading) {
