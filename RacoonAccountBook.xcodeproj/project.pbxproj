@@ -15,6 +15,7 @@
 		4830D9D026B260A2007710FD /* SingleSomebodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9CF26B260A2007710FD /* SingleSomebodyView.swift */; };
 		4830D9D326B2DAF9007710FD /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 4830D9D226B2DAF9007710FD /* SwiftUICharts */; };
 		4830D9D526B354A4007710FD /* SingleComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9D426B354A4007710FD /* SingleComponentView.swift */; };
+		48433BD826C61A6F00F72244 /* OriginalText2LexicalClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48433BD726C61A6F00F72244 /* OriginalText2LexicalClass.swift */; };
 		486ECDF826AEFCEC00EF00B1 /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDF726AEFCEC00EF00B1 /* EmojiPicker.swift */; };
 		486ECDFA26B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDF926B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift */; };
 		486ECDFD26B0E36200EF00B1 /* FocusSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDFC26B0E36200EF00B1 /* FocusSelectView.swift */; };
@@ -79,6 +80,7 @@
 		4830D9CD26B25D73007710FD /* ForWhoField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForWhoField.swift; sourceTree = "<group>"; };
 		4830D9CF26B260A2007710FD /* SingleSomebodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSomebodyView.swift; sourceTree = "<group>"; };
 		4830D9D426B354A4007710FD /* SingleComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleComponentView.swift; sourceTree = "<group>"; };
+		48433BD726C61A6F00F72244 /* OriginalText2LexicalClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2LexicalClass.swift; sourceTree = "<group>"; };
 		486ECDF726AEFCEC00EF00B1 /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
 		486ECDF926B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2SpentMoneyAt.swift; sourceTree = "<group>"; };
 		486ECDFC26B0E36200EF00B1 /* FocusSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSelectView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,16 @@
 			path = ForWho;
 			sourceTree = "<group>";
 		};
+		48433BD926C61A8500F72244 /* NLP */ = {
+			isa = PBXGroup;
+			children = (
+				4878A75F26AC68D400DCBC8D /* OriginalText2GeneratedTags.swift */,
+				4878A76126AC6AA900DCBC8D /* OriginalText2Event.swift */,
+				48433BD726C61A6F00F72244 /* OriginalText2LexicalClass.swift */,
+			);
+			path = NLP;
+			sourceTree = "<group>";
+		};
 		486ECDFB26B0E34200EF00B1 /* Focus */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,15 +190,14 @@
 			path = Focus;
 			sourceTree = "<group>";
 		};
-		4878A75C26AC65B400DCBC8D /* Function */ = {
+		4878A75C26AC65B400DCBC8D /* ExtractOriginalTextFuncs */ = {
 			isa = PBXGroup;
 			children = (
 				4878A75D26AC65D600DCBC8D /* OriginalText2Amount.swift */,
-				4878A75F26AC68D400DCBC8D /* OriginalText2GeneratedTags.swift */,
-				4878A76126AC6AA900DCBC8D /* OriginalText2Event.swift */,
 				486ECDF926B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift */,
+				48433BD926C61A8500F72244 /* NLP */,
 			);
-			path = Function;
+			path = ExtractOriginalTextFuncs;
 			sourceTree = "<group>";
 		};
 		4878A76326AD922000DCBC8D /* TextField */ = {
@@ -243,7 +254,6 @@
 			children = (
 				488D3A86269F0EF400287A50 /* DataStructure */,
 				488D3A8B269F0F2400287A50 /* ViewModel */,
-				4878A75C26AC65B400DCBC8D /* Function */,
 				488D3A8E269F0F3D00287A50 /* App */,
 				488D3A97269F27C500287A50 /* Auxiliary */,
 				488D3A7B269F0E5E00287A50 /* Assets.xcassets */,
@@ -339,6 +349,7 @@
 				4897FE9B26AC0CCC001AE9BA /* FloatingAddButton.swift */,
 				48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */,
 				488D3A8F269F0F5500287A50 /* OrdinaryAddSheet.swift */,
+				4878A75C26AC65B400DCBC8D /* ExtractOriginalTextFuncs */,
 				4878A76326AD922000DCBC8D /* TextField */,
 				4878A76C26AD952800DCBC8D /* Tag */,
 				486ECDFB26B0E34200EF00B1 /* Focus */,
@@ -505,6 +516,7 @@
 				6EBB7AC726B2AEA6004E692B /* FocusExView.swift in Sources */,
 				486ECDF826AEFCEC00EF00B1 /* EmojiPicker.swift in Sources */,
 				4878A76526AD926C00DCBC8D /* originalText.swift in Sources */,
+				48433BD826C61A6F00F72244 /* OriginalText2LexicalClass.swift in Sources */,
 				488D3A8D269F0F3700287A50 /* AccountBookModel.swift in Sources */,
 				48F0A09C26A4CED6004898C0 /* DayItemsView.swift in Sources */,
 				488D3AB0269F8F2F00287A50 /* MetaItem.swift in Sources */,
