@@ -5,6 +5,8 @@ import SwiftUI
 struct OrdinaryAddSheet: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
 
+    var isEditingMetaItem: Bool = false
+
     static let coreMetaItemHeight = CGFloat(100) // 刚好呈下三个元素
     static let amountFieldHeight = CGFloat(70) // 刚好容下四位数字带一个小数点
 
@@ -132,7 +134,7 @@ struct OrdinaryAddSheet: View {
                     LargeButton(title: "记账",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                            AddNewMetaItem()
+                        AddNewMetaItem()
                     }
                     .font(.system(.title)) // TODO: 字有点小
                 }

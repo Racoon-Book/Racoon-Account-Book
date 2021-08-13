@@ -3,7 +3,12 @@ import SwiftUI
 
 // [用来显示一个条目的View]
 struct MetaItemView: View {
+    // TODO: 改为Binding
     var metadata: MetaItem
+    // 条目是否能编辑
+    var isEditable: Bool = true
+    // 是否正在编辑BookTab的某个条目
+    @State var isShowingEditSheet: Bool = false
 
     var body: some View {
         let amount_dispaly = String(format: "%.1f", metadata.amount_float)
@@ -45,7 +50,8 @@ struct MetaItemView: View {
                     ForEach(metadata.tags, id: \.self) { tag in
                         SingleComponentView(
                             text: tag,
-                            color: Color("Add-Tag"))
+                            color: Color("Add-Tag")
+                        )
                     }
                 }
             }
@@ -60,10 +66,38 @@ struct MetaItemView: View {
                     ForEach(metadata.forWho, id: \.self) { sb in
                         SingleComponentView(
                             text: sb,
-                            color: Color.orange)
+                            color: Color.orange
+                        )
                     }
                 }
             }
         }
+        .onTapGesture {
+            if isEditable {
+                isShowingEditSheet = true
+            }
+        }
+        .sheet(
+            // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
+            isPresented: $isShowingEditSheet,
+            onDismiss: didDismissEditingMetaItemSheet
+        ) {
+//            OrdinaryAddSheet(
+//                isEditingMetaItem: true, // 开的是修改页面
+//                addUIConfig: .constant(AddUIConfig()), // 传默认值
+//                metadata_inputting: $RacoonAccountBook.wholeBook.items.,
+//                amount_string_inputting: $amount_string_inputting,
+//                showAddSuccessfullyAlert: $showAddSuccessfullyAlert
+//            )
+            Text("haha")
+        }
+    }
+
+    private func didDismissEditingMetaItemSheet() {
+        isShowingEditSheet = false // 应该不用这一句 系统dismiss的时候应该会将该变量设置为false
+
+        // 正在编辑的sheet下来之后什么都不用做…就当用户取消了刚刚修改的内容。
+        // TODO: 可能需要将页面的状态复原
+        printLog("[MetaItemView] didDismissEditingMetaItemSheet()")
     }
 }
