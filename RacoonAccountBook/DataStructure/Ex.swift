@@ -25,23 +25,68 @@ struct YearlyEx {
     }
 }
 
-// [一段时间的花销] 最大单位：月
+/// [一段时间的花销] 最大单位：月
 struct PeriodicEx {
     var sign: DateInRegion // 这段时间的标志（比如标志它是哪月/哪年/哪周）
 
     var items: [Item] = [] // 这段时间产生的所有条目
 
-    // 由上面这些条目统计得到的：
-    var exSum: Float = 0 // 支出总数 // 为了性能，这个值每次存取都进行计算，而不是每次都遍历求和
-    var exCounter: Int = 0 // 支出的条数
-    var exHighest: Float = 0 // 最高支出的金额
+    // MARK: - 由上面的基础条目统计得到
+
+    /// 支出总数
+    var exSum: Float {
+        var sum: Float = 0
+        for item in items {
+            sum += item.metadata.amount_float
+        }
+        return sum
+    }
+
+    /// 支出的条数
+    var exCounter: Int {
+        return items.count
+    }
+
+    /// 最高支出的金额
+    var exHighest: Float {
+        var highest: Float = 0
+        for item in items {
+            if item.metadata.amount_float > highest {
+                highest = item.metadata.amount_float
+            }
+        }
+        return highest
+    }
 }
 
 // [花销]
 struct Ex {
     var items: [Item] = []
 
-    var exSum: Float = 0 // 支出总数 // 为了性能，这个值每次存取都进行计算，而不是每次都遍历求和
-    var exCounter: Int = 0 // 支出的条数
-    var exHighest: Float = 0 // 最高支出的金额
+    // MARK: - 由上面的基础条目统计得到
+
+    /// 支出总数
+    var exSum: Float {
+        var sum: Float = 0
+        for item in items {
+            sum += item.metadata.amount_float
+        }
+        return sum
+    }
+
+    /// 支出的条数
+    var exCounter: Int {
+        return items.count
+    }
+
+    /// 最高支出的金额
+    var exHighest: Float {
+        var highest: Float = 0
+        for item in items {
+            if item.metadata.amount_float > highest {
+                highest = item.metadata.amount_float
+            }
+        }
+        return highest
+    }
 }

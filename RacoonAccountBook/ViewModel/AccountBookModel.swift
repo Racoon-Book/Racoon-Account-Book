@@ -44,10 +44,10 @@ class AccountBookModel: ObservableObject {
         // FIXME: 对关注标签的理解似乎不对
         book.items = book.items.filter { $0.metadata.tags.contains(tag) || $0.metadata.focus == tag }
 
-        // 重新计算ExSum等
-        book.exCounter = book.items.count
-        book.exHighest = book.items.max { $0.metadata.amount_float < $1.metadata.amount_float }?.metadata.amount_float ?? 0
-        book.exSum = book.items.reduce(0.0) { $0 + $1.metadata.amount_float }
+//        // 重新计算ExSum等
+//        book.exCounter = book.items.count
+//        book.exHighest = book.items.max { $0.metadata.amount_float < $1.metadata.amount_float }?.metadata.amount_float ?? 0
+//        book.exSum = book.items.reduce(0.0) { $0 + $1.metadata.amount_float }
 
         return book
     }
@@ -101,8 +101,6 @@ class AccountBookModel: ObservableObject {
             if let day = Day(rawValue: item.metadata.spentMoneyAt.day) {
                 // 这里用叹号没有危险 因为Day全用的枚举
                 dayItems[day]!.items.append(item)
-                dayItems[day]!.exCounter = dayItems[day]?.exCounter ?? 0 + 1
-                dayItems[day]!.exSum = dayItems[day]?.exSum ?? 0.0 + item.metadata.amount_float
             } else {
                 printLog("Error in model.GetDayItemsInOneMonth()")
             }
