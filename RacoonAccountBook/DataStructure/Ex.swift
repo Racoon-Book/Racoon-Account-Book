@@ -32,4 +32,6 @@ struct Ex {
         }
         return highest
     }
+    
+    // 有新的关于账本的统计可以在这里添加
 }

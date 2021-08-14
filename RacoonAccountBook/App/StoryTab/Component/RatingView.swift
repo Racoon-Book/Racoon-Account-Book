@@ -35,7 +35,7 @@ struct RatingView_Previews: PreviewProvider {
     static var previews: some View {
         RatingView(rating: 3)
 
-        ItemStoryView(item: PreviewAccountBook.wholeBook.items[164])
+        ItemStoryView(item: PreviewAccountBook.wholeEx.items[164])
 
         StoryTab()
             .environmentObject(PreviewAccountBook)

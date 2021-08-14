@@ -16,8 +16,8 @@ class AccountBookModel: ObservableObject {
 
     // MARK: - Access to Data of Model
 
-    // get private property from Model
-    var wholeBook: Ex {
+    /// 所有花销
+    var wholeEx: Ex {
         model.wholeEx
     }
 
@@ -34,7 +34,7 @@ class AccountBookModel: ObservableObject {
     func getExOfCurrentMonth() -> Ex {
         let today = DateInRegion(region: regionChina)
 
-        let itemsInCurrentMonth: [Item] = wholeBook.items.filter {
+        let itemsInCurrentMonth: [Item] = wholeEx.items.filter {
             $0.metadata.spentMoneyAt.compare(.isSameMonth(today))
         }
         return Ex(items: itemsInCurrentMonth)
@@ -44,7 +44,7 @@ class AccountBookModel: ObservableObject {
     func getExOfMonth(year: Int, month: Int) -> Ex {
         let targetMonth = DateInRegion(year: year, month: month, day: 1)
 
-        let itemsInMonth: [Item] = wholeBook.items.filter {
+        let itemsInMonth: [Item] = wholeEx.items.filter {
             $0.metadata.spentMoneyAt.compare(.isSameMonth(targetMonth))
         }
         return Ex(items: itemsInMonth)
@@ -52,7 +52,7 @@ class AccountBookModel: ObservableObject {
 
     /// 返回某个月的Ex
     func getExOfMonth(_ targetMonth: DateInRegion) -> Ex {
-        let itemsInMonth: [Item] = wholeBook.items.filter {
+        let itemsInMonth: [Item] = wholeEx.items.filter {
             $0.metadata.spentMoneyAt.compare(.isSameMonth(targetMonth))
         }
         return Ex(items: itemsInMonth)
@@ -62,7 +62,7 @@ class AccountBookModel: ObservableObject {
     func getExOfCurrentWeek() -> Ex {
         let today = DateInRegion(region: regionChina)
 
-        let itemsInCurrentWeek: [Item] = wholeBook.items.filter {
+        let itemsInCurrentWeek: [Item] = wholeEx.items.filter {
             $0.metadata.spentMoneyAt.compare(.isSameWeek(today))
         }
         return Ex(items: itemsInCurrentWeek)
@@ -70,8 +70,9 @@ class AccountBookModel: ObservableObject {
 
     // MARK: - 返回符合要求的Ex
 
+    /// 返回有故事的Ex
     func getExWithStory() -> Ex {
-        let itemsWithStory: [Item] = wholeBook.items.filter {
+        let itemsWithStory: [Item] = wholeEx.items.filter {
             $0.metadata.story != nil
         }
 

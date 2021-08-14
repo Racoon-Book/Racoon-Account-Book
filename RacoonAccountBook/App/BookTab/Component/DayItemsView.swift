@@ -43,7 +43,7 @@ struct DayItemsView_Previews: PreviewProvider {
         BookTab()
             .environmentObject(PreviewAccountBook)
 
-        let items: [Item] = [PreviewAccountBook.wholeBook.items[0], PreviewAccountBook.wholeBook.items[1], PreviewAccountBook.wholeBook.items[2]]
+        let items: [Item] = [PreviewAccountBook.wholeEx.items[0], PreviewAccountBook.wholeEx.items[1], PreviewAccountBook.wholeEx.items[2]]
         VStack {
             Spacer()
             DayItemsView(

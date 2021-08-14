@@ -2,22 +2,37 @@ import SwiftDate
 import SwiftUI
 import UIKit
 
+struct AddUIConfig {
+    /// 是否正在显示添加账目的Sheet
+    var isShowingOrdinaryAddView: Bool = false
+    /// 是否正在显示语音输入界面
+    var isShowingVoiceInputView: Bool = false
+    /// 是否正在显示成功添加之后的提示
+    var showAddSuccessfullyAlert: Bool = false
+    /// 控制TabView模糊的程度，语音输入时模糊画面
+    var blurRadius: CGFloat = 0
+}
+
 struct MainView: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
 
-    // [TabView需要用到的东西]
+    // TabView需要用到的东西
     private static let Tab1: String = "账本"
     private static let Tab2: String = "财记"
     private static let Tab3: String = "统计"
-    @State private var selectedTab = MainView.Tab1 // 打开之后呈现的Tab (默认为账本界面)
+    /// 当前选中的Tab
+    ///
+    /// 默认值为打开之后呈现的Tab (默认为账本界面)
+    @State private var selectedTab = MainView.Tab1
 
-    // [Add需要用到的东西]
+    /// 与添加相关需要用到的东西
     @State private var addUIConfig = AddUIConfig(
-        isShowingOrdinaryAddView: false,
-        isShowingVoiceInputView: false, // 最开始都不显示
-        blurRadius: 0 // 控制TabView模糊的程度，语音输入时模糊画面
+        isShowingOrdinaryAddView: false, // 最开始不显示
+        isShowingVoiceInputView: false, // 最开始不显示
+        blurRadius: 0
     )
 
+    /// 添加时临时记录使用的metadata
     @State private var metadata_inputting = MetaItem(
         originalText: "",
         spentMoneyAt: DateInRegion(region: regionChina),
@@ -25,9 +40,8 @@ struct MainView: View {
         amount_float: 0.0
     )
 
-    @State private var amount_string_inputting: String = "" // 用来转换输入的可能不是小数的小数
-
-    @State private var showAddSuccessfullyAlert: Bool = false // 添加之后显示成功添加的提示
+    /// 临时记录输入的金额字符串（因为可能用户并没有输入小数）
+    @State private var amount_string_inputting: String = ""
 
     var body: some View {
         ZStack {
@@ -56,8 +70,8 @@ struct MainView: View {
             .blur(radius: addUIConfig.blurRadius)
 
             // 成功记账提示
-            if showAddSuccessfullyAlert {
-                SuccessfullyAddAlert(showAddSuccessfullyAlert: $showAddSuccessfullyAlert, metadata: RacoonAccountBook.wholeBook.items.last!.metadata)
+            if addUIConfig.showAddSuccessfullyAlert {
+                SuccessfullyAddAlert(showAddSuccessfullyAlert: $addUIConfig.showAddSuccessfullyAlert, metadata: RacoonAccountBook.wholeEx.items.last!.metadata)
             }
 
             // VoiceInputView 在 FloatingAddButton 中显示
@@ -75,7 +89,7 @@ struct MainView: View {
                 addUIConfig: $addUIConfig,
                 metadata_inputting: $metadata_inputting,
                 amount_string_inputting: $amount_string_inputting,
-                showAddSuccessfullyAlert: $showAddSuccessfullyAlert
+                showAddSuccessfullyAlert: $addUIConfig.showAddSuccessfullyAlert
             )
         }
     }
@@ -90,12 +104,6 @@ struct MainView: View {
             amount_string_inputting = ""
         }
     }
-}
-
-struct AddUIConfig {
-    var isShowingOrdinaryAddView: Bool = false
-    var isShowingVoiceInputView: Bool = false
-    var blurRadius: CGFloat = 0
 }
 
 struct SuccessfullyAddAlert: View {

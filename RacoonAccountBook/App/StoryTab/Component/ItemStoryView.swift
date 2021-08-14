@@ -53,7 +53,7 @@ struct ItemStoryView_Previews: PreviewProvider {
     @StateObject static var PreviewAccountBook = AccountBookModel()
 
     static var previews: some View {
-        ItemStoryView(item: PreviewAccountBook.wholeBook.items[164])
+        ItemStoryView(item: PreviewAccountBook.wholeEx.items[164])
 
         StoryTab()
             .environmentObject(PreviewAccountBook)
