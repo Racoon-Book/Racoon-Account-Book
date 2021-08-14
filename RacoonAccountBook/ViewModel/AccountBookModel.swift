@@ -18,7 +18,7 @@ class AccountBookModel: ObservableObject {
 
     // get private property from Model
     var wholeBook: Ex {
-        model.wholeBook
+        model.wholeEx
     }
 
     // MARK: - 对数据进行添加修改操作

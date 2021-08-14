@@ -7,8 +7,13 @@ import SwiftDate
 struct AccountBook {
     // MARK: - 核心数据
 
-    /// 存储所有条目的账本
-    var wholeBook = Ex()
+    /// 所有的条目
+    var wholeEx = Ex()
+
+    /// 用于生成新账目的id
+    ///
+    /// 每次添加一个条目这个就加加、不减
+    private var idCount: Int = 0
 
     // 记录用户添加的所有focus
     // TODO: 之后需要改成可以修改的，用户在设置中进行添加和删除 也就是说不能再是static了
@@ -35,15 +40,17 @@ struct AccountBook {
         #endif
     }
 
-    /// 使用MetaItem插入
+    /// 使用MetaItem插入数据
     mutating func createItem(metadata: MetaItem) -> Item {
         // 由MetaItem创建Item
-        let item = Item(id: wholeBook.exCounter, metadata: metadata) // FIXME: 这里id只用wholeBook的 不清楚将来会不会发生什么问题
+        let item = Item(id: idCount, metadata: metadata) // FIXME: 这里id只用wholeBook的 不清楚将来会不会发生什么问题
 
         // 添加item到wholeBook
-        wholeBook.items.append(item)
+        wholeEx.items.append(item)
 
-        // [Log]
+        idCount += 1
+
+        // Log
         printLog("[AccountBook.createItem()] " + "id: \(item.id)" + "\n" + "\(item.metadata)")
 
         return item
