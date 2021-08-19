@@ -89,7 +89,7 @@ struct MainView: View {
                 addUIConfig: $addUIConfig,
                 metadata_inputting: $metadata_inputting,
                 amount_string_inputting: $amount_string_inputting,
-                showAddSuccessfullyAlert: $addUIConfig.showAddSuccessfullyAlert
+                showSuccessfullyAlert: $addUIConfig.showAddSuccessfullyAlert
             )
         }
     }
@@ -116,7 +116,9 @@ struct SuccessfullyAddAlert: View {
                 .font(.system(.title))
                 .padding([.horizontal, .top])
 
-            MetaItemView(metadata: metadata)
+            // FIXME: 改好MetaItemView的init之后来改这个
+            MetaItemView(metadata: metadata, metadata_inputting: metadata)
+
                 .padding()
         }
         .frame(width: UIScreen.main.bounds.width - 100)

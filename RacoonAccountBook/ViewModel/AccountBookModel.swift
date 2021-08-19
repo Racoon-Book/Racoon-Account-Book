@@ -28,6 +28,14 @@ class AccountBookModel: ObservableObject {
         _ = model.createItem(metadata: metadata)
     }
 
+    func updateItem(id: Int, metadata: MetaItem) -> Bool {
+        let successfullyUpdate: Bool = model.updateItem(id: id, metadata: metadata)
+        if successfullyUpdate {
+            self.objectWillChange.send()
+        }
+        return successfullyUpdate
+    }
+
     // MARK: - 返回某个时间段的Ex
 
     /// 返回当月的Ex
@@ -71,7 +79,15 @@ class AccountBookModel: ObservableObject {
     // MARK: - 返回符合要求的Ex
 
     /// 返回有故事的Ex
-    func getExWithStory() -> Ex {
+//    func getExWithStory() -> Ex {
+//        let itemsWithStory: [Item] = wholeEx.items.filter {
+//            $0.metadata.story != nil
+//        }
+//
+//        return Ex(items: itemsWithStory)
+//    }
+
+    var exWithStory: Ex {
         let itemsWithStory: [Item] = wholeEx.items.filter {
             $0.metadata.story != nil
         }

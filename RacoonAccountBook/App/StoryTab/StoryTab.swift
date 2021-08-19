@@ -8,10 +8,10 @@ struct StoryTab: View {
         NavigationView {
             VStack {
                 // TODO: 像账本那样做一个深色的统计页面应该比较好
-                if let items = RacoonAccountBook.getExWithStory().items {
+                if let items = RacoonAccountBook.exWithStory.items {
                     ScrollViewReader { scrollView in
                         ScrollView(.vertical) {
-                            LazyVStack {
+                            VStack {
                                 ForEach(items, id: \.id) { item in
                                     ItemStoryView(item: item)
                                 }

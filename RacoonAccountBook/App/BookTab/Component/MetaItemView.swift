@@ -1,14 +1,31 @@
 import SwiftDate
 import SwiftUI
 
-// [用来显示一个条目的View]
+// 用来显示一个条目的View
 struct MetaItemView: View {
-    // TODO: 改为Binding
+    var itemId: Int = 0
+
+    /// 该View呈现的MetaItem
     var metadata: MetaItem
-    // 条目是否能编辑
+    /// 条目是否能编辑
     var isEditable: Bool = true
-    // 是否正在编辑BookTab的某个条目
-    @State var isShowingEditSheet: Bool = false
+
+    /// 与添加相关需要用到的东西
+    @State private var addUIConfig = AddUIConfig(
+        /// 是否正在编辑BookTab的某个条目
+        isShowingOrdinaryAddView: false, // 最开始不显示
+        isShowingVoiceInputView: false, // 不显示
+        showAddSuccessfullyAlert: false, // 最开始不显示
+        blurRadius: 0
+    )
+
+    /// 临时记录输入的金额字符串（因为可能用户并没有输入小数）
+    @State private var amount_string_inputting: String = ""
+
+    /// 用于修改的临时变量
+    ///
+    /// 初值为需要修改的MetaItem
+    @State var metadata_inputting: MetaItem
 
     var body: some View {
         let amount_dispaly = String(format: "%.1f", metadata.amount_float)
@@ -72,32 +89,28 @@ struct MetaItemView: View {
                 }
             }
         }
+        // 点击Item弹出Sheet对MetaItem进行修改
+        // 修改的逻辑是这样的：有一个真实的在数据库中的值，将该值拷贝一份放入新创建的metadata_inputting，这样打开Sheet就会显示修改前的值；这个值是一个临时的变量，在Sheet中修改不会直接影响到该变量；只有当最后点击`修改`按钮的时候才会对数据库中的真实值进行修改
         .onTapGesture {
             if isEditable {
-                isShowingEditSheet = true
+                addUIConfig.isShowingOrdinaryAddView = true
             }
         }
         .sheet(
             // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
-            isPresented: $isShowingEditSheet,
+            isPresented: $addUIConfig.isShowingOrdinaryAddView,
             onDismiss: didDismissEditingMetaItemSheet
         ) {
-//            OrdinaryAddSheet(
-//                isEditingMetaItem: true, // 开的是修改页面
-//                addUIConfig: .constant(AddUIConfig()), // 传默认值
-//                metadata_inputting: $RacoonAccountBook.wholeBook.items.,
-//                amount_string_inputting: $amount_string_inputting,
-//                showAddSuccessfullyAlert: $showAddSuccessfullyAlert
-//            )
-            Text("haha")
+            OrdinaryAddSheet(isEditingMetaItem: true,
+                             itemidToUpdate: itemId,
+                             addUIConfig: $addUIConfig,
+                             metadata_inputting: $metadata_inputting,
+                             amount_string_inputting: $amount_string_inputting,
+                             showSuccessfullyAlert: $addUIConfig.showAddSuccessfullyAlert)
         }
     }
 
     private func didDismissEditingMetaItemSheet() {
-        isShowingEditSheet = false // 应该不用这一句 系统dismiss的时候应该会将该变量设置为false
-
-        // 正在编辑的sheet下来之后什么都不用做…就当用户取消了刚刚修改的内容。
-        // TODO: 可能需要将页面的状态复原
         printLog("[MetaItemView] didDismissEditingMetaItemSheet()")
     }
 }

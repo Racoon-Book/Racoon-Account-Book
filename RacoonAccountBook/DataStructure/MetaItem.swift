@@ -132,6 +132,11 @@ struct MetaItem {
         if forWho != nil { self.forWho = forWho! }
         if story != nil { self.story = story! }
     }
+
+    /// 更新self
+    mutating func update(metadata: MetaItem) {
+        self = metadata
+    }
 }
 
 extension MetaItem: CustomStringConvertible {

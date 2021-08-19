@@ -24,7 +24,7 @@ struct AccountBook {
         static var focusList: [String] = AccountBook.defaultFocusList
     #endif
 
-    // MARK: - 一些简单的操作数据的函数
+    // MARK: - init
 
     init() {
         // FIXME: 这里之后初始化就变成从数据库读数据了！
@@ -40,10 +40,12 @@ struct AccountBook {
         #endif
     }
 
+    // MARK: - 一些简单的操作数据的函数
+
     /// 使用MetaItem插入数据
     mutating func createItem(metadata: MetaItem) -> Item {
         // 由MetaItem创建Item
-        let item = Item(id: idCount, metadata: metadata) // FIXME: 这里id只用wholeBook的 不清楚将来会不会发生什么问题
+        let item = Item(id: idCount, metadata: metadata)
 
         // 添加item到wholeBook
         wholeEx.items.append(item)
@@ -54,5 +56,19 @@ struct AccountBook {
         printLog("[AccountBook.createItem()] " + "id: \(item.id)" + "\n" + "\(item.metadata)")
 
         return item
+    }
+
+    mutating func updateItem(id: Int, metadata: MetaItem) -> Bool {
+        if let indexToUpdate = wholeEx.items.firstIndex(where: {
+            $0.id == id
+        }) {
+            wholeEx.items[indexToUpdate].updatedAt = DateInRegion(region: regionChina)
+            wholeEx.items[indexToUpdate].metadata = metadata
+            // Log
+            printLog("[AccountBook.updateItem()] " + "id: \(id)" + "\n" + "\(wholeEx.items[indexToUpdate].metadata)")
+            return true
+        } else {
+            return false
+        }
     }
 }
