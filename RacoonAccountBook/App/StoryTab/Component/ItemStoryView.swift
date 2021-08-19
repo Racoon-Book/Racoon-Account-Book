@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct ItemStoryView: View {
-    @Binding var item: Item
+    @Binding var metadata: MetaItem
 
     var body: some View {
-        let data = item.metadata
+        
         ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: 15)
                 .foregroundColor(Color("StoryBG"))
 
             VStack(alignment: .leading) {
-                let text = data.story?.text ?? "为本次花销添加一段财记吧"
-                let amountFormatted = String(format: "%.1f", data.amount_float)
+                let text = metadata.story?.text ?? "为本次花销添加一段财记吧"
+                let amountFormatted = String(format: "%.1f", metadata.amount_float)
 
-                Text(DisplayDate(data.spentMoneyAt))
+                Text(DisplayDate(metadata.spentMoneyAt))
                     .font(.caption)
                     .padding(.top, 6.0)
 
-                Text("在\(data.event)上花了\(amountFormatted)元")
+                Text("在\(metadata.event)上花了\(amountFormatted)元")
                     .font(.title2)
                     .padding(.vertical, 9.0)
 
@@ -32,13 +32,13 @@ struct ItemStoryView: View {
                     .font(.body)
 
                 HStack(alignment: .center) {
-                    if let rating = data.story?.rating {
+                    if let rating = metadata.story?.rating {
                         RatingView(rating: rating)
                     }
 
                     Spacer()
 
-                    if let emoji = data.story?.emoji {
+                    if let emoji = metadata.story?.emoji {
                         Text(emoji)
                             .font(.title)
                     }

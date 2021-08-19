@@ -76,26 +76,26 @@ class AccountBookModel: ObservableObject {
 
     // MARK: - 返回符合要求的Ex
 
-//    /// 返回有故事的Ex
-//    func getExWithStory() -> Ex {
-//        let itemsWithStory: [Item] = model.wholeEx.items.filter {
-//            $0.metadata.story != nil
-//        }
-//
-//        return Ex(items: itemsWithStory)
-//    }
-
-    /// 返回有Story的items
-    func getItemsWithStory() -> [Item]? {
+    /// 返回有故事的Ex
+    func getExWithStory() -> Ex {
         let itemsWithStory: [Item] = model.wholeEx.items.filter {
             $0.metadata.story != nil
         }
-        if itemsWithStory.count == 0 {
-            return nil
-        } else {
-            return itemsWithStory
-        }
+
+        return Ex(items: itemsWithStory)
     }
+
+//    /// 返回有Story的items
+//    func getItemsWithStory() -> [Item]? {
+//        let itemsWithStory: [Item] = model.wholeEx.items.filter {
+//            $0.metadata.story != nil
+//        }
+//        if itemsWithStory.count == 0 {
+//            return nil
+//        } else {
+//            return itemsWithStory
+//        }
+//    }
 
     // FIXME: 改成Ex
     func GetBookOfThisMonthOfTag(tag: String) -> Ex {

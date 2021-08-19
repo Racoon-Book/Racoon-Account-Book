@@ -5,15 +5,17 @@ struct StoryTab: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
 
     var body: some View {
+        let items = RacoonAccountBook.getExWithStory().items
+
         // TODO: 像账本那样做一个深色的统计页面应该比较好
-        if let items = RacoonAccountBook.getItemsWithStory() {
+        if items.count != 0 {
             NavigationView {
                 VStack {
                     ScrollViewReader { _ in
                         ScrollView(.vertical) {
                             VStack {
-                                ForEach(items, id: \.id) { item in
-                                    ItemStoryView(item: .constant(item))
+                                ForEach(items, id: \.self) { item in
+                                    ItemStoryView(metadata: .constant(item.metadata))
                                 }
                                 .padding(.horizontal, 10) // 让圆角矩形边框不靠边
                             }
@@ -24,10 +26,11 @@ struct StoryTab: View {
                         }.padding([.vertical], 5) // 让上下两个stroy不靠边
                     }
                 }
+                .navigationTitle("最近的财记")
+                .navigationBarTitleDisplayMode(.inline)
+                .edgesIgnoringSafeArea(.top)
             }
-            .navigationTitle("最近的财记")
-            .navigationBarTitleDisplayMode(.inline)
-            .edgesIgnoringSafeArea(.top)
+
         } else {
             Text("Error in StoryTab")
         }
