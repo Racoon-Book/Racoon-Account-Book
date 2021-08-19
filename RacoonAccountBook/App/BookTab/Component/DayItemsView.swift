@@ -3,7 +3,7 @@ import SwiftUI
 
 struct DayItemsView: View {
     var date: DateInRegion
-    @Binding var dayItems: [Item]
+    var dayItems: [Item]
 
     var body: some View {
         let date_display: String = DisplayDate(date)

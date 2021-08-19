@@ -6,15 +6,16 @@ struct Item: Identifiable, Hashable {
     // Identifiable
     var id: Int
 
-    // Hashable
+    // Equable
     static func == (lhs: Item, rhs: Item) -> Bool {
-        return lhs.id == rhs.id
+        let equal: Bool = (lhs.id == rhs.id) && (lhs.metadata == rhs.metadata)
+        return equal
     }
 
     // https://stackoverflow.com/a/56401466/14298786 虽然看不懂
     // Hashable
     func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+        hasher.combine(id) // FIXME: 这里可能需要将id改为整个item，这样才能产生不同的hash值
     }
 
     // MARK: - 生成Item时自动生成

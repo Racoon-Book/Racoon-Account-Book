@@ -4,13 +4,11 @@ import SwiftUI
 
 @main
 struct RacoonAccountBookApp: App {
-    @ObservedObject var RacoonAccountBook = AccountBookModel() // global source of truth
+    @StateObject var RacoonAccountBook = AccountBookModel()
 
     var body: some Scene {
         WindowGroup {
             MainView()
-                // 将`RacoonAccountBook`传到每一个subView
-                // subView用`@EnvironmentObject var RacoonAccountBook: AccountBookModel`就可以获取
                 .environmentObject(RacoonAccountBook)
         }
     }

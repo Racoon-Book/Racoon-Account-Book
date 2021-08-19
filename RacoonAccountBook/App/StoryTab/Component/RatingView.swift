@@ -12,9 +12,6 @@ struct RatingView: View {
 
     var body: some View {
         HStack(alignment: .center) {
-//            Text("价值")
-//                .font(.title3)
-
             ForEach(0 ..< rating, id: \.self) { _ in
                 Image(systemName: "star.fill")
                     .foregroundColor(.yellow)

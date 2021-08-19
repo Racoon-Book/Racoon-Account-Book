@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct ItemStoryView: View {
-    @Binding var metadata: MetaItem
+    var metadata: MetaItem
 
     var body: some View {
-        
         ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: 15)
                 .foregroundColor(Color("StoryBG"))
