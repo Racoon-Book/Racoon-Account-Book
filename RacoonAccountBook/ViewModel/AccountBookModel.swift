@@ -30,9 +30,7 @@ class AccountBookModel: ObservableObject {
 
     func updateItem(id: Int, metadata: MetaItem) -> Bool {
         let successfullyUpdate: Bool = model.updateItem(id: id, metadata: metadata)
-        if successfullyUpdate {
-            self.objectWillChange.send()
-        }
+
         return successfullyUpdate
     }
 
@@ -78,21 +76,25 @@ class AccountBookModel: ObservableObject {
 
     // MARK: - 返回符合要求的Ex
 
-    /// 返回有故事的Ex
+//    /// 返回有故事的Ex
 //    func getExWithStory() -> Ex {
-//        let itemsWithStory: [Item] = wholeEx.items.filter {
+//        let itemsWithStory: [Item] = model.wholeEx.items.filter {
 //            $0.metadata.story != nil
 //        }
 //
 //        return Ex(items: itemsWithStory)
 //    }
 
-    var exWithStory: Ex {
-        let itemsWithStory: [Item] = wholeEx.items.filter {
+    /// 返回有Story的items
+    func getItemsWithStory() -> [Item]? {
+        let itemsWithStory: [Item] = model.wholeEx.items.filter {
             $0.metadata.story != nil
         }
-
-        return Ex(items: itemsWithStory)
+        if itemsWithStory.count == 0 {
+            return nil
+        } else {
+            return itemsWithStory
+        }
     }
 
     // FIXME: 改成Ex

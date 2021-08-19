@@ -4,7 +4,7 @@ import SwiftUI
 
 @main
 struct RacoonAccountBookApp: App {
-    @StateObject var RacoonAccountBook = AccountBookModel() // global source of truth
+    @ObservedObject var RacoonAccountBook = AccountBookModel() // global source of truth
 
     var body: some Scene {
         WindowGroup {

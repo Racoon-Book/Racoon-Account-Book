@@ -3,7 +3,7 @@ import SwiftUI
 
 struct DayItemsView: View {
     var date: DateInRegion
-    var dayItems: [Item] = []
+    @Binding var dayItems: [Item]
 
     var body: some View {
         let date_display: String = DisplayDate(date)
@@ -33,24 +33,6 @@ struct DayItemsView: View {
 
         } else {
             EmptyView() // 不显示没有items的天
-        }
-    }
-}
-
-struct DayItemsView_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook = AccountBookModel()
-
-    static var previews: some View {
-        BookTab()
-            .environmentObject(PreviewAccountBook)
-
-        let items: [Item] = [PreviewAccountBook.wholeEx.items[0], PreviewAccountBook.wholeEx.items[1], PreviewAccountBook.wholeEx.items[2]]
-        VStack {
-            Spacer()
-            DayItemsView(
-                date: DateInRegion(year: 2021, month: 7, day: 18, region: regionChina),
-                dayItems: items)
-            Spacer()
         }
     }
 }

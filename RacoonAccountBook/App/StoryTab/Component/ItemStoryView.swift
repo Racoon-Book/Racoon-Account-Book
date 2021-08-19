@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItemStoryView: View {
-    var item: Item
+    @Binding var item: Item
 
     var body: some View {
         let data = item.metadata
@@ -49,13 +49,13 @@ struct ItemStoryView: View {
     }
 }
 
-struct ItemStoryView_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook = AccountBookModel()
-
-    static var previews: some View {
-        ItemStoryView(item: PreviewAccountBook.wholeEx.items[164])
-
-        StoryTab()
-            .environmentObject(PreviewAccountBook)
-    }
-}
+// struct ItemStoryView_Previews: PreviewProvider {
+//    @StateObject static var PreviewAccountBook = AccountBookModel()
+//
+//    static var previews: some View {
+//        ItemStoryView(item: PreviewAccountBook.wholeEx.items[164])
+//
+//        StoryTab()
+//            .environmentObject(PreviewAccountBook)
+//    }
+// }

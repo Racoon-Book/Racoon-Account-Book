@@ -11,7 +11,7 @@ struct BookTab: View {
 
         let cardPadding = CGFloat(10)
 
-        var (dayItemsDict, maxDayHavingItems) = RacoonAccountBook.getExDiviedByDaysInMonth(today)
+        let (dayItemsDict, maxDayHavingItems) = RacoonAccountBook.getExDiviedByDaysInMonth(today)
 
         NavigationView {
             VStack {
@@ -26,7 +26,7 @@ struct BookTab: View {
                 ScrollViewReader { scrollView in
                     if
 //                        let (dayItemsDict, maxDayHavingItems) = RacoonAccountBook.getExDiviedByDaysInMonth(today),
-                       let days = dayItemsDict.keys.sorted()
+                        let days = dayItemsDict.keys.sorted()
                     {
                         ScrollView(.vertical) {
                             VStack {
@@ -47,7 +47,7 @@ struct BookTab: View {
                                     {
                                         DayItemsView(
                                             date: date,
-                                            dayItems: dayItems
+                                            dayItems: .constant(dayItems)
                                         )
                                         .padding([.horizontal], cardPadding) // 让圆角矩形边框不靠边
                                     }
@@ -79,11 +79,11 @@ struct BookTab: View {
     }
 }
 
-struct BookTab_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook = AccountBookModel()
-
-    static var previews: some View {
-        BookTab()
-            .environmentObject(PreviewAccountBook)
-    }
-}
+// struct BookTab_Previews: PreviewProvider {
+//    @StateObject static var PreviewAccountBook = AccountBookModel()
+//
+//    static var previews: some View {
+//        BookTab()
+//            .environmentObject(PreviewAccountBook)
+//    }
+// }

@@ -29,15 +29,15 @@ struct RatingView: View {
     }
 }
 
-struct RatingView_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook = AccountBookModel()
-
-    static var previews: some View {
-        RatingView(rating: 3)
-
-        ItemStoryView(item: PreviewAccountBook.wholeEx.items[164])
-
-        StoryTab()
-            .environmentObject(PreviewAccountBook)
-    }
-}
+// struct RatingView_Previews: PreviewProvider {
+//    @StateObject static var PreviewAccountBook = AccountBookModel()
+//
+//    static var previews: some View {
+//        RatingView(rating: 3)
+//
+//        ItemStoryView(item: PreviewAccountBook.wholeEx.items[164])
+//
+//        StoryTab()
+//            .environmentObject(PreviewAccountBook)
+//    }
+// }
