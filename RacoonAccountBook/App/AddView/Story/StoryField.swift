@@ -35,21 +35,3 @@ struct StoryField: View {
         }
     }
 }
-
-// struct StoryFieldView_Previews: PreviewProvider {
-//    @StateObject static var PreviewAccountBook = AccountBookModel()
-//
-//    static var previews: some View {
-//        OrdinaryAddSheet(
-//            addUIConfig: .constant(
-//                AddUIConfig(isShowingOrdinaryAddView: true,
-//                            isShowingVoiceInputView: false)),
-//            metadata_inputting: .constant(
-//                MetaItem(
-//                    originalText: "",
-//                    spentMoneyAt: DateInRegion(region: regionChina),
-//                    event: "买饮料",
-//                    amount_float: 3.5)),
-//            amount_string_inputting: .constant("3.5"))
-//    }
-// }

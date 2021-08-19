@@ -66,19 +66,6 @@ struct LargeButton: View {
     }
 }
 
-struct LargeButton_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            LargeButton(title: "Invite a Friend",
-                        backgroundColor: Color.blue,
-                        foregroundColor: Color.white) {
-                printLog("Hello World")
-            }
-            Text("haha")
-        }
-    }
-}
-
 // Example Use
 
 //// White button with green border.

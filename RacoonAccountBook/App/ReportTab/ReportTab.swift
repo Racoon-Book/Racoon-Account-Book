@@ -50,12 +50,3 @@ struct ReportTab: View {
         case habit
     }
 }
-
-struct ReportTab_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook = AccountBookModel()
-
-    static var previews: some View {
-        ReportTab()
-            .environmentObject(PreviewAccountBook)
-    }
-}

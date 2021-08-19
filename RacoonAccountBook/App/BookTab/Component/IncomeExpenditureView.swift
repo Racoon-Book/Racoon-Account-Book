@@ -78,9 +78,3 @@ enum DisplayPeriod {
     case seven
     case thirty
 }
-
-struct IncomeExpenditureView_Previews: PreviewProvider {
-    static var previews: some View {
-        IncomeExpenditureView(usingRelativeDays: false, sevenEx: 104, sevenIn: 0, thirtyEx: 1320.4, thirtyIn: 4600)
-    }
-}

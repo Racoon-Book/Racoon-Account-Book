@@ -11,8 +11,6 @@ struct BookTab: View {
 
         let cardPadding = CGFloat(10)
 
-//        let (dayItemsDict, maxDayHavingItems) = RacoonAccountBook.getExDiviedByDaysInMonth(today)
-
         NavigationView {
             VStack {
                 IncomeExpenditureView(usingRelativeDays: false,
@@ -26,7 +24,8 @@ struct BookTab: View {
                 ScrollViewReader { scrollView in
                     if
                         let (dayItemsDict, maxDayHavingItems) = RacoonAccountBook.getExDiviedByDaysInMonth(today),
-                        let days = dayItemsDict.keys.sorted() {
+                        let days = dayItemsDict.keys.sorted()
+                    {
                         ScrollView(.vertical) {
                             VStack {
                                 // Check https://stackoverflow.com/questions/56675532/swiftui-iterating-through-dictionary-with-foreach
@@ -42,7 +41,8 @@ struct BookTab: View {
                                            region: regionChina
                                        ),
                                        let ex = dayItemsDict[day],
-                                       let dayItems = ex.items {
+                                       let dayItems = ex.items
+                                    {
                                         DayItemsView(
                                             date: date,
                                             dayItems: dayItems
@@ -76,12 +76,3 @@ struct BookTab: View {
         .edgesIgnoringSafeArea(.top)
     }
 }
-
-// struct BookTab_Previews: PreviewProvider {
-//    @StateObject static var PreviewAccountBook = AccountBookModel()
-//
-//    static var previews: some View {
-//        BookTab()
-//            .environmentObject(PreviewAccountBook)
-//    }
-// }

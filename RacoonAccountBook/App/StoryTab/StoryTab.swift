@@ -36,12 +36,3 @@ struct StoryTab: View {
         }
     }
 }
-
-struct StoryTab_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook = AccountBookModel()
-
-    static var previews: some View {
-        StoryTab()
-            .environmentObject(PreviewAccountBook)
-    }
-}

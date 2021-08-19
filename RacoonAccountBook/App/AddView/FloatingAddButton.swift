@@ -70,23 +70,3 @@ struct FloatingAddButton: View {
         }
     }
 }
-
-struct FloatingAddButton_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook = AccountBookModel()
-
-    static var previews: some View {
-        FloatingAddButton(addUIConfig: .constant(
-            AddUIConfig(
-                isShowingOrdinaryAddView: false,
-                isShowingVoiceInputView: false)),
-        metadata_inputting: .constant(MetaItem(
-            originalText: "",
-            spentMoneyAt: DateInRegion(region: regionChina),
-            event: "买饮料",
-            amount_float: 3.5)))
-            .environmentObject(PreviewAccountBook)
-
-        MainView()
-            .environmentObject(PreviewAccountBook)
-    }
-}

@@ -167,13 +167,13 @@ struct OrdinaryAddSheet: View {
                     LargeButton(title: isEditingMetaItem ? "修改" : "记账",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                        printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
+                            printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
 
-                        if isEditingMetaItem {
-                            UpdateMetaItem()
-                        } else {
-                            AddNewMetaItem()
-                        }
+                            if isEditingMetaItem {
+                                UpdateMetaItem()
+                            } else {
+                                AddNewMetaItem()
+                            }
                     }
                     .font(.system(.title)) // TODO: 字有点小
                 }
@@ -295,21 +295,3 @@ struct OrdinaryAddSheet: View {
         amount_string_inputting = ""
     }
 }
-
-// struct OrdinaryAddSheet_Previews: PreviewProvider {
-//    @StateObject static var PreviewAccountBook = AccountBookModel()
-//
-//    static var previews: some View {
-//        OrdinaryAddSheet(
-//            addUIConfig: .constant(
-//                AddUIConfig(isShowingOrdinaryAddView: true,
-//                            isShowingVoiceInputView: false)),
-//            metadata_inputting: .constant(
-//                MetaItem(
-//                    originalText: "",
-//                    spentMoneyAt: DateInRegion(region: regionChina),
-//                    event: "买饮料",
-//                    amount_float: 3.5)),
-//            amount_string_inputting: .constant("3.5"))
-//    }
-// }

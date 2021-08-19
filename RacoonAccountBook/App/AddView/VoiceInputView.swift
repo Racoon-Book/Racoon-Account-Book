@@ -80,27 +80,3 @@ struct CommitSpeechButton: View {
         )
     }
 }
-
-struct VoiceInputView_Previews: PreviewProvider {
-    @StateObject static var PreviewAccountBook = AccountBookModel()
-
-    static var previews: some View {
-        VoiceInputView(
-            addUIConfig: .constant(
-                AddUIConfig(
-                    isShowingOrdinaryAddView: false,
-                    isShowingVoiceInputView: true
-                )
-            ),
-            metadata_inputting: .constant(
-                MetaItem(
-                    originalText: "",
-                    spentMoneyAt: DateInRegion(region: regionChina),
-                    event: "买饮料",
-                    amount_float: 3.5
-                )
-            ),
-            recognizedText: .constant("")
-        )
-    }
-}
