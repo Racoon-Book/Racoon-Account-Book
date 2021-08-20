@@ -15,6 +15,7 @@
 		4830D9D026B260A2007710FD /* SingleSomebodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9CF26B260A2007710FD /* SingleSomebodyView.swift */; };
 		4830D9D326B2DAF9007710FD /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 4830D9D226B2DAF9007710FD /* SwiftUICharts */; };
 		4830D9D526B354A4007710FD /* SingleComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9D426B354A4007710FD /* SingleComponentView.swift */; };
+		4830E28C26D00C0A00916DDC /* SheetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830E28B26D00C0A00916DDC /* SheetConfig.swift */; };
 		48433BD826C61A6F00F72244 /* OriginalText2LexicalClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48433BD726C61A6F00F72244 /* OriginalText2LexicalClass.swift */; };
 		486ECDF826AEFCEC00EF00B1 /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDF726AEFCEC00EF00B1 /* EmojiPicker.swift */; };
 		486ECDFA26B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDF926B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift */; };
@@ -80,6 +81,7 @@
 		4830D9CD26B25D73007710FD /* ForWhoField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForWhoField.swift; sourceTree = "<group>"; };
 		4830D9CF26B260A2007710FD /* SingleSomebodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSomebodyView.swift; sourceTree = "<group>"; };
 		4830D9D426B354A4007710FD /* SingleComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleComponentView.swift; sourceTree = "<group>"; };
+		4830E28B26D00C0A00916DDC /* SheetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetConfig.swift; sourceTree = "<group>"; };
 		48433BD726C61A6F00F72244 /* OriginalText2LexicalClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2LexicalClass.swift; sourceTree = "<group>"; };
 		486ECDF726AEFCEC00EF00B1 /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
 		486ECDF926B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2SpentMoneyAt.swift; sourceTree = "<group>"; };
@@ -168,6 +170,14 @@
 				4830D9CF26B260A2007710FD /* SingleSomebodyView.swift */,
 			);
 			path = ForWho;
+			sourceTree = "<group>";
+		};
+		4830E28A26D00BF600916DDC /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				4830E28B26D00C0A00916DDC /* SheetConfig.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		48433BD926C61A8500F72244 /* NLP */ = {
@@ -296,6 +306,7 @@
 			children = (
 				488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */,
 				488D3A79269F0E5B00287A50 /* MainView.swift */,
+				4830E28A26D00BF600916DDC /* Config */,
 				48C6360526A44B5700E7BF15 /* AddView */,
 				48C6360426A44B1400E7BF15 /* BookTab */,
 				48C6360726A44B8300E7BF15 /* StoryTab */,
@@ -532,6 +543,7 @@
 				6E3DBAF126B2F1CB00E8B678 /* FocusPieChartView.swift in Sources */,
 				6E6EA6A426AD2EAD0084055E /* ItemStoryView.swift in Sources */,
 				48B40E3126AAE1290030AAF6 /* Locale+.swift in Sources */,
+				4830E28C26D00C0A00916DDC /* SheetConfig.swift in Sources */,
 				48B40E2F26AAE0F20030AAF6 /* VoiceInputView.swift in Sources */,
 				4830D9D026B260A2007710FD /* SingleSomebodyView.swift in Sources */,
 				486ECE0326B0E81500EF00B1 /* MultilineFociView.swift in Sources */,

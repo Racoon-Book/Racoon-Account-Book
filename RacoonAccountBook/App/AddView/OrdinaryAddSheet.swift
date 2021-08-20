@@ -17,7 +17,7 @@ struct OrdinaryAddSheet: View {
 
     // MARK: - 普通输入和语音输入是否显示
 
-    @Binding var addUIConfig: AddUIConfig
+    @Binding var sheetConfig: SheetConfig
 
     // MARK: - 当前正在输入的值
 
@@ -198,7 +198,7 @@ struct OrdinaryAddSheet: View {
                             DiscardCurrentMetaItem() // 清空正在输入的 MetaItem
                         }
 
-                        addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
+                        sheetConfig.isShowingOrdinaryAddView = false // 收回sheet
                     }) { Text("取消").bold() }
 
                     Button(action: {
@@ -254,7 +254,7 @@ struct OrdinaryAddSheet: View {
 
             // 创建好数据之后将临时数据归零了
             DiscardCurrentMetaItem()
-            addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
+            sheetConfig.isShowingOrdinaryAddView = false // 收回sheet
         } else {
             // 有未输入的条目 显示提示信息
             showUnsuccessfullyAlert = true
@@ -283,7 +283,7 @@ struct OrdinaryAddSheet: View {
             }
             // 将临时数据归零
 //            DiscardCurrentMetaItem()
-            addUIConfig.isShowingOrdinaryAddView = false // 收回sheet
+            sheetConfig.isShowingOrdinaryAddView = false // 收回sheet
         } else {
             // 有未输入的条目 显示提示信息
             showUnsuccessfullyAlert = true

@@ -3,7 +3,7 @@ import SwiftSpeech
 import SwiftUI
 
 struct VoiceInputView: View {
-    @Binding var addUIConfig: AddUIConfig
+    @Binding var sheetConfig: SheetConfig
     @Binding var metadata_inputting: MetaItem
     @Binding var recognizedText: String
 
@@ -23,8 +23,8 @@ struct VoiceInputView: View {
                     HStack {
                         Spacer()
                         Button {
-                            addUIConfig.blurRadius = 0 // 取消模糊
-                            addUIConfig.isShowingVoiceInputView = false // 关闭VoiceInputView
+                            sheetConfig.blurRadius = 0 // 取消模糊
+                            sheetConfig.isShowingVoiceInputView = false // 关闭VoiceInputView
                             recognizedText = "" // 清除已识别文字
                         } label: {
                             Text(Image(systemName: "xmark"))
@@ -32,7 +32,7 @@ struct VoiceInputView: View {
                         }
                         Spacer()
                         // 确定语音输入没问题 提交
-                        CommitSpeechButton(addUIConfig: $addUIConfig,
+                        CommitSpeechButton(sheetConfig: $sheetConfig,
                                            metadata_inputting: $metadata_inputting,
                                            recognizedText: $recognizedText)
                         Spacer()
@@ -48,7 +48,7 @@ struct VoiceInputView: View {
 }
 
 struct CommitSpeechButton: View {
-    @Binding var addUIConfig: AddUIConfig
+    @Binding var sheetConfig: SheetConfig
     @Binding var metadata_inputting: MetaItem
 
     @Binding var recognizedText: String // （自用）用来动态显示识别结果
@@ -61,9 +61,9 @@ struct CommitSpeechButton: View {
             UpdateMetaItem()
 
             withAnimation { // TODO: 不太清楚这个动画有没有作用
-                addUIConfig.blurRadius = 0 // 取消模糊
-                addUIConfig.isShowingVoiceInputView = false // 提交之后收起语音添加界面
-                addUIConfig.isShowingOrdinaryAddView = true // 呈现 OrdinaryAddSheet
+                sheetConfig.blurRadius = 0 // 取消模糊
+                sheetConfig.isShowingVoiceInputView = false // 提交之后收起语音添加界面
+                sheetConfig.isShowingOrdinaryAddView = true // 呈现 OrdinaryAddSheet
             }
             recognizedText = ""
         }, label: {

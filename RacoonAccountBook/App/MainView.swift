@@ -2,17 +2,6 @@ import SwiftDate
 import SwiftUI
 import UIKit
 
-struct AddUIConfig {
-    /// 是否正在显示添加账目的Sheet
-    var isShowingOrdinaryAddView: Bool = false
-    /// 是否正在显示语音输入界面
-    var isShowingVoiceInputView: Bool = false
-    /// 是否正在显示成功添加之后的提示
-    var showAddSuccessfullyAlert: Bool = false
-    /// 控制TabView模糊的程度，语音输入时模糊画面
-    var blurRadius: CGFloat = 0
-}
-
 struct MainView: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
 
@@ -26,7 +15,7 @@ struct MainView: View {
     @State private var selectedTab = MainView.Tab1
 
     /// 与添加相关需要用到的东西
-    @State private var addUIConfig = AddUIConfig(
+    @State private var sheetConfig = SheetConfig(
         isShowingOrdinaryAddView: false, // 最开始不显示
         isShowingVoiceInputView: false, // 最开始不显示
         blurRadius: 0
@@ -67,29 +56,29 @@ struct MainView: View {
                     }
                     .tag(MainView.Tab3)
             }
-            .blur(radius: addUIConfig.blurRadius)
+            .blur(radius: sheetConfig.blurRadius)
 
             // 成功记账提示
-            if addUIConfig.showAddSuccessfullyAlert {
-                SuccessfullyAddAlert(showAddSuccessfullyAlert: $addUIConfig.showAddSuccessfullyAlert, metadata: RacoonAccountBook.wholeEx.items.last!.metadata)
+            if sheetConfig.showAddSuccessfullyAlert {
+                SuccessfullyAddAlert(showAddSuccessfullyAlert: $sheetConfig.showAddSuccessfullyAlert, metadata: RacoonAccountBook.wholeEx.items.last!.metadata)
             }
 
             // VoiceInputView 在 FloatingAddButton 中显示
             if selectedTab != MainView.Tab3 {
-                FloatingAddButton(addUIConfig: $addUIConfig,
+                FloatingAddButton(sheetConfig: $sheetConfig,
                                   metadata_inputting: $metadata_inputting)
             }
         }
         .sheet(
             // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
-            isPresented: $addUIConfig.isShowingOrdinaryAddView,
+            isPresented: $sheetConfig.isShowingOrdinaryAddView,
             onDismiss: didDismissOrdinaryAddSheet
         ) {
             OrdinaryAddSheet(
-                addUIConfig: $addUIConfig,
+                sheetConfig: $sheetConfig,
                 metadata_inputting: $metadata_inputting,
                 amount_string_inputting: $amount_string_inputting,
-                showSuccessfullyAlert: $addUIConfig.showAddSuccessfullyAlert
+                showSuccessfullyAlert: $sheetConfig.showAddSuccessfullyAlert
             )
         }
     }
