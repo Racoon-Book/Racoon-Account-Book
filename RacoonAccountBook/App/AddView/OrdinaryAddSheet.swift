@@ -56,10 +56,10 @@ struct OrdinaryAddSheet: View {
 
     // MARK: - 添加界面额外的添加选项
 
-    /// 是否给当前的MetaItem添加财记
-    @State private var showingStoryInputView: Bool = false
-    /// 是否给当前的MetaItem添加ForWho
-    @State private var showingForWhoInputView: Bool = false
+    /// 是否显示除了基础条目以外的条目
+    @State private var extraMetaItemConfig = ExtraMetaItemConfig(
+        showingStory: false,
+        showingForWho: false)
 
     // MARK: - 是否正在编辑某个文本框
 
@@ -130,10 +130,10 @@ struct OrdinaryAddSheet: View {
                         // MARK: - Other
 
                         // 财记 Story
-                        if showingStoryInputView {
+                        if extraMetaItemConfig.showingStory {
                             StoryInputView(
                                 metadata_inputting: $metadata_inputting,
-                                showingStoryInputView: $showingStoryInputView)
+                                showingStoryInputView: $extraMetaItemConfig.showingStory)
                                 .onAppear {
                                     // 出现的时候置为三星
                                     metadata_inputting.story = MetaItem.Story(
@@ -146,20 +146,21 @@ struct OrdinaryAddSheet: View {
                         }
 
                         // 为谁 ForWho
-                        if showingForWhoInputView {
+                        if extraMetaItemConfig.showingForWho {
                             ForWhoInputView(
                                 metadata_inputting: $metadata_inputting,
-                                showingForWhoInputView: $showingForWhoInputView)
+                                showingForWhoInputView: $extraMetaItemConfig.showingForWho)
                         } else {
                             EmptyView()
                         }
 
                         // 新添加的项
                         // 任意一个没在呈现就要出现
-                        if !showingStoryInputView || !showingForWhoInputView {
+                        if !extraMetaItemConfig.showingStory ||
+                            !extraMetaItemConfig.showingForWho
+                        {
                             NewMetaDataButtons(metadata_inputting: $metadata_inputting,
-                                               showingStoryInputView: $showingStoryInputView,
-                                               showingForWhoInputView: $showingForWhoInputView)
+                                               extraMetaItemConfig: $extraMetaItemConfig)
                         }
                     }
                     .padding([.vertical]) // 所有输入框离手机边框远一点
@@ -167,13 +168,13 @@ struct OrdinaryAddSheet: View {
                     LargeButton(title: isEditingMetaItem ? "修改" : "记账",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                            printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
+                        printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
 
-                            if isEditingMetaItem {
-                                UpdateMetaItem()
-                            } else {
-                                AddNewMetaItem()
-                            }
+                        if isEditingMetaItem {
+                            UpdateMetaItem()
+                        } else {
+                            AddNewMetaItem()
+                        }
                     }
                     .font(.system(.title)) // TODO: 字有点小
                 }
