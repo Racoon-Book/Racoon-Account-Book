@@ -77,8 +77,7 @@ struct MainView: View {
             MetaItemSheet(
                 sheetConfig: $sheetConfig,
                 metadata_inputting: $metadata_inputting,
-                amount_string_inputting: $amount_string_inputting,
-                showSuccessfullyAlert: $sheetConfig.showAddSuccessfullyAlert
+                amount_string_inputting: $amount_string_inputting
             )
         }
     }

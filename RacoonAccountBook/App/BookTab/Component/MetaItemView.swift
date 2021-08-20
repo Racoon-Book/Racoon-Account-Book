@@ -3,14 +3,19 @@ import SwiftUI
 
 // 用来显示一个条目的View
 struct MetaItemView: View {
+    // MARK: - 基础数据
+
     var itemId: Int = 0
 
     /// 该View呈现的MetaItem
     var metadata: MetaItem
+
+    // MARK: - 修改相关
+
     /// 条目是否能编辑
     var isEditable: Bool = true
 
-    /// 与添加相关需要用到的东西
+    /// 控制修改相关视图
     @State private var sheetConfig = SheetConfig(
         /// 是否正在编辑BookTab的某个条目
         isShowingOrdinaryAddView: false, // 最开始不显示
@@ -19,13 +24,17 @@ struct MetaItemView: View {
         blurRadius: 0
     )
 
-    /// 临时记录输入的金额字符串（因为可能用户并没有输入小数）
-    @State private var amount_string_inputting: String = ""
+    // MARK: - 修改时需要的量
+
+    // FIXME: 感觉这里有问题 虽然现在的也可以
 
     /// 用于修改的临时变量
     ///
     /// 初值为需要修改的MetaItem
     @State var metadata_inputting: MetaItem
+
+    /// 临时记录输入的金额字符串（因为可能用户并没有输入小数）
+    @State private var amount_string_inputting: String = ""
 
     var body: some View {
         let amount_dispaly = String(format: "%.1f", metadata.amount_float)
@@ -102,11 +111,10 @@ struct MetaItemView: View {
             onDismiss: didDismissEditingMetaItemSheet
         ) {
             MetaItemSheet(isEditingMetaItem: true,
-                             itemidToUpdate: itemId,
-                             sheetConfig: $sheetConfig,
-                             metadata_inputting: $metadata_inputting,
-                             amount_string_inputting: $amount_string_inputting,
-                             showSuccessfullyAlert: $sheetConfig.showAddSuccessfullyAlert)
+                          itemidToUpdate: itemId,
+                          sheetConfig: $sheetConfig,
+                          metadata_inputting: $metadata_inputting,
+                          amount_string_inputting: $amount_string_inputting)
         }
     }
 

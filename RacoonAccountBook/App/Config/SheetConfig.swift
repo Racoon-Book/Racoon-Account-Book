@@ -12,6 +12,7 @@ struct SheetConfig {
     var isShowingVoiceInputView: Bool = false
     /// 是否正在显示成功添加之后的提示
     var showAddSuccessfullyAlert: Bool = false
+    
 
     // MARK: - 控制界面样式
 

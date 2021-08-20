@@ -56,8 +56,6 @@ struct MetaItemSheet: View {
         }
     }
 
-    /// Sheet关闭后才显示的添加成功提示
-    @Binding var showSuccessfullyAlert: Bool
 
     // MARK: - 添加界面额外的添加选项
 
@@ -256,7 +254,7 @@ struct MetaItemSheet: View {
             RacoonAccountBook.createItem(metadata: metadata_inputting)
 
             // 添加成功显示提示
-            showSuccessfullyAlert = true
+            sheetConfig.showAddSuccessfullyAlert = true
 
             // 创建好数据之后将临时数据归零了
             DiscardCurrentMetaItem()
@@ -281,7 +279,7 @@ struct MetaItemSheet: View {
 
             if successfullyUpdate {
                 // 添加成功显示提示
-                showSuccessfullyAlert = true
+                sheetConfig.showAddSuccessfullyAlert = true
             } else {
                 // 未成功修改
                 // FIXME: 添加给用户的提示
