@@ -7,12 +7,11 @@ struct SheetConfig {
     // MARK: - 是否显示某视图
 
     /// 是否正在显示添加账目的Sheet
-    var isShowingOrdinaryAddView: Bool = false
+    var showingOrdinaryAddView: Bool = false
     /// 是否正在显示语音输入界面
-    var isShowingVoiceInputView: Bool = false
+    var showingVoiceInputView: Bool = false
     /// 是否正在显示成功添加之后的提示
-    var showAddSuccessfullyAlert: Bool = false
-    
+    var showingSuccessfullyAlert: Bool = false
 
     // MARK: - 控制界面样式
 

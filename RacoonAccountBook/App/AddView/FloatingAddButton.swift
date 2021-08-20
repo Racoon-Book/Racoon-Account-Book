@@ -35,17 +35,17 @@ struct FloatingAddButton: View {
                         .swiftSpeechRecordOnHold(locale: Locale(identifier: ChineseSpeechIdentifier))
                         .simultaneousGesture(TapGesture().onEnded {
                             printLog("[FloatAddButton] Tapped")
-                            sheetConfig.isShowingOrdinaryAddView = true
+                            sheetConfig.showingOrdinaryAddView = true
 
                             // Tap 会触发 onStartRecording，手动还原
                             sheetConfig.blurRadius = 0
-                            sheetConfig.isShowingVoiceInputView = false
+                            sheetConfig.showingVoiceInputView = false
 
                             // TODO: 在语音输入下误触（Tap）本按钮
                         })
                         .onStartRecording { _ in
                             sheetConfig.blurRadius = 4.0
-                            sheetConfig.isShowingVoiceInputView = true
+                            sheetConfig.showingVoiceInputView = true
                         }
                         .printRecognizedText(includePartialResults: true)
                         .onRecognizeLatest(update: $recognizedText)
@@ -56,7 +56,7 @@ struct FloatingAddButton: View {
             }
 
             // 悬浮在所有界面之上的语音识别界面 所以在ZStack最下方
-            if sheetConfig.isShowingVoiceInputView {
+            if sheetConfig.showingVoiceInputView {
                 VoiceInputView(sheetConfig: $sheetConfig,
                                metadata_inputting: $metadata_inputting,
                                recognizedText: $recognizedText)

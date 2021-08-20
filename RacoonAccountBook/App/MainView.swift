@@ -16,8 +16,8 @@ struct MainView: View {
 
     /// 与添加相关需要用到的东西
     @State private var sheetConfig = SheetConfig(
-        isShowingOrdinaryAddView: false, // 最开始不显示
-        isShowingVoiceInputView: false, // 最开始不显示
+        showingOrdinaryAddView: false, // 最开始不显示
+        showingVoiceInputView: false, // 最开始不显示
         blurRadius: 0
     )
 
@@ -59,8 +59,8 @@ struct MainView: View {
             .blur(radius: sheetConfig.blurRadius)
 
             // 成功记账提示
-            if sheetConfig.showAddSuccessfullyAlert {
-                SuccessfullyAddAlert(showAddSuccessfullyAlert: $sheetConfig.showAddSuccessfullyAlert, metadata: RacoonAccountBook.wholeEx.items.last!.metadata)
+            if sheetConfig.showingSuccessfullyAlert {
+                SuccessfullyAddAlert(showAddSuccessfullyAlert: $sheetConfig.showingSuccessfullyAlert, metadata: RacoonAccountBook.wholeEx.items.last!.metadata)
             }
 
             // VoiceInputView 在 FloatingAddButton 中显示
@@ -71,7 +71,7 @@ struct MainView: View {
         }
         .sheet(
             // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
-            isPresented: $sheetConfig.isShowingOrdinaryAddView,
+            isPresented: $sheetConfig.showingOrdinaryAddView,
             onDismiss: didDismissOrdinaryAddSheet
         ) {
             MetaItemSheet(

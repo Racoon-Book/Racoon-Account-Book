@@ -18,9 +18,9 @@ struct MetaItemView: View {
     /// 控制修改相关视图
     @State private var sheetConfig = SheetConfig(
         /// 是否正在编辑BookTab的某个条目
-        isShowingOrdinaryAddView: false, // 最开始不显示
-        isShowingVoiceInputView: false, // 不显示
-        showAddSuccessfullyAlert: false, // 最开始不显示
+        showingOrdinaryAddView: false, // 最开始不显示
+        showingVoiceInputView: false, // 不显示
+        showingSuccessfullyAlert: false, // 最开始不显示
         blurRadius: 0
     )
 
@@ -102,12 +102,12 @@ struct MetaItemView: View {
         // 修改的逻辑是这样的：有一个真实的在数据库中的值，将该值拷贝一份放入新创建的metadata_inputting，这样打开Sheet就会显示修改前的值；这个值是一个临时的变量，在Sheet中修改不会直接影响到该变量；只有当最后点击`修改`按钮的时候才会对数据库中的真实值进行修改
         .onTapGesture {
             if isEditable {
-                sheetConfig.isShowingOrdinaryAddView = true
+                sheetConfig.showingOrdinaryAddView = true
             }
         }
         .sheet(
             // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
-            isPresented: $sheetConfig.isShowingOrdinaryAddView,
+            isPresented: $sheetConfig.showingOrdinaryAddView,
             onDismiss: didDismissEditingMetaItemSheet
         ) {
             MetaItemSheet(isEditingMetaItem: true,

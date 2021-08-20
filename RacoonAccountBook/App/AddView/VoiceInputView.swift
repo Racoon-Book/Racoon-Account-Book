@@ -24,7 +24,7 @@ struct VoiceInputView: View {
                         Spacer()
                         Button {
                             sheetConfig.blurRadius = 0 // 取消模糊
-                            sheetConfig.isShowingVoiceInputView = false // 关闭VoiceInputView
+                            sheetConfig.showingVoiceInputView = false // 关闭VoiceInputView
                             recognizedText = "" // 清除已识别文字
                         } label: {
                             Text(Image(systemName: "xmark"))
@@ -62,8 +62,8 @@ struct CommitSpeechButton: View {
 
             withAnimation { // TODO: 不太清楚这个动画有没有作用
                 sheetConfig.blurRadius = 0 // 取消模糊
-                sheetConfig.isShowingVoiceInputView = false // 提交之后收起语音添加界面
-                sheetConfig.isShowingOrdinaryAddView = true // 呈现 OrdinaryAddSheet
+                sheetConfig.showingVoiceInputView = false // 提交之后收起语音添加界面
+                sheetConfig.showingOrdinaryAddView = true // 呈现 OrdinaryAddSheet
             }
             recognizedText = ""
         }, label: {

@@ -202,7 +202,7 @@ struct MetaItemSheet: View {
                             DiscardCurrentMetaItem() // 清空正在输入的 MetaItem
                         }
 
-                        sheetConfig.isShowingOrdinaryAddView = false // 收回sheet
+                        sheetConfig.showingOrdinaryAddView = false // 收回sheet
                     }) { Text("取消").bold() }
 
                     Button(action: {
@@ -254,11 +254,11 @@ struct MetaItemSheet: View {
             RacoonAccountBook.createItem(metadata: metadata_inputting)
 
             // 添加成功显示提示
-            sheetConfig.showAddSuccessfullyAlert = true
+            sheetConfig.showingSuccessfullyAlert = true
 
             // 创建好数据之后将临时数据归零了
             DiscardCurrentMetaItem()
-            sheetConfig.isShowingOrdinaryAddView = false // 收回sheet
+            sheetConfig.showingOrdinaryAddView = false // 收回sheet
         } else {
             // 有未输入的条目 显示提示信息
             showUnsuccessfullyAlert = true
@@ -279,7 +279,7 @@ struct MetaItemSheet: View {
 
             if successfullyUpdate {
                 // 添加成功显示提示
-                sheetConfig.showAddSuccessfullyAlert = true
+                sheetConfig.showingSuccessfullyAlert = true
             } else {
                 // 未成功修改
                 // FIXME: 添加给用户的提示
@@ -287,7 +287,7 @@ struct MetaItemSheet: View {
             }
             // 将临时数据归零
 //            DiscardCurrentMetaItem()
-            sheetConfig.isShowingOrdinaryAddView = false // 收回sheet
+            sheetConfig.showingOrdinaryAddView = false // 收回sheet
         } else {
             // 有未输入的条目 显示提示信息
             showUnsuccessfullyAlert = true
