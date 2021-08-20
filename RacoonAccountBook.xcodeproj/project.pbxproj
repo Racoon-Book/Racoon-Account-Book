@@ -45,7 +45,7 @@
 		488D3A88269F0F0800287A50 /* AccountBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A87269F0F0800287A50 /* AccountBook.swift */; };
 		488D3A8A269F0F1D00287A50 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A89269F0F1D00287A50 /* Item.swift */; };
 		488D3A8D269F0F3700287A50 /* AccountBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A8C269F0F3700287A50 /* AccountBookModel.swift */; };
-		488D3A90269F0F5500287A50 /* OrdinaryAddSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A8F269F0F5500287A50 /* OrdinaryAddSheet.swift */; };
+		488D3A90269F0F5500287A50 /* MetaItemSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A8F269F0F5500287A50 /* MetaItemSheet.swift */; };
 		488D3A92269F0F5E00287A50 /* BookTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A91269F0F5E00287A50 /* BookTab.swift */; };
 		488D3A96269F188100287A50 /* ReportTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A95269F188100287A50 /* ReportTab.swift */; };
 		488D3A9F269F42AF00287A50 /* PutKeyboardBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A9E269F42AF00287A50 /* PutKeyboardBack.swift */; };
@@ -114,7 +114,7 @@
 		488D3A87269F0F0800287A50 /* AccountBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBook.swift; sourceTree = "<group>"; };
 		488D3A89269F0F1D00287A50 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		488D3A8C269F0F3700287A50 /* AccountBookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountBookModel.swift; sourceTree = "<group>"; };
-		488D3A8F269F0F5500287A50 /* OrdinaryAddSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinaryAddSheet.swift; sourceTree = "<group>"; };
+		488D3A8F269F0F5500287A50 /* MetaItemSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaItemSheet.swift; sourceTree = "<group>"; };
 		488D3A91269F0F5E00287A50 /* BookTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTab.swift; sourceTree = "<group>"; };
 		488D3A95269F188100287A50 /* ReportTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTab.swift; sourceTree = "<group>"; };
 		488D3A9E269F42AF00287A50 /* PutKeyboardBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutKeyboardBack.swift; sourceTree = "<group>"; };
@@ -369,7 +369,7 @@
 			children = (
 				4897FE9B26AC0CCC001AE9BA /* FloatingAddButton.swift */,
 				48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */,
-				488D3A8F269F0F5500287A50 /* OrdinaryAddSheet.swift */,
+				488D3A8F269F0F5500287A50 /* MetaItemSheet.swift */,
 				4830E28D26D00FDA00916DDC /* Config */,
 				4878A75C26AC65B400DCBC8D /* ExtractOriginalTextFuncs */,
 				4878A76326AD922000DCBC8D /* TextField */,
@@ -566,7 +566,7 @@
 				488D3AAB269F86E400287A50 /* TestData_MetaItem.swift in Sources */,
 				4830D9C426B1FDA5007710FD /* SingleNewItemView.swift in Sources */,
 				4878A76926AD93DD00DCBC8D /* otherMetaItem.swift in Sources */,
-				488D3A90269F0F5500287A50 /* OrdinaryAddSheet.swift in Sources */,
+				488D3A90269F0F5500287A50 /* MetaItemSheet.swift in Sources */,
 				488D3A92269F0F5E00287A50 /* BookTab.swift in Sources */,
 				6E3DBAEF26B2DEE100E8B678 /* ExChartView.swift in Sources */,
 				4878A76B26AD944900DCBC8D /* TagField.swift in Sources */,

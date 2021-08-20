@@ -101,7 +101,7 @@ struct MetaItemView: View {
             isPresented: $sheetConfig.isShowingOrdinaryAddView,
             onDismiss: didDismissEditingMetaItemSheet
         ) {
-            OrdinaryAddSheet(isEditingMetaItem: true,
+            MetaItemSheet(isEditingMetaItem: true,
                              itemidToUpdate: itemId,
                              sheetConfig: $sheetConfig,
                              metadata_inputting: $metadata_inputting,

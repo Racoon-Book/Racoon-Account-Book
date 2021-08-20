@@ -2,18 +2,23 @@ import Combine
 import SwiftDate
 import SwiftUI
 
-struct OrdinaryAddSheet: View {
+/// 用来输入或修改一个Item的MetaItem
+struct MetaItemSheet: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
 
-    /// 该界面是添加还是修改
-    var isEditingMetaItem: Bool = false
-    /// 需要更新的Item的id 所有的修改都通过id来进行
-    var itemidToUpdate: Int = 0
+    // MARK: - 界面参数
 
     /// 呈现转换后的条目的信息的高度
     static let coreMetaItemHeight = CGFloat(100) // 刚好呈下三个元素
     /// 金额框的宽度
     static let amountFieldWidth = CGFloat(70) // 刚好容下四位数字带一个小数点
+
+    // MARK: - 确定界面的功能 添加 or 修改
+
+    /// 该界面是添加还是修改
+    var isEditingMetaItem: Bool = false
+    /// 需要更新的Item的id 所有的修改都通过id来进行
+    var itemidToUpdate: Int = 0
 
     // MARK: - 普通输入和语音输入是否显示
 
@@ -110,13 +115,13 @@ struct OrdinaryAddSheet: View {
                                         input_string: $amount_string_inputting,
                                         isEditing: $isEditing)
                                         .frame(
-                                            maxWidth: OrdinaryAddSheet.amountFieldWidth,
+                                            maxWidth: MetaItemSheet.amountFieldWidth,
                                             alignment: .trailing)
                                 }
                             }
                             .padding([.horizontal], 10) // 三个要素离矩形边框远一点
                         }
-                        .frame(height: OrdinaryAddSheet.coreMetaItemHeight)
+                        .frame(height: MetaItemSheet.coreMetaItemHeight)
 
                         // 标签 Tag
                         TagsInputView(metadata_inputting: $metadata_inputting)

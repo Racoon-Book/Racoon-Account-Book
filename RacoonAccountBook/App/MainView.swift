@@ -74,7 +74,7 @@ struct MainView: View {
             isPresented: $sheetConfig.isShowingOrdinaryAddView,
             onDismiss: didDismissOrdinaryAddSheet
         ) {
-            OrdinaryAddSheet(
+            MetaItemSheet(
                 sheetConfig: $sheetConfig,
                 metadata_inputting: $metadata_inputting,
                 amount_string_inputting: $amount_string_inputting,
