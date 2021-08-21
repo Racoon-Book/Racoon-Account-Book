@@ -18,6 +18,7 @@
 		4830E28C26D00C0A00916DDC /* SheetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830E28B26D00C0A00916DDC /* SheetConfig.swift */; };
 		4830E28F26D00FEC00916DDC /* ExtraMetaItemConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830E28E26D00FEC00916DDC /* ExtraMetaItemConfig.swift */; };
 		48433BD826C61A6F00F72244 /* OriginalText2LexicalClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48433BD726C61A6F00F72244 /* OriginalText2LexicalClass.swift */; };
+		4844ED3F26D0BD1D0037C09A /* SheetConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4844ED3E26D0BD1D0037C09A /* SheetConfigModel.swift */; };
 		486ECDF826AEFCEC00EF00B1 /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDF726AEFCEC00EF00B1 /* EmojiPicker.swift */; };
 		486ECDFA26B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDF926B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift */; };
 		486ECDFD26B0E36200EF00B1 /* FocusSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486ECDFC26B0E36200EF00B1 /* FocusSelectView.swift */; };
@@ -85,6 +86,7 @@
 		4830E28B26D00C0A00916DDC /* SheetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetConfig.swift; sourceTree = "<group>"; };
 		4830E28E26D00FEC00916DDC /* ExtraMetaItemConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraMetaItemConfig.swift; sourceTree = "<group>"; };
 		48433BD726C61A6F00F72244 /* OriginalText2LexicalClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2LexicalClass.swift; sourceTree = "<group>"; };
+		4844ED3E26D0BD1D0037C09A /* SheetConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetConfigModel.swift; sourceTree = "<group>"; };
 		486ECDF726AEFCEC00EF00B1 /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
 		486ECDF926B0D6D000EF00B1 /* OriginalText2SpentMoneyAt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2SpentMoneyAt.swift; sourceTree = "<group>"; };
 		486ECDFC26B0E36200EF00B1 /* FocusSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSelectView.swift; sourceTree = "<group>"; };
@@ -174,14 +176,6 @@
 			path = ForWho;
 			sourceTree = "<group>";
 		};
-		4830E28A26D00BF600916DDC /* Config */ = {
-			isa = PBXGroup;
-			children = (
-				4830E28B26D00C0A00916DDC /* SheetConfig.swift */,
-			);
-			path = Config;
-			sourceTree = "<group>";
-		};
 		4830E28D26D00FDA00916DDC /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +192,15 @@
 				48433BD726C61A6F00F72244 /* OriginalText2LexicalClass.swift */,
 			);
 			path = NLP;
+			sourceTree = "<group>";
+		};
+		4844ED4026D0BD3E0037C09A /* SheetConfig */ = {
+			isa = PBXGroup;
+			children = (
+				4830E28B26D00C0A00916DDC /* SheetConfig.swift */,
+				4844ED3E26D0BD1D0037C09A /* SheetConfigModel.swift */,
+			);
+			path = SheetConfig;
 			sourceTree = "<group>";
 		};
 		486ECDFB26B0E34200EF00B1 /* Focus */ = {
@@ -307,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				488D3A8C269F0F3700287A50 /* AccountBookModel.swift */,
+				4844ED4026D0BD3E0037C09A /* SheetConfig */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -316,7 +320,6 @@
 			children = (
 				488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */,
 				488D3A79269F0E5B00287A50 /* MainView.swift */,
-				4830E28A26D00BF600916DDC /* Config */,
 				48C6360526A44B5700E7BF15 /* AddView */,
 				48C6360426A44B1400E7BF15 /* BookTab */,
 				48C6360726A44B8300E7BF15 /* StoryTab */,
@@ -369,6 +372,7 @@
 			children = (
 				4897FE9B26AC0CCC001AE9BA /* FloatingAddButton.swift */,
 				48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */,
+				488D3AA0269F5A2A00287A50 /* MetaItemView.swift */,
 				488D3A8F269F0F5500287A50 /* MetaItemSheet.swift */,
 				4830E28D26D00FDA00916DDC /* Config */,
 				4878A75C26AC65B400DCBC8D /* ExtractOriginalTextFuncs */,
@@ -406,7 +410,6 @@
 			children = (
 				48C6360226A44B0B00E7BF15 /* IncomeExpenditureView.swift */,
 				48F0A09B26A4CED6004898C0 /* DayItemsView.swift */,
-				488D3AA0269F5A2A00287A50 /* MetaItemView.swift */,
 				4830D9D426B354A4007710FD /* SingleComponentView.swift */,
 			);
 			path = Component;
@@ -533,6 +536,7 @@
 				4878A77026AD9BBA00DCBC8D /* Array+.swift in Sources */,
 				4878A75B26AC652700DCBC8D /* String+.swift in Sources */,
 				4830D9D526B354A4007710FD /* SingleComponentView.swift in Sources */,
+				4844ED3F26D0BD1D0037C09A /* SheetConfigModel.swift in Sources */,
 				4878A76226AC6AA900DCBC8D /* OriginalText2Event.swift in Sources */,
 				486ECDFD26B0E36200EF00B1 /* FocusSelectView.swift in Sources */,
 				6EBB7AC726B2AEA6004E692B /* FocusExView.swift in Sources */,

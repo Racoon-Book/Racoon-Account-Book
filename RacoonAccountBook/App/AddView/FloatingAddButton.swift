@@ -4,9 +4,11 @@ import SwiftSpeech
 import SwiftUI
 
 struct FloatingAddButton: View {
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
+
     private static let addButtonSize = CGFloat(50)
 
-    @Binding var sheetConfig: SheetConfig
+//    @Binding var sheetConfig: SheetConfig
     @Binding var metadata_inputting: MetaItem
 
     @State var recognizedText: String = "" // （自用）动态识别出的结果
@@ -35,17 +37,17 @@ struct FloatingAddButton: View {
                         .swiftSpeechRecordOnHold(locale: Locale(identifier: ChineseSpeechIdentifier))
                         .simultaneousGesture(TapGesture().onEnded {
                             printLog("[FloatAddButton] Tapped")
-                            sheetConfig.showingOrdinaryAddView = true
+                            RacoonSheetConfig.showingOrdinaryAddView = true
 
                             // Tap 会触发 onStartRecording，手动还原
-                            sheetConfig.blurRadius = 0
-                            sheetConfig.showingVoiceInputView = false
+                            RacoonSheetConfig.blurRadius = 0
+                            RacoonSheetConfig.showingVoiceInputView = false
 
                             // TODO: 在语音输入下误触（Tap）本按钮
                         })
                         .onStartRecording { _ in
-                            sheetConfig.blurRadius = 4.0
-                            sheetConfig.showingVoiceInputView = true
+                            RacoonSheetConfig.blurRadius = 4.0
+                            RacoonSheetConfig.showingVoiceInputView = true
                         }
                         .printRecognizedText(includePartialResults: true)
                         .onRecognizeLatest(update: $recognizedText)
@@ -56,10 +58,10 @@ struct FloatingAddButton: View {
             }
 
             // 悬浮在所有界面之上的语音识别界面 所以在ZStack最下方
-            if sheetConfig.showingVoiceInputView {
-                VoiceInputView(sheetConfig: $sheetConfig,
-                               metadata_inputting: $metadata_inputting,
-                               recognizedText: $recognizedText)
+            if RacoonSheetConfig.showingVoiceInputView {
+                VoiceInputView(
+                    metadata_inputting: $metadata_inputting,
+                    recognizedText: $recognizedText)
             }
         }
         .onAppear {

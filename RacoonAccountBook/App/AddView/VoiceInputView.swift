@@ -3,7 +3,9 @@ import SwiftSpeech
 import SwiftUI
 
 struct VoiceInputView: View {
-    @Binding var sheetConfig: SheetConfig
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
+
+//    @Binding var sheetConfig: SheetConfig
     @Binding var metadata_inputting: MetaItem
     @Binding var recognizedText: String
 
@@ -23,8 +25,8 @@ struct VoiceInputView: View {
                     HStack {
                         Spacer()
                         Button {
-                            sheetConfig.blurRadius = 0 // 取消模糊
-                            sheetConfig.showingVoiceInputView = false // 关闭VoiceInputView
+                            RacoonSheetConfig.blurRadius = 0 // 取消模糊
+                            RacoonSheetConfig.showingVoiceInputView = false // 关闭VoiceInputView
                             recognizedText = "" // 清除已识别文字
                         } label: {
                             Text(Image(systemName: "xmark"))
@@ -32,9 +34,10 @@ struct VoiceInputView: View {
                         }
                         Spacer()
                         // 确定语音输入没问题 提交
-                        CommitSpeechButton(sheetConfig: $sheetConfig,
-                                           metadata_inputting: $metadata_inputting,
-                                           recognizedText: $recognizedText)
+                        CommitSpeechButton(
+                            metadata_inputting: $metadata_inputting,
+                            recognizedText: $recognizedText
+                        )
                         Spacer()
                     }
                     .padding(.vertical, 15.0)
@@ -48,7 +51,9 @@ struct VoiceInputView: View {
 }
 
 struct CommitSpeechButton: View {
-    @Binding var sheetConfig: SheetConfig
+//    @Binding var sheetConfig: SheetConfig
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
+
     @Binding var metadata_inputting: MetaItem
 
     @Binding var recognizedText: String // （自用）用来动态显示识别结果
@@ -61,9 +66,9 @@ struct CommitSpeechButton: View {
             UpdateMetaItem()
 
             withAnimation { // TODO: 不太清楚这个动画有没有作用
-                sheetConfig.blurRadius = 0 // 取消模糊
-                sheetConfig.showingVoiceInputView = false // 提交之后收起语音添加界面
-                sheetConfig.showingOrdinaryAddView = true // 呈现 OrdinaryAddSheet
+                RacoonSheetConfig.blurRadius = 0 // 取消模糊
+                RacoonSheetConfig.showingVoiceInputView = false // 提交之后收起语音添加界面
+                RacoonSheetConfig.showingOrdinaryAddView = true // 呈现 OrdinaryAddSheet
             }
             recognizedText = ""
         }, label: {

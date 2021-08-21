@@ -4,22 +4,24 @@ import UIKit
 
 struct MainView: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
     // TabView需要用到的东西
     private static let Tab1: String = "账本"
     private static let Tab2: String = "财记"
     private static let Tab3: String = "统计"
+
     /// 当前选中的Tab
     ///
     /// 默认值为打开之后呈现的Tab (默认为账本界面)
     @State private var selectedTab = MainView.Tab1
 
-    /// 与添加相关需要用到的东西
-    @State private var sheetConfig = SheetConfig(
-        showingOrdinaryAddView: false, // 最开始不显示
-        showingVoiceInputView: false, // 最开始不显示
-        blurRadius: 0
-    )
+//    /// 与添加相关需要用到的东西
+//    @State private var sheetConfig = SheetConfig(
+//        showingOrdinaryAddView: false, // 最开始不显示
+//        showingVoiceInputView: false, // 最开始不显示
+//        blurRadius: 0
+//    )
 
     /// 添加时临时记录使用的metadata
     @State private var metadata_inputting = MetaItem(
@@ -56,26 +58,24 @@ struct MainView: View {
                     }
                     .tag(MainView.Tab3)
             }
-            .blur(radius: sheetConfig.blurRadius)
+            .blur(radius: RacoonSheetConfig.blurRadius)
 
             // 成功记账提示
-            if sheetConfig.showingSuccessfullyAlert {
-                SuccessfullyAddAlert(showAddSuccessfullyAlert: $sheetConfig.showingSuccessfullyAlert, metadata: RacoonAccountBook.wholeEx.items.last!.metadata)
+            if RacoonSheetConfig.showingSuccessfullyAlert {
+                SuccessfullyAddAlert(showAddSuccessfullyAlert: $RacoonSheetConfig.showingSuccessfullyAlert, metadata: RacoonAccountBook.wholeEx.items.last!.metadata)
             }
 
             // VoiceInputView 在 FloatingAddButton 中显示
             if selectedTab != MainView.Tab3 {
-                FloatingAddButton(sheetConfig: $sheetConfig,
-                                  metadata_inputting: $metadata_inputting)
+                FloatingAddButton(metadata_inputting: $metadata_inputting)
             }
         }
         .sheet(
             // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
-            isPresented: $sheetConfig.showingOrdinaryAddView,
+            isPresented: $RacoonSheetConfig.showingOrdinaryAddView,
             onDismiss: didDismissOrdinaryAddSheet
         ) {
             MetaItemSheet(
-                sheetConfig: $sheetConfig,
                 metadata_inputting: $metadata_inputting,
                 amount_string_inputting: $amount_string_inputting
             )

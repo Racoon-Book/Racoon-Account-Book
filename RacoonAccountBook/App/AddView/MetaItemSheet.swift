@@ -5,6 +5,7 @@ import SwiftUI
 /// 用来输入或修改一个Item的MetaItem
 struct MetaItemSheet: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
     // MARK: - 界面参数
 
@@ -22,7 +23,7 @@ struct MetaItemSheet: View {
 
     // MARK: - 普通输入和语音输入是否显示
 
-    @Binding var sheetConfig: SheetConfig
+//    @Binding var sheetConfig: SheetConfig
 
     // MARK: - 当前正在输入的值
 
@@ -202,7 +203,7 @@ struct MetaItemSheet: View {
                             DiscardCurrentMetaItem() // 清空正在输入的 MetaItem
                         }
 
-                        sheetConfig.showingOrdinaryAddView = false // 收回sheet
+                        RacoonSheetConfig.showingOrdinaryAddView = false // 收回sheet
                     }) { Text("取消").bold() }
 
                     Button(action: {
@@ -254,11 +255,11 @@ struct MetaItemSheet: View {
             RacoonAccountBook.createItem(metadata: metadata_inputting)
 
             // 添加成功显示提示
-            sheetConfig.showingSuccessfullyAlert = true
+            RacoonSheetConfig.showingSuccessfullyAlert = true
 
             // 创建好数据之后将临时数据归零了
             DiscardCurrentMetaItem()
-            sheetConfig.showingOrdinaryAddView = false // 收回sheet
+            RacoonSheetConfig.showingOrdinaryAddView = false // 收回sheet
         } else {
             // 有未输入的条目 显示提示信息
             showUnsuccessfullyAlert = true
@@ -279,7 +280,7 @@ struct MetaItemSheet: View {
 
             if successfullyUpdate {
                 // 添加成功显示提示
-                sheetConfig.showingSuccessfullyAlert = true
+                RacoonSheetConfig.showingSuccessfullyAlert = true
             } else {
                 // 未成功修改
                 // FIXME: 添加给用户的提示
@@ -287,7 +288,7 @@ struct MetaItemSheet: View {
             }
             // 将临时数据归零
 //            DiscardCurrentMetaItem()
-            sheetConfig.showingOrdinaryAddView = false // 收回sheet
+            RacoonSheetConfig.showingOrdinaryAddView = false // 收回sheet
         } else {
             // 有未输入的条目 显示提示信息
             showUnsuccessfullyAlert = true

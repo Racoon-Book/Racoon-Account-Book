@@ -3,6 +3,9 @@ import SwiftUI
 
 // 用来显示一个条目的View
 struct MetaItemView: View {
+    
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
+    
     // MARK: - 基础数据
 
     var itemId: Int = 0
@@ -15,14 +18,14 @@ struct MetaItemView: View {
     /// 条目是否能编辑
     var isEditable: Bool = true
 
-    /// 控制修改相关视图
-    @State private var sheetConfig = SheetConfig(
-        /// 是否正在编辑BookTab的某个条目
-        showingOrdinaryAddView: false, // 最开始不显示
-        showingVoiceInputView: false, // 不显示
-        showingSuccessfullyAlert: false, // 最开始不显示
-        blurRadius: 0
-    )
+//    /// 控制修改相关视图
+//    @State private var sheetConfig = SheetConfig(
+//        /// 是否正在编辑BookTab的某个条目
+//        showingOrdinaryAddView: false, // 最开始不显示
+//        showingVoiceInputView: false, // 不显示
+//        showingSuccessfullyAlert: false, // 最开始不显示
+//        blurRadius: 0
+//    )
 
     // MARK: - 修改时需要的量
 
@@ -102,20 +105,19 @@ struct MetaItemView: View {
         // 修改的逻辑是这样的：有一个真实的在数据库中的值，将该值拷贝一份放入新创建的metadata_inputting，这样打开Sheet就会显示修改前的值；这个值是一个临时的变量，在Sheet中修改不会直接影响到该变量；只有当最后点击`修改`按钮的时候才会对数据库中的真实值进行修改
         .onTapGesture {
             if isEditable {
-                sheetConfig.showingOrdinaryAddView = true
+                RacoonSheetConfig.showingOrdinaryAddView = true
             }
         }
-        .sheet(
-            // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
-            isPresented: $sheetConfig.showingOrdinaryAddView,
-            onDismiss: didDismissEditingMetaItemSheet
-        ) {
-            MetaItemSheet(isEditingMetaItem: true,
-                          itemidToUpdate: itemId,
-                          sheetConfig: $sheetConfig,
-                          metadata_inputting: $metadata_inputting,
-                          amount_string_inputting: $amount_string_inputting)
-        }
+//        .sheet(
+//            // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
+//            isPresented: $RacoonSheetConfig.showingOrdinaryAddView,
+//            onDismiss: didDismissEditingMetaItemSheet
+//        ) {
+//            MetaItemSheet(isEditingMetaItem: true,
+//                          itemidToUpdate: itemId,
+//                          metadata_inputting: $metadata_inputting,
+//                          amount_string_inputting: $amount_string_inputting)
+//        }
     }
 
     private func didDismissEditingMetaItemSheet() {
