@@ -16,13 +16,6 @@ struct MainView: View {
     /// 默认值为打开之后呈现的Tab (默认为账本界面)
     @State private var selectedTab = MainView.Tab1
 
-//    /// 与添加相关需要用到的东西
-//    @State private var sheetConfig = SheetConfig(
-//        showingOrdinaryAddView: false, // 最开始不显示
-//        showingVoiceInputView: false, // 最开始不显示
-//        blurRadius: 0
-//    )
-
     /// 添加时临时记录使用的metadata
     @State private var metadata_inputting = MetaItem(
         originalText: "",
@@ -58,11 +51,14 @@ struct MainView: View {
                     }
                     .tag(MainView.Tab3)
             }
-            .blur(radius: RacoonSheetConfig.blurRadius)
+            .blur(radius: RacoonSheetConfig.shared.blurRadius)
 
             // 成功记账提示
-            if RacoonSheetConfig.showingSuccessfullyAlert {
-                SuccessfullyAddAlert(showAddSuccessfullyAlert: $RacoonSheetConfig.showingSuccessfullyAlert, metadata: RacoonAccountBook.wholeEx.items.last!.metadata)
+            if RacoonSheetConfig.shared.showingSuccessfullyAlert {
+                SuccessfullyAlert(
+                    showAddSuccessfullyAlert: $RacoonSheetConfig.shared.showingSuccessfullyAlert
+                )
+                .environmentObject(RacoonSheetConfig)
             }
 
             // VoiceInputView 在 FloatingAddButton 中显示
@@ -72,13 +68,11 @@ struct MainView: View {
         }
         .sheet(
             // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
-            isPresented: $RacoonSheetConfig.showingOrdinaryAddView,
+            isPresented: $RacoonSheetConfig.shared.showingMetaItemSheet,
             onDismiss: didDismissOrdinaryAddSheet
         ) {
-            MetaItemSheet(
-                metadata_inputting: $metadata_inputting,
-                amount_string_inputting: $amount_string_inputting
-            )
+            MetaItemSheet()
+                .environmentObject(RacoonSheetConfig)
         }
     }
 
@@ -90,38 +84,6 @@ struct MainView: View {
         func DiscardCurrentMetaItem() {
             metadata_inputting.clear()
             amount_string_inputting = ""
-        }
-    }
-}
-
-struct SuccessfullyAddAlert: View {
-    @Binding var showAddSuccessfullyAlert: Bool
-    var metadata: MetaItem
-    var body: some View {
-        VStack {
-            Text("记了一笔账")
-                .foregroundColor(.black)
-                .font(.system(.title))
-                .padding([.horizontal, .top])
-
-            // FIXME: 改好MetaItemView的init之后来改这个
-            MetaItemView(metadata: metadata, metadata_inputting: metadata)
-
-                .padding()
-        }
-        .frame(width: UIScreen.main.bounds.width - 100)
-        .background(Color("alert.background").opacity(0.95))
-        .cornerRadius(12)
-        .clipped()
-        .padding() // 和右边离远一点
-        .onAppear {
-            // 过一段时间自行消失
-            let appearingTimeInterval: TimeInterval = 3 // seconds
-            Timer.scheduledTimer(withTimeInterval: appearingTimeInterval, repeats: false) { _ in
-                withAnimation(.easeInOut) {
-                    showAddSuccessfullyAlert = false
-                }
-            }
         }
     }
 }

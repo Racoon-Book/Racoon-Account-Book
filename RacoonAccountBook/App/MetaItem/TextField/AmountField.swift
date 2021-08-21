@@ -1,10 +1,11 @@
-import Combine
 import SwiftUI
 
 struct AmountField: View {
     var hint: String = ""
+    
     @Binding var input_float: Float
     @Binding var input_string: String
+    
     @Binding var isEditing: Bool
 
     var body: some View {
@@ -22,10 +23,10 @@ struct AmountField: View {
                 self.input_string = "\(self.input_float)"
             }
         })
-        .onReceive(Just(input_string)) { typedValue in
-            // 把输入的东西转为小数
-            // TODO: 如果用户将中文输入在输入框中，可以在这里做转换
-            if let newValue = Float(typedValue) {
+        // 别用 onReceive()
+        .onChange(of: input_string) { _ in
+            printLog("[OriginalTextField] Changed.")
+            if let newValue = Float(input_string) {
                 self.input_float = newValue
             }
         }

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct MetaItemTextField: View {
     var hint: String = ""
+
     @Binding var input_text: String
     @Binding var isEditing: Bool
 
@@ -9,7 +10,7 @@ struct MetaItemTextField: View {
         TextField(
             hint,
             text: $input_text) { isEditing in
-            self.isEditing = isEditing
+                self.isEditing = isEditing
         } onCommit: {}
             .autocapitalization(.none)
             .disableAutocorrection(false)

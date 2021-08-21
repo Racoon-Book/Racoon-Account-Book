@@ -3,12 +3,9 @@ import SwiftUI
 
 // 用来显示一个条目的View
 struct MetaItemView: View {
-    
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
-    
-    // MARK: - 基础数据
 
-    var itemId: Int = 0
+    // MARK: - 基础数据
 
     /// 该View呈现的MetaItem
     var metadata: MetaItem
@@ -18,26 +15,8 @@ struct MetaItemView: View {
     /// 条目是否能编辑
     var isEditable: Bool = true
 
-//    /// 控制修改相关视图
-//    @State private var sheetConfig = SheetConfig(
-//        /// 是否正在编辑BookTab的某个条目
-//        showingOrdinaryAddView: false, // 最开始不显示
-//        showingVoiceInputView: false, // 不显示
-//        showingSuccessfullyAlert: false, // 最开始不显示
-//        blurRadius: 0
-//    )
-
-    // MARK: - 修改时需要的量
-
-    // FIXME: 感觉这里有问题 虽然现在的也可以
-
-    /// 用于修改的临时变量
-    ///
-    /// 初值为需要修改的MetaItem
-    @State var metadata_inputting: MetaItem
-
-    /// 临时记录输入的金额字符串（因为可能用户并没有输入小数）
-    @State private var amount_string_inputting: String = ""
+    /// 要修改的Item的id
+    var itemId: Int = 0
 
     var body: some View {
         let amount_dispaly = String(format: "%.1f", metadata.amount_float)
@@ -104,20 +83,11 @@ struct MetaItemView: View {
         // 点击Item弹出Sheet对MetaItem进行修改
         // 修改的逻辑是这样的：有一个真实的在数据库中的值，将该值拷贝一份放入新创建的metadata_inputting，这样打开Sheet就会显示修改前的值；这个值是一个临时的变量，在Sheet中修改不会直接影响到该变量；只有当最后点击`修改`按钮的时候才会对数据库中的真实值进行修改
         .onTapGesture {
+            // 是修改模式才判断点击
             if isEditable {
-                RacoonSheetConfig.showingOrdinaryAddView = true
+                RacoonSheetConfig.showEditSheet(itemIdToEdit: itemId, metadata: metadata)
             }
         }
-//        .sheet(
-//            // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
-//            isPresented: $RacoonSheetConfig.showingOrdinaryAddView,
-//            onDismiss: didDismissEditingMetaItemSheet
-//        ) {
-//            MetaItemSheet(isEditingMetaItem: true,
-//                          itemidToUpdate: itemId,
-//                          metadata_inputting: $metadata_inputting,
-//                          amount_string_inputting: $amount_string_inputting)
-//        }
     }
 
     private func didDismissEditingMetaItemSheet() {

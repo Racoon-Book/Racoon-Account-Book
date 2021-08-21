@@ -2,10 +2,13 @@ import SwiftDate
 import SwiftUI
 
 struct OriginalTextField: View {
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
+
     var hint: String = ""
-    @Binding var metadata_inputting: MetaItem
 
     @Binding var isEditing: Bool
+
+    @Binding var metadata_inputting: MetaItem
     @Binding var amount_string_inputting: String
 
     var body: some View {
@@ -30,8 +33,13 @@ struct OriginalTextField: View {
     }
 
     private func UpdateMetaItem() {
+        // 是编辑模式则创建日期不变
+        let spentMoneyAt: DateInRegion = RacoonSheetConfig.shared.isEditMode ?
+            metadata_inputting.spentMoneyAt :
+            OriginalText2SpentMoneyAt(from: metadata_inputting.originalText ?? "") ?? DateInRegion(region: regionChina)
+
         metadata_inputting.update(
-            spentMoneyAt: OriginalText2SpentMoneyAt(from: metadata_inputting.originalText ?? "") ?? DateInRegion(region: regionChina),
+            spentMoneyAt: spentMoneyAt,
             event: OriginalText2Event(from: metadata_inputting.originalText ?? "") ?? "",
             amount_float: OriginalText2Amount(from: metadata_inputting.originalText ?? "") ?? 0.0,
             generatedTags: OriginalText2GeneratedTags(from: metadata_inputting.originalText ?? ""))
