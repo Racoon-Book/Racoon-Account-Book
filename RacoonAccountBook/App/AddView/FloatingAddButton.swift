@@ -60,7 +60,6 @@ struct FloatingAddButton: View {
             // 悬浮在所有界面之上的语音识别界面 所以在ZStack最下方
             if RacoonSheetConfig.shared.showingVoiceInputView {
                 VoiceInputView(
-                    metadata_inputting: $metadata_inputting,
                     recognizedText: $recognizedText)
             }
         }

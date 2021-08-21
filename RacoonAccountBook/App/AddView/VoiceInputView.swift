@@ -5,7 +5,6 @@ import SwiftUI
 struct VoiceInputView: View {
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
-    @Binding var metadata_inputting: MetaItem
     @Binding var recognizedText: String
 
     var body: some View {
@@ -34,7 +33,7 @@ struct VoiceInputView: View {
                         Spacer()
                         // 确定语音输入没问题 提交
                         CommitSpeechButton(
-                            metadata_inputting: $metadata_inputting,
+                            metadata_inputting: $RacoonSheetConfig.shared.metadata_inputting,
                             recognizedText: $recognizedText
                         )
                         Spacer()
@@ -66,6 +65,9 @@ struct CommitSpeechButton: View {
 
             withAnimation { // TODO: 不太清楚这个动画有没有作用
                 RacoonSheetConfig.shared.blurRadius = 0 // 取消模糊
+
+                RacoonSheetConfig.shared.isEditMode = false
+
                 RacoonSheetConfig.shared.showingVoiceInputView = false // 提交之后收起语音添加界面
                 RacoonSheetConfig.shared.showingOrdinaryAddView = true // 呈现 OrdinaryAddSheet
             }

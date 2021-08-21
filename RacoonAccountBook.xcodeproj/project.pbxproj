@@ -28,9 +28,9 @@
 		4878A75E26AC65D600DCBC8D /* OriginalText2Amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A75D26AC65D600DCBC8D /* OriginalText2Amount.swift */; };
 		4878A76026AC68D400DCBC8D /* OriginalText2GeneratedTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A75F26AC68D400DCBC8D /* OriginalText2GeneratedTags.swift */; };
 		4878A76226AC6AA900DCBC8D /* OriginalText2Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76126AC6AA900DCBC8D /* OriginalText2Event.swift */; };
-		4878A76526AD926C00DCBC8D /* originalText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76426AD926C00DCBC8D /* originalText.swift */; };
-		4878A76726AD931B00DCBC8D /* amount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76626AD931B00DCBC8D /* amount.swift */; };
-		4878A76926AD93DD00DCBC8D /* otherMetaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76826AD93DD00DCBC8D /* otherMetaItem.swift */; };
+		4878A76526AD926C00DCBC8D /* OriginalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76426AD926C00DCBC8D /* OriginalTextField.swift */; };
+		4878A76726AD931B00DCBC8D /* AmountField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76626AD931B00DCBC8D /* AmountField.swift */; };
+		4878A76926AD93DD00DCBC8D /* MetaItemTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76826AD93DD00DCBC8D /* MetaItemTextField.swift */; };
 		4878A76B26AD944900DCBC8D /* TagField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76A26AD944900DCBC8D /* TagField.swift */; };
 		4878A76E26AD962F00DCBC8D /* TagsInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76D26AD962F00DCBC8D /* TagsInputView.swift */; };
 		4878A77026AD9BBA00DCBC8D /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76F26AD9BBA00DCBC8D /* Array+.swift */; };
@@ -96,9 +96,9 @@
 		4878A75D26AC65D600DCBC8D /* OriginalText2Amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2Amount.swift; sourceTree = "<group>"; };
 		4878A75F26AC68D400DCBC8D /* OriginalText2GeneratedTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2GeneratedTags.swift; sourceTree = "<group>"; };
 		4878A76126AC6AA900DCBC8D /* OriginalText2Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2Event.swift; sourceTree = "<group>"; };
-		4878A76426AD926C00DCBC8D /* originalText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = originalText.swift; sourceTree = "<group>"; };
-		4878A76626AD931B00DCBC8D /* amount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = amount.swift; sourceTree = "<group>"; };
-		4878A76826AD93DD00DCBC8D /* otherMetaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otherMetaItem.swift; sourceTree = "<group>"; };
+		4878A76426AD926C00DCBC8D /* OriginalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalTextField.swift; sourceTree = "<group>"; };
+		4878A76626AD931B00DCBC8D /* AmountField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountField.swift; sourceTree = "<group>"; };
+		4878A76826AD93DD00DCBC8D /* MetaItemTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaItemTextField.swift; sourceTree = "<group>"; };
 		4878A76A26AD944900DCBC8D /* TagField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagField.swift; sourceTree = "<group>"; };
 		4878A76D26AD962F00DCBC8D /* TagsInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsInputView.swift; sourceTree = "<group>"; };
 		4878A76F26AD9BBA00DCBC8D /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
@@ -203,13 +203,13 @@
 			path = SheetConfig;
 			sourceTree = "<group>";
 		};
-		4844ED4126D0D7FF0037C09A /* Item */ = {
+		4844ED4126D0D7FF0037C09A /* MetaItem */ = {
 			isa = PBXGroup;
 			children = (
 				488D3AA0269F5A2A00287A50 /* MetaItemView.swift */,
 				488D3A8F269F0F5500287A50 /* MetaItemSheet.swift */,
 			);
-			path = Item;
+			path = MetaItem;
 			sourceTree = "<group>";
 		};
 		486ECDFB26B0E34200EF00B1 /* Focus */ = {
@@ -235,9 +235,9 @@
 		4878A76326AD922000DCBC8D /* TextField */ = {
 			isa = PBXGroup;
 			children = (
-				4878A76426AD926C00DCBC8D /* originalText.swift */,
-				4878A76626AD931B00DCBC8D /* amount.swift */,
-				4878A76826AD93DD00DCBC8D /* otherMetaItem.swift */,
+				4878A76426AD926C00DCBC8D /* OriginalTextField.swift */,
+				4878A76626AD931B00DCBC8D /* AmountField.swift */,
+				4878A76826AD93DD00DCBC8D /* MetaItemTextField.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -329,6 +329,7 @@
 			children = (
 				488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */,
 				488D3A79269F0E5B00287A50 /* MainView.swift */,
+				4844ED4126D0D7FF0037C09A /* MetaItem */,
 				48C6360526A44B5700E7BF15 /* AddView */,
 				48C6360426A44B1400E7BF15 /* BookTab */,
 				48C6360726A44B8300E7BF15 /* StoryTab */,
@@ -381,7 +382,6 @@
 			children = (
 				4897FE9B26AC0CCC001AE9BA /* FloatingAddButton.swift */,
 				48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */,
-				4844ED4126D0D7FF0037C09A /* Item */,
 				4830E28D26D00FDA00916DDC /* Config */,
 				4878A75C26AC65B400DCBC8D /* ExtractOriginalTextFuncs */,
 				4878A76326AD922000DCBC8D /* TextField */,
@@ -549,7 +549,7 @@
 				486ECDFD26B0E36200EF00B1 /* FocusSelectView.swift in Sources */,
 				6EBB7AC726B2AEA6004E692B /* FocusExView.swift in Sources */,
 				486ECDF826AEFCEC00EF00B1 /* EmojiPicker.swift in Sources */,
-				4878A76526AD926C00DCBC8D /* originalText.swift in Sources */,
+				4878A76526AD926C00DCBC8D /* OriginalTextField.swift in Sources */,
 				48433BD826C61A6F00F72244 /* OriginalText2LexicalClass.swift in Sources */,
 				488D3A8D269F0F3700287A50 /* AccountBookModel.swift in Sources */,
 				48F0A09C26A4CED6004898C0 /* DayItemsView.swift in Sources */,
@@ -572,12 +572,12 @@
 				4830D9D026B260A2007710FD /* SingleSomebodyView.swift in Sources */,
 				486ECE0326B0E81500EF00B1 /* MultilineFociView.swift in Sources */,
 				4830D9C126B1FD1C007710FD /* NewMetaDataView.swift in Sources */,
-				4878A76726AD931B00DCBC8D /* amount.swift in Sources */,
+				4878A76726AD931B00DCBC8D /* AmountField.swift in Sources */,
 				4878A77B26AE8DB800DCBC8D /* StoryField.swift in Sources */,
 				4878A76E26AD962F00DCBC8D /* TagsInputView.swift in Sources */,
 				488D3AAB269F86E400287A50 /* TestData_MetaItem.swift in Sources */,
 				4830D9C426B1FDA5007710FD /* SingleNewItemView.swift in Sources */,
-				4878A76926AD93DD00DCBC8D /* otherMetaItem.swift in Sources */,
+				4878A76926AD93DD00DCBC8D /* MetaItemTextField.swift in Sources */,
 				488D3A90269F0F5500287A50 /* MetaItemSheet.swift in Sources */,
 				488D3A92269F0F5E00287A50 /* BookTab.swift in Sources */,
 				6E3DBAEF26B2DEE100E8B678 /* ExChartView.swift in Sources */,

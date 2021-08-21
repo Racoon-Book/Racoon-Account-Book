@@ -1,12 +1,11 @@
-import Combine
 import SwiftUI
 
 struct AmountField: View {
-    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
-
     var hint: String = ""
+    
     @Binding var input_float: Float
     @Binding var input_string: String
+    
     @Binding var isEditing: Bool
 
     var body: some View {
@@ -24,9 +23,10 @@ struct AmountField: View {
                 self.input_string = "\(self.input_float)"
             }
         })
-        .onChange(of: RacoonSheetConfig.shared.amount_string_inputting) { _ in
+        // 别用 onReceive()
+        .onChange(of: input_string) { _ in
             printLog("[OriginalTextField] Changed.")
-            if let newValue = Float(RacoonSheetConfig.shared.amount_string_inputting) {
+            if let newValue = Float(input_string) {
                 self.input_float = newValue
             }
         }

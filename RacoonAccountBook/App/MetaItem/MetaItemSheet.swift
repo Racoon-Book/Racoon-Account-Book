@@ -60,8 +60,8 @@ struct MetaItemSheet: View {
                                 .font(.system(.headline))
                             // TODO: 每次打开sheet直接将光标放在这里，键盘默认弹出
                             OriginalTextField(
-                                 hint: "用一句话写出你的花销",
-                                isEditing: $isEditing)
+                                hint: "用一句话写出你的花销", isEditing: $isEditing, metadata_inputting: $RacoonSheetConfig.shared.metadata_inputting, amount_string_inputting: $RacoonSheetConfig.shared.amount_string_inputting
+                                )
                         }
 
                         // 三个要素 spentMoneyAt event amount
