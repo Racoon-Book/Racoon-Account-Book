@@ -42,7 +42,7 @@ class SheetConfigModel: ObservableObject {
             model.showingSuccessfullyAlert
         }
         set {
-            model.showingVoiceInputView = newValue
+            model.showingSuccessfullyAlert = newValue
         }
     }
 
