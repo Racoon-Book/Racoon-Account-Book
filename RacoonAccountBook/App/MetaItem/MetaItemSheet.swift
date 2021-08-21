@@ -117,7 +117,7 @@ struct MetaItemSheet: View {
                                     // 出现的时候置为三星
                                     RacoonSheetConfig.shared.metadata_inputting.story = MetaItem.Story(
                                         rating: 3,
-                                        emoji: "😆", // FIXME:
+                                        emoji: "😃", // FIXME:
                                         text: nil)
                                 }
                         } else {

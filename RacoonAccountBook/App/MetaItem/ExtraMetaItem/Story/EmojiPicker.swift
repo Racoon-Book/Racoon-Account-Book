@@ -3,7 +3,7 @@ import SwiftUI
 
 var emojiStickers: [String] = [
     // 喜
-    "😄", "😃", "☺️", "😌", "😆", "🤓", "😎", "🥰", "😍", "🥳",
+    "😃", "😄", "☺️", "😌", "😆", "🤓", "😎", "🥰", "😍", "🥳",
     // 有所思考
     "😅", "😀", "🧐", "🤨", "😂", "🙂",
     // 哀
@@ -13,8 +13,8 @@ var emojiStickers: [String] = [
 ]
 
 struct EmojiPicker: View {
-    static let width: CGFloat = CGFloat(50)
-    
+    static let width = CGFloat(50)
+
     @Binding var selectedEmoji: String
 
     var body: some View {
