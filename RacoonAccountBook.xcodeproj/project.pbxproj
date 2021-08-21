@@ -203,6 +203,15 @@
 			path = SheetConfig;
 			sourceTree = "<group>";
 		};
+		4844ED4126D0D7FF0037C09A /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				488D3AA0269F5A2A00287A50 /* MetaItemView.swift */,
+				488D3A8F269F0F5500287A50 /* MetaItemSheet.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
 		486ECDFB26B0E34200EF00B1 /* Focus */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,8 +381,7 @@
 			children = (
 				4897FE9B26AC0CCC001AE9BA /* FloatingAddButton.swift */,
 				48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */,
-				488D3AA0269F5A2A00287A50 /* MetaItemView.swift */,
-				488D3A8F269F0F5500287A50 /* MetaItemSheet.swift */,
+				4844ED4126D0D7FF0037C09A /* Item */,
 				4830E28D26D00FDA00916DDC /* Config */,
 				4878A75C26AC65B400DCBC8D /* ExtractOriginalTextFuncs */,
 				4878A76326AD922000DCBC8D /* TextField */,

@@ -16,13 +16,6 @@ struct MainView: View {
     /// 默认值为打开之后呈现的Tab (默认为账本界面)
     @State private var selectedTab = MainView.Tab1
 
-//    /// 与添加相关需要用到的东西
-//    @State private var sheetConfig = SheetConfig(
-//        showingOrdinaryAddView: false, // 最开始不显示
-//        showingVoiceInputView: false, // 最开始不显示
-//        blurRadius: 0
-//    )
-
     /// 添加时临时记录使用的metadata
     @State private var metadata_inputting = MetaItem(
         originalText: "",

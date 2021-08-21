@@ -3,11 +3,11 @@ import SwiftUI
 
 // 用来显示一个条目的View
 struct MetaItemView: View {
-    
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
-    
+
     // MARK: - 基础数据
 
+    /// 要修改的Item的id
     var itemId: Int = 0
 
     /// 该View呈现的MetaItem
@@ -17,15 +17,6 @@ struct MetaItemView: View {
 
     /// 条目是否能编辑
     var isEditable: Bool = true
-
-//    /// 控制修改相关视图
-//    @State private var sheetConfig = SheetConfig(
-//        /// 是否正在编辑BookTab的某个条目
-//        showingOrdinaryAddView: false, // 最开始不显示
-//        showingVoiceInputView: false, // 不显示
-//        showingSuccessfullyAlert: false, // 最开始不显示
-//        blurRadius: 0
-//    )
 
     // MARK: - 修改时需要的量
 

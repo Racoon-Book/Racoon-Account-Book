@@ -16,14 +16,10 @@ struct MetaItemSheet: View {
 
     // MARK: - 确定界面的功能 添加 or 修改
 
-    /// 该界面是添加还是修改
-    var isEditingMetaItem: Bool = false
-    /// 需要更新的Item的id 所有的修改都通过id来进行
-    var itemidToUpdate: Int = 0
-
-    // MARK: - 普通输入和语音输入是否显示
-
-//    @Binding var sheetConfig: SheetConfig
+//    /// 该界面是添加还是修改
+//    var isEditingMetaItem: Bool = false
+//    /// 需要更新的Item的id 所有的修改都通过id来进行
+//    var itemidToUpdate: Int = 0
 
     // MARK: - 当前正在输入的值
 
@@ -56,7 +52,6 @@ struct MetaItemSheet: View {
             return ""
         }
     }
-
 
     // MARK: - 添加界面额外的添加选项
 
@@ -169,16 +164,16 @@ struct MetaItemSheet: View {
                     }
                     .padding([.vertical]) // 所有输入框离手机边框远一点
 
-                    LargeButton(title: isEditingMetaItem ? "修改" : "记账",
+                    LargeButton(title: RacoonSheetConfig.isEditMode ? "修改" : "记账",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                        printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
+                            printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
 
-                        if isEditingMetaItem {
-                            UpdateMetaItem()
-                        } else {
-                            AddNewMetaItem()
-                        }
+                            if RacoonSheetConfig.isEditMode {
+                                UpdateMetaItem()
+                            } else {
+                                AddNewMetaItem()
+                            }
                     }
                     .font(.system(.title)) // TODO: 字有点小
                 }
@@ -196,7 +191,7 @@ struct MetaItemSheet: View {
                     Button(action: {
                         printLog("[OrdinaryAddSheet] `Cancle` clicked.")
 
-                        if isEditingMetaItem {
+                        if RacoonSheetConfig.isEditMode {
                             // 修改：什么都不做
                         } else {
                             // 添加：清空所有输入框
@@ -209,7 +204,7 @@ struct MetaItemSheet: View {
                     Button(action: {
                         printLog("[OrdinaryAddSheet] `Clear` clicked.")
 
-                        if isEditingMetaItem {
+                        if RacoonSheetConfig.isEditMode {
                             // 修改：删除该条目
                             // FIXME: x
                         } else {
@@ -217,14 +212,14 @@ struct MetaItemSheet: View {
                             DiscardCurrentMetaItem() // 清空正在输入的 MetaItem
                         }
 
-                    }) { Text(isEditingMetaItem ? "删除" : "清除").bold() }
+                    }) { Text(RacoonSheetConfig.isEditMode ? "删除" : "清除").bold() }
                 },
                 // 右边有一个按钮
                 trailing:
                 Button(action: {
                     printLog("[OrdinaryAddSheet] `Done` clicked.")
 
-                    if isEditingMetaItem {
+                    if RacoonSheetConfig.isEditMode {
                         // 修改
                         UpdateMetaItem() // 用当前正在输入的MetaItem更新id为itemidToUpdate的数据库Item
                     } else {
@@ -232,7 +227,7 @@ struct MetaItemSheet: View {
                         AddNewMetaItem() // 将当前正在输入的MetaItem存储到数据库
                     }
 
-                }) { Text(isEditingMetaItem ? "修改" : "记账").bold() })
+                }) { Text(RacoonSheetConfig.isEditMode ? "修改" : "记账").bold() })
         }
         // 发生错误的提示错误
         .alert(isPresented: $showUnsuccessfullyAlert) {
@@ -276,7 +271,9 @@ struct MetaItemSheet: View {
         if !noEvent, !noAmount {
             // TODO: 用id革面革心
             // 成功添加/修改
-            let successfullyUpdate: Bool = RacoonAccountBook.updateItem(id: itemidToUpdate, metadata: metadata_inputting)
+            let successfullyUpdate: Bool = RacoonAccountBook.updateItem(
+                id: RacoonSheetConfig.itemIdToEdit,
+                metadata: metadata_inputting)
 
             if successfullyUpdate {
                 // 添加成功显示提示

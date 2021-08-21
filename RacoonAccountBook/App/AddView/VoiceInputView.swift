@@ -5,7 +5,6 @@ import SwiftUI
 struct VoiceInputView: View {
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
-//    @Binding var sheetConfig: SheetConfig
     @Binding var metadata_inputting: MetaItem
     @Binding var recognizedText: String
 

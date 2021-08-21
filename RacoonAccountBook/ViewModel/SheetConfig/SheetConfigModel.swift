@@ -14,6 +14,27 @@ class SheetConfigModel: ObservableObject {
 
     // MARK: - Access to Data of Model
 
+    // MARK: - 修改相关
+
+    var isEditMode: Bool {
+        get {
+            model.isEditMode
+        }
+        set {
+            model.isEditMode = newValue
+        }
+    }
+
+    /// 要修改的Item的id
+    var itemIdToEdit: Int {
+        get {
+            model.itemIdToEdit
+        }
+        set {
+            model.itemIdToEdit = newValue
+        }
+    }
+
     // MARK: - 是否显示某视图
 
     /// 是否正在显示添加账目的Sheet
