@@ -69,7 +69,7 @@ struct CommitSpeechButton: View {
                 RacoonSheetConfig.shared.isEditMode = false
 
                 RacoonSheetConfig.shared.showingVoiceInputView = false // 提交之后收起语音添加界面
-                RacoonSheetConfig.shared.showingOrdinaryAddView = true // 呈现 OrdinaryAddSheet
+                RacoonSheetConfig.shared.showingMetaItemSheet = true // 呈现 OrdinaryAddSheet
             }
             recognizedText = ""
         }, label: {

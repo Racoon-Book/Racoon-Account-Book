@@ -1,8 +1,8 @@
 // SheetConfig.swift
 
 import Foundation
-import SwiftUI
 import SwiftDate
+import SwiftUI
 
 struct SheetConfig {
     // MARK: - 显示的数据相关
@@ -29,7 +29,7 @@ struct SheetConfig {
     // MARK: - 是否显示某视图
 
     /// 是否正在显示添加账目的Sheet
-    var showingOrdinaryAddView: Bool = false
+    var showingMetaItemSheet: Bool = false
     /// 是否正在显示语音输入界面
     var showingVoiceInputView: Bool = false
     /// 是否正在显示成功添加之后的提示

@@ -65,7 +65,7 @@ struct MainView: View {
         }
         .sheet(
             // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
-            isPresented: $RacoonSheetConfig.shared.showingOrdinaryAddView,
+            isPresented: $RacoonSheetConfig.shared.showingMetaItemSheet,
             onDismiss: didDismissOrdinaryAddSheet
         ) {
             MetaItemSheet().environmentObject(RacoonSheetConfig)

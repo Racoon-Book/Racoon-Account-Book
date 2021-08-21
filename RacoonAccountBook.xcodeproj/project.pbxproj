@@ -329,8 +329,7 @@
 			children = (
 				4844ED4426D110DA0037C09A /* AccountBook */,
 				4844ED4526D111030037C09A /* SheetConfig */,
-				488D3A8C269F0F3700287A50 /* AccountBookModel.swift */,
-				4844ED3E26D0BD1D0037C09A /* SheetConfigModel.swift */,
+				48F0FB5A26D11A510040CAE0 /* ViewModel */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -424,6 +423,15 @@
 				4830D9D426B354A4007710FD /* SingleComponentView.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		48F0FB5A26D11A510040CAE0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4844ED3E26D0BD1D0037C09A /* SheetConfigModel.swift */,
+				488D3A8C269F0F3700287A50 /* AccountBookModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		6E6EA6A026AD23250084055E /* Component */ = {

@@ -36,8 +36,8 @@ struct FloatingAddButton: View {
                         .swiftSpeechRecordOnHold(locale: Locale(identifier: ChineseSpeechIdentifier))
                         .simultaneousGesture(TapGesture().onEnded {
                             printLog("[FloatAddButton] Tapped")
-                            RacoonSheetConfig.shared.showingOrdinaryAddView = true
-                            printLog(".....\(RacoonSheetConfig.shared.showingOrdinaryAddView)")
+                            RacoonSheetConfig.shared.showingMetaItemSheet = true
+                            printLog(".....\(RacoonSheetConfig.shared.showingMetaItemSheet)")
 
                             // Tap 会触发 onStartRecording，手动还原
                             RacoonSheetConfig.shared.blurRadius = 0

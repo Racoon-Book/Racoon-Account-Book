@@ -178,7 +178,7 @@ struct MetaItemSheet: View {
                             DiscardCurrentMetaItem() // 清空正在输入的 MetaItem
                         }
 
-                        RacoonSheetConfig.shared.showingOrdinaryAddView = false // 收回sheet
+                        RacoonSheetConfig.shared.showingMetaItemSheet = false // 收回sheet
                     }) { Text("取消").bold() }
 
                     Button(action: {
@@ -235,7 +235,7 @@ struct MetaItemSheet: View {
 
             // 创建好数据之后将临时数据归零了
             DiscardCurrentMetaItem()
-            RacoonSheetConfig.shared.showingOrdinaryAddView = false // 收回sheet
+            RacoonSheetConfig.shared.showingMetaItemSheet = false // 收回sheet
         } else {
             // 有未输入的条目 显示提示信息
             showUnsuccessfullyAlert = true
@@ -266,7 +266,7 @@ struct MetaItemSheet: View {
             }
             // 将临时数据归零
 //            DiscardCurrentMetaItem()
-            RacoonSheetConfig.shared.showingOrdinaryAddView = false // 收回sheet
+            RacoonSheetConfig.shared.showingMetaItemSheet = false // 收回sheet
         } else {
             // 有未输入的条目 显示提示信息
             showUnsuccessfullyAlert = true

@@ -92,7 +92,7 @@ struct MetaItemView: View {
                 RacoonSheetConfig.shared.metadata_inputting = metadata
 
                 // 展示Sheet
-                RacoonSheetConfig.shared.showingOrdinaryAddView = true
+                RacoonSheetConfig.shared.showingMetaItemSheet = true
             }
         }
     }
