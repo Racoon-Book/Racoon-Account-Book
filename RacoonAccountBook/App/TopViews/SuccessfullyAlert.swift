@@ -4,11 +4,13 @@ import Foundation
 import SwiftUI
 
 struct SuccessfullyAlert: View {
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
+
     @Binding var showAddSuccessfullyAlert: Bool
     var metadata: MetaItem
     var body: some View {
         VStack {
-            Text("记了一笔账")
+            Text(RacoonSheetConfig.shared.isEditMode ? "已更新账本！" : "已添加账目！")
                 .foregroundColor(.black)
                 .font(.system(.title))
                 .padding([.horizontal, .top])
