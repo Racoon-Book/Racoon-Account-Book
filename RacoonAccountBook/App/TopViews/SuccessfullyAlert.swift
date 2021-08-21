@@ -7,7 +7,9 @@ struct SuccessfullyAlert: View {
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
     @Binding var showAddSuccessfullyAlert: Bool
+    
     var metadata: MetaItem
+    
     var body: some View {
         VStack {
             Text(RacoonSheetConfig.shared.isEditMode ? "已更新账本！" : "已添加账目！")

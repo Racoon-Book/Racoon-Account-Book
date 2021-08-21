@@ -85,14 +85,7 @@ struct MetaItemView: View {
         .onTapGesture {
             // 是修改模式才判断点击
             if isEditable {
-                // 配置Sheet
-                RacoonSheetConfig.shared.isEditMode = true
-                RacoonSheetConfig.shared.itemIdToEdit = itemId
-                // 传过去的临时修改值
-                RacoonSheetConfig.shared.metadata_inputting = metadata
-
-                // 展示Sheet
-                RacoonSheetConfig.shared.showingMetaItemSheet = true
+                RacoonSheetConfig.showEditSheet(itemIdToEdit: itemId, metadata: metadata)
             }
         }
     }
