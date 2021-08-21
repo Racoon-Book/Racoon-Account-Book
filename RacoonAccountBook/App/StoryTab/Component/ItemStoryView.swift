@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import SwiftDate
 
 struct ItemStoryView: View {
-    var metadata: MetaItem
+    //var metadata: MetaItem
+    var expense: Expense
 
     var body: some View {
         ZStack(alignment: .leading) {
@@ -16,14 +18,15 @@ struct ItemStoryView: View {
                 .foregroundColor(Color("StoryBG"))
 
             VStack(alignment: .leading) {
-                let text = metadata.story?.text ?? "为本次花销添加一段财记吧"
-                let amountFormatted = String(format: "%.1f", metadata.amount_float)
+                let text = expense.story?.text ?? "为本次花销添加一段财记吧"
+                let amountFormatted = String(format: "%.1f", expense.amount_float)
 
-                Text(DisplayDate(metadata.spentMoneyAt))
+                //Text(DisplayDate(expense.spentAt))
+                Text(DisplayDate(DateInRegion(region: regionChina)))
                     .font(.caption)
                     .padding(.top, 6.0)
 
-                Text("在\(metadata.event)上花了\(amountFormatted)元")
+                Text("在\(expense.event!)上花了\(amountFormatted)元")
                     .font(.title2)
                     .padding(.vertical, 9.0)
 
@@ -31,13 +34,13 @@ struct ItemStoryView: View {
                     .font(.body)
 
                 HStack(alignment: .center) {
-                    if let rating = metadata.story?.rating {
-                        RatingView(rating: rating)
+                    if let rating = expense.story?.rating {
+                        RatingView(rating: Int(rating))
                     }
 
                     Spacer()
 
-                    if let emoji = metadata.story?.emoji {
+                    if let emoji = expense.story?.emoji {
                         Text(emoji)
                             .font(.title)
                     }

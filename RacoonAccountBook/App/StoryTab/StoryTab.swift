@@ -3,9 +3,11 @@ import SwiftUI
 
 struct StoryTab: View {
     @EnvironmentObject var RacoonAccountBook: AccountBookModel
+    @Environment(\.managedObjectContext) var context
 
     var body: some View {
-        let items = RacoonAccountBook.getExWithStory().items
+        //let items = RacoonAccountBook.getExWithStory().items
+        let items = Expense.all(context: context)
 
         // TODO: 像账本那样做一个深色的统计页面应该比较好
         if items.count != 0 {
@@ -15,7 +17,8 @@ struct StoryTab: View {
                         ScrollView(.vertical) {
                             VStack {
                                 ForEach(items, id: \.self) { item in
-                                    ItemStoryView(metadata: item.metadata)
+                                    //ItemStoryView(metadata: item.metadata)
+                                    ItemStoryView(expense: item)
                                 }
                                 .padding(.horizontal, 10) // 让圆角矩形边框不靠边
                             }
