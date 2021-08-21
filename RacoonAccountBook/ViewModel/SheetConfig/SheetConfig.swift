@@ -2,8 +2,23 @@
 
 import Foundation
 import SwiftUI
+import SwiftDate
 
 struct SheetConfig {
+    // MARK: - 显示的数据相关
+
+    /// 正在输入的MetaItem（临时）
+    ///
+    /// 添加：确定之后保存数据并清零
+    ///
+    /// 修改：确定之后更新数据
+    var metadata_inputting = MetaItem(
+        spentMoneyAt: DateInRegion(region: regionChina),
+        event: "",
+        amount_float: 0.0)
+    /// 用来转换输入的可能不是小数的小数（临时）
+    var amount_string_inputting: String = ""
+
     // MARK: - 修改相关
 
     /// 是否为修改某个Item的Sheet

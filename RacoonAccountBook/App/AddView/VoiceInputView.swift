@@ -24,8 +24,8 @@ struct VoiceInputView: View {
                     HStack {
                         Spacer()
                         Button {
-                            RacoonSheetConfig.blurRadius = 0 // 取消模糊
-                            RacoonSheetConfig.showingVoiceInputView = false // 关闭VoiceInputView
+                            RacoonSheetConfig.shared.blurRadius = 0 // 取消模糊
+                            RacoonSheetConfig.shared.showingVoiceInputView = false // 关闭VoiceInputView
                             recognizedText = "" // 清除已识别文字
                         } label: {
                             Text(Image(systemName: "xmark"))
@@ -65,9 +65,9 @@ struct CommitSpeechButton: View {
             UpdateMetaItem()
 
             withAnimation { // TODO: 不太清楚这个动画有没有作用
-                RacoonSheetConfig.blurRadius = 0 // 取消模糊
-                RacoonSheetConfig.showingVoiceInputView = false // 提交之后收起语音添加界面
-                RacoonSheetConfig.showingOrdinaryAddView = true // 呈现 OrdinaryAddSheet
+                RacoonSheetConfig.shared.blurRadius = 0 // 取消模糊
+                RacoonSheetConfig.shared.showingVoiceInputView = false // 提交之后收起语音添加界面
+                RacoonSheetConfig.shared.showingOrdinaryAddView = true // 呈现 OrdinaryAddSheet
             }
             recognizedText = ""
         }, label: {

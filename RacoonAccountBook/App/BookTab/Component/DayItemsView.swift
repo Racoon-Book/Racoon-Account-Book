@@ -23,7 +23,9 @@ struct DayItemsView: View {
                     ForEach(dayItems, id: \.self) { item in
                         // TODO: 一天内的花销按添加顺序排列
                         // FIXME: 修改之后要刷新
-                        MetaItemView(itemId: item.id, metadata: item.metadata, metadata_inputting: item.metadata)
+                        MetaItemView(
+                            metadata: item.metadata,
+                            itemId: item.id)
                             .padding([.top], 6) // 不同 MetaItemView 之间上下
                     }
                 }

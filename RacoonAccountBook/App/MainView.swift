@@ -51,11 +51,11 @@ struct MainView: View {
                     }
                     .tag(MainView.Tab3)
             }
-            .blur(radius: RacoonSheetConfig.blurRadius)
+            .blur(radius: RacoonSheetConfig.shared.blurRadius)
 
             // 成功记账提示
-            if RacoonSheetConfig.showingSuccessfullyAlert {
-                SuccessfullyAddAlert(showAddSuccessfullyAlert: $RacoonSheetConfig.showingSuccessfullyAlert, metadata: RacoonAccountBook.wholeEx.items.last!.metadata)
+            if RacoonSheetConfig.shared.showingSuccessfullyAlert {
+                SuccessfullyAddAlert(showAddSuccessfullyAlert: $RacoonSheetConfig.shared.showingSuccessfullyAlert, metadata: RacoonAccountBook.wholeEx.items.last!.metadata)
             }
 
             // VoiceInputView 在 FloatingAddButton 中显示
@@ -65,13 +65,10 @@ struct MainView: View {
         }
         .sheet(
             // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
-            isPresented: $RacoonSheetConfig.showingOrdinaryAddView,
+            isPresented: $RacoonSheetConfig.shared.showingOrdinaryAddView,
             onDismiss: didDismissOrdinaryAddSheet
         ) {
-            MetaItemSheet(
-                metadata_inputting: $metadata_inputting,
-                amount_string_inputting: $amount_string_inputting
-            )
+            MetaItemSheet().environmentObject(RacoonSheetConfig)
         }
     }
 
@@ -98,7 +95,7 @@ struct SuccessfullyAddAlert: View {
                 .padding([.horizontal, .top])
 
             // FIXME: 改好MetaItemView的init之后来改这个
-            MetaItemView(metadata: metadata, metadata_inputting: metadata)
+            MetaItemView(metadata: metadata)
 
                 .padding()
         }

@@ -2,6 +2,8 @@ import SwiftDate
 import SwiftUI
 
 struct ForWhoInputView: View {
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
+    
     @Binding var metadata_inputting: MetaItem
 
     @Binding var showingForWhoInputView: Bool

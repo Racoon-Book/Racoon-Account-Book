@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct MetaItemTextField: View {
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
+    
     var hint: String = ""
     @Binding var input_text: String
     @Binding var isEditing: Bool

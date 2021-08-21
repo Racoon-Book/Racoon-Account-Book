@@ -2,6 +2,8 @@ import SwiftDate
 import SwiftUI
 
 struct StoryInputView: View {
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
+    
     @Binding var metadata_inputting: MetaItem
 
     @State private var rating = StarRating.three

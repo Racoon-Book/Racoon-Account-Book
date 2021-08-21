@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct TagsInputView: View {
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
+    
     @Binding var metadata_inputting: MetaItem
 
     var body: some View {

@@ -2,16 +2,18 @@ import SwiftDate
 import SwiftUI
 
 struct OriginalTextField: View {
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
+    
     var hint: String = ""
-    @Binding var metadata_inputting: MetaItem
+//    @Binding var metadata_inputting: MetaItem
 
     @Binding var isEditing: Bool
-    @Binding var amount_string_inputting: String
+//    @Binding var amount_string_inputting: String
 
     var body: some View {
         TextField(
             hint,
-            text: $metadata_inputting.originalText ?? "") { isEditing in
+            text: $RacoonSheetConfig.shared.metadata_inputting.originalText ?? "") { isEditing in
                 self.isEditing = isEditing
         }
         onCommit: {
@@ -19,7 +21,7 @@ struct OriginalTextField: View {
             UpdateMetaItem()
         }
         // 注意这里最好不用`.onReceive` 因为`Just()`所认为的修改应该不仅仅有值上的改变 还有地址上的改变 好像一赋值就会执行 这并不是所期望的
-        .onChange(of: metadata_inputting.originalText) { _ in
+        .onChange(of: RacoonSheetConfig.shared.metadata_inputting.originalText) { _ in
             printLog("[OriginalTextField] Changed.")
             UpdateMetaItem()
         }
@@ -30,11 +32,11 @@ struct OriginalTextField: View {
     }
 
     private func UpdateMetaItem() {
-        metadata_inputting.update(
-            spentMoneyAt: OriginalText2SpentMoneyAt(from: metadata_inputting.originalText ?? "") ?? DateInRegion(region: regionChina),
-            event: OriginalText2Event(from: metadata_inputting.originalText ?? "") ?? "",
-            amount_float: OriginalText2Amount(from: metadata_inputting.originalText ?? "") ?? 0.0,
-            generatedTags: OriginalText2GeneratedTags(from: metadata_inputting.originalText ?? ""))
-        amount_string_inputting = String(metadata_inputting.amount_float)
+        RacoonSheetConfig.shared.metadata_inputting.update(
+            spentMoneyAt: OriginalText2SpentMoneyAt(from: RacoonSheetConfig.shared.metadata_inputting.originalText ?? "") ?? DateInRegion(region: regionChina),
+            event: OriginalText2Event(from: RacoonSheetConfig.shared.metadata_inputting.originalText ?? "") ?? "",
+            amount_float: OriginalText2Amount(from: RacoonSheetConfig.shared.metadata_inputting.originalText ?? "") ?? 0.0,
+            generatedTags: OriginalText2GeneratedTags(from: RacoonSheetConfig.shared.metadata_inputting.originalText ?? ""))
+        RacoonSheetConfig.shared.amount_string_inputting = String(RacoonSheetConfig.shared.metadata_inputting.amount_float)
     }
 }

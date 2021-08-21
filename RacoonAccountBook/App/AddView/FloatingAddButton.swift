@@ -36,17 +36,18 @@ struct FloatingAddButton: View {
                         .swiftSpeechRecordOnHold(locale: Locale(identifier: ChineseSpeechIdentifier))
                         .simultaneousGesture(TapGesture().onEnded {
                             printLog("[FloatAddButton] Tapped")
-                            RacoonSheetConfig.showingOrdinaryAddView = true
+                            RacoonSheetConfig.shared.showingOrdinaryAddView = true
+                            printLog(".....\(RacoonSheetConfig.shared.showingOrdinaryAddView)")
 
                             // Tap 会触发 onStartRecording，手动还原
-                            RacoonSheetConfig.blurRadius = 0
-                            RacoonSheetConfig.showingVoiceInputView = false
+                            RacoonSheetConfig.shared.blurRadius = 0
+                            RacoonSheetConfig.shared.showingVoiceInputView = false
 
                             // TODO: 在语音输入下误触（Tap）本按钮
                         })
                         .onStartRecording { _ in
-                            RacoonSheetConfig.blurRadius = 4.0
-                            RacoonSheetConfig.showingVoiceInputView = true
+                            RacoonSheetConfig.shared.blurRadius = 4.0
+                            RacoonSheetConfig.shared.showingVoiceInputView = true
                         }
                         .printRecognizedText(includePartialResults: true)
                         .onRecognizeLatest(update: $recognizedText)
@@ -57,7 +58,7 @@ struct FloatingAddButton: View {
             }
 
             // 悬浮在所有界面之上的语音识别界面 所以在ZStack最下方
-            if RacoonSheetConfig.showingVoiceInputView {
+            if RacoonSheetConfig.shared.showingVoiceInputView {
                 VoiceInputView(
                     metadata_inputting: $metadata_inputting,
                     recognizedText: $recognizedText)
