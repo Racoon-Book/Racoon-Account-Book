@@ -9,7 +9,6 @@ import SwiftUI
 import SwiftDate
 
 struct ItemStoryView: View {
-    //var metadata: MetaItem
     var expense: Expense
 
     var body: some View {
@@ -19,14 +18,13 @@ struct ItemStoryView: View {
 
             VStack(alignment: .leading) {
                 let text = expense.story?.text ?? "为本次花销添加一段财记吧"
-                let amountFormatted = String(format: "%.1f", expense.amount_float)
-
-                //Text(DisplayDate(expense.spentAt))
-                Text(DisplayDate(DateInRegion(region: regionChina)))
+                let amountFormatted = String(format: "%.1f", expense.amount)
+                
+                Text(DisplayDate(expense.spentAt.convertTo(region: regionChina)))
                     .font(.caption)
                     .padding(.top, 6.0)
 
-                Text("在\(expense.event!)上花了\(amountFormatted)元")
+                Text("在\(expense.event)上花了\(amountFormatted)元")
                     .font(.title2)
                     .padding(.vertical, 9.0)
 
