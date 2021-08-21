@@ -55,8 +55,10 @@ struct MainView: View {
 
             // 成功记账提示
             if RacoonSheetConfig.shared.showingSuccessfullyAlert {
-                SuccessfullyAlert(showAddSuccessfullyAlert: $RacoonSheetConfig.shared.showingSuccessfullyAlert, metadata: RacoonAccountBook.wholeEx.items.last!.metadata)
-                    .environmentObject(RacoonSheetConfig)
+                SuccessfullyAlert(
+                    showAddSuccessfullyAlert: $RacoonSheetConfig.shared.showingSuccessfullyAlert
+                )
+                .environmentObject(RacoonSheetConfig)
             }
 
             // VoiceInputView 在 FloatingAddButton 中显示

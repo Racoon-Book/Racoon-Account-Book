@@ -8,18 +8,17 @@ struct SuccessfullyAlert: View {
 
     @Binding var showAddSuccessfullyAlert: Bool
     
-    var metadata: MetaItem
+//    var metadata: MetaItem // FIXME: delete it
     
     var body: some View {
         VStack {
-            Text(RacoonSheetConfig.shared.isEditMode ? "已更新账本！" : "已添加账目！")
+            Text(RacoonSheetConfig.shared.isEditMode ? "已更新！" : "已添加！")
                 .foregroundColor(.black)
                 .font(.system(.title))
                 .padding([.horizontal, .top])
 
             // FIXME: 改好MetaItemView的init之后来改这个
-            MetaItemView(metadata: metadata)
-
+            MetaItemView(metadata: RacoonSheetConfig.shared.metadata_inputting)
                 .padding()
         }
         .frame(width: UIScreen.main.bounds.width - 100)

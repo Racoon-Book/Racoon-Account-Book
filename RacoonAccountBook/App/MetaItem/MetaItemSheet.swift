@@ -61,7 +61,7 @@ struct MetaItemSheet: View {
                             // TODO: 每次打开sheet直接将光标放在这里，键盘默认弹出
                             OriginalTextField(
                                 hint: "用一句话写出你的花销", isEditing: $isEditing, metadata_inputting: $RacoonSheetConfig.shared.metadata_inputting, amount_string_inputting: $RacoonSheetConfig.shared.amount_string_inputting
-                                )
+                            )
                         }
 
                         // 三个要素 spentMoneyAt event amount
@@ -147,13 +147,13 @@ struct MetaItemSheet: View {
                     LargeButton(title: RacoonSheetConfig.shared.isEditMode ? "修改" : "记账",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                            printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
+                        printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
 
-                            if RacoonSheetConfig.shared.isEditMode {
-                                UpdateMetaItem()
-                            } else {
-                                AddNewMetaItem()
-                            }
+                        if RacoonSheetConfig.shared.isEditMode {
+                            UpdateMetaItem()
+                        } else {
+                            AddNewMetaItem()
+                        }
                     }
                     .font(.system(.title)) // TODO: 字有点小
                 }
@@ -233,8 +233,10 @@ struct MetaItemSheet: View {
             // 添加成功显示提示
             RacoonSheetConfig.shared.showingSuccessfullyAlert = true
 
-            // 创建好数据之后将临时数据归零了
-            DiscardCurrentMetaItem()
+            // 没必要，因为每次打开sheet的时候进行更新，而且SuccessfullyAlert那边还要用呢！
+//            // 创建好数据之后将临时数据归零了
+//            DiscardCurrentMetaItem()
+
             RacoonSheetConfig.shared.showingMetaItemSheet = false // 收回sheet
         } else {
             // 有未输入的条目 显示提示信息
@@ -264,8 +266,7 @@ struct MetaItemSheet: View {
                 // FIXME: 添加给用户的提示
                 printError("[OrdinaryAddSheet] UpdateMetaItem cannot find id")
             }
-            // 将临时数据归零
-//            DiscardCurrentMetaItem()
+
             RacoonSheetConfig.shared.showingMetaItemSheet = false // 收回sheet
         } else {
             // 有未输入的条目 显示提示信息
