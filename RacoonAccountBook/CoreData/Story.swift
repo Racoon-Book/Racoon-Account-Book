@@ -9,7 +9,7 @@ extension Story {
     static func create(context: NSManagedObjectContext, story story_data: MetaItem.Story) -> Story {
         let story = Story(context: context)
         
-        story.rating = Int16(story_data.rating!)
+        story.rating = story_data.rating!
         story.emoji = story_data.emoji
         story.text = story_data.text
         
@@ -17,5 +17,12 @@ extension Story {
         try? context.save()
         
         return story
+    }
+    
+    // MARK: Properties
+    
+    var rating: Int {
+        get { Int(rating_) }
+        set { rating_ = Int16(newValue) }
     }
 }

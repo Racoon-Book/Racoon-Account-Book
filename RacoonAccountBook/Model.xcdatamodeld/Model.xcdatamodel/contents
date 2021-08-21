@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Expense" representedClassName="Expense" syncable="YES" codeGenerationType="class">
-        <attribute name="amount_float" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="event" optional="YES" attributeType="String"/>
+        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="createdAt_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="event_" optional="YES" attributeType="String"/>
         <attribute name="originalText" optional="YES" attributeType="String"/>
-        <attribute name="spentAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="spentAt_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="updatedAt_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="story" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Story" inverseName="of_expense" inverseEntity="Story"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="expenses" inverseEntity="Tag"/>
     </entity>
     <entity name="Story" representedClassName="Story" syncable="YES" codeGenerationType="class">
         <attribute name="emoji" optional="YES" attributeType="String"/>
-        <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rating_" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="text" optional="YES" attributeType="String"/>
         <relationship name="of_expense" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expense" inverseName="story" inverseEntity="Expense"/>
     </entity>
+    <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="tags" inverseEntity="Expense"/>
+    </entity>
     <elements>
-        <element name="Expense" positionX="-63" positionY="-18" width="128" height="134"/>
-        <element name="Story" positionX="118.2116088867188" positionY="13.65591430664062" width="128" height="89"/>
+        <element name="Expense" positionX="-216.0824584960938" positionY="94.077880859375" width="128" height="163"/>
+        <element name="Story" positionX="118.2116088867188" positionY="13.65591430664062" width="128" height="103"/>
+        <element name="Tag" positionX="118.4259033203125" positionY="228.5117797851562" width="128" height="73"/>
     </elements>
 </model>
