@@ -2,12 +2,11 @@ import CoreData
 import SwiftDate
 
 extension Expense {
-    
     // MARK: Access
     
     static func all(context: NSManagedObjectContext, story_only: Bool = false) -> [Expense] {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
-        if (story_only) {
+        if story_only {
             request.predicate = NSPredicate(format: "story != nil")
         }
         return (try? context.fetch(request)) ?? []
@@ -18,7 +17,7 @@ extension Expense {
         
         // TODO: Date
         request.predicate = NSPredicate(format: "spentAt_ > %@", Date() - 1.months as NSDate)
-        if (story_only) {
+        if story_only {
             request.predicate = NSPredicate(format: "story != nil")
         }
         return (try? context.fetch(request)) ?? []
@@ -35,7 +34,7 @@ extension Expense {
         expense.event = metadata.event
         expense.amount = metadata.amount_float
         
-        if (metadata.story != nil) {
+        if metadata.story != nil {
             expense.story = Story.create(context: context, story: metadata.story!)
         }
         
@@ -63,5 +62,19 @@ extension Expense {
     var event: String {
         get { event_ ?? "暂无事件" }
         set { event_ = newValue }
+    }
+}
+
+extension Array where Element: Expense {
+    func sum() -> Float {
+        return self.reduce(0.0) { $0 + $1.amount }
+    }
+    
+    func max_amount() -> Float? {
+        return self.max_expense()?.amount
+    }
+    
+    func max_expense() -> Expense? {
+        return self.max { $0.amount < $1.amount }
     }
 }
