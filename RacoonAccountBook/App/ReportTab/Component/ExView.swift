@@ -2,7 +2,7 @@ import SwiftDate
 import SwiftUI
 
 struct ExView: View {
-    var monthBook: Ex
+    var expenses: [Expense]
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -15,13 +15,13 @@ struct ExView: View {
                 HStack {
                     VStack(alignment: .leading) {
                         Text("本月支出").font(.callout)
-                        Text(String(monthBook.exSum)).font(.title)
+                        Text(String(expenses.sum())).font(.title)
                     }
                     
                     Spacer()
                     
                     VStack(alignment: .leading) {
-                        let ExAvg = String(format: "%.1f", monthBook.exSum / Float(DateInRegion(region: regionChina).day))
+                        let ExAvg = String(format: "%.1f", expenses.sum() / Float(DateInRegion(region: regionChina).day))
                         
                         Text("日均支出").font(.callout)
                         Text(ExAvg).font(.title)
@@ -31,21 +31,21 @@ struct ExView: View {
                     
                     VStack(alignment: .leading) {
                         Text("支出笔数").font(.callout)
-                        Text(String(monthBook.exCounter)).font(.title)
+                        Text(String(expenses.count)).font(.title)
                     }
                 }
                 .padding(.horizontal, 10.0)
                 .padding(.vertical, 4.0)
                 
                 HStack {
-                    let ExHigh = String(format: "%.1f", monthBook.exHighest)
-                    let HighItem = monthBook.items.max { $0.metadata.amount_float < $1.metadata.amount_float }
+                    let max_amount = String(format: "%.1f", expenses.max_amount() ?? 0.0)
+                    let max_expense = expenses.max_expense()
                     
                     Text("最高支出").font(.callout)
-                    Text(ExHigh).font(.title)
+                    Text(max_amount).font(.title)
                     Spacer()
-                    Text(DisplayDate(HighItem?.metadata.spentMoneyAt ?? DateInRegion(region: regionChina)))
-                    Text(HighItem?.metadata.event ?? "花销").font(.callout)
+                    Text(DisplayDate(max_expense?.spentAt ?? DateInRegion("1970-01-01 00:00:00", region: regionChina)!))
+                    Text(max_expense?.event ?? "花销").font(.callout)
                 }
                 .padding(.horizontal, 10.0)
             }
