@@ -26,7 +26,7 @@ struct ReportTab: View {
 
                         case .report:
                             ExView(expenses: expenses)
-                            //ExChartView(expenses: expenses)
+                            ExChartView(expenses: expenses)
                             DayCounterView(expenses: expenses)
                             //FocusExView()
 
