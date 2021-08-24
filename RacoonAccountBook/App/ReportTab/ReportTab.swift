@@ -2,11 +2,11 @@ import SwiftDate
 import SwiftUI
 
 struct ReportTab: View {
-    @EnvironmentObject var RacoonAccountBook: AccountBookModel
+    @Environment(\.managedObjectContext) var context
     @State private var selectedSegment: SegmentChoice = .report
 
     var body: some View {
-        let monthBook = RacoonAccountBook.getExOfCurrentMonth()
+        let expenses = Expense.last_month(context: context)
 
         NavigationView {
             VStack {
@@ -25,13 +25,13 @@ struct ReportTab: View {
                             FocusPieChartView()
 
                         case .report:
-                            ExView(monthBook: monthBook)
-                            ExChartView(monthBook: monthBook)
-                            DayCounterView(monthBook: monthBook)
-                            FocusExView()
+                            ExView(expenses: expenses)
+                            //ExChartView(expenses: expenses)
+                            DayCounterView(expenses: expenses)
+                            //FocusExView()
 
                         case .habit:
-                            DayCounterView(monthBook: monthBook)
+                            DayCounterView(expenses: expenses)
                         }
                     }
                     .padding(.all, 10.0)
