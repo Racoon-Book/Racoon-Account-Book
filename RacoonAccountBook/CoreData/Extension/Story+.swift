@@ -1,4 +1,5 @@
 import CoreData
+import Foundation
 
 extension Story {
     

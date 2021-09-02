@@ -11,7 +11,7 @@
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="expenses" inverseEntity="Tag"/>
     </entity>
     <entity name="Focus" representedClassName="Focus" syncable="YES" codeGenerationType="class">
-        <attribute name="focus" optional="YES" attributeType="String"/>
+        <attribute name="name_" optional="YES" attributeType="String"/>
     </entity>
     <entity name="Story" representedClassName="Story" syncable="YES" codeGenerationType="class">
         <attribute name="emoji" optional="YES" attributeType="String"/>

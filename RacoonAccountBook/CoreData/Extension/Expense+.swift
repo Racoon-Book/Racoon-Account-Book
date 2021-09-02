@@ -1,4 +1,5 @@
 import CoreData
+import Foundation
 import SwiftDate
 
 extension Expense {

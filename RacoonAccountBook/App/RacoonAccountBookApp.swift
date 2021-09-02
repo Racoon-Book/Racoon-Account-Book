@@ -10,13 +10,22 @@ struct RacoonAccountBookApp: App {
 
     init() {
         #if DEV
+
         // 在 DEV 下，当数据库为空时，插入 Testdata
         if Expense.all(context: persistenceController.container.viewContext).count == 0 {
             for metadata in testMetaItems {
                 Expense.create(context: persistenceController.container.viewContext, metadata: metadata)
             }
         }
-        print("插入了测试数据")
+        print("[RacoonAccountBookApp] 插入了测试数据")
+
+        if Focus.focusAmount(context: persistenceController.container.viewContext) == 0 {
+            let focusList: [String] = ["电子设备", "软件服务", "聚餐", "游戏", "宿舍"]
+            for focus in focusList {
+                Focus.create(name: focus, context: persistenceController.container.viewContext)
+            }
+        }
+
         #endif
     }
 
