@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Expense" representedClassName="Expense" syncable="YES" codeGenerationType="class">
-        <attribute name="amount" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="amount_" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="createdAt_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="event_" optional="YES" attributeType="String"/>
-        <attribute name="originalText" optional="YES" attributeType="String"/>
+        <attribute name="originalText_" optional="YES" attributeType="String"/>
         <attribute name="spentAt_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="updatedAt_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="story" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Story" inverseName="expense_" inverseEntity="Story"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Focus" inverseName="newRelationship" inverseEntity="Focus"/>
+        <relationship name="story_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Story" inverseName="expense_" inverseEntity="Story"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="expenses" inverseEntity="Tag"/>
     </entity>
     <entity name="Focus" representedClassName="Focus" syncable="YES" codeGenerationType="class">
         <attribute name="name_" optional="YES" attributeType="String"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expense" inverseName="newRelationship" inverseEntity="Expense"/>
     </entity>
     <entity name="Someone" representedClassName="Someone" syncable="YES" codeGenerationType="class">
         <attribute name="name_" optional="YES" attributeType="String"/>
@@ -20,17 +22,17 @@
         <attribute name="emoji_" optional="YES" attributeType="String"/>
         <attribute name="rating_" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="text_" optional="YES" attributeType="String"/>
-        <relationship name="expense_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expense" inverseName="story" inverseEntity="Expense"/>
+        <relationship name="expense_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expense" inverseName="story_" inverseEntity="Expense"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
         <attribute name="name_" optional="YES" attributeType="String"/>
         <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="tags" inverseEntity="Expense"/>
     </entity>
     <elements>
-        <element name="Expense" positionX="-216.0824584960938" positionY="94.077880859375" width="128" height="163"/>
-        <element name="Focus" positionX="103.2177734375" positionY="156.4737548828125" width="128" height="44"/>
-        <element name="Story" positionX="118.2116088867188" positionY="13.65591430664062" width="128" height="89"/>
-        <element name="Tag" positionX="118.4259033203125" positionY="228.5117797851562" width="128" height="59"/>
-        <element name="Someone" positionX="-45" positionY="144" width="128" height="44"/>
+        <element name="Expense" positionX="-176.6012573242188" positionY="-201.4093322753906" width="128" height="178"/>
+        <element name="Focus" positionX="17.75689697265625" positionY="-17.57937622070312" width="128" height="73"/>
+        <element name="Story" positionX="-424.1787719726562" positionY="278.5221252441406" width="128" height="103"/>
+        <element name="Tag" positionX="14.18988037109375" positionY="102.6138000488281" width="128" height="73"/>
+        <element name="Someone" positionX="-12.5078125" positionY="389.1085205078125" width="128" height="44"/>
     </elements>
 </model>
