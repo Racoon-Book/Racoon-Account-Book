@@ -16,8 +16,8 @@ struct RacoonAccountBookApp: App {
             for metadata in testMetaItems {
                 Expense.create(expenseInfo: metadata, context: persistenceController.container.viewContext)
             }
+            print("[RacoonAccountBookApp] 插入了测试数据")
         }
-        print("[RacoonAccountBookApp] 插入了测试数据")
 
         if Focus.focusAmount(context: persistenceController.container.viewContext) == 0 {
             let focusList: [String] = ["电子设备", "软件服务", "聚餐", "游戏", "宿舍"]

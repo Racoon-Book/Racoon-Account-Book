@@ -53,8 +53,8 @@ let testMetaItem_6 = ExpenseInfo(
     amount: 20.0,
     tags: ["体育课", "受伤", "校医院", "口腔", "冰袋"],
     story: ExpenseInfo.Story(rating: 3,
-                          emoji: "😢",
-                          text: "呜呜呜 好疼 竟然被篮球砸。")
+                             emoji: "😢",
+                             text: "呜呜呜 好疼 竟然被篮球砸。")
 )
 
 let testMetaItem_7 = ExpenseInfo(
@@ -81,8 +81,8 @@ let testMetaItem_9 = ExpenseInfo(
     tags: ["实验室", "服务器", "百度云"],
     focus: "软件服务",
     story: ExpenseInfo.Story(rating: 4,
-                          emoji: "🤨",
-                          text: "算是白嫖的吧 蛮便宜。手上有个服务器还是能方便一点。")
+                             emoji: "🤨",
+                             text: "算是白嫖的吧 蛮便宜。手上有个服务器还是能方便一点。")
 )
 
 let testMetaItem_10 = ExpenseInfo(
@@ -108,8 +108,8 @@ let testMetaItem_12 = ExpenseInfo(
     amount: 10.0,
     tags: ["成绩证明", "实验室"],
     story: ExpenseInfo.Story(rating: 2,
-                          emoji: "😞",
-                          text: "从来没去打印过成绩，这次是需要才去打印的。")
+                             emoji: "😞",
+                             text: "从来没去打印过成绩，这次是需要才去打印的。")
 )
 
 let testMetaItem_13 = ExpenseInfo(
@@ -119,8 +119,8 @@ let testMetaItem_13 = ExpenseInfo(
     amount: 30.0,
     tags: ["标准", "淘宝", "HEVC"],
     story: ExpenseInfo.Story(rating: 4,
-                          emoji: "🤓",
-                          text: "第一次买标准还考虑了标准到底是什么")
+                             emoji: "🤓",
+                             text: "第一次买标准还考虑了标准到底是什么")
 )
 
 let testMetaItem_14 = ExpenseInfo(
@@ -163,8 +163,8 @@ let testMetaItem_18 = ExpenseInfo(
     tags: ["触控板", "Apple", "Mac"],
     focus: "电子设备",
     story: ExpenseInfo.Story(rating: 5,
-                          emoji: "🥰",
-                          text: "还是挺方便的，一直在用。话说二手的和官方的也差不了多少，不如当时直接在官网买，但能省一点也不是什么坏事，毕竟跟新的没什么差别。")
+                             emoji: "🥰",
+                             text: "还是挺方便的，一直在用。话说二手的和官方的也差不了多少，不如当时直接在官网买，但能省一点也不是什么坏事，毕竟跟新的没什么差别。")
 )
 
 let testMetaItem_19 = ExpenseInfo(
@@ -175,8 +175,8 @@ let testMetaItem_19 = ExpenseInfo(
     tags: ["扬帆", "女生节", "盲盒"],
     forWho: ["扬帆女生"],
     story: ExpenseInfo.Story(rating: 4,
-                          emoji: "🥳",
-                          text: "扬帆的最后一次活动，学长的策划还是蛮好的嘛")
+                             emoji: "🥳",
+                             text: "扬帆的最后一次活动，学长的策划还是蛮好的嘛")
 )
 
 let testMetaItem_20 = ExpenseInfo(
@@ -228,8 +228,8 @@ let testMetaItem_25 = ExpenseInfo(
     tags: ["电脑支架", "Mac"],
     focus: "电子设备",
     story: ExpenseInfo.Story(rating: 4,
-                          emoji: "☺️",
-                          text: "之前的电脑支架坏掉了，所以买了个新的。最开始买的十三寸，回来觉得太小了换了个大的。非常方便带到图书馆哦")
+                             emoji: "☺️",
+                             text: "之前的电脑支架坏掉了，所以买了个新的。最开始买的十三寸，回来觉得太小了换了个大的。非常方便带到图书馆哦")
 )
 
 let testMetaItem_26 = ExpenseInfo(
@@ -272,8 +272,8 @@ let testMetaItem_30 = ExpenseInfo(
     tags: ["垃圾袋", "宿舍"],
     focus: "宿舍",
     story: ExpenseInfo.Story(rating: 4,
-                          emoji: "🙂",
-                          text: "宿舍垃圾堆的有点多，一下子收拾掉真好。但买的有点多了，慢慢用吧。")
+                             emoji: "🙂",
+                             text: "宿舍垃圾堆的有点多，一下子收拾掉真好。但买的有点多了，慢慢用吧。")
 )
 
 let testMetaItem_31 = ExpenseInfo(
@@ -390,8 +390,8 @@ let testMetaItem_44 = ExpenseInfo(
     tags: ["雀魂", "saki", "买号"],
     focus: "游戏",
     story: ExpenseInfo.Story(rating: 5,
-                          emoji: "😎",
-                          text: "怎么说呢，刚刚接触日麻，看到了雀魂，超级想要saki，但限定活动已经过去了55。看到有卖号的，等了一段时间，这个号真的超级值哦，还送我了QQ小号，两个限定起码八百以上了，还有别的好多角色，还是雀圣的号。希望有了这个号雀力日进吧。")
+                             emoji: "😎",
+                             text: "怎么说呢，刚刚接触日麻，看到了雀魂，超级想要saki，但限定活动已经过去了55。看到有卖号的，等了一段时间，这个号真的超级值哦，还送我了QQ小号，两个限定起码八百以上了，还有别的好多角色，还是雀圣的号。希望有了这个号雀力日进吧。")
 )
 
 let testMetaItem_45 = ExpenseInfo(
@@ -426,8 +426,8 @@ let testMetaItem_48 = ExpenseInfo(
     amount: 20.0,
     tags: ["咖啡"],
     story: ExpenseInfo.Story(rating: 1,
-                          emoji: "🥲",
-                          text: "美式咖啡 超级难喝…以后一定买带糖的")
+                             emoji: "🥲",
+                             text: "美式咖啡 超级难喝…以后一定买带糖的")
 )
 
 let testMetaItem_49 = ExpenseInfo(
@@ -439,8 +439,8 @@ let testMetaItem_49 = ExpenseInfo(
     focus: "支持",
     forWho: ["hima"],
     story: ExpenseInfo.Story(rating: 5,
-                          emoji: "☺️",
-                          text: "第一次在dlsite上买音声，体验超级好。hima出的怎么也要支持一下hh。数数的那个我直接无了")
+                             emoji: "☺️",
+                             text: "第一次在dlsite上买音声，体验超级好。hima出的怎么也要支持一下hh。数数的那个我直接无了")
 )
 
 let testMetaItem_50 = ExpenseInfo(
@@ -530,8 +530,8 @@ let testMetaItem_60 = ExpenseInfo(
     amount: 74.0,
     tags: ["本子"],
     story: ExpenseInfo.Story(rating: 4,
-                          emoji: "😅",
-                          text: "对草稿本的需求还是蛮大的。一次买了不少。希望能对学习有帮助。不过还是希望能有iPad 这样各方面都会方便一些。")
+                             emoji: "😅",
+                             text: "对草稿本的需求还是蛮大的。一次买了不少。希望能对学习有帮助。不过还是希望能有iPad 这样各方面都会方便一些。")
 )
 
 let testMetaItem_61 = ExpenseInfo(
@@ -654,8 +654,8 @@ let testMetaItem_75 = ExpenseInfo(
     tags: ["天津", "海", "高铁"],
     focus: "旅游",
     story: ExpenseInfo.Story(rating: 5,
-                          emoji: "😃",
-                          text: "去天津看海真的好棒！说实话 真没花多少钱，但体验是超级棒！")
+                             emoji: "😃",
+                             text: "去天津看海真的好棒！说实话 真没花多少钱，但体验是超级棒！")
 )
 
 let testMetaItem_76 = ExpenseInfo(
@@ -708,8 +708,8 @@ let testMetaItem_81 = ExpenseInfo(
     focus: "支持",
     forWho: ["たんたんめん"],
     story: ExpenseInfo.Story(rating: 5,
-                          emoji: "😆",
-                          text: "注册了paypal，买fanbox。たんたんめん是我超喜欢的画师，感觉他画的画就特别灵动！拿到了一堆高清的图还有psd，自己学画画的时候也可以尝试参考。")
+                             emoji: "😆",
+                             text: "注册了paypal，买fanbox。たんたんめん是我超喜欢的画师，感觉他画的画就特别灵动！拿到了一堆高清的图还有psd，自己学画画的时候也可以尝试参考。")
 )
 
 let testMetaItem_82 = ExpenseInfo(
@@ -736,8 +736,8 @@ let testMetaItem_84 = ExpenseInfo(
     tags: ["小米手环"],
     focus: "电子设备",
     story: ExpenseInfo.Story(rating: 1,
-                          emoji: "😤",
-                          text: "原来的那个手环真的不结实啊。新的也很贵")
+                             emoji: "😤",
+                             text: "原来的那个手环真的不结实啊。新的也很贵")
 )
 
 let testMetaItem_85 = ExpenseInfo(
@@ -821,8 +821,8 @@ let testMetaItem_94 = ExpenseInfo(
     tags: ["图片处理", "waifu"],
     focus: "软件服务",
     story: ExpenseInfo.Story(rating: 4,
-                          emoji: "🤓",
-                          text: "一直对AI没什么兴趣的，直到发现了GitHub伤的waifu。原来机器学习还能做这个，真不错！把たんたんめん的图都放大了一遍，メンヘラちゃん的表情包也是。觉得能让我对图像处理产生兴趣这是最重要的")
+                             emoji: "🤓",
+                             text: "一直对AI没什么兴趣的，直到发现了GitHub伤的waifu。原来机器学习还能做这个，真不错！把たんたんめん的图都放大了一遍，メンヘラちゃん的表情包也是。觉得能让我对图像处理产生兴趣这是最重要的")
 )
 
 let testMetaItem_95 = ExpenseInfo(
@@ -833,8 +833,8 @@ let testMetaItem_95 = ExpenseInfo(
     tags: ["山哥", "生日", "蛋糕"],
     forWho: ["山哥"],
     story: ExpenseInfo.Story(rating: 4,
-                          emoji: "🥳",
-                          text: "自己还花了蛮多时间去策划的，山哥生快，希望新的一岁更加牛逼吧！")
+                             emoji: "🥳",
+                             text: "自己还花了蛮多时间去策划的，山哥生快，希望新的一岁更加牛逼吧！")
 )
 
 let testMetaItem_96 = ExpenseInfo(
@@ -972,8 +972,8 @@ let testMetaItem_112 = ExpenseInfo(
     amount: 12.0,
     tags: ["水木咖啡", "奶茶"],
     story: ExpenseInfo.Story(rating: 3,
-                          emoji: "🧐",
-                          text: "讨论项目。学到了不少呢，感觉现在的项目还缺少很多东西。逐渐添加上吧")
+                             emoji: "🧐",
+                             text: "讨论项目。学到了不少呢，感觉现在的项目还缺少很多东西。逐渐添加上吧")
 )
 
 let testMetaItem_113 = ExpenseInfo(
@@ -1056,8 +1056,8 @@ let testMetaItem_122 = ExpenseInfo(
     tags: ["VPN", "expressVPN"],
     focus: "软件服务",
     story: ExpenseInfo.Story(rating: 4,
-                          emoji: "🤨",
-                          text: "好贵。但怎么说呢，自己每天都要用，有一个稳定的体验好的梯子还是蛮重要的。")
+                             emoji: "🤨",
+                             text: "好贵。但怎么说呢，自己每天都要用，有一个稳定的体验好的梯子还是蛮重要的。")
 )
 
 let testMetaItem_123 = ExpenseInfo(
@@ -1077,8 +1077,8 @@ let testMetaItem_124 = ExpenseInfo(
     focus: "支持",
     forWho: ["hima"],
     story: ExpenseInfo.Story(rating: 5,
-                          emoji: "😌",
-                          text: "呜呜呜 好清楚的声音！当天在B站看到有预览版就直接上DLsite买了")
+                             emoji: "😌",
+                             text: "呜呜呜 好清楚的声音！当天在B站看到有预览版就直接上DLsite买了")
 )
 
 let testMetaItem_125 = ExpenseInfo(
@@ -1152,8 +1152,8 @@ let testMetaItem_133 = ExpenseInfo(
     amount: 6.0,
     tags: ["咖啡"],
     story: ExpenseInfo.Story(rating: 1,
-                          emoji: "😭",
-                          text: "考信号与系统前买的咖啡，确实让我打起了精神，但喝的有点凉，而且考完试发现自己一直紧张，所以最后有点恶心")
+                             emoji: "😭",
+                             text: "考信号与系统前买的咖啡，确实让我打起了精神，但喝的有点凉，而且考完试发现自己一直紧张，所以最后有点恶心")
 )
 
 let testMetaItem_134 = ExpenseInfo(
@@ -1180,8 +1180,8 @@ let testMetaItem_136 = ExpenseInfo(
     tags: ["湿巾"],
     focus: "宿舍",
     story: ExpenseInfo.Story(rating: 3,
-                          emoji: "😌",
-                          text: "终于有了湿巾，到手之后发现好好用啊！不过它是无香的，想要有香味的（买的时候没仔细看嗫）")
+                             emoji: "😌",
+                             text: "终于有了湿巾，到手之后发现好好用啊！不过它是无香的，想要有香味的（买的时候没仔细看嗫）")
 )
 
 let testMetaItem_137 = ExpenseInfo(
@@ -1200,8 +1200,8 @@ let testMetaItem_138 = ExpenseInfo(
     tags: ["衣架"],
     focus: "宿舍",
     story: ExpenseInfo.Story(rating: 2,
-                          emoji: "😠",
-                          text: "质量好差，我没想到那么细。夏天挂挂衣服还好，但冬天衣服我感觉这个怕是撑不起来")
+                             emoji: "😠",
+                             text: "质量好差，我没想到那么细。夏天挂挂衣服还好，但冬天衣服我感觉这个怕是撑不起来")
 )
 
 let testMetaItem_139 = ExpenseInfo(
@@ -1235,8 +1235,8 @@ let testMetaItem_142 = ExpenseInfo(
     amount: 17.2,
     tags: ["跳线", "电设"],
     story: ExpenseInfo.Story(rating: 3,
-                          emoji: "🧐",
-                          text: "电设实验用跳线还是方便一点 一次多买了一盒")
+                             emoji: "🧐",
+                             text: "电设实验用跳线还是方便一点 一次多买了一盒")
 )
 
 let testMetaItem_143 = ExpenseInfo(
@@ -1255,8 +1255,8 @@ let testMetaItem_144 = ExpenseInfo(
     tags: ["雀魂", "月卡"],
     focus: "游戏",
     story: ExpenseInfo.Story(rating: 2,
-                          emoji: "🥲",
-                          text: "说实话不怎么想充月卡……还是把精力放在提升雀力上吧")
+                             emoji: "🥲",
+                             text: "说实话不怎么想充月卡……还是把精力放在提升雀力上吧")
 )
 
 let testMetaItem_145 = ExpenseInfo(
@@ -1267,8 +1267,8 @@ let testMetaItem_145 = ExpenseInfo(
     tags: ["宿舍", "床帘"],
     focus: "宿舍",
     story: ExpenseInfo.Story(rating: 5,
-                          emoji: "😎",
-                          text: "好棒的床帘！有了在宿舍自己的空间！虽然装的时候超级费力气，但装好之后第一个晚上就睡的特别舒服")
+                             emoji: "😎",
+                             text: "好棒的床帘！有了在宿舍自己的空间！虽然装的时候超级费力气，但装好之后第一个晚上就睡的特别舒服")
 )
 
 let testMetaItem_146 = ExpenseInfo(
@@ -1295,8 +1295,8 @@ let testMetaItem_148 = ExpenseInfo(
     tags: ["AA", "清新", "聚点串吧"],
     focus: "聚餐",
     story: ExpenseInfo.Story(rating: 5,
-                          emoji: "😎",
-                          text: "好久没见到高中同学了啊！聊得很多话题，超级开心！lg虽然迟到了很久，但之后第二场也很愉快啊！")
+                             emoji: "😎",
+                             text: "好久没见到高中同学了啊！聊得很多话题，超级开心！lg虽然迟到了很久，但之后第二场也很愉快啊！")
 )
 
 let testMetaItem_149 = ExpenseInfo(
@@ -1316,8 +1316,8 @@ let testMetaItem_150 = ExpenseInfo(
     tags: ["iOS", "Club", "玉树"],
     focus: "聚餐",
     story: ExpenseInfo.Story(rating: 4,
-                          emoji: "🧐",
-                          text: "聚餐～虽然来的人不是很多，但认识了不少朋友！在社团继续加油吧！")
+                             emoji: "🧐",
+                             text: "聚餐～虽然来的人不是很多，但认识了不少朋友！在社团继续加油吧！")
 )
 
 let testMetaItem_151 = ExpenseInfo(
@@ -1386,8 +1386,8 @@ let testMetaItem_158 = ExpenseInfo(
     tags: ["Linux", "服务器", "百度云"],
     focus: "软件服务",
     story: ExpenseInfo.Story(rating: 4,
-                          emoji: "🤓",
-                          text: "买来用吧，感觉手上没一台服务器做事情还是不方便。")
+                             emoji: "🤓",
+                             text: "买来用吧，感觉手上没一台服务器做事情还是不方便。")
 )
 
 let testMetaItem_159 = ExpenseInfo(
@@ -1422,8 +1422,8 @@ let testMetaItem_162 = ExpenseInfo(
     tags: ["iPadPro", "教育优惠"],
     focus: "电子设备",
     story: ExpenseInfo.Story(rating: 5,
-                          emoji: "🥰",
-                          text: "终于拿到了iPad Pro！感谢父母～到手之后发现确实可以做很多事情哈，效率++")
+                             emoji: "🥰",
+                             text: "终于拿到了iPad Pro！感谢父母～到手之后发现确实可以做很多事情哈，效率++")
 )
 
 let testMetaItem_163 = ExpenseInfo(
@@ -1443,8 +1443,8 @@ let testMetaItem_164 = ExpenseInfo(
     tags: ["教育优惠", "耳机", "AirPodsPro"],
     focus: "电子设备",
     story: ExpenseInfo.Story(rating: 4,
-                          emoji: "😂",
-                          text: "还行吧，但感觉问题也不少")
+                             emoji: "😂",
+                             text: "还行吧，但感觉问题也不少")
 )
 
 let testMetaItem_165 = ExpenseInfo(
@@ -1521,8 +1521,8 @@ let testMetaItem_173 = ExpenseInfo(
     tags: ["iPadOS软件", "Notability"],
     focus: "软件服务",
     story: ExpenseInfo.Story(rating: 4,
-                          emoji: "🧐",
-                          text: "感觉一般般 功能不是那么多，有的操作并不是很顺手。而且很多主题都要另外付费ummm")
+                             emoji: "🧐",
+                             text: "感觉一般般 功能不是那么多，有的操作并不是很顺手。而且很多主题都要另外付费ummm")
 )
 
 let testMetaItem_174 = ExpenseInfo(
@@ -1533,8 +1533,8 @@ let testMetaItem_174 = ExpenseInfo(
     tags: ["iPadOS软件", "Procreate"],
     focus: "软件服务",
     story: ExpenseInfo.Story(rating: 5,
-                          emoji: "😆",
-                          text: "好棒！加油画画吧！现在还在尝试着描别的画师的草稿，先把pencil拿稳吧ww")
+                             emoji: "😆",
+                             text: "好棒！加油画画吧！现在还在尝试着描别的画师的草稿，先把pencil拿稳吧ww")
 )
 
 let testMetaItem_175 = ExpenseInfo(
@@ -1588,7 +1588,7 @@ let testMetaItem_180 = ExpenseInfo(
 
 let testMetaItem_181 = ExpenseInfo(
     originalText: "超市买东西花了八十二块七",
-    spentMoneyAt: "210901".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210801".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "超市买东西",
     amount: 82.7,
     tags: ["超市", "奶"]
@@ -1596,7 +1596,7 @@ let testMetaItem_181 = ExpenseInfo(
 
 let testMetaItem_182 = ExpenseInfo(
     originalText: "一份面皮三块五",
-    spentMoneyAt: "210901".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210801".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "面皮",
     amount: 3.5,
     tags: ["面皮"]
@@ -1635,8 +1635,8 @@ let testMetaItem_186 = ExpenseInfo(
     tags: ["Microsoft", "Office"],
     focus: "软件服务",
     story: ExpenseInfo.Story(rating: 5,
-                          emoji: "🧐",
-                          text: "学校给的Office不知道怎么就装不上，某宝买了一个非常好用！iPad上也下载好了，而且还是自己改密码的那种；虽然不知道哪天就跑路了，但是先用着吧")
+                             emoji: "🧐",
+                             text: "学校给的Office不知道怎么就装不上，某宝买了一个非常好用！iPad上也下载好了，而且还是自己改密码的那种；虽然不知道哪天就跑路了，但是先用着吧")
 )
 
 let testMetaItem_187 = ExpenseInfo(
@@ -1646,8 +1646,8 @@ let testMetaItem_187 = ExpenseInfo(
     amount: 20.0,
     tags: ["旅游"],
     story: ExpenseInfo.Story(rating: 5,
-                          emoji: "😆",
-                          text: "超级不错！虽然景区不大，但里面的水库惊艳到我了，看到了彩虹色的水雾！太棒了")
+                             emoji: "😆",
+                             text: "超级不错！虽然景区不大，但里面的水库惊艳到我了，看到了彩虹色的水雾！太棒了")
 )
 
 let testMetaItem_188 = ExpenseInfo(
@@ -1666,8 +1666,8 @@ let testMetaItem_189 = ExpenseInfo(
     tags: ["音声", "DLSite"],
     focus: "软件服务",
     story: ExpenseInfo.Story(rating: 5,
-                          emoji: "🥰",
-                          text: "又遇到了一个超级棒的音声！直接去买了")
+                             emoji: "🥰",
+                             text: "又遇到了一个超级棒的音声！直接去买了")
 )
 
 let testMetaItem_190 = ExpenseInfo(

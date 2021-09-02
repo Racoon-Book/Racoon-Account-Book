@@ -5,6 +5,9 @@ struct BookTab: View {
     @FetchRequest(fetchRequest: Expense.request_expensesInLast30days)
     var expensesInLast30Days
 
+    @FetchRequest(fetchRequest: Expense.request_expensesInLast7days)
+    var expensesInLast7Days
+
     var body: some View {
         let today = DateInRegion(region: regionChina)
         let thisYear: Int = today.year
@@ -14,8 +17,8 @@ struct BookTab: View {
 
         NavigationView {
             VStack {
-                IncomeExpenditureView(usingRelativeDays: false,
-                                      sevenEx: 0, // TODO: 添加本周支出
+                IncomeExpenditureView(usingRelativeDays: true,
+                                      sevenEx: expensesInLast7Days.sum(), // TODO: 添加本周支出
                                       sevenIn: 0,
                                       thirtyEx: expensesInLast30Days.sum(), // change to array
                                       thirtyIn: 0)
