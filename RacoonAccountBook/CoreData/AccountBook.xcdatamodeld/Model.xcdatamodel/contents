@@ -8,7 +8,7 @@
         <attribute name="spentAt_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="updatedAt_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="focus_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Focus" inverseName="expenses_" inverseEntity="Focus"/>
-        <relationship name="forWho_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Someone" inverseName="expenses_" inverseEntity="Someone"/>
+        <relationship name="forWho_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Someone" inverseName="expenses_" inverseEntity="Someone"/>
         <relationship name="generatedTags_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="generatedExpenses_" inverseEntity="Tag"/>
         <relationship name="story_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Story" inverseName="expense_" inverseEntity="Story"/>
         <relationship name="tags_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="expenses_" inverseEntity="Tag"/>

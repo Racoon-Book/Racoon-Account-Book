@@ -87,9 +87,7 @@ extension Expense {
     }
     
     var amount: Float {
-        get {
-            return amount_
-        }
+        get { return amount_ }
         set { amount_ = newValue }
     }
     
@@ -100,17 +98,34 @@ extension Expense {
         set { event_ = newValue }
     }
     
-    // relationship
+    // relationship - single
     
     var story: Story? {
         get { story_ }
         set { story_ = newValue }
     }
     
-//    var flights: Set<Flight> {
-//        get { (flights_ as? Set<Flight>) ?? [] }
-//        set { flights_ = newValue as NSSet }
-//    }
+    var focus: Focus? {
+        get { focus_ }
+        set { focus_ = newValue }
+    }
+    
+    // relationship - multiple
+    
+    var tags: Set<Tag> {
+        get { (tags_ as? Set<Tag>) ?? [] }
+        set { tags_ = newValue as NSSet }
+    }
+    
+    var forWho: Set<Someone> {
+        get { (forWho_ as? Set<Someone>) ?? [] }
+        set { forWho_ = newValue as NSSet }
+    }
+    
+    var generatedTags: Set<Tag> {
+        get { (generatedTags_ as? Set<Tag>) ?? [] }
+        set { generatedTags_ = newValue as NSSet }
+    }
     
     // MARK: - operation
     
