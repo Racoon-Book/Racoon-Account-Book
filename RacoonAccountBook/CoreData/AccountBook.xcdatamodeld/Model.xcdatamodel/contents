@@ -20,13 +20,13 @@
         <relationship name="expense_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expense" inverseName="story" inverseEntity="Expense"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="name_" optional="YES" attributeType="String"/>
         <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="tags" inverseEntity="Expense"/>
     </entity>
     <elements>
         <element name="Expense" positionX="-216.0824584960938" positionY="94.077880859375" width="128" height="163"/>
         <element name="Focus" positionX="103.2177734375" positionY="156.4737548828125" width="128" height="44"/>
         <element name="Story" positionX="118.2116088867188" positionY="13.65591430664062" width="128" height="103"/>
-        <element name="Tag" positionX="118.4259033203125" positionY="228.5117797851562" width="128" height="73"/>
+        <element name="Tag" positionX="118.4259033203125" positionY="228.5117797851562" width="128" height="59"/>
     </elements>
 </model>

@@ -12,14 +12,14 @@ extension Focus {
         return request
     }
 
-    // MARK: - data access
+    // MARK: - access
 
     var name: String {
-        get { name_ ?? "focus为空" }
+        get { name_ ?? "没获取到name_" }
         set { name_ = newValue }
     }
 
-    // MARK: - data operation
+    // MARK: - operation
 
     static func create(name: String, context: NSManagedObjectContext) {
         let newFocus = Focus(context: context)
