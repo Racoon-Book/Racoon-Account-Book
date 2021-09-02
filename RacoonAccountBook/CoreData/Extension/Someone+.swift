@@ -1,19 +1,19 @@
-// Focus+.swift
+// Someone+.swift
 
 import CoreData
 import Foundation
 
-extension Focus {
+extension Someone {
     // MARK: - fetch requests
 
-    static var request_allFocus: NSFetchRequest<Focus> {
-        let request = NSFetchRequest<Focus>(entityName: "Focus")
+    static var request_allFocus: NSFetchRequest<Someone> {
+        let request = NSFetchRequest<Someone>(entityName: "Someone")
         request.sortDescriptors = [NSSortDescriptor(key: "name_", ascending: true)]
         return request
     }
 
     // MARK: - access
-    
+
     // Focus: name
 
     var name: String {
@@ -31,23 +31,14 @@ extension Focus {
     // MARK: - operation
 
     static func create(name: String, context: NSManagedObjectContext) {
-        let newFocus = Focus(context: context)
+        let newSomeone = Someone(context: context)
 
-        newFocus.name = name
+        newSomeone.name = name
 
-        newFocus.objectWillChange.send()
+        newSomeone.objectWillChange.send()
 
         try? context.save()
     }
 
     // MARK: - analysis
-
-    // 获取总共的focus种数
-    static func focusAmount(context: NSManagedObjectContext) -> Int {
-        if let foci = try? context.fetch(Focus.request_allFocus) {
-            return foci.count
-        } else {
-            return 0
-        }
-    }
 }

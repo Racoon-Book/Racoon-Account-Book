@@ -27,7 +27,11 @@ extension Expense {
 
     // MARK: - access
     
-    // Expense: 
+    // Expense:
+    //   - system: createdAt updatedAt
+    //   - properties: spentAt event amount
+    //   - other: originalText
+    //   - relation: generatedTags tags focus forWho story
 
     var createdAt: DateInRegion {
         get { createdAt_!.convertTo(region: regionChina) }

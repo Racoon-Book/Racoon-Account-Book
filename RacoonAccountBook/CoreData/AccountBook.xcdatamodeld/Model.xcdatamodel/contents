@@ -13,6 +13,9 @@
     <entity name="Focus" representedClassName="Focus" syncable="YES" codeGenerationType="class">
         <attribute name="name_" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="Someone" representedClassName="Someone" syncable="YES" codeGenerationType="class">
+        <attribute name="name_" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Story" representedClassName="Story" syncable="YES" codeGenerationType="class">
         <attribute name="emoji_" optional="YES" attributeType="String"/>
         <attribute name="rating_" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -28,5 +31,6 @@
         <element name="Focus" positionX="103.2177734375" positionY="156.4737548828125" width="128" height="44"/>
         <element name="Story" positionX="118.2116088867188" positionY="13.65591430664062" width="128" height="89"/>
         <element name="Tag" positionX="118.4259033203125" positionY="228.5117797851562" width="128" height="59"/>
+        <element name="Someone" positionX="-45" positionY="144" width="128" height="44"/>
     </elements>
 </model>
