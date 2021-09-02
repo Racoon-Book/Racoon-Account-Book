@@ -5,30 +5,29 @@ import SwiftDate
 extension Expense {
     // MARK: - fetch requests
     
-    // MARK: - fetch data
-    
-    static func getAddExpenses(context: NSManagedObjectContext, story_only: Bool = false) -> [Expense] {
+    static var request_allExpenses: NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: false)]
-        if story_only {
-            request.predicate = NSPredicate(format: "story != nil")
-        }
-        return (try? context.fetch(request)) ?? []
+        return request
     }
     
-    static func last_month(context: NSManagedObjectContext, story_only: Bool = false) -> [Expense] {
+    static var request_allExpensesWithStory: NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: false)]
-        
-        // TODO: Date
-        request.predicate = NSPredicate(format: "spentAt_ > %@", Date() - 1.months as NSDate)
-        if story_only {
-            request.predicate = NSPredicate(format: "story != nil")
-        }
-        return (try? context.fetch(request)) ?? []
+        request.predicate = NSPredicate(format: "story != nil")
+        return request
+    }
+    
+    // MARK: - fetch data
+    
+    static func getAllExpenses(context: NSManagedObjectContext, story_only: Bool = false) -> [Expense] {
+        let expenses = try? context.fetch(story_only ? request_allExpensesWithStory : request_allExpensesWithStory)
+        return expenses ?? []
     }
 
     // MARK: - access
+    
+    // Expense: 
 
     var createdAt: DateInRegion {
         get { createdAt_!.convertTo(region: regionChina) }
@@ -46,7 +45,14 @@ extension Expense {
     }
     
     var event: String {
-        get { event_ ?? "暂无事件" }
+        get {
+            if event_ != nil {
+                return event_!
+            } else {
+                print("未获取到event")
+                return ""
+            }
+        }
         set { event_ = newValue }
     }
 
@@ -72,7 +78,7 @@ extension Expense {
     // MARK: - analysis
 
     static func continous_days(context: NSManagedObjectContext) -> [DateInRegion] {
-        let all_expenses = Expense.getAddExpenses(context: context)
+        let all_expenses = Expense.getAllExpenses(context: context)
         var days = [DateInRegion]()
         // 明天
         var last_day = DateInRegion(region: regionChina).dateAt(.startOfDay) + 1.days

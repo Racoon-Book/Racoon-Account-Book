@@ -13,9 +13,18 @@ extension Focus {
     }
 
     // MARK: - access
+    
+    // Focus: name
 
     var name: String {
-        get { name_ ?? "没获取到name_" }
+        get {
+            if name_ != nil {
+                return name_!
+            } else {
+                print("未获取到name")
+                return ""
+            }
+        }
         set { name_ = newValue }
     }
 
@@ -25,7 +34,7 @@ extension Focus {
         let newFocus = Focus(context: context)
 
         newFocus.name = name
-        
+
         newFocus.objectWillChange.send()
 
         try? context.save()

@@ -5,7 +5,7 @@ struct StoryTab: View {
     @Environment(\.managedObjectContext) var context
   
     var body: some View {
-        let expenses = Expense.getAddExpenses(context: context, story_only: true)
+        let expenses = Expense.getAllExpenses(context: context, story_only: true)
 
         // TODO: 像账本那样做一个深色的统计页面应该比较好
         if expenses.count != 0 {
