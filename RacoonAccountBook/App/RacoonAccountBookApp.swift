@@ -14,7 +14,7 @@ struct RacoonAccountBookApp: App {
         // 在 DEV 下，当数据库为空时，插入 Testdata
         if Expense.getAddExpenses(context: persistenceController.container.viewContext).count == 0 {
             for metadata in testMetaItems {
-                Expense.create(context: persistenceController.container.viewContext, metadata: metadata)
+                Expense.create(context: persistenceController.container.viewContext, expenseInfo: metadata)
             }
         }
         print("[RacoonAccountBookApp] 插入了测试数据")

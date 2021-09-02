@@ -31,17 +31,17 @@ extension Expense {
     // MARK: - access
 
     var createdAt: DateInRegion {
-        get { createdAt_?.convertTo(region: regionChina) ?? DateInRegion("1970-01-01 00:00:00", region: regionChina)! }
+        get { createdAt_!.convertTo(region: regionChina) }
         set { createdAt_ = newValue.date }
     }
     
     var updatedAt: DateInRegion {
-        get { updatedAt_?.convertTo(region: regionChina) ?? DateInRegion("1970-01-01 00:00:00", region: regionChina)! }
+        get { updatedAt_!.convertTo(region: regionChina) }
         set { updatedAt_ = newValue.date }
     }
     
     var spentAt: DateInRegion {
-        get { spentAt_?.convertTo(region: regionChina) ?? DateInRegion("1970-01-01 00:00:00", region: regionChina)! }
+        get { spentAt_!.convertTo(region: regionChina) }
         set { spentAt_ = newValue.date }
     }
     
@@ -52,17 +52,17 @@ extension Expense {
 
     // MARK: - operation
     
-    static func create(context: NSManagedObjectContext, metadata: ExpenseInfo) {
+    static func create(context: NSManagedObjectContext, expenseInfo: ExpenseInfo) {
         let expense = Expense(context: context)
         
-        expense.originalText = metadata.originalText
+        expense.originalText = expenseInfo.originalText
         // FIXME: convert DateInRegion to Date
-        expense.spentAt = metadata.spentMoneyAt
-        expense.event = metadata.event
-        expense.amount = metadata.amount_float
+        expense.spentAt = expenseInfo.spentMoneyAt
+        expense.event = expenseInfo.event
+        expense.amount = expenseInfo.amount_float
         
-        if metadata.story != nil {
-            expense.story = Story.create(context: context, story: metadata.story!)
+        if expenseInfo.story != nil {
+            expense.story = Story.create(context: context, story: expenseInfo.story!)
         }
         
         expense.objectWillChange.send()
