@@ -2,6 +2,7 @@ import SwiftUI
 
 struct FocusSelectView: View {
     @Binding var metadata_inputting: MetaItem
+    @Environment(\.managedObjectContext) private var context
 
     var body: some View {
         HStack {
@@ -9,7 +10,7 @@ struct FocusSelectView: View {
                 .font(.system(.headline))
             VStack(alignment: .leading) {
                 MultilineFociView(
-                    foci: .constant(AccountBook.focusList),
+                    foci: .constant(["focus1","focus2"]),
                     metadata_inputting: $metadata_inputting,
                     selectedColor: Color("focus"),
                     unselectedColor: Color("focus-unselected")

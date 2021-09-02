@@ -24,7 +24,7 @@ struct StoryTab: View {
             }
 
         } else {
-            Text("Error in StoryTab")
+            Text("一笔财记还没有呢 给自己的花销添加故事吧！")
         }
     }
 }

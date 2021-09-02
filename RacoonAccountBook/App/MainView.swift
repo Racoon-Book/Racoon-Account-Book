@@ -3,7 +3,6 @@ import SwiftUI
 import UIKit
 
 struct MainView: View {
-    @EnvironmentObject var RacoonAccountBook: AccountBookModel
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
     // TabView需要用到的东西
@@ -30,7 +29,8 @@ struct MainView: View {
     var body: some View {
         ZStack {
             TabView(selection: $selectedTab) {
-                BookTab()
+//                BookTab()
+                Text("BookTab")
                     .tabItem {
                         Image(systemName: "text.book.closed.fill")
                         Text(MainView.Tab1)
@@ -44,7 +44,8 @@ struct MainView: View {
                     }
                     .tag(MainView.Tab2)
 
-                ReportTab()
+//                ReportTab()
+                Text("ReportTab")
                     .tabItem {
                         Image(systemName: "chart.pie.fill")
                         Text(MainView.Tab3)

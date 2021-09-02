@@ -4,7 +4,7 @@ import SwiftUI
 
 /// 用来输入或修改一个Item的MetaItem
 struct MetaItemSheet: View {
-    @EnvironmentObject var RacoonAccountBook: AccountBookModel
+    
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
     // MARK: - 界面参数
@@ -228,7 +228,8 @@ struct MetaItemSheet: View {
 
         if !noEvent && !noAmount {
             // 成功添加/修改
-            RacoonAccountBook.createItem(metadata: RacoonSheetConfig.shared.metadata_inputting)
+            // TODO: add Core Data
+//            RacoonAccountBook.createItem(metadata: RacoonSheetConfig.shared.metadata_inputting)
 
             // 添加成功显示提示
             RacoonSheetConfig.shared.showingSuccessfullyAlert = true
@@ -254,18 +255,19 @@ struct MetaItemSheet: View {
         if !noEvent, !noAmount {
             // TODO: 用id革面革心
             // 成功添加/修改
-            let successfullyUpdate: Bool = RacoonAccountBook.updateItem(
-                id: RacoonSheetConfig.shared.itemIdToEdit,
-                metadata: RacoonSheetConfig.shared.metadata_inputting)
-
-            if successfullyUpdate {
-                // 添加成功显示提示
-                RacoonSheetConfig.shared.showingSuccessfullyAlert = true
-            } else {
-                // 未成功修改
-                // FIXME: 添加给用户的提示
-                printError("[OrdinaryAddSheet] UpdateMetaItem cannot find id")
-            }
+            // TODO: add Core Data
+//            let successfullyUpdate: Bool = RacoonAccountBook.updateItem(
+//                id: RacoonSheetConfig.shared.itemIdToEdit,
+//                metadata: RacoonSheetConfig.shared.metadata_inputting)
+//
+//            if successfullyUpdate {
+//                // 添加成功显示提示
+//                RacoonSheetConfig.shared.showingSuccessfullyAlert = true
+//            } else {
+//                // 未成功修改
+//                // FIXME: 添加给用户的提示
+//                printError("[OrdinaryAddSheet] UpdateMetaItem cannot find id")
+//            }
 
             RacoonSheetConfig.shared.showingMetaItemSheet = false // 收回sheet
         } else {

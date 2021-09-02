@@ -2,24 +2,7 @@ import Foundation
 import SwiftDate
 
 /// 一个条目的基础数据结构 用户所需要输入和生成的数据
-struct MetaItem: Equatable {
-    // MARK: - protocal
-
-    // Equable
-    static func == (lhs: MetaItem, rhs: MetaItem) -> Bool {
-        let equal: Bool =
-            (lhs.originalText == rhs.originalText) &&
-            (lhs.spentMoneyAt == rhs.spentMoneyAt) &&
-            (lhs.event == rhs.event) &&
-            (lhs.amount_float == rhs.amount_float) &&
-            (lhs.generatedTags == rhs.generatedTags) &&
-            (lhs.tags == rhs.tags) &&
-            (lhs.focus == rhs.focus) &&
-            (lhs.forWho == rhs.forWho) &&
-            (lhs.story == rhs.story)
-        return equal
-    }
-
+struct MetaItem {
     // MARK: - core data
 
     /// 用户语音输入后进行转写且用户修改错别字之后的话 or 用户敲键盘的一句话
@@ -77,16 +60,7 @@ struct MetaItem: Equatable {
     var story: Story? = nil
 
     /// 财记
-    struct Story: Equatable {
-        // Equable
-        static func == (lhs: Story, rhs: Story) -> Bool {
-            let equal: Bool =
-                (lhs.rating == rhs.rating) &&
-                (lhs.emoji == rhs.emoji) &&
-                (lhs.text == rhs.text)
-            return equal
-        }
-
+    struct Story {
         /// 用户对这笔支出的评价
         ///
         /// 默认无评价 表示该笔支出没什么意义

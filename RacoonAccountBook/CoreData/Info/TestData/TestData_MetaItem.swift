@@ -1588,7 +1588,7 @@ let testMetaItem_180 = MetaItem(
 
 let testMetaItem_181 = MetaItem(
     originalText: "超市买东西花了八十二块七",
-    spentMoneyAt: "210801".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210901".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "超市买东西",
     amount_float: 82.7,
     tags: ["超市", "奶"]
@@ -1596,7 +1596,7 @@ let testMetaItem_181 = MetaItem(
 
 let testMetaItem_182 = MetaItem(
     originalText: "一份面皮三块五",
-    spentMoneyAt: "210801".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210901".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "面皮",
     amount_float: 3.5,
     tags: ["面皮"]
@@ -1604,7 +1604,7 @@ let testMetaItem_182 = MetaItem(
 
 let testMetaItem_183 = MetaItem(
     originalText: "买打气筒给自行车充气花了二十八块五",
-    spentMoneyAt: "210803".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210903".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "打气筒",
     amount_float: 28.5,
     tags: ["打气筒", "自行车"]
@@ -1612,7 +1612,7 @@ let testMetaItem_183 = MetaItem(
 
 let testMetaItem_184 = MetaItem(
     originalText: "买礼品卡花了二十",
-    spentMoneyAt: "210804".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210904".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "中国app store礼品卡",
     amount_float: 20.0,
     tags: ["礼品卡"]
@@ -1620,7 +1620,7 @@ let testMetaItem_184 = MetaItem(
 
 let testMetaItem_185 = MetaItem(
     originalText: "淘宝礼品卡代充花了七十",
-    spentMoneyAt: "210804".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210904".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "美区app store礼品卡",
     amount_float: 70.0,
     tags: ["礼品卡"],
@@ -1629,7 +1629,7 @@ let testMetaItem_185 = MetaItem(
 
 let testMetaItem_186 = MetaItem(
     originalText: "买Office套件花了八块",
-    spentMoneyAt: "210804".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210904".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "office",
     amount_float: 8.0,
     tags: ["Microsoft", "Office"],
@@ -1641,7 +1641,7 @@ let testMetaItem_186 = MetaItem(
 
 let testMetaItem_187 = MetaItem(
     originalText: "去钓鱼台花了20",
-    spentMoneyAt: "210807".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210907".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "钓鱼台",
     amount_float: 20.0,
     tags: ["旅游"],
@@ -1652,7 +1652,7 @@ let testMetaItem_187 = MetaItem(
 
 let testMetaItem_188 = MetaItem(
     originalText: "九成宫门票四十",
-    spentMoneyAt: "210808".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210908".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "九成宫",
     amount_float: 40.0,
     tags: ["旅游"]
@@ -1660,7 +1660,7 @@ let testMetaItem_188 = MetaItem(
 
 let testMetaItem_189 = MetaItem(
     originalText: "买DLSite点数",
-    spentMoneyAt: "210808".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210908".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "dlsite1000点数",
     amount_float: 60.0,
     tags: ["音声", "DLSite"],
@@ -1672,7 +1672,7 @@ let testMetaItem_189 = MetaItem(
 
 let testMetaItem_190 = MetaItem(
     originalText: "买湿巾花了三十八块八",
-    spentMoneyAt: "210811".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210911".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "湿巾",
     amount_float: 38.8,
     tags: ["湿巾", "餐桌"]
@@ -1680,7 +1680,7 @@ let testMetaItem_190 = MetaItem(
 
 let testMetaItem_191 = MetaItem(
     originalText: "买macOS开发书花了八十一",
-    spentMoneyAt: "210811".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210911".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "macOS开发书",
     amount_float: 81.0,
     tags: ["AppKit", "macOS", "Xcode"],
