@@ -1,9 +1,11 @@
 // Array+Expense.swift
 
+import CoreData
 import Foundation
 import SwiftDate
 
-extension Array where Element: Expense {
+// include Array and FetchedResults
+extension RandomAccessCollection where Element: Expense {
     func sum() -> Float {
         return self.reduce(0.0) { $0 + $1.amount }
     }

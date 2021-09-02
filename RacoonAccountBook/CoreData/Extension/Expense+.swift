@@ -7,7 +7,7 @@ extension Expense {
     
     static var request_allExpenses: NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
-        request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: false)]
+        request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
         return request
     }
     
@@ -15,6 +15,16 @@ extension Expense {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: false)]
         request.predicate = NSPredicate(format: "story_ != nil")
+        return request
+    }
+    
+    static var request_expensesInLast30days: NSFetchRequest<Expense> {
+        let request = NSFetchRequest<Expense>(entityName: "Expense")
+        request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
+        request.predicate = NSPredicate(
+            format: "spentAt_ > %@ and spentAt_ < %@",
+            (DateInRegion(region: regionChina) - 40.days).date as NSDate,
+            DateInRegion(region: regionChina).date as NSDate)
         return request
     }
     
@@ -148,6 +158,7 @@ extension Expense {
 
     // MARK: - analysis
 
+    // TODO: 这个函数是用来干嘛的？
     static func continous_days(context: NSManagedObjectContext) -> [DateInRegion] {
         let all_expenses = Expense.getAllExpenses(context: context)
         var days = [DateInRegion]()

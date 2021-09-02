@@ -31,8 +31,7 @@ struct MainView: View {
     var body: some View {
         ZStack {
             TabView(selection: $selectedTab) {
-//                BookTab()
-                Text("BookTab")
+                BookTab()
                     .tabItem {
                         Image(systemName: "text.book.closed.fill")
                         Text(MainView.Tab1)

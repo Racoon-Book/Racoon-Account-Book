@@ -1,26 +1,27 @@
-//import SwiftDate
-//import SwiftUI
-//
-//struct BookTab: View {
-//    
-//
-//    var body: some View {
-//        let today = DateInRegion(region: regionChina)
-//        let thisYear: Int = today.year
-//        let thisMonth: Int = today.month
-//
-//        let cardPadding = CGFloat(10)
-//
-//        NavigationView {
-//            VStack {
-//                IncomeExpenditureView(usingRelativeDays: false,
-//                                      sevenEx: RacoonAccountBook.getExOfCurrentWeek().exSum, // TODO: 添加本周支出
-//                                      sevenIn: 0,
-//                                      thirtyEx: RacoonAccountBook.getExOfCurrentMonth().exSum,
-//                                      thirtyIn: 0)
-//                    .padding(cardPadding)
-//                // TODO: 这里也许可以加个阴影？
-//
+import SwiftDate
+import SwiftUI
+
+struct BookTab: View {
+    @FetchRequest(fetchRequest: Expense.request_expensesInLast30days)
+    var expensesInLast30Days
+
+    var body: some View {
+        let today = DateInRegion(region: regionChina)
+        let thisYear: Int = today.year
+        let thisMonth: Int = today.month
+
+        let cardPadding = CGFloat(10)
+
+        NavigationView {
+            VStack {
+                IncomeExpenditureView(usingRelativeDays: false,
+                                      sevenEx: 0, // TODO: 添加本周支出
+                                      sevenIn: 0,
+                                      thirtyEx: expensesInLast30Days.sum(), // change to array
+                                      thirtyIn: 0)
+                    .padding(cardPadding)
+                    // TODO: 这里也许可以加个阴影？
+
 //                ScrollViewReader { scrollView in
 //                    if
 //                        let (dayItemsDict, maxDayHavingItems) = RacoonAccountBook.getExDiviedByDaysInMonth(today),
@@ -66,13 +67,13 @@
 //                        Text("Error in ScrollView: nil in monthlyBook")
 //                    }
 //                }
-//                .padding([.bottom], cardPadding) // 最下方别贴着屏幕底端
-//            }
-//            .navigationTitle("\(String(thisYear))年\(thisMonth)月 花销")
-//            // 为了不出现`,`使用`String()`
-//            // TOOD: 这个之后换成月份选择下拉框
-//            .navigationBarTitleDisplayMode(.inline)
-//        }
-//        .edgesIgnoringSafeArea(.top)
-//    }
-//}
+                    .padding([.bottom], cardPadding) // 最下方别贴着屏幕底端
+            }
+            .navigationTitle("\(String(thisYear))年\(thisMonth)月 花销")
+            // 为了不出现`,`使用`String()`
+            // TOOD: 这个之后换成月份选择下拉框
+            .navigationBarTitleDisplayMode(.inline)
+        }
+        .edgesIgnoringSafeArea(.top)
+    }
+}
