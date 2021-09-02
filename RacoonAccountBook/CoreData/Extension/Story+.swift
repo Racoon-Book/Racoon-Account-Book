@@ -2,10 +2,16 @@ import CoreData
 import Foundation
 
 extension Story {
+    // MARK: - fetch requests
+
+    // MARK: - access
     
-    // MARK: Access
-    
-    // MARK: Update
+    var rating: Int {
+        get { Int(rating_) }
+        set { rating_ = Int16(newValue) }
+    }
+
+    // MARK: - operation
     
     static func create(context: NSManagedObjectContext, story story_data: ExpenseInfo.Story) -> Story {
         let story = Story(context: context)
@@ -19,11 +25,6 @@ extension Story {
         
         return story
     }
-    
-    // MARK: Properties
-    
-    var rating: Int {
-        get { Int(rating_) }
-        set { rating_ = Int16(newValue) }
-    }
+
+    // MARK: - analysis
 }

@@ -3,6 +3,8 @@ import SwiftUI
 import UIKit
 
 struct MainView: View {
+    @Environment(\.managedObjectContext) private var context
+
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
     // TabView需要用到的东西
@@ -74,6 +76,7 @@ struct MainView: View {
         ) {
             MetaItemSheet()
                 .environmentObject(RacoonSheetConfig)
+                .environment(\.managedObjectContext, context) // 注意Sheet和使用它的View并不是view hierarchy的关系，所以要手动传入EnvironmentObject
         }
     }
 

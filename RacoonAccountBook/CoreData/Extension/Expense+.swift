@@ -3,6 +3,14 @@ import Foundation
 import SwiftDate
 
 extension Expense {
+    // MARK: - fetch requests
+
+    // MARK: - access
+
+    // MARK: - operation
+
+    // MARK: - analysis
+    
     // MARK: Access
     
     static func all(context: NSManagedObjectContext, story_only: Bool = false) -> [Expense] {

@@ -4,6 +4,7 @@ import SwiftUI
 
 /// 用来输入或修改一个Item的MetaItem
 struct MetaItemSheet: View {
+    @Environment(\.managedObjectContext) private var context
     
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
@@ -60,8 +61,7 @@ struct MetaItemSheet: View {
                                 .font(.system(.headline))
                             // TODO: 每次打开sheet直接将光标放在这里，键盘默认弹出
                             OriginalTextField(
-                                hint: "用一句话写出你的花销", isEditing: $isEditing, metadata_inputting: $RacoonSheetConfig.shared.metadata_inputting, amount_string_inputting: $RacoonSheetConfig.shared.amount_string_inputting
-                            )
+                                hint: "用一句话写出你的花销", isEditing: $isEditing, metadata_inputting: $RacoonSheetConfig.shared.metadata_inputting, amount_string_inputting: $RacoonSheetConfig.shared.amount_string_inputting)
                         }
 
                         // 三个要素 spentMoneyAt event amount
@@ -147,13 +147,13 @@ struct MetaItemSheet: View {
                     LargeButton(title: RacoonSheetConfig.shared.isEditMode ? "修改" : "记账",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                        printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
+                            printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
 
-                        if RacoonSheetConfig.shared.isEditMode {
-                            UpdateMetaItem()
-                        } else {
-                            AddNewMetaItem()
-                        }
+                            if RacoonSheetConfig.shared.isEditMode {
+                                UpdateMetaItem()
+                            } else {
+                                AddNewMetaItem()
+                            }
                     }
                     .font(.system(.title)) // TODO: 字有点小
                 }
