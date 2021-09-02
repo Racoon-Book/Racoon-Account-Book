@@ -4,16 +4,10 @@ import SwiftDate
 
 extension Expense {
     // MARK: - fetch requests
-
-    // MARK: - access
-
-    // MARK: - operation
-
-    // MARK: - analysis
     
-    // MARK: Access
+    // MARK: - fetch data
     
-    static func all(context: NSManagedObjectContext, story_only: Bool = false) -> [Expense] {
+    static func getAddExpenses(context: NSManagedObjectContext, story_only: Bool = false) -> [Expense] {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: false)]
         if story_only {
@@ -33,49 +27,9 @@ extension Expense {
         }
         return (try? context.fetch(request)) ?? []
     }
-    
-    static func continous_days(context: NSManagedObjectContext) -> [DateInRegion] {
-        let all_expenses = Expense.all(context: context)
-        var days = [DateInRegion]()
-        // 明天
-        var last_day = DateInRegion(region: regionChina).dateAt(.startOfDay) + 1.days
-        
-        for expense in all_expenses {
-            let now_day = expense.spentAt.dateAt(.startOfDay)
-            if now_day == last_day {
-                continue
-            } else if now_day + 1.days == last_day {
-                days.append(now_day)
-                last_day = now_day
-            } else {
-                break
-            }
-        }
-        
-        return days
-    }
-    
-    // MARK: Update
-    
-    static func create(context: NSManagedObjectContext, metadata: ExpenseInfo) {
-        let expense = Expense(context: context)
-        
-        expense.originalText = metadata.originalText
-        // FIXME: convert DateInRegion to Date
-        expense.spentAt = metadata.spentMoneyAt
-        expense.event = metadata.event
-        expense.amount = metadata.amount_float
-        
-        if metadata.story != nil {
-            expense.story = Story.create(context: context, story: metadata.story!)
-        }
-        
-        expense.objectWillChange.send()
-        try? context.save()
-    }
-    
-    // Properties
-    
+
+    // MARK: - access
+
     var createdAt: DateInRegion {
         get { createdAt_?.convertTo(region: regionChina) ?? DateInRegion("1970-01-01 00:00:00", region: regionChina)! }
         set { createdAt_ = newValue.date }
@@ -95,32 +49,46 @@ extension Expense {
         get { event_ ?? "暂无事件" }
         set { event_ = newValue }
     }
-}
 
-extension Array where Element: Expense {
-    func sum() -> Float {
-        return self.reduce(0.0) { $0 + $1.amount }
-    }
+    // MARK: - operation
     
-    func max_amount() -> Float? {
-        return self.max_expense()?.amount
-    }
-    
-    func max_expense() -> Expense? {
-        return self.max { $0.amount < $1.amount }
-    }
-    
-    func story_only() -> [Expense] {
-        return self.filter { $0.story != nil }
-    }
-    
-    func days() -> [DateInRegion] {
-        // 将 expense 的时间设为当天的起始时间
-        let raw_days = self.map { $0.spentAt.dateAt(.startOfDay) }
-        let days = raw_days.enumerated().filter { index, day in
-            index == raw_days.firstIndex(of: day)
+    static func create(context: NSManagedObjectContext, metadata: ExpenseInfo) {
+        let expense = Expense(context: context)
+        
+        expense.originalText = metadata.originalText
+        // FIXME: convert DateInRegion to Date
+        expense.spentAt = metadata.spentMoneyAt
+        expense.event = metadata.event
+        expense.amount = metadata.amount_float
+        
+        if metadata.story != nil {
+            expense.story = Story.create(context: context, story: metadata.story!)
         }
         
-        return days.map { $0.element }
+        expense.objectWillChange.send()
+        try? context.save()
+    }
+
+    // MARK: - analysis
+
+    static func continous_days(context: NSManagedObjectContext) -> [DateInRegion] {
+        let all_expenses = Expense.getAddExpenses(context: context)
+        var days = [DateInRegion]()
+        // 明天
+        var last_day = DateInRegion(region: regionChina).dateAt(.startOfDay) + 1.days
+        
+        for expense in all_expenses {
+            let now_day = expense.spentAt.dateAt(.startOfDay)
+            if now_day == last_day {
+                continue
+            } else if now_day + 1.days == last_day {
+                days.append(now_day)
+                last_day = now_day
+            } else {
+                break
+            }
+        }
+        
+        return days
     }
 }
