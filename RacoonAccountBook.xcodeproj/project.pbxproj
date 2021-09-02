@@ -461,10 +461,10 @@
 			isa = PBXGroup;
 			children = (
 				6EEE01B426D0EE6C006797E8 /* AccountBook.xcdatamodeld */,
-				6EEE01B726D0EEE4006797E8 /* Persistence.swift */,
 				485E4CAE26E0C32A009E6162 /* Extension */,
 				4844ED4426D110DA0037C09A /* Info */,
 				485E543026E0C2310077A8B4 /* TestData */,
+				6EEE01B726D0EEE4006797E8 /* Persistence.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";

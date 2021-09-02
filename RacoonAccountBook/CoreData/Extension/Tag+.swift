@@ -22,13 +22,14 @@ extension Tag {
         if let tag = result.first {
             return tag
         } else {
-            let tag = Tag(context: context)
-            tag.name = tag_name
+            let newTag = Tag(context: context)
+            newTag.name = tag_name
             
-            tag.objectWillChange.send()
+            newTag.objectWillChange.send()
+            
             try? context.save()
             
-            return tag
+            return newTag
         }
     }
     

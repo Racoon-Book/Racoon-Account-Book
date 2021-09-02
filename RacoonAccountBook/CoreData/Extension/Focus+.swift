@@ -25,6 +25,8 @@ extension Focus {
         let newFocus = Focus(context: context)
 
         newFocus.name = name
+        
+        newFocus.objectWillChange.send()
 
         try? context.save()
     }
