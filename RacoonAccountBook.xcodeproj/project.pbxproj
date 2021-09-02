@@ -240,10 +240,10 @@
 			isa = PBXGroup;
 			children = (
 				6EEE01BA26D115D1006797E8 /* Expense+.swift */,
-				4852795C26E1082000F7B45B /* Array+Expense.swift */,
 				6EEE01BC26D12533006797E8 /* Story+.swift */,
 				6E18D16D26D158A9006AD12F /* Tag+.swift */,
 				485E4CAF26E0C38F009E6162 /* Focus+.swift */,
+				4852795C26E1082000F7B45B /* Array+Expense.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";

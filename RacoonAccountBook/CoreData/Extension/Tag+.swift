@@ -14,16 +14,16 @@ extension Tag {
     // MARK: - operation
     
     // 有tag就获取 没有创建
-    func tag(context: NSManagedObjectContext, _ tag_name: String) -> Tag {
+    func tag(name: String, context: NSManagedObjectContext) -> Tag {
         let request = NSFetchRequest<Tag>(entityName: "Tag")
-        request.predicate = NSPredicate(format: "name_ == %@", tag_name)
+        request.predicate = NSPredicate(format: "name_ == %@", name)
         let result = (try? context.fetch(request)) ?? []
         
         if let tag = result.first {
             return tag
         } else {
             let newTag = Tag(context: context)
-            newTag.name = tag_name
+            newTag.name = name
             
             newTag.objectWillChange.send()
             

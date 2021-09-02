@@ -23,16 +23,16 @@ extension Story {
     
     // MARK: - operation
     
-    static func create(context: NSManagedObjectContext, story story_data: ExpenseInfo.Story) -> Story {
+    static func create(story: ExpenseInfo.Story, context: NSManagedObjectContext) -> Story {
         let newStory = Story(context: context)
         
-        if let rating = story_data.rating {
+        if let rating = story.rating {
             newStory.rating = rating
         }
-        if let emoji = story_data.emoji {
+        if let emoji = story.emoji {
             newStory.emoji = emoji
         }
-        if let text = story_data.text {
+        if let text = story.text {
             newStory.text = text
         }
         

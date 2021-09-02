@@ -52,7 +52,7 @@ extension Expense {
 
     // MARK: - operation
     
-    static func create(context: NSManagedObjectContext, expenseInfo: ExpenseInfo) {
+    static func create(expenseInfo: ExpenseInfo, context: NSManagedObjectContext) {
         let expense = Expense(context: context)
         
         expense.originalText = expenseInfo.originalText
@@ -62,7 +62,7 @@ extension Expense {
         expense.amount = expenseInfo.amount_float
         
         if expenseInfo.story != nil {
-            expense.story = Story.create(context: context, story: expenseInfo.story!)
+            expense.story = Story.create(story: expenseInfo.story!, context: context)
         }
         
         expense.objectWillChange.send()
