@@ -1,0 +1,59 @@
+import Foundation
+import SwiftDate
+
+func DisplayDate(_ date: DateInRegion) -> String {
+    let isYesterday: Bool = date.compare(.isYesterday)
+    let isToday: Bool = date.compare(.isToday)
+    let isTomorrow: Bool = date.compare(.isTomorrow)
+
+    return
+        // `今天` `昨天` `明天`各自显示
+        isToday ? date.toFormat("今天", locale: Locales.chineseChina) :
+        isYesterday ? date.toFormat("昨天", locale: Locales.chineseChina) :
+        isTomorrow ? date.toFormat("明天", locale: Locales.chineseChina) :
+        // 是`这一周`和`上一周`显示星期
+        date.compare(.isThisWeek) || date.compare(.isLastWeek) ? date.toFormat("M月d日 EEEE", locale: Locales.chineseChina) :
+        // 如果不符合上述条件 不过是今年 则不显示年份
+        date.compare(.isThisYear) ? date.toFormat("M月d日", locale: Locales.chineseChina) :
+        // 其他的就说明是去年及以前 需要加上年份
+        date.toFormat("yyyy年M月d日", locale: Locales.chineseChina)
+}
+
+enum Day: Int {
+    case D1 = 1
+    case D2 = 2
+    case D3 = 3
+    case D4 = 4
+    case D5 = 5
+    case D6 = 6
+    case D7 = 7
+    case D8 = 8
+    case D9 = 9
+    case D10 = 10
+    case D11 = 11
+    case D12 = 12
+    case D13 = 13
+    case D14 = 14
+    case D15 = 15
+    case D16 = 16
+    case D17 = 17
+    case D18 = 18
+    case D19 = 19
+    case D20 = 20
+    case D21 = 21
+    case D22 = 22
+    case D23 = 23
+    case D24 = 24
+    case D25 = 25
+    case D26 = 26
+    case D27 = 27
+    case D28 = 28
+    case D29 = 29
+    case D30 = 30
+    case D31 = 31
+}
+
+// sort
+extension Day: Comparable {
+    static func < (lhs: Day, rhs: Day) -> Bool { lhs.rawValue < rhs.rawValue }
+}
