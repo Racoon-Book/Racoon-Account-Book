@@ -19,7 +19,7 @@ struct MetaItemView: View {
     var itemId: Int = 0
 
     var body: some View {
-        let amount_dispaly = String(format: "%.1f", metadata.amount_float)
+        let amount_dispaly = String(format: "%.1f", metadata.amount)
 
         VStack(alignment: .leading) {
             HStack {

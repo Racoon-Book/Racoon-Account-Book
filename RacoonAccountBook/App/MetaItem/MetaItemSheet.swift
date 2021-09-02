@@ -22,7 +22,7 @@ struct MetaItemSheet: View {
     /// 错误提示框的信息
     private var unsuccessfullyAlertMessage: String {
         let noEvent: Bool = RacoonSheetConfig.shared.metadata_inputting.event == ""
-        let noAmount: Bool = RacoonSheetConfig.shared.metadata_inputting.amount_float == 0
+        let noAmount: Bool = RacoonSheetConfig.shared.metadata_inputting.amount == 0
 
         if noEvent, noAmount {
             return "未输入事件和金额"
@@ -85,7 +85,7 @@ struct MetaItemSheet: View {
 
                                     AmountField(
                                         hint: "金额",
-                                        input_float: $RacoonSheetConfig.shared.metadata_inputting.amount_float,
+                                        input_float: $RacoonSheetConfig.shared.metadata_inputting.amount,
                                         input_string: $RacoonSheetConfig.shared.amount_string_inputting,
                                         isEditing: $isEditing)
                                         .frame(
@@ -224,7 +224,7 @@ struct MetaItemSheet: View {
 
         // 至少amount不能为0，event不能为空
         let noEvent: Bool = RacoonSheetConfig.shared.metadata_inputting.event == ""
-        let noAmount: Bool = RacoonSheetConfig.shared.metadata_inputting.amount_float == 0
+        let noAmount: Bool = RacoonSheetConfig.shared.metadata_inputting.amount == 0
 
         if !noEvent && !noAmount {
             // 成功添加/修改
@@ -250,7 +250,7 @@ struct MetaItemSheet: View {
 
         // 至少amount不能为0，event不能为空
         let noEvent: Bool = RacoonSheetConfig.shared.metadata_inputting.event == ""
-        let noAmount: Bool = RacoonSheetConfig.shared.metadata_inputting.amount_float == 0
+        let noAmount: Bool = RacoonSheetConfig.shared.metadata_inputting.amount == 0
 
         if !noEvent, !noAmount {
             // TODO: 用id革面革心

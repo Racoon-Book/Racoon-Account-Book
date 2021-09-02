@@ -43,6 +43,6 @@ struct OriginalTextField: View {
             event: OriginalText2Event(from: metadata_inputting.originalText ?? "") ?? "",
             amount_float: OriginalText2Amount(from: metadata_inputting.originalText ?? "") ?? 0.0,
             generatedTags: OriginalText2GeneratedTags(from: metadata_inputting.originalText ?? ""))
-        amount_string_inputting = String(metadata_inputting.amount_float)
+        amount_string_inputting = String(metadata_inputting.amount)
     }
 }

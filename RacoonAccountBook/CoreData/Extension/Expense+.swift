@@ -133,10 +133,10 @@ extension Expense {
         let expense = Expense(context: context)
         
         expense.originalText = expenseInfo.originalText
-        // FIXME: convert DateInRegion to Date
+        
         expense.spentAt = expenseInfo.spentMoneyAt
         expense.event = expenseInfo.event
-        expense.amount = expenseInfo.amount_float
+        expense.amount = expenseInfo.amount
         
         if expenseInfo.story != nil {
             expense.story = Story.create(story: expenseInfo.story!, context: context)

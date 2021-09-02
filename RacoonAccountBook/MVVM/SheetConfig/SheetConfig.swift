@@ -15,7 +15,7 @@ struct SheetConfig {
     var metadata_inputting = ExpenseInfo(
         spentMoneyAt: DateInRegion(region: regionChina),
         event: "",
-        amount_float: 0.0)
+        amount: 0.0)
     /// 用来转换输入的可能不是小数的小数（临时）
     var amount_string_inputting: String = ""
 

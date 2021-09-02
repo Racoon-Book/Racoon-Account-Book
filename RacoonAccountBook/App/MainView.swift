@@ -22,7 +22,7 @@ struct MainView: View {
         originalText: "",
         spentMoneyAt: DateInRegion(region: regionChina),
         event: "",
-        amount_float: 0.0
+        amount: 0.0
     )
 
     /// 临时记录输入的金额字符串（因为可能用户并没有输入小数）

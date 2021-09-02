@@ -16,7 +16,7 @@ class SheetConfigModel: ObservableObject {
         shared.isEditMode = false
         shared.itemIdToEdit = 0
 
-        shared.metadata_inputting = ExpenseInfo(spentMoneyAt: DateInRegion(region: regionChina), event: "", amount_float: 0)
+        shared.metadata_inputting = ExpenseInfo(spentMoneyAt: DateInRegion(region: regionChina), event: "", amount: 0)
         shared.amount_string_inputting = ""
 
         shared.showingMetaItemSheet = true
@@ -32,7 +32,7 @@ class SheetConfigModel: ObservableObject {
         shared.itemIdToEdit = itemIdToEdit
 
         shared.metadata_inputting = metadata // 这个只是临时用的 给一个初值进去就行了
-        shared.amount_string_inputting = String(String(format: "%.1f", metadata.amount_float))
+        shared.amount_string_inputting = String(String(format: "%.1f", metadata.amount))
 
         shared.showingMetaItemSheet = true
 

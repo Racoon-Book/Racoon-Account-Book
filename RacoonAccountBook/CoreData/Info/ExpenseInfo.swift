@@ -27,7 +27,7 @@ struct ExpenseInfo {
     /// 系统记录最多两位小数 但显示时四舍五入保留为一位
     ///
     /// 输入时弹出数字键盘
-    var amount_float: Float
+    var amount: Float
 
     /// App自动识别originalText得到的关键词
     ///
@@ -95,7 +95,7 @@ struct ExpenseInfo {
 
         spentMoneyAt = DateInRegion(region: regionChina)
         event = ""
-        amount_float = 0.0
+        amount = 0.0
 
         generatedTags = []
         tags = []
@@ -125,7 +125,7 @@ struct ExpenseInfo {
 
         if spentMoneyAt != nil { self.spentMoneyAt = spentMoneyAt! }
         if event != nil { self.event = event! }
-        if amount_float != nil { self.amount_float = amount_float! }
+        if amount_float != nil { self.amount = amount_float! }
 
         if generatedTags != nil { self.generatedTags = generatedTags! }
         if tags != nil { self.tags = tags! }
@@ -146,7 +146,7 @@ extension ExpenseInfo: CustomStringConvertible {
         let originalText: String = self.originalText ?? "nil"
 
         let event: String = self.event
-        let amount = String(format: "%.1f", amount_float)
+        let amount = String(format: "%.1f", amount)
         let date: String = spentMoneyAt.toFormat("yyyy/M/d", locale: Locales.chineseChina)
 
         let focus: String = self.focus ?? "nil"
