@@ -6,7 +6,7 @@ extension Story {
     
     // MARK: Update
     
-    static func create(context: NSManagedObjectContext, story story_data: MetaItem.Story) -> Story {
+    static func create(context: NSManagedObjectContext, story story_data: ExpenseInfo.Story) -> Story {
         let story = Story(context: context)
         
         story.rating = story_data.rating!

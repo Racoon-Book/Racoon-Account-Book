@@ -48,7 +48,7 @@ extension Expense {
     
     // MARK: Update
     
-    static func create(context: NSManagedObjectContext, metadata: MetaItem) {
+    static func create(context: NSManagedObjectContext, metadata: ExpenseInfo) {
         let expense = Expense(context: context)
         
         expense.originalText = metadata.originalText

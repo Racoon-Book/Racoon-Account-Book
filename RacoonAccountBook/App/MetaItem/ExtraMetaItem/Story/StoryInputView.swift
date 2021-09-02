@@ -2,7 +2,7 @@ import SwiftDate
 import SwiftUI
 
 struct StoryInputView: View {
-    @Binding var metadata_inputting: MetaItem
+    @Binding var metadata_inputting: ExpenseInfo
 
     @State private var rating = StarRating.three
 
@@ -60,7 +60,7 @@ struct StoryInputView: View {
     private func UpdateStoryRating() {
         // FIXME: 之后添加是否显示story之后，onAppear就先创建story story删除之后重新置story为nil
         if metadata_inputting.story == nil {
-            metadata_inputting.story = MetaItem.Story(
+            metadata_inputting.story = ExpenseInfo.Story(
                 rating: Int(rating.rawValue),
                 emoji: nil,
                 text: nil)
@@ -71,7 +71,7 @@ struct StoryInputView: View {
 
     private func UpdateStoryEmoji() {
         if metadata_inputting.story == nil {
-            metadata_inputting.story = MetaItem.Story(rating: nil, emoji: selectedEmoji, text: nil)
+            metadata_inputting.story = ExpenseInfo.Story(rating: nil, emoji: selectedEmoji, text: nil)
         } else {
             metadata_inputting.story!.update(emoji: selectedEmoji)
         }

@@ -52,7 +52,7 @@ struct CommitSpeechButton: View {
 //    @Binding var sheetConfig: SheetConfig
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
-    @Binding var metadata_inputting: MetaItem
+    @Binding var metadata_inputting: ExpenseInfo
 
     @Binding var recognizedText: String // （自用）用来动态显示识别结果
 

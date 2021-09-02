@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MultilineFociView: View {
     @Binding var foci: [String]
-    @Binding var metadata_inputting: MetaItem
+    @Binding var metadata_inputting: ExpenseInfo
 
     var selectedColor: Color
     var unselectedColor: Color

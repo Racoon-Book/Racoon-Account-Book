@@ -12,7 +12,7 @@ struct SheetConfig {
     /// 添加：确定之后保存数据并清零
     ///
     /// 修改：确定之后更新数据
-    var metadata_inputting = MetaItem(
+    var metadata_inputting = ExpenseInfo(
         spentMoneyAt: DateInRegion(region: regionChina),
         event: "",
         amount_float: 0.0)

@@ -2,7 +2,7 @@ import Foundation
 import SwiftDate
 
 /// 一个条目的基础数据结构 用户所需要输入和生成的数据
-struct MetaItem {
+struct ExpenseInfo {
     // MARK: - core data
 
     /// 用户语音输入后进行转写且用户修改错别字之后的话 or 用户敲键盘的一句话
@@ -136,12 +136,12 @@ struct MetaItem {
     }
 
     /// 更新self
-    mutating func update(metadata: MetaItem) {
+    mutating func update(metadata: ExpenseInfo) {
         self = metadata
     }
 }
 
-extension MetaItem: CustomStringConvertible {
+extension ExpenseInfo: CustomStringConvertible {
     var description: String {
         let originalText: String = self.originalText ?? "nil"
 

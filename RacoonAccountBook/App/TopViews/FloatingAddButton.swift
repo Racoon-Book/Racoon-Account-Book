@@ -8,7 +8,7 @@ struct FloatingAddButton: View {
 
     private static let addButtonSize = CGFloat(50)
 
-    @Binding var metadata_inputting: MetaItem
+    @Binding var metadata_inputting: ExpenseInfo
 
     @State var recognizedText: String = "" // （自用）动态识别出的结果
 

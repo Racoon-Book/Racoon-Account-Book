@@ -5,7 +5,7 @@ import SwiftUI
 
 struct MultilineTagsViewForVStack: View {
     @Binding var tags: [String] // 点击x号需要在tags中删除tag
-    @Binding var metadata_inputting: MetaItem
+    @Binding var metadata_inputting: ExpenseInfo
 
     var isEditMode: Bool // 是的话会显示x号
     var isSuggestion: Bool = false

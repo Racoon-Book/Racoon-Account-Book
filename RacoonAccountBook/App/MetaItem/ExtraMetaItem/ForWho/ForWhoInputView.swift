@@ -2,7 +2,7 @@ import SwiftDate
 import SwiftUI
 
 struct ForWhoInputView: View {
-    @Binding var metadata_inputting: MetaItem
+    @Binding var metadata_inputting: ExpenseInfo
 
     @Binding var showingForWhoInputView: Bool
 

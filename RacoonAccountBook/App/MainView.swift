@@ -16,7 +16,7 @@ struct MainView: View {
     @State private var selectedTab = MainView.Tab1
 
     /// 添加时临时记录使用的metadata
-    @State private var metadata_inputting = MetaItem(
+    @State private var metadata_inputting = ExpenseInfo(
         originalText: "",
         spentMoneyAt: DateInRegion(region: regionChina),
         event: "",

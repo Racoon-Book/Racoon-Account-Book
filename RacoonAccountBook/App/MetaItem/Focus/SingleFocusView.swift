@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SingleFocusView: View {
-    @Binding var metadata_inputting: MetaItem
+    @Binding var metadata_inputting: ExpenseInfo
 
     var focus: String // 该`SingleFocusView`所显示的focus
     var selectedColor: Color

@@ -8,7 +8,7 @@ struct MetaItemView: View {
     // MARK: - 基础数据
 
     /// 该View呈现的MetaItem
-    var metadata: MetaItem
+    var metadata: ExpenseInfo
 
     // MARK: - 修改相关
 

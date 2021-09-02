@@ -16,7 +16,7 @@ class SheetConfigModel: ObservableObject {
         shared.isEditMode = false
         shared.itemIdToEdit = 0
 
-        shared.metadata_inputting = MetaItem(spentMoneyAt: DateInRegion(region: regionChina), event: "", amount_float: 0)
+        shared.metadata_inputting = ExpenseInfo(spentMoneyAt: DateInRegion(region: regionChina), event: "", amount_float: 0)
         shared.amount_string_inputting = ""
 
         shared.showingMetaItemSheet = true
@@ -27,7 +27,7 @@ class SheetConfigModel: ObservableObject {
     }
 
     // 是更新的情况
-    func showEditSheet(itemIdToEdit: Int, metadata: MetaItem) {
+    func showEditSheet(itemIdToEdit: Int, metadata: ExpenseInfo) {
         shared.isEditMode = true
         shared.itemIdToEdit = itemIdToEdit
 

@@ -3,7 +3,7 @@ import SwiftUI
 struct ForWhoField: View {
     var hint: String = "这笔花销为某某"
     @State private var input_text: String = ""
-    @Binding var metadata_inputting: MetaItem
+    @Binding var metadata_inputting: ExpenseInfo
 
     var body: some View {
         TextField(

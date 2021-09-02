@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SingleSomebodyView: View {
-    @Binding var metadata_inputting: MetaItem // 点击x号需要在tags中删除tag
+    @Binding var metadata_inputting: ExpenseInfo // 点击x号需要在tags中删除tag
 
     var sb: String
 

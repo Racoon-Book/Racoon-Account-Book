@@ -3,7 +3,7 @@ import SwiftUI
 struct TagField: View {
     var hint: String = ""
     @State var input_text: String = ""
-    @Binding var metadata_inputting: MetaItem
+    @Binding var metadata_inputting: ExpenseInfo
 
     var body: some View {
         TextField(

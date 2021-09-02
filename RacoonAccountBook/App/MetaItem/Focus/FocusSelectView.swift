@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct FocusSelectView: View {
-    @Binding var metadata_inputting: MetaItem
+    @Binding var metadata_inputting: ExpenseInfo
     @Environment(\.managedObjectContext) private var context
 
     var body: some View {

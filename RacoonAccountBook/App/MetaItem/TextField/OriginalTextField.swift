@@ -8,7 +8,7 @@ struct OriginalTextField: View {
 
     @Binding var isEditing: Bool
 
-    @Binding var metadata_inputting: MetaItem
+    @Binding var metadata_inputting: ExpenseInfo
     @Binding var amount_string_inputting: String
 
     var body: some View {

@@ -2,7 +2,7 @@ import SwiftDate
 import SwiftUI
 
 struct StoryField: View {
-    @Binding var metadata_inputting: MetaItem
+    @Binding var metadata_inputting: ExpenseInfo
 
     var hint: String = ""
 
@@ -29,7 +29,7 @@ struct StoryField: View {
 
     private func UpdateStoryText() {
         if metadata_inputting.story == nil {
-            metadata_inputting.story = MetaItem.Story(rating: nil, emoji: nil, text: text)
+            metadata_inputting.story = ExpenseInfo.Story(rating: nil, emoji: nil, text: text)
         } else {
             metadata_inputting.story!.update(text: text)
         }

@@ -115,7 +115,7 @@ struct MetaItemSheet: View {
                                 showingStoryInputView: $extraMetaItemConfig.showingStory)
                                 .onAppear {
                                     // 出现的时候置为三星
-                                    RacoonSheetConfig.shared.metadata_inputting.story = MetaItem.Story(
+                                    RacoonSheetConfig.shared.metadata_inputting.story = ExpenseInfo.Story(
                                         rating: 3,
                                         emoji: "😃", // FIXME:
                                         text: nil)

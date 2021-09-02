@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TagsSuggestionView: View {
-    @Binding var metadata_inputting: MetaItem
+    @Binding var metadata_inputting: ExpenseInfo
 
     var body: some View {
         HStack {
