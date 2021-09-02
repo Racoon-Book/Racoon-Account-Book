@@ -10,7 +10,9 @@
         <relationship name="story" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Story" inverseName="expense_" inverseEntity="Story"/>
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="expenses" inverseEntity="Tag"/>
     </entity>
-    <entity name="Focus" representedClassName="Focus" syncable="YES" codeGenerationType="class"/>
+    <entity name="Focus" representedClassName="Focus" syncable="YES" codeGenerationType="class">
+        <attribute name="focus" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Story" representedClassName="Story" syncable="YES" codeGenerationType="class">
         <attribute name="emoji" optional="YES" attributeType="String"/>
         <attribute name="rating_" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -23,8 +25,8 @@
     </entity>
     <elements>
         <element name="Expense" positionX="-216.0824584960938" positionY="94.077880859375" width="128" height="163"/>
+        <element name="Focus" positionX="103.2177734375" positionY="156.4737548828125" width="128" height="44"/>
         <element name="Story" positionX="118.2116088867188" positionY="13.65591430664062" width="128" height="103"/>
         <element name="Tag" positionX="118.4259033203125" positionY="228.5117797851562" width="128" height="73"/>
-        <element name="Focus" positionX="103.2177734375" positionY="156.4737548828125" width="128" height="43"/>
     </elements>
 </model>
