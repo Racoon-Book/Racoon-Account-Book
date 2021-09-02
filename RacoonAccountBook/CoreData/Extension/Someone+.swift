@@ -6,7 +6,7 @@ import Foundation
 extension Someone {
     // MARK: - fetch requests
 
-    static var request_allFocus: NSFetchRequest<Someone> {
+    static var request_allSomeone: NSFetchRequest<Someone> {
         let request = NSFetchRequest<Someone>(entityName: "Someone")
         request.sortDescriptors = [NSSortDescriptor(key: "name_", ascending: true)]
         return request
@@ -14,7 +14,7 @@ extension Someone {
 
     // MARK: - access
 
-    // Focus: name
+    // Someone: name expenses
 
     var name: String {
         get {
@@ -26,6 +26,11 @@ extension Someone {
             }
         }
         set { name_ = newValue }
+    }
+
+    var expenses: Set<Expense> {
+        get { (expenses_ as? Set<Expense>) ?? [] }
+        set { expenses_ = newValue as NSSet }
     }
 
     // MARK: - operation

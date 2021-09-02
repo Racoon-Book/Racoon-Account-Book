@@ -7,16 +7,19 @@
         <attribute name="originalText_" optional="YES" attributeType="String"/>
         <attribute name="spentAt_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="updatedAt_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Focus" inverseName="newRelationship" inverseEntity="Focus"/>
+        <relationship name="focus_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Focus" inverseName="expenses_" inverseEntity="Focus"/>
+        <relationship name="forWho_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Someone" inverseName="expenses_" inverseEntity="Someone"/>
+        <relationship name="generatedTags_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="generatedExpenses_" inverseEntity="Tag"/>
         <relationship name="story_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Story" inverseName="expense_" inverseEntity="Story"/>
-        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="expenses" inverseEntity="Tag"/>
+        <relationship name="tags_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="expenses_" inverseEntity="Tag"/>
     </entity>
     <entity name="Focus" representedClassName="Focus" syncable="YES" codeGenerationType="class">
         <attribute name="name_" optional="YES" attributeType="String"/>
-        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Expense" inverseName="newRelationship" inverseEntity="Expense"/>
+        <relationship name="expenses_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="focus_" inverseEntity="Expense"/>
     </entity>
     <entity name="Someone" representedClassName="Someone" syncable="YES" codeGenerationType="class">
         <attribute name="name_" optional="YES" attributeType="String"/>
+        <relationship name="expenses_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="forWho_" inverseEntity="Expense"/>
     </entity>
     <entity name="Story" representedClassName="Story" syncable="YES" codeGenerationType="class">
         <attribute name="emoji_" optional="YES" attributeType="String"/>
@@ -26,13 +29,14 @@
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
         <attribute name="name_" optional="YES" attributeType="String"/>
-        <relationship name="expenses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="tags" inverseEntity="Expense"/>
+        <relationship name="expenses_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="tags_" inverseEntity="Expense"/>
+        <relationship name="generatedExpenses_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="generatedTags_" inverseEntity="Expense"/>
     </entity>
     <elements>
-        <element name="Expense" positionX="-176.6012573242188" positionY="-201.4093322753906" width="128" height="178"/>
-        <element name="Focus" positionX="17.75689697265625" positionY="-17.57937622070312" width="128" height="73"/>
-        <element name="Story" positionX="-424.1787719726562" positionY="278.5221252441406" width="128" height="103"/>
-        <element name="Tag" positionX="14.18988037109375" positionY="102.6138000488281" width="128" height="73"/>
-        <element name="Someone" positionX="-12.5078125" positionY="389.1085205078125" width="128" height="44"/>
+        <element name="Expense" positionX="-130.1850585937501" positionY="-201.4825439453125" width="128" height="208"/>
+        <element name="Focus" positionX="51.64654541015625" positionY="-200.7245788574219" width="128" height="73"/>
+        <element name="Story" positionX="-384.95751953125" positionY="-84.34109497070312" width="128" height="103"/>
+        <element name="Tag" positionX="122.22607421875" positionY="-86.35403442382818" width="128" height="88"/>
+        <element name="Someone" positionX="-385.4900512695312" positionY="-171.3769836425781" width="128" height="73"/>
     </elements>
 </model>

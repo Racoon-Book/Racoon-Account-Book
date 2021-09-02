@@ -20,6 +20,17 @@ extension Tag {
         set { name_ = newValue }
     }
     
+    var expenses: Set<Expense> {
+        get { (expenses_ as? Set<Expense>) ?? [] }
+        set { expenses_ = newValue as NSSet }
+    }
+    
+    // 不会用到 不会用生成的标签去做什么事情
+    var generatedExpenses: Set<Expense> {
+        get { (generatedExpenses_ as? Set<Expense>) ?? [] }
+        set { generatedExpenses_ = newValue as NSSet }
+    }
+    
     // MARK: - operation
     
     // 有tag就获取 没有创建

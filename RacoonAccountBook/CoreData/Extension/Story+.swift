@@ -6,7 +6,9 @@ extension Story {
 
     // MARK: - access
 
-    // Story: rating emoji? text?
+    // Story:
+    // properties: rating emoji? text?
+    // ralations: expense
 
     var rating: Int {
         get { Int(rating_) }
@@ -21,6 +23,20 @@ extension Story {
     var text: String? {
         get { text_ }
         set { text_ = newValue }
+    }
+
+    // relationship
+
+    var expense: Expense {
+        get {
+            if expense_ != nil {
+                return expense_!
+            } else {
+                printFatalError("story 无法获取到对应的 expense")
+                return Expense()
+            }
+        }
+        set { expense_ = newValue }
     }
 
     // MARK: - operation

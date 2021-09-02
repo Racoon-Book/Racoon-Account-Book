@@ -14,3 +14,9 @@ public func printError(_ items: Any..., separator: String = " ", terminator: Str
     output = "[[ERROR]] " + output
     Swift.print(output, terminator: terminator)
 }
+
+public func printFatalError(_ items: Any..., separator: String = " ", terminator: String = "\n") {
+    var output = items.map { "\($0)" }.joined(separator: separator)
+    output = "[[FATAL ERROR]] " + output
+    Swift.print(output, terminator: terminator)
+}

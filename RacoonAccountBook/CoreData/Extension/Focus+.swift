@@ -14,7 +14,7 @@ extension Focus {
 
     // MARK: - access
     
-    // Focus: name
+    // Focus: name expenses
 
     var name: String {
         get {
@@ -26,6 +26,11 @@ extension Focus {
             }
         }
         set { name_ = newValue }
+    }
+    
+    var expenses: Set<Expense> {
+        get { (expenses_ as? Set<Expense>) ?? [] }
+        set { expenses_ = newValue as NSSet }
     }
 
     // MARK: - operation
