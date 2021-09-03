@@ -211,6 +211,7 @@
 			children = (
 				488D3AA0269F5A2A00287A50 /* MetaItemView.swift */,
 				488D3A8F269F0F5500287A50 /* MetaItemSheet.swift */,
+				4830D9D426B354A4007710FD /* SingleComponentView.swift */,
 				4830E28D26D00FDA00916DDC /* Config */,
 				4878A75C26AC65B400DCBC8D /* ExtractOriginalTextFuncs */,
 				4878A76326AD922000DCBC8D /* TextField */,
@@ -437,7 +438,6 @@
 			children = (
 				48C6360226A44B0B00E7BF15 /* IncomeExpenditureView.swift */,
 				48F0A09B26A4CED6004898C0 /* DayItemsView.swift */,
-				4830D9D426B354A4007710FD /* SingleComponentView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";

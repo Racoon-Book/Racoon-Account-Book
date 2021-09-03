@@ -1620,9 +1620,9 @@ let testMetaItem_184 = ExpenseInfo(
 
 let testMetaItem_185 = ExpenseInfo(
     originalText: "淘宝礼品卡代充花了七十",
-    spentMoneyAt: "210804".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210815".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "美区app store礼品卡",
-    amount: 70.0,
+    amount: 100.0,
     tags: ["礼品卡"],
     focus: "游戏"
 )
