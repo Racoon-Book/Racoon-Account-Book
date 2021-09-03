@@ -3,7 +3,7 @@
 //
 //struct DayItemsView: View {
 //    var date: DateInRegion
-//    var dayItems: [Item]
+//    var dayItems: [Expense]
 //
 //    var body: some View {
 //        let date_display: String = DisplayDate(date)
@@ -24,8 +24,8 @@
 //                        // TODO: 一天内的花销按添加顺序排列
 //                        // FIXME: 修改之后要刷新
 //                        MetaItemView(
-//                            metadata: item.metadata,
-//                            itemId: item.id)
+//                            metadata: item.expenseInfo,
+//                            itemId: item.uuid)
 //                            .padding([.top], 6) // 不同 MetaItemView 之间上下
 //                    }
 //                }

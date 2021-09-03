@@ -2,6 +2,8 @@ import SwiftDate
 import SwiftUI
 
 struct BookTab: View {
+    @Environment(\.managedObjectContext) private var context
+
     @FetchRequest(fetchRequest: Expense.request_expensesInLast30days)
     var expensesInLast30Days
 
@@ -23,11 +25,11 @@ struct BookTab: View {
                                       thirtyEx: expensesInLast30Days.sum(), // change to array
                                       thirtyIn: 0)
                     .padding(cardPadding)
-                    // TODO: 这里也许可以加个阴影？
+                // TODO: 这里也许可以加个阴影？
 
 //                ScrollViewReader { scrollView in
 //                    if
-//                        let (dayItemsDict, maxDayHavingItems) = RacoonAccountBook.getExDiviedByDaysInMonth(today),
+//                        let (dayItemsDict, maxDayHavingItems) = Expense.getExpensesDiviedByDaysInMonth(today, context: context),
 //                        let days = dayItemsDict.keys.sorted()
 //                    {
 //                        ScrollView(.vertical) {
@@ -47,11 +49,12 @@ struct BookTab: View {
 //                                       let ex = dayItemsDict[day],
 //                                       let dayItems = ex.items
 //                                    {
-//                                        DayItemsView(
-//                                            date: date,
-//                                            dayItems: dayItems
-//                                        )
-//                                        .padding([.horizontal], cardPadding) // 让圆角矩形边框不靠边
+////                                        DayItemsView(
+////                                            date: date,
+////                                            dayItems: dayItems
+////                                        )
+////                                        .padding([.horizontal], cardPadding) // 让圆角矩形边框不靠边
+//                                        Text("haha")
 //                                    }
 //                                }
 //                            }
@@ -70,7 +73,7 @@ struct BookTab: View {
 //                        Text("Error in ScrollView: nil in monthlyBook")
 //                    }
 //                }
-                    .padding([.bottom], cardPadding) // 最下方别贴着屏幕底端
+                .padding([.bottom], cardPadding) // 最下方别贴着屏幕底端
             }
             .navigationTitle("\(String(thisYear))年\(thisMonth)月 花销")
             // 为了不出现`,`使用`String()`

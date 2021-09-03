@@ -58,6 +58,16 @@ extension Expense {
         return request
     }
     
+    static func request_expensesInMonth(_ month: DateInRegion) -> NSFetchRequest<Expense> {
+        let request = NSFetchRequest<Expense>(entityName: "Expense")
+        request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
+        request.predicate = NSPredicate(
+            format: "spentAt_ > %@ and spentAt_ < %@",
+            month.dateAt(.startOfMonth).date as NSDate,
+            month.dateAt(.endOfMonth).date as NSDate)
+        return request
+    }
+    
     // MARK: - fetch data
     
     static func getAllExpenses(context: NSManagedObjectContext, story_only: Bool = false) -> [Expense] {
@@ -167,6 +177,20 @@ extension Expense {
         set { generatedTags_ = newValue as NSSet }
     }
     
+    // MARK: - combined data
+    
+    var expenseInfo: ExpenseInfo {
+        ExpenseInfo(originalText: originalText,
+                    spentMoneyAt: spentAt,
+                    event: event,
+                    amount: amount,
+                    generatedTags: generatedTags.map { $0.name },
+                    tags: tags.map { $0.name },
+                    focus: focus?.name,
+                    forWho: forWho.map { $0.name },
+                    story: ExpenseInfo.Story(rating: story?.rating, emoji: story?.emoji, text: story?.text))
+    }
+    
     // MARK: - operation
     
     static func create(expenseInfo: ExpenseInfo, context: NSManagedObjectContext) {
@@ -208,5 +232,73 @@ extension Expense {
         }
         
         return days
+    }
+    
+    /// 获取某个月内的所有Expense，并按照天数分组
+    ///
+    /// 返回 一个字典：天数 - 当天的Expenses；该月最后一个有Expense的天数
+    ///
+    /// return: Day: nil 表示这个月没有Expense
+    static func getExpensesDiviedByDaysInMonth(_ month: DateInRegion, context: NSManagedObjectContext) -> ([Day: [Expense]], Day?) {
+        let expensesInMonth = try? context.fetch(Expense.request_expensesInMonth(month))
+        
+        var dayItems: [Day: [Expense]] = [
+            .D1: [],
+            .D2: [],
+            .D3: [],
+            .D4: [],
+            .D5: [],
+            .D6: [],
+            .D7: [],
+            .D8: [],
+            .D9: [],
+            .D10: [],
+            .D11: [],
+            .D12: [],
+            .D13: [],
+            .D14: [],
+            .D15: [],
+            .D16: [],
+            .D17: [],
+            .D18: [],
+            .D19: [],
+            .D20: [],
+            .D21: [],
+            .D22: [],
+            .D23: [],
+            .D24: [],
+            .D25: [],
+            .D26: [],
+            .D27: [],
+            .D28: [],
+            .D29: [],
+            .D30: [],
+            .D31: [],
+        ]
+        if expensesInMonth != nil {
+            for expense in expensesInMonth! {
+                if let day = Day(rawValue: expense.spentAt.day) {
+                    // 这里用叹号没有危险 因为Day全用的枚举
+                    dayItems[day]!.append(expense)
+                } else {
+                    printError("")
+                }
+            }
+        } else {
+            return (dayItems, nil)
+        }
+        
+        // 中间变量 记录有item的天
+        var daysWithExpenses: [Day] = []
+        for (day, expenses) in dayItems {
+            if expenses.count != 0 {
+                daysWithExpenses.append(day)
+            }
+        }
+        
+        // 该月有Expense的最后一天
+        let lastDatWithExpenses: Day? = daysWithExpenses.count == 0 ? nil : daysWithExpenses.max()
+
+        return (dayItems, lastDatWithExpenses)
     }
 }

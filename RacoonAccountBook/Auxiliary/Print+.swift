@@ -9,14 +9,22 @@ public func printLog(_ items: Any..., separator: String = " ", terminator: Strin
     Swift.print(output, terminator: terminator)
 }
 
+// Literal        Type     Value
+//
+// #file          String   The name of the file in which it appears.
+// #line          Int      The line number on which it appears.
+// #column        Int      The column number in which it begins.
+// #function      String   The name of the declaration in which it appears.
+// #dsohandle     UnsafeMutablePointer   The dso handle.
+
 public func printError(_ items: Any..., separator: String = " ", terminator: String = "\n") {
     var output = items.map { "\($0)" }.joined(separator: separator)
-    output = "[[ERROR]] " + output
+    output = "[[ERROR] \(#file).line\(#line) in \(#function)] " + output
     Swift.print(output, terminator: terminator)
 }
 
 public func printFatalError(_ items: Any..., separator: String = " ", terminator: String = "\n") {
     var output = items.map { "\($0)" }.joined(separator: separator)
-    output = "[[FATAL ERROR]] " + output
+    output = "[[FATAL ERROR] \(#file).line\(#line) in \(#function)] " + output
     Swift.print(output, terminator: terminator)
 }
