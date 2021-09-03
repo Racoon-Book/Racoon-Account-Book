@@ -200,7 +200,7 @@ extension Expense {
                     tags: tags.map { $0.name },
                     focus: focus?.name,
                     forWho: forWho.map { $0.name },
-                    story: ExpenseInfo.Story(rating: story?.rating, emoji: story?.emoji, text: story?.text))
+                    story: story == nil ? nil : ExpenseInfo.Story(rating: story?.rating, emoji: story?.emoji, text: story?.text))
     }
 
     // MARK: - operation
@@ -209,23 +209,25 @@ extension Expense {
         let expense = Expense(context: context)
 
         // Expense
-        
+
         //   - system: uuid createdAt updatedAt
         expense.uuid = UUID()
         expense.createdAt = DateInRegion(region: regionChina)
         expense.updatedAt = DateInRegion(region: regionChina)
-        
+
         //   - properties: spentAt event amount
         expense.spentAt = expenseInfo.spentMoneyAt
         expense.event = expenseInfo.event
         expense.amount = expenseInfo.amount
-        
+
         //   - other: originalText?
         expense.originalText = expenseInfo.originalText
-        
+
         //   - relationship: story? focus generatedTags tags forWho
         if expenseInfo.story != nil {
             expense.story = Story.create(story: expenseInfo.story!, context: context)
+        } else {
+            expense.story = nil
         }
 
         if expenseInfo.focus != nil {
@@ -246,7 +248,7 @@ extension Expense {
                 expense.addToTags_(Tag.tag(name: name, context: context))
             }
         }
-        
+
         if expenseInfo.forWho.count != 0 {
             for name in expenseInfo.forWho {
                 // 添加关系
@@ -255,7 +257,7 @@ extension Expense {
         }
 
         expense.objectWillChange.send()
-        
+
         try? context.save()
     }
 
@@ -329,8 +331,6 @@ extension Expense {
                 if let day = Day(rawValue: expense.spentAt.day) {
                     // 这里用叹号没有危险 因为Day全用的枚举
                     dayItems[day]!.append(expense)
-
-                    printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] Appended \(expense.event)")
                 } else {
                     printError("")
                 }
