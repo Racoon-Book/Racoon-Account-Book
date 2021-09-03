@@ -28,36 +28,25 @@ extension Expense {
     static func updateBy(uuid: UUID, expenseInfo: ExpenseInfo,
                          context: NSManagedObjectContext) -> Bool
     {
-        printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] 传入的expenseInfo\(expenseInfo)")
-        do {
-            let expenses = try context.fetch(Expense.request_expenseBy(uuid: uuid))
-
-            // - system
+        if let expenses = try? context.fetch(Expense.request_expenseBy(uuid: uuid)) {
+            //   - system
             expenses.first!.updatedAt = DateInRegion(region: regionChina)
 
             //   - properties: spentAt event amount
             //   - other: originalText?
             //   - relationship: story? focus generatedTags tags forWho
-            expenses.first!.expenseInfo = expenseInfo // TODO: 这样就可以修改了吗？
-            printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] 修改后的expenseInfo\(expenses.first!.expenseInfo)")
-            expenses.first!.event_ = expenseInfo.event
+            expenses.first!.expenseInfo = expenseInfo
 
             expenses.first!.objectWillChange.send()
 
             do {
                 try context.save()
-
                 return true
             } catch {
-                print("error 1")
                 return false
             }
-
-        } catch {
-            let fetchError = error as NSError
-            printError(fetchError)
+        } else {
+            return false
         }
-
-        return false
     }
 }

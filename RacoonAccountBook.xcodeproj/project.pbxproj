@@ -252,11 +252,11 @@
 		485E4CAE26E0C32A009E6162 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				487FA76F26E244F000DD924F /* Expense+Attributes.swift */,
-				487FA77126E2450000DD924F /* Expense+CombinedDataStructure.swift */,
 				487FA76B26E244CF00DD924F /* Expense+FetchRequests.swift */,
 				487FA76D26E244E000DD924F /* Expense+FetchData.swift */,
 				6EEE01BA26D115D1006797E8 /* Expense+DataOperation.swift */,
+				487FA76F26E244F000DD924F /* Expense+Attributes.swift */,
+				487FA77126E2450000DD924F /* Expense+CombinedDataStructure.swift */,
 				487FA76926E2448E00DD924F /* Expense+Analysis.swift */,
 				6EEE01BC26D12533006797E8 /* Story+.swift */,
 				6E18D16D26D158A9006AD12F /* Tag+.swift */,

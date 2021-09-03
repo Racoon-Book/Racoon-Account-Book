@@ -87,7 +87,7 @@ extension Expense {
 
     var originalText: String? {
         get { originalText_ }
-        set { event_ = newValue }
+        set { originalText_ = newValue }
     }
 
     // relationship - single
