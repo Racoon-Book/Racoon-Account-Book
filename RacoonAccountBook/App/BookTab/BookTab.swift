@@ -53,9 +53,9 @@ struct BookTab: View {
                                         {
                                             // 用叹号没有风险：这里Day是枚举
                                             if dayExpensesDict[day]!.count != 0 {
-                                                DayItemsView(
+                                                DayExpensesView(
                                                     date: date,
-                                                    dayItems: dayExpensesDict[day]!
+                                                    dayExpenses: dayExpensesDict[day]!
                                                 )
                                                 .padding([.horizontal], cardPadding) // 让圆角矩形边框不靠边
                                             } else {
