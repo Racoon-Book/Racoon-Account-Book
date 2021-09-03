@@ -27,19 +27,19 @@ struct BookTab: View {
                     .padding(cardPadding)
                 // TODO: 这里也许可以加个阴影？
 
-//                ScrollViewReader { scrollView in
-//                    if
-//                        let (dayItemsDict, maxDayHavingItems) = Expense.getExpensesDiviedByDaysInMonth(today, context: context),
-//                        let days:[Day] = dayItemsDict.keys.sorted()
-//                    {
-//                        ScrollView(.vertical) {
-//                            VStack {
-//                                // Check https://stackoverflow.com/questions/56675532/swiftui-iterating-through-dictionary-with-foreach
-//                                // WWDC21可以替换为OrderedDictionary https://stackoverflow.com/a/68023633/14298786
-//
-//                                // 一天的开销在一个圆角矩形中
-//                                // 这个ForEach不写id没问题吧
-//                                ForEach(days) { day in
+                ScrollViewReader { scrollView in
+                    if
+                        let (dayItemsDict, maxDayHavingItems) = Expense.getExpensesDiviedByDaysInMonth(today, context: context),
+                        let days:[Day] = dayItemsDict.keys.sorted()
+                    {
+                        ScrollView(.vertical) {
+                            VStack {
+                                // Check https://stackoverflow.com/questions/56675532/swiftui-iterating-through-dictionary-with-foreach
+                                // WWDC21可以替换为OrderedDictionary https://stackoverflow.com/a/68023633/14298786
+
+                                // 一天的开销在一个圆角矩形中
+                                // 这个ForEach不写id没问题吧
+                                ForEach(days,id:\.self) { day in
 //                                    if let day = Day(rawValue: day.rawValue),
 //                                       let date = DateInRegion(
 //                                           year: thisYear,
@@ -57,23 +57,25 @@ struct BookTab: View {
 ////                                        .padding([.horizontal], cardPadding) // 让圆角矩形边框不靠边
 //                                        Text("haha")
 //                                    }
-//                                }
-//                            }
-//
-//                            .onAppear {
-//                                // 出现的时候滑到最下面
-//                                if let day = maxDayHavingItems {
-//                                    printLog("[BookTabView] Scrolled to day \(day.rawValue - 1)")
-//                                    // FIXME: 每次这里都会打印两次 看看是为什么
-//                                    // 这里需要获取一下最后一个有值的天 然后才能滑动到对应的位置
-//                                    scrollView.scrollTo(days[day.rawValue - 1])
-//                                }
-//                            }
-//                        }
-//                    } else {
-//                        Text("Error in ScrollView: nil in monthlyBook")
-//                    }
-//                }
+                                    Text("\(day.rawValue)")
+                                }
+                                Text("haha")
+                            }
+
+                            .onAppear {
+                                // 出现的时候滑到最下面
+                                if let day = maxDayHavingItems {
+                                    printLog("[BookTabView] Scrolled to day \(day.rawValue - 1)")
+                                    // FIXME: 每次这里都会打印两次 看看是为什么
+                                    // 这里需要获取一下最后一个有值的天 然后才能滑动到对应的位置
+                                    scrollView.scrollTo(days[day.rawValue - 1])
+                                }
+                            }
+                        }
+                    } else {
+                        Text("Error in ScrollView: nil in monthlyBook")
+                    }
+                }
                 .padding([.bottom], cardPadding) // 最下方别贴着屏幕底端
             }
             .navigationTitle("\(String(thisYear))年\(thisMonth)月 花销")
