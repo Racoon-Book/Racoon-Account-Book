@@ -7,6 +7,7 @@
         <attribute name="originalText_" optional="YES" attributeType="String"/>
         <attribute name="spentAt_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="updatedAt_" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="uuid_" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="focus_" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Focus" inverseName="expenses_" inverseEntity="Focus"/>
         <relationship name="forWho_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Someone" inverseName="expenses_" inverseEntity="Someone"/>
         <relationship name="generatedTags_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="generatedExpenses_" inverseEntity="Tag"/>
@@ -33,7 +34,7 @@
         <relationship name="generatedExpenses_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Expense" inverseName="generatedTags_" inverseEntity="Expense"/>
     </entity>
     <elements>
-        <element name="Expense" positionX="-130.1850585937501" positionY="-201.4825439453125" width="128" height="208"/>
+        <element name="Expense" positionX="-130.1850585937501" positionY="-201.4825439453125" width="128" height="223"/>
         <element name="Focus" positionX="51.64654541015625" positionY="-200.7245788574219" width="128" height="73"/>
         <element name="Story" positionX="-384.95751953125" positionY="-84.34109497070312" width="128" height="103"/>
         <element name="Tag" positionX="122.22607421875" positionY="-86.35403442382818" width="128" height="88"/>

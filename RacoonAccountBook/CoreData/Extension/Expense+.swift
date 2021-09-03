@@ -78,13 +78,25 @@ extension Expense {
     // MARK: - access
     
     // Expense
-    //   - system: createdAt updatedAt
+    //   - system: uuid createdAt updatedAt
     //   - properties: spentAt event amount
     //   - other: originalText?
     //   - relationship: generatedTags tags focus forWho story?
     // 注：列表不会是nil 判空即可
 
     // system
+    
+    var uuid: UUID {
+        get {
+            if uuid_ != nil {
+                return uuid_!
+            } else {
+                printError("未获取到uuid")
+                return UUID()
+            }
+        }
+        set { uuid_ = newValue }
+    }
     
     var createdAt: DateInRegion {
         get {
