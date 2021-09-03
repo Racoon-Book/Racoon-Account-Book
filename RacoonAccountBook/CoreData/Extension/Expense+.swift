@@ -20,7 +20,7 @@ extension Expense {
         return request
     }
 
-    // multiple - period
+    // multiple - period 30
 
     static var request_expensesInLast30days: NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
@@ -28,16 +28,6 @@ extension Expense {
         request.predicate = NSPredicate(
             format: "spentAt_ > %@ and spentAt_ < %@",
             (DateInRegion(region: regionChina) - 30.days).date as NSDate,
-            DateInRegion(region: regionChina).date as NSDate)
-        return request
-    }
-
-    static var request_expensesInLast7days: NSFetchRequest<Expense> {
-        let request = NSFetchRequest<Expense>(entityName: "Expense")
-        request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
-        request.predicate = NSPredicate(
-            format: "spentAt_ > %@ and spentAt_ < %@",
-            (DateInRegion(region: regionChina) - 7.days).date as NSDate,
             DateInRegion(region: regionChina).date as NSDate)
         return request
     }
@@ -52,16 +42,6 @@ extension Expense {
         return request
     }
 
-    static var request_expensesInThisWeek: NSFetchRequest<Expense> {
-        let request = NSFetchRequest<Expense>(entityName: "Expense")
-        request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
-        request.predicate = NSPredicate(
-            format: "spentAt_ > %@ and spentAt_ < %@",
-            DateInRegion(region: regionChina).dateAt(.startOfWeek).date as NSDate,
-            DateInRegion(region: regionChina).dateAt(.endOfWeek).date as NSDate)
-        return request
-    }
-
     static func request_expensesInMonth(_ month: DateInRegion) -> NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
@@ -72,15 +52,47 @@ extension Expense {
         return request
     }
 
+    // multiple - period 7
+
+    static var request_expensesInLast7days: NSFetchRequest<Expense> {
+        let request = NSFetchRequest<Expense>(entityName: "Expense")
+        request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
+        request.predicate = NSPredicate(
+            format: "spentAt_ > %@ and spentAt_ < %@",
+            (DateInRegion(region: regionChina) - 7.days).date as NSDate,
+            DateInRegion(region: regionChina).date as NSDate)
+        return request
+    }
+
+    static var request_expensesInThisWeek: NSFetchRequest<Expense> {
+        let request = NSFetchRequest<Expense>(entityName: "Expense")
+        request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
+        request.predicate = NSPredicate(
+            format: "spentAt_ > %@ and spentAt_ < %@",
+            DateInRegion(region: regionChina).dateAt(.startOfWeek).date as NSDate,
+            DateInRegion(region: regionChina).dateAt(.endOfWeek).date as NSDate)
+        return request
+    }
+
+    // multiple - period 1
+    
+    static func request_expensesInDay(day: DateInRegion) -> NSFetchRequest<Expense> {
+        let request = NSFetchRequest<Expense>(entityName: "Expense")
+        request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
+        request.predicate = NSPredicate(
+            format: "spentAt_ > %@ and spentAt_ < %@",
+            DateInRegion(region: regionChina).dateAt(.startOfDay).date as NSDate,
+            DateInRegion(region: regionChina).dateAt(.endOfDay).date as NSDate)
+        return request
+    }
+
     // single - uuid
 
     static func request_expenseBy(uuid: UUID) -> NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "uuid_", ascending: true)]
         request.predicate = NSPredicate(
-            format: "uuid_ = %@", uuid as CVarArg) // FIXME: 没问题吧？
-        print(NSPredicate(
-            format: "uuid_ = %@", uuid as CVarArg))
+            format: "uuid_ = %@", uuid as CVarArg)
         return request
     }
 
@@ -157,7 +169,7 @@ extension Expense {
             if event_ != nil {
                 return event_!
             } else {
-                printFatalError("未获取到event")
+                printFatalError("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] 未获取到event")
                 return ""
             }
         }
@@ -226,6 +238,7 @@ extension Expense {
             //   - properties: spentAt event amount
             spentAt = newValue.spentAt
             event = newValue.event
+
             amount = newValue.amount
 
             //   - other: originalText?
@@ -291,7 +304,7 @@ extension Expense {
     static func updateBy(uuid: UUID, expenseInfo: ExpenseInfo,
                          context: NSManagedObjectContext) -> Bool
     {
-        printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] uuid")
+        printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] 传入的expenseInfo\(expenseInfo)")
         do {
             let expenses = try context.fetch(Expense.request_expenseBy(uuid: uuid))
 
@@ -302,16 +315,13 @@ extension Expense {
             //   - other: originalText?
             //   - relationship: story? focus generatedTags tags forWho
             expenses.first!.expenseInfo = expenseInfo // TODO: 这样就可以修改了吗？
+            printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] 修改后的expenseInfo\(expenses.first!.expenseInfo)")
+            expenses.first!.event_ = expenseInfo.event
 
             expenses.first!.objectWillChange.send()
 
             do {
                 try context.save()
-                expenses.first!.objectWillChange.send()
-                print("do 1")
-                let newExpenses = try context.fetch(Expense.request_expenseBy(uuid: uuid))
-                let newExpense: Expense = newExpenses.first!
-                printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] \(newExpense)")
 
                 return true
             } catch {
@@ -322,15 +332,8 @@ extension Expense {
         } catch {
             let fetchError = error as NSError
             printError(fetchError)
-            print("haha")
         }
 
-//        if  else {
-//            printFatalError("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] not fount expense by uuid")
-//            print("error 2")
-//            return false
-//        }
-//        print("error 3")
         return false
     }
 

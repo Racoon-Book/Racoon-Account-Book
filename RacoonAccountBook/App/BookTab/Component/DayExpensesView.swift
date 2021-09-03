@@ -22,12 +22,13 @@ struct DayExpensesView: View {
                         .padding([.top], 10) // 日期上面的padding
                         .font(.system(.title2))
 
-                    ForEach(dayExpenses, id: \.self) { expense in
+                    ForEach(dayExpenses, id: \.self.objectID) { expense in
                         // TODO: 一天内的花销按添加顺序排列
                         // FIXME: 修改之后要刷新
                         ExpenseView(
                             expenseInfo: expense.expenseInfo,
                             uuidOfItemToEdit: expense.uuid)
+                            
                             .padding([.top], 6) // 不同 MetaItemView 之间上下
                     }
                 }
