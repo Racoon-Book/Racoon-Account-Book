@@ -347,7 +347,7 @@ let testMetaItem_39 = ExpenseInfo(
     event: "雀魂月卡",
     amount: 36.0,
     tags: ["雀魂", "月卡"],
-    focus: "雀魂"
+    focus: "游戏"
 )
 
 let testMetaItem_40 = ExpenseInfo(
@@ -778,7 +778,7 @@ let testMetaItem_89 = ExpenseInfo(
     event: "雀魂月卡",
     amount: 35.0,
     tags: ["雀魂", "月卡"],
-    focus: "雀魂"
+    focus: "游戏"
 )
 
 let testMetaItem_90 = ExpenseInfo(

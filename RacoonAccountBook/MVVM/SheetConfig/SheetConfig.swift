@@ -23,8 +23,8 @@ struct SheetConfig {
 
     /// 是否为修改某个Item的Sheet
     var isEditMode: Bool = false
-    /// 要修改的Item的id
-    var itemIdToEdit: UUID? = nil
+    /// 要修改的Expense的uuid
+    var uuidOfExpenseToEdit: UUID? = nil
 
     // MARK: - 是否显示某视图
 
