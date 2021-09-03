@@ -47,7 +47,7 @@ extension Someone {
     
     // 有Someone就获取 没有创建 因为Someone不需要重复
     @discardableResult
-    static func create(name: String, context: NSManagedObjectContext) -> Someone {
+    static func someone(name: String, context: NSManagedObjectContext) -> Someone {
         let request = NSFetchRequest<Someone>(entityName: "Someone")
         request.predicate = NSPredicate(format: "name_ == %@", name)
         let result = (try? context.fetch(request)) ?? []

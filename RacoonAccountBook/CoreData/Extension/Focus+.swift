@@ -37,7 +37,7 @@ extension Focus {
     
     // 有Focus就获取 没有创建 因为Focus不需要重复
     @discardableResult
-    static func create(name: String, context: NSManagedObjectContext) -> Focus {
+    static func focus(name: String, context: NSManagedObjectContext) -> Focus {
         let request = NSFetchRequest<Focus>(entityName: "Focus")
         request.predicate = NSPredicate(format: "name_ == %@", name)
         let result = (try? context.fetch(request)) ?? []

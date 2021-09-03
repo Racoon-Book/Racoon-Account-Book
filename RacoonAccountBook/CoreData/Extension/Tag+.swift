@@ -35,7 +35,7 @@ extension Tag {
     
     // 有Tag就获取 没有创建 因为Tag不需要重复
     @discardableResult
-    static func create(name: String, context: NSManagedObjectContext) -> Tag {
+    static func tag(name: String, context: NSManagedObjectContext) -> Tag {
         let request = NSFetchRequest<Tag>(entityName: "Tag")
         request.predicate = NSPredicate(format: "name_ == %@", name)
         let result = (try? context.fetch(request)) ?? []

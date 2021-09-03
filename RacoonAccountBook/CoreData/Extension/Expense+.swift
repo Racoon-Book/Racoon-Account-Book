@@ -4,20 +4,20 @@ import SwiftDate
 
 extension Expense {
     // MARK: - fetch requests
-    
+
     static var request_allExpenses: NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
         return request
     }
-    
+
     static var request_allExpensesWithStory: NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: false)]
         request.predicate = NSPredicate(format: "story_ != nil")
         return request
     }
-    
+
     static var request_expensesInLast30days: NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
@@ -27,7 +27,7 @@ extension Expense {
             DateInRegion(region: regionChina).date as NSDate)
         return request
     }
-    
+
     static var request_expensesInLast7days: NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
@@ -37,7 +37,7 @@ extension Expense {
             DateInRegion(region: regionChina).date as NSDate)
         return request
     }
-    
+
     static var request_expensesInThisMonth: NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
@@ -47,7 +47,7 @@ extension Expense {
             DateInRegion(region: regionChina).dateAt(.endOfMonth).date as NSDate)
         return request
     }
-    
+
     static var request_expensesInThisWeek: NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
@@ -57,7 +57,7 @@ extension Expense {
             DateInRegion(region: regionChina).dateAt(.endOfWeek).date as NSDate)
         return request
     }
-    
+
     static func request_expensesInMonth(_ month: DateInRegion) -> NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
@@ -67,16 +67,16 @@ extension Expense {
             month.dateAt(.endOfMonth).date as NSDate)
         return request
     }
-    
+
     // MARK: - fetch data
-    
+
     static func getAllExpenses(context: NSManagedObjectContext, story_only: Bool = false) -> [Expense] {
         let expenses = try? context.fetch(story_only ? request_allExpensesWithStory : request_allExpensesWithStory)
         return expenses ?? []
     }
 
     // MARK: - access
-    
+
     // Expense
     //   - system: uuid createdAt updatedAt
     //   - properties: spentAt event amount
@@ -85,19 +85,19 @@ extension Expense {
     // 注：列表不会是nil 判空即可
 
     // system
-    
+
     var uuid: UUID {
         get {
             if uuid_ != nil {
                 return uuid_!
             } else {
-                printError("未获取到uuid")
+                printFatalError("未获取到uuid")
                 return UUID()
             }
         }
         set { uuid_ = newValue }
     }
-    
+
     var createdAt: DateInRegion {
         get {
             if createdAt_ != nil {
@@ -109,7 +109,7 @@ extension Expense {
         }
         set { createdAt_ = newValue.date }
     }
-    
+
     var updatedAt: DateInRegion {
         get {
             if updatedAt_ != nil {
@@ -121,9 +121,9 @@ extension Expense {
         }
         set { updatedAt_ = newValue.date }
     }
-    
+
     // properties
-    
+
     var spentAt: DateInRegion {
         get {
             if spentAt_ != nil {
@@ -135,7 +135,7 @@ extension Expense {
         }
         set { spentAt_ = newValue.date }
     }
-    
+
     var event: String {
         get {
             if event_ != nil {
@@ -147,50 +147,50 @@ extension Expense {
         }
         set { event_ = newValue }
     }
-    
+
     var amount: Float {
         get { return amount_ }
         set { amount_ = newValue }
     }
-    
+
     // other
-    
+
     var originalText: String? {
         get { originalText_ }
         set { event_ = newValue }
     }
-    
+
     // relationship - single
-    
+
     var story: Story? {
         get { story_ }
         set { story_ = newValue }
     }
-    
+
     var focus: Focus? {
         get { focus_ }
         set { focus_ = newValue }
     }
-    
+
     // relationship - multiple
-    
+
     var tags: Set<Tag> {
         get { (tags_ as? Set<Tag>) ?? [] }
         set { tags_ = newValue as NSSet }
     }
-    
+
     var forWho: Set<Someone> {
         get { (forWho_ as? Set<Someone>) ?? [] }
         set { forWho_ = newValue as NSSet }
     }
-    
+
     var generatedTags: Set<Tag> {
         get { (generatedTags_ as? Set<Tag>) ?? [] }
         set { generatedTags_ = newValue as NSSet }
     }
-    
+
     // MARK: - combined data
-    
+
     var expenseInfo: ExpenseInfo {
         ExpenseInfo(originalText: originalText,
                     spentMoneyAt: spentAt,
@@ -202,23 +202,60 @@ extension Expense {
                     forWho: forWho.map { $0.name },
                     story: ExpenseInfo.Story(rating: story?.rating, emoji: story?.emoji, text: story?.text))
     }
-    
+
     // MARK: - operation
-    
+
     static func create(expenseInfo: ExpenseInfo, context: NSManagedObjectContext) {
         let expense = Expense(context: context)
+
+        // Expense
         
-        expense.originalText = expenseInfo.originalText
+        //   - system: uuid createdAt updatedAt
+        expense.uuid = UUID()
+        expense.createdAt = DateInRegion(region: regionChina)
+        expense.updatedAt = DateInRegion(region: regionChina)
         
+        //   - properties: spentAt event amount
         expense.spentAt = expenseInfo.spentMoneyAt
         expense.event = expenseInfo.event
         expense.amount = expenseInfo.amount
         
+        //   - other: originalText?
+        expense.originalText = expenseInfo.originalText
+        
+        //   - relationship: story? focus generatedTags tags forWho
         if expenseInfo.story != nil {
             expense.story = Story.create(story: expenseInfo.story!, context: context)
         }
+
+        if expenseInfo.focus != nil {
+            expense.focus = Focus.focus(name: expenseInfo.focus!, context: context)
+        }
+
+        if expenseInfo.generatedTags.count != 0 {
+            for name in expenseInfo.generatedTags {
+                // 添加关系
+                // 如果Tag有了就直接添加；没有就创建之后再添加
+                expense.addToGeneratedTags_(Tag.tag(name: name, context: context))
+            }
+        }
+
+        if expenseInfo.tags.count != 0 {
+            for name in expenseInfo.tags {
+                // 添加关系
+                expense.addToTags_(Tag.tag(name: name, context: context))
+            }
+        }
         
+        if expenseInfo.forWho.count != 0 {
+            for name in expenseInfo.forWho {
+                // 添加关系
+                expense.addToForWho_(Someone.someone(name: name, context: context))
+            }
+        }
+
         expense.objectWillChange.send()
+        
         try? context.save()
     }
 
@@ -230,7 +267,7 @@ extension Expense {
         var days = [DateInRegion]()
         // 明天
         var last_day = DateInRegion(region: regionChina).dateAt(.startOfDay) + 1.days
-        
+
         for expense in all_expenses {
             let now_day = expense.spentAt.dateAt(.startOfDay)
             if now_day == last_day {
@@ -242,10 +279,10 @@ extension Expense {
                 break
             }
         }
-        
+
         return days
     }
-    
+
     /// 获取某个月内的所有Expense，并按照天数分组
     ///
     /// 返回 一个字典：天数 - 当天的Expenses；该月最后一个有Expense的天数
@@ -253,7 +290,7 @@ extension Expense {
     /// return: Day: nil 表示这个月没有Expense
     static func getExpensesDiviedByDaysInMonth(_ month: DateInRegion, context: NSManagedObjectContext) -> ([Day: [Expense]], Day?) {
         let expensesInMonth = try? context.fetch(Expense.request_expensesInMonth(month))
-        
+
         var dayItems: [Day: [Expense]] = [
             .D1: [],
             .D2: [],
@@ -292,7 +329,7 @@ extension Expense {
                 if let day = Day(rawValue: expense.spentAt.day) {
                     // 这里用叹号没有危险 因为Day全用的枚举
                     dayItems[day]!.append(expense)
-                   
+
                     printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] Appended \(expense.event)")
                 } else {
                     printError("")
@@ -301,7 +338,7 @@ extension Expense {
         } else {
             return (dayItems, nil)
         }
-        
+
         // 中间变量 记录有item的天
         var daysWithExpenses: [Day] = []
         for (day, expenses) in dayItems {
@@ -309,7 +346,7 @@ extension Expense {
                 daysWithExpenses.append(day)
             }
         }
-        
+
         // 该月有Expense的最后一天
         let lastDatWithExpenses: Day? = daysWithExpenses.count == 0 ? nil : daysWithExpenses.max()
 

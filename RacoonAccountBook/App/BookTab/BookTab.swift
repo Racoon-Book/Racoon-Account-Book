@@ -59,15 +59,26 @@ struct BookTab: View {
 //                                        Text("haha")
 //                                    }
 
-                                    // 用叹号没有风险：这里Day是枚举
-                                    if dayItemsDict[day]!.count != 0 {
-                                        Text("\(day.rawValue)")
-//                                        DayItemsView(
-//                                            date: day,
-//                                            dayItems: dayItems
-//                                        )
-                                    } else {
-                                        EmptyView()
+                                    if let day = Day(rawValue: day.rawValue),
+                                       let date = DateInRegion(
+                                           year: thisYear,
+                                           month: thisMonth,
+                                           day: day.rawValue,
+                                           region: regionChina
+                                       )
+                                    {
+                                        // 用叹号没有风险：这里Day是枚举
+
+                                        if dayItemsDict[day]!.count != 0 {
+                                            Text("\(day.rawValue)")
+                                            DayItemsView(
+                                                date: date,
+                                                dayItems: dayItemsDict[day]!
+                                            )
+                                            .padding([.horizontal], cardPadding) // 让圆角矩形边框不靠边
+                                        } else {
+                                            EmptyView()
+                                        }
                                     }
                                 }
                                 Text("haha")
