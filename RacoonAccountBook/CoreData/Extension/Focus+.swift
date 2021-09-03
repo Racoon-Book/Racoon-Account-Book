@@ -34,16 +34,29 @@ extension Focus {
     }
 
     // MARK: - operation
-
-    static func create(name: String, context: NSManagedObjectContext) {
-        let newFocus = Focus(context: context)
-
-        newFocus.name = name
-
-        newFocus.objectWillChange.send()
-
-        try? context.save()
+    
+    // 有Focus就获取 没有创建 因为Focus不需要重复
+    @discardableResult
+    static func create(name: String, context: NSManagedObjectContext) -> Focus {
+        let request = NSFetchRequest<Focus>(entityName: "Focus")
+        request.predicate = NSPredicate(format: "name_ == %@", name)
+        let result = (try? context.fetch(request)) ?? []
+        
+        if let focus = result.first {
+            return focus
+        } else {
+            let newFocus = Focus(context: context)
+            
+            newFocus.name = name
+            
+            newFocus.objectWillChange.send()
+            
+            try? context.save()
+            
+            return newFocus
+        }
     }
+
 
     // MARK: - analysis
 
