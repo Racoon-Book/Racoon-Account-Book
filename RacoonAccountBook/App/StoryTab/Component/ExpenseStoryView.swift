@@ -5,10 +5,10 @@
 //  Created by c0per chen on 7/25/21.
 //
 
-import SwiftUI
 import SwiftDate
+import SwiftUI
 
-struct ItemStoryView: View {
+struct ExpenseStoryView: View {
     var expense: Expense
 
     var body: some View {
@@ -19,7 +19,7 @@ struct ItemStoryView: View {
             VStack(alignment: .leading) {
                 let text = expense.story?.text ?? "为本次花销添加一段财记吧"
                 let amountFormatted = String(format: "%.1f", expense.amount)
-                
+
                 Text(DisplayDate(expense.spentAt.convertTo(region: regionChina)))
                     .font(.caption)
                     .padding(.top, 6.0)
