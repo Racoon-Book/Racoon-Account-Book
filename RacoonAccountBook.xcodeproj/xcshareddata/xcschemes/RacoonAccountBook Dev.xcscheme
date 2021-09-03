@@ -50,6 +50,13 @@
             ReferencedContainer = "container:RacoonAccountBook.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "LOG"
+            value = "[\((#file as NSString).lastPathComponent) \(#function) line\(#line)]"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

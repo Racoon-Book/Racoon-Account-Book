@@ -21,7 +21,7 @@ extension Someone {
             if name_ != nil {
                 return name_!
             } else {
-                print("未获取到name")
+                printFatalError("未获取到name")
                 return ""
             }
         }

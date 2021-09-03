@@ -103,7 +103,7 @@ extension Expense {
             if createdAt_ != nil {
                 return createdAt_!.convertTo(region: regionChina)
             } else {
-                print("未获取到createdAt_")
+                printFatalError("未获取到createdAt_")
                 return DateInRegion(region: regionChina)
             }
         }
@@ -115,7 +115,7 @@ extension Expense {
             if updatedAt_ != nil {
                 return updatedAt_!.convertTo(region: regionChina)
             } else {
-                print("未获取到updatedAt_")
+                printFatalError("未获取到updatedAt_")
                 return DateInRegion(region: regionChina)
             }
         }
@@ -129,7 +129,7 @@ extension Expense {
             if spentAt_ != nil {
                 return spentAt_!.convertTo(region: regionChina)
             } else {
-                print("未获取到spentAt_")
+                printFatalError("未获取到spentAt_")
                 return DateInRegion(region: regionChina)
             }
         }
@@ -141,7 +141,7 @@ extension Expense {
             if event_ != nil {
                 return event_!
             } else {
-                print("未获取到event")
+                printFatalError("未获取到event")
                 return ""
             }
         }
@@ -292,7 +292,8 @@ extension Expense {
                 if let day = Day(rawValue: expense.spentAt.day) {
                     // 这里用叹号没有危险 因为Day全用的枚举
                     dayItems[day]!.append(expense)
-                    printLog("Appended \(expense.event)")
+                   
+                    printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] Appended \(expense.event)")
                 } else {
                     printError("")
                 }
