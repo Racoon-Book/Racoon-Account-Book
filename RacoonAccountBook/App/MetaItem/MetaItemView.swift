@@ -16,7 +16,7 @@ struct MetaItemView: View {
     var isEditable: Bool = true
 
     /// 要修改的Item的id
-    var itemId: Int = 0
+    var itemId: UUID? = nil
 
     var body: some View {
         let amount_dispaly = String(format: "%.1f", metadata.amount)
@@ -85,7 +85,8 @@ struct MetaItemView: View {
         .onTapGesture {
             // 是修改模式才判断点击
             if isEditable {
-                RacoonSheetConfig.showEditSheet(itemIdToEdit: itemId, metadata: metadata)
+                // 这里的感叹号是因为修改的话必须传入确切的UUID
+                RacoonSheetConfig.showEditSheet(itemIdToEdit: itemId!, metadata: metadata)
             }
         }
     }

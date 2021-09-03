@@ -14,7 +14,7 @@ class SheetConfigModel: ObservableObject {
     // 是添加的情况 将数据都清除
     func showCreateSheet() {
         shared.isEditMode = false
-        shared.itemIdToEdit = 0
+        shared.itemIdToEdit = nil
 
         shared.metadata_inputting = ExpenseInfo(spentMoneyAt: DateInRegion(region: regionChina), event: "", amount: 0)
         shared.amount_string_inputting = ""
@@ -27,7 +27,7 @@ class SheetConfigModel: ObservableObject {
     }
 
     // 是更新的情况
-    func showEditSheet(itemIdToEdit: Int, metadata: ExpenseInfo) {
+    func showEditSheet(itemIdToEdit: UUID, metadata: ExpenseInfo) {
         shared.isEditMode = true
         shared.itemIdToEdit = itemIdToEdit
 

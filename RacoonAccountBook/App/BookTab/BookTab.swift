@@ -30,7 +30,7 @@ struct BookTab: View {
 //                ScrollViewReader { scrollView in
 //                    if
 //                        let (dayItemsDict, maxDayHavingItems) = Expense.getExpensesDiviedByDaysInMonth(today, context: context),
-//                        let days = dayItemsDict.keys.sorted()
+//                        let days:[Day] = dayItemsDict.keys.sorted()
 //                    {
 //                        ScrollView(.vertical) {
 //                            VStack {
@@ -38,7 +38,8 @@ struct BookTab: View {
 //                                // WWDC21可以替换为OrderedDictionary https://stackoverflow.com/a/68023633/14298786
 //
 //                                // 一天的开销在一个圆角矩形中
-//                                ForEach(days, id: \.self) { day in
+//                                // 这个ForEach不写id没问题吧
+//                                ForEach(days) { day in
 //                                    if let day = Day(rawValue: day.rawValue),
 //                                       let date = DateInRegion(
 //                                           year: thisYear,
