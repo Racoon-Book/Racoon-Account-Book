@@ -23,10 +23,9 @@ struct RacoonAccountBookApp: App {
 
                 let nowAllExpenses = try? persistenceController.container.viewContext.fetch(Expense.request_allExpenses)
 
-                printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] 删除并重新插入了测试数据共\(testMetaItems.count)条, 现在数据库中有\(nowAllExpenses?.count ?? -1)条Expense")
-
+                print(Log().string + "删除并重新插入了测试数据共\(testMetaItems.count)条, 现在数据库中有\(nowAllExpenses?.count ?? -1)条Expense")
             } else {
-                printError("no data in Core Data")
+                print(Log().string + "no data in Core Data")
             }
 
             if Focus.focusAmount(context: persistenceController.container.viewContext) == 0 {

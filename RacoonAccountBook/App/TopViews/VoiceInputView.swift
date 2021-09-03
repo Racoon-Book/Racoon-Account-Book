@@ -58,7 +58,6 @@ struct CommitSpeechButton: View {
 
     var body: some View {
         Button(action: {
-            printLog("[CommitSpeechButton] Clicked.")
             metadata_inputting.originalText = recognizedText // 将结果传给 OrdinaryAddSheet
 
             UpdateMetaItem()

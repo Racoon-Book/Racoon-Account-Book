@@ -13,7 +13,7 @@ extension Tag {
             if name_ != nil {
                 return name_!
             } else {
-                printFatalError("未获取到name")
+                print(Log().fatalerror + "未获取到name")
                 return ""
             }
         }

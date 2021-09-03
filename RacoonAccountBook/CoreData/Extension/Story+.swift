@@ -32,7 +32,7 @@ extension Story {
             if expense_ != nil {
                 return expense_!
             } else {
-                printFatalError("story 无法获取到对应的 expense")
+                print(Log().fatalerror + "story 无法获取到对应的 expense")
                 return Expense()
             }
         }

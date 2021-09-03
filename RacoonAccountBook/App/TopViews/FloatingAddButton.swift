@@ -35,7 +35,7 @@ struct FloatingAddButton: View {
                            })
                         .swiftSpeechRecordOnHold(locale: Locale(identifier: ChineseSpeechIdentifier))
                         .simultaneousGesture(TapGesture().onEnded {
-                            printLog("[FloatAddButton] Tapped")
+                            print(Log().string + "Tapped")
 
                             RacoonSheetConfig.showCreateSheet()
 

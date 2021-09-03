@@ -88,8 +88,6 @@ struct BookTab: View {
         self.year = year
         self.month = month
 
-        printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] year month \(year) \(month)")
-
         let request_expensesInMonth = Expense.request_expensesInMonth(DateInRegion(year: year, month: month, day: 1, region: regionChina))
         _expensesInMonth = FetchRequest(fetchRequest: request_expensesInMonth)
 
@@ -114,7 +112,6 @@ struct BookTab: View {
         let request_day6 = Expense.request_expensesInDay(day: day6)
         _expensesInDay6 = FetchRequest(fetchRequest: request_day6)
         day7 = DateInRegion(year: year, month: month, day: 7, region: regionChina)
-        print(day7)
         let request_day7 = Expense.request_expensesInDay(day: day7)
         _expensesInDay7 = FetchRequest(fetchRequest: request_day7)
         day8 = DateInRegion(year: year, month: month, day: 8, region: regionChina)

@@ -148,8 +148,6 @@ struct ExpenseSheet: View {
                     LargeButton(title: RacoonSheetConfig.shared.isEditMode ? "修改" : "记账",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                            printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
-
                             if RacoonSheetConfig.shared.isEditMode {
                                 UpdateMetaItem()
                             } else {
@@ -170,8 +168,6 @@ struct ExpenseSheet: View {
                 leading:
                 HStack {
                     Button(action: {
-                        printLog("[OrdinaryAddSheet] `Cancle` clicked.")
-
                         if RacoonSheetConfig.shared.isEditMode {
                             // 修改：什么都不做
                         } else {
@@ -183,8 +179,6 @@ struct ExpenseSheet: View {
                     }) { Text("取消").bold() }
 
                     Button(action: {
-                        printLog("[OrdinaryAddSheet] `Clear` clicked.")
-
                         if RacoonSheetConfig.shared.isEditMode {
                             // 修改：删除该条目
                             // FIXME: x
@@ -198,8 +192,6 @@ struct ExpenseSheet: View {
                 // 右边有一个按钮
                 trailing:
                 Button(action: {
-                    printLog("[OrdinaryAddSheet] `Done` clicked.")
-
                     if RacoonSheetConfig.shared.isEditMode {
                         // 修改
                         UpdateMetaItem() // 用当前正在输入的MetaItem更新id为itemidToUpdate的数据库Item
@@ -261,7 +253,7 @@ struct ExpenseSheet: View {
                 RacoonSheetConfig.shared.showingSuccessfullyAlert = true
             } else {
                 // 未成功修改
-                printFatalError("[OrdinaryAddSheet] UpdateMetaItem cannot find id")
+                print(Log().fatalerror + "UpdateMetaItem cannot find id")
             }
 
             RacoonSheetConfig.shared.showingMetaItemSheet = false // 收回sheet

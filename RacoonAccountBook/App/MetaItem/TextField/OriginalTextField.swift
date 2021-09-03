@@ -18,12 +18,12 @@ struct OriginalTextField: View {
                 self.isEditing = isEditing
         }
         onCommit: {
-            printLog("[OriginalTextField] Committed")
+            print(Log().string + "Committed")
             UpdateMetaItem()
         }
         // 注意这里最好不用`.onReceive` 因为`Just()`所认为的修改应该不仅仅有值上的改变 还有地址上的改变 好像一赋值就会执行 这并不是所期望的
         .onChange(of: metadata_inputting.originalText) { _ in
-            printLog("[OriginalTextField] Changed.")
+            print(Log().string + "Changed.")
             UpdateMetaItem()
         }
         .autocapitalization(.none)

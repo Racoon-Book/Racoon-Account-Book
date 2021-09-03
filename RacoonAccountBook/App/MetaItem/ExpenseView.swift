@@ -88,11 +88,10 @@ struct ExpenseView: View {
                 // 这里的感叹号是因为修改的话必须传入确切的UUID
                 RacoonSheetConfig.showEditSheet(itemIdToEdit: uuidOfItemToEdit!, metadata: expenseInfo)
             }
-            printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] uuid:\(uuidOfItemToEdit!)")
         }
     }
 
     private func didDismissEditingMetaItemSheet() {
-        printLog("[MetaItemView] didDismissEditingMetaItemSheet()")
+        print(Log().string)
     }
 }

@@ -82,7 +82,7 @@ struct MainView: View {
     private func didDismissOrdinaryAddSheet() {
         DiscardCurrentMetaItem()
 
-        printLog("[FloatingAddButton] Dismissed.")
+        print(Log().string + "Dismissed")
 
         func DiscardCurrentMetaItem() {
             metadata_inputting.clear()

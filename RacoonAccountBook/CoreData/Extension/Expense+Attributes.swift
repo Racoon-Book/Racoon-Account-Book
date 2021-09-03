@@ -21,7 +21,7 @@ extension Expense {
             if uuid_ != nil {
                 return uuid_!
             } else {
-                printFatalError("未获取到uuid")
+                print(Log().fatalerror + "未获取到uuid_")
                 return UUID()
             }
         }
@@ -33,7 +33,7 @@ extension Expense {
             if createdAt_ != nil {
                 return createdAt_!.convertTo(region: regionChina)
             } else {
-                printFatalError("未获取到createdAt_")
+                print(Log().fatalerror + "未获取到createdAt_")
                 return DateInRegion(region: regionChina)
             }
         }
@@ -45,7 +45,7 @@ extension Expense {
             if updatedAt_ != nil {
                 return updatedAt_!.convertTo(region: regionChina)
             } else {
-                printFatalError("未获取到updatedAt_")
+                print(Log().fatalerror + "未获取到updatedAt_")
                 return DateInRegion(region: regionChina)
             }
         }
@@ -59,7 +59,7 @@ extension Expense {
             if spentAt_ != nil {
                 return spentAt_!.convertTo(region: regionChina)
             } else {
-                printFatalError("未获取到spentAt_")
+                print(Log().fatalerror + "未获取到spentAt_")
                 return DateInRegion(region: regionChina)
             }
         }
@@ -71,7 +71,7 @@ extension Expense {
             if event_ != nil {
                 return event_!
             } else {
-                printFatalError("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] 未获取到event")
+                print(Log().string + "未获取到event")
                 return ""
             }
         }

@@ -13,7 +13,7 @@ extension Focus {
     }
 
     // MARK: - access
-    
+
     // Focus: name expenses
 
     var name: String {
@@ -21,42 +21,41 @@ extension Focus {
             if name_ != nil {
                 return name_!
             } else {
-                printFatalError("未获取到name")
+                print(Log().fatalerror + "未获取到name")
                 return ""
             }
         }
         set { name_ = newValue }
     }
-    
+
     var expenses: Set<Expense> {
         get { (expenses_ as? Set<Expense>) ?? [] }
         set { expenses_ = newValue as NSSet }
     }
 
     // MARK: - operation
-    
+
     // 有Focus就获取 没有创建 因为Focus不需要重复
     @discardableResult
     static func focus(name: String, context: NSManagedObjectContext) -> Focus {
         let request = NSFetchRequest<Focus>(entityName: "Focus")
         request.predicate = NSPredicate(format: "name_ == %@", name)
         let result = (try? context.fetch(request)) ?? []
-        
+
         if let focus = result.first {
             return focus
         } else {
             let newFocus = Focus(context: context)
-            
+
             newFocus.name = name
-            
+
             newFocus.objectWillChange.send()
-            
+
             try? context.save()
-            
+
             return newFocus
         }
     }
-
 
     // MARK: - analysis
 
