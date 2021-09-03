@@ -1,5 +1,6 @@
 // App Entrance
 
+import CoreData
 import SwiftUI
 
 @main
@@ -11,20 +12,27 @@ struct RacoonAccountBookApp: App {
     init() {
         #if DEV
 
-        // 在 DEV 下，当数据库为空时，插入 Testdata
-        if Expense.getAllExpenses(context: persistenceController.container.viewContext).count == 0 {
-            for metadata in testMetaItems {
-                Expense.create(expenseInfo: metadata, context: persistenceController.container.viewContext)
-            }
-            print("[RacoonAccountBookApp] 插入了测试数据")
-        }
+            // 每次重新运行App的时候，用TestData对数据库进行刷新；确保每次打开数据与TestData中的一致
+            if let allExpenses = try? persistenceController.container.viewContext.fetch(Expense.request_allExpenses) {
+                for expense in allExpenses {
+                    persistenceController.container.viewContext.delete(expense)
+                }
+                for metadata in testMetaItems {
+                    Expense.create(expenseInfo: metadata, context: persistenceController.container.viewContext)
+                }
 
-        if Focus.focusAmount(context: persistenceController.container.viewContext) == 0 {
-            let focusList: [String] = ["电子设备", "软件服务", "聚餐", "游戏", "宿舍"]
-            for focus in focusList {
-                Focus.create(name: focus, context: persistenceController.container.viewContext)
+                let nowAllExpenses = try? persistenceController.container.viewContext.fetch(Expense.request_allExpenses)
+                printLog("删除并重新插入了测试数据共\(testMetaItems.count)条, 现在数据库中有\(nowAllExpenses?.count ?? -1)条Expense")
+            } else {
+                printError("no data in Core Data")
             }
-        }
+
+            if Focus.focusAmount(context: persistenceController.container.viewContext) == 0 {
+                let focusList: [String] = ["电子设备", "软件服务", "聚餐", "游戏", "宿舍"]
+                for focus in focusList {
+                    Focus.create(name: focus, context: persistenceController.container.viewContext)
+                }
+            }
 
         #endif
     }
