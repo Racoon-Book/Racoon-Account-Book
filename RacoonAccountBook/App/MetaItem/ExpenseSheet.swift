@@ -3,7 +3,7 @@ import SwiftDate
 import SwiftUI
 
 /// 用来输入或修改一个Item的MetaItem
-struct MetaItemSheet: View {
+struct ExpenseSheet: View {
     @Environment(\.managedObjectContext) private var context
     
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
@@ -89,13 +89,13 @@ struct MetaItemSheet: View {
                                         input_string: $RacoonSheetConfig.shared.amount_string_inputting,
                                         isEditing: $isEditing)
                                         .frame(
-                                            maxWidth: MetaItemSheet.amountFieldWidth,
+                                            maxWidth: ExpenseSheet.amountFieldWidth,
                                             alignment: .trailing)
                                 }
                             }
                             .padding([.horizontal], 10) // 三个要素离矩形边框远一点
                         }
-                        .frame(height: MetaItemSheet.coreMetaItemHeight)
+                        .frame(height: ExpenseSheet.coreMetaItemHeight)
 
                         // 标签 Tag
                         TagsInputView(metadata_inputting: $RacoonSheetConfig.shared.metadata_inputting)

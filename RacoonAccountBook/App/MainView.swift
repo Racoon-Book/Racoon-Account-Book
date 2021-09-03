@@ -73,7 +73,7 @@ struct MainView: View {
             isPresented: $RacoonSheetConfig.shared.showingMetaItemSheet,
             onDismiss: didDismissOrdinaryAddSheet
         ) {
-            MetaItemSheet()
+            ExpenseSheet()
                 .environmentObject(RacoonSheetConfig)
                 .environment(\.managedObjectContext, context) // 注意Sheet和使用它的View并不是view hierarchy的关系，所以要手动传入EnvironmentObject
         }

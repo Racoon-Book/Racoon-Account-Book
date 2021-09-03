@@ -2,13 +2,13 @@ import SwiftDate
 import SwiftUI
 
 // 用来显示一个条目的View
-struct MetaItemView: View {
+struct ExpenseView: View {
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
     // MARK: - 基础数据
 
     /// 该View呈现的MetaItem
-    var metadata: ExpenseInfo
+    var expenseInfo: ExpenseInfo
 
     // MARK: - 修改相关
 
@@ -16,16 +16,16 @@ struct MetaItemView: View {
     var isEditable: Bool = true
 
     /// 要修改的Item的id
-    var itemId: UUID? = nil
+    var uuidOfItemToEdit: UUID? = nil
 
     var body: some View {
-        let amount_dispaly = String(format: "%.1f", metadata.amount)
+        let amount_dispaly = String(format: "%.1f", expenseInfo.amount)
 
         VStack(alignment: .leading) {
             HStack {
                 // [event]
-                if metadata.event != "" {
-                    Text(metadata.event)
+                if expenseInfo.event != "" {
+                    Text(expenseInfo.event)
                         .bold()
                         .font(.title2)
                         .foregroundColor(.primary)
@@ -37,10 +37,10 @@ struct MetaItemView: View {
                 }
 
                 // [story icon]
-                if metadata.story != nil {
+                if expenseInfo.story != nil {
                     Text(Image(systemName: "bookmark.fill"))
                         .foregroundColor(Color.blue)
-                }
+                } // FIXME: 没有故事的也有这个
 
                 Spacer()
 
@@ -53,9 +53,9 @@ struct MetaItemView: View {
 
             // [tags]
             // TODO: 这里用MultilineTagsViewForScrollView界面会出问题，反正也不会添加很多标签，一行就够了；但是输入那块地方不够还是的多行
-            if metadata.tags != [] {
+            if expenseInfo.tags != [] {
                 HStack {
-                    ForEach(metadata.tags, id: \.self) { tag in
+                    ForEach(expenseInfo.tags, id: \.self) { tag in
                         SingleComponentView(
                             text: tag,
                             color: Color("Add-Tag")
@@ -66,12 +66,12 @@ struct MetaItemView: View {
 
             // [focus] & [forWho]
             HStack {
-                if let focus = metadata.focus {
+                if let focus = expenseInfo.focus {
                     SingleComponentView(text: focus, color: Color("focus"))
                 }
 
-                if metadata.forWho != [] {
-                    ForEach(metadata.forWho, id: \.self) { sb in
+                if expenseInfo.forWho != [] {
+                    ForEach(expenseInfo.forWho, id: \.self) { sb in
                         SingleComponentView(
                             text: sb,
                             color: Color.orange
@@ -86,7 +86,7 @@ struct MetaItemView: View {
             // 是修改模式才判断点击
             if isEditable {
                 // 这里的感叹号是因为修改的话必须传入确切的UUID
-                RacoonSheetConfig.showEditSheet(itemIdToEdit: itemId!, metadata: metadata)
+                RacoonSheetConfig.showEditSheet(itemIdToEdit: uuidOfItemToEdit!, metadata: expenseInfo)
             }
         }
     }

@@ -17,8 +17,8 @@ struct RacoonAccountBookApp: App {
                 for expense in allExpenses {
                     persistenceController.container.viewContext.delete(expense)
                 }
-                for metadata in testMetaItems {
-                    Expense.create(expenseInfo: metadata, context: persistenceController.container.viewContext)
+                for expenseInfo in testMetaItems {
+                    Expense.create(expenseInfo: expenseInfo, context: persistenceController.container.viewContext)
                 }
 
                 let nowAllExpenses = try? persistenceController.container.viewContext.fetch(Expense.request_allExpenses)
