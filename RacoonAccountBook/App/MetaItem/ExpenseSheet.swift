@@ -1,4 +1,5 @@
 import Combine
+import CoreData
 import SwiftDate
 import SwiftUI
 
@@ -147,13 +148,13 @@ struct ExpenseSheet: View {
                     LargeButton(title: RacoonSheetConfig.shared.isEditMode ? "修改" : "记账",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                        printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
+                            printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
 
-                        if RacoonSheetConfig.shared.isEditMode {
-                            UpdateMetaItem()
-                        } else {
-                            AddNewMetaItem()
-                        }
+                            if RacoonSheetConfig.shared.isEditMode {
+                                UpdateMetaItem()
+                            } else {
+                                AddNewMetaItem()
+                            }
                     }
                     .font(.system(.title)) // TODO: 字有点小
                 }
@@ -161,7 +162,7 @@ struct ExpenseSheet: View {
             .padding()
             // Sheet最上方的标题
             .navigationBarTitle(
-                Text("记一笔账"),
+                Text(RacoonSheetConfig.shared.isEditMode ? "修改账目" : "记一笔账"),
                 displayMode: .inline)
             // [Sheet左右两侧的按钮]
             .navigationBarItems(
@@ -249,20 +250,19 @@ struct ExpenseSheet: View {
 
         if !noEvent, !noAmount {
             // TODO: 用id革面革心
-            // 成功添加/修改
-            // TODO: add Core Data
-//            let successfullyUpdate: Bool = RacoonAccountBook.updateItem(
-//                id: RacoonSheetConfig.shared.itemIdToEdit,
-//                metadata: RacoonSheetConfig.shared.metadata_inputting)
-//
-//            if successfullyUpdate {
-//                // 添加成功显示提示
-//                RacoonSheetConfig.shared.showingSuccessfullyAlert = true
-//            } else {
-//                // 未成功修改
-//                // FIXME: 添加给用户的提示
-//                printError("[OrdinaryAddSheet] UpdateMetaItem cannot find id")
-//            }
+            // 修改
+            let successfullyUpdate: Bool = Expense.updateBy(
+                uuid: RacoonSheetConfig.shared.uuidOfExpenseToEdit!,
+                expenseInfo: RacoonSheetConfig.shared.expense_inputting,
+                context: context)
+
+            if successfullyUpdate {
+                // 添加成功显示提示
+                RacoonSheetConfig.shared.showingSuccessfullyAlert = true
+            } else {
+                // 未成功修改
+                printFatalError("[OrdinaryAddSheet] UpdateMetaItem cannot find id")
+            }
 
             RacoonSheetConfig.shared.showingMetaItemSheet = false // 收回sheet
         } else {

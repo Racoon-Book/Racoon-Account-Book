@@ -5,6 +5,8 @@ import SwiftDate
 extension Expense {
     // MARK: - fetch requests
 
+    // multiple - all
+
     static var request_allExpenses: NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
@@ -17,6 +19,8 @@ extension Expense {
         request.predicate = NSPredicate(format: "story_ != nil")
         return request
     }
+
+    // multiple - period
 
     static var request_expensesInLast30days: NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
@@ -65,6 +69,16 @@ extension Expense {
             format: "spentAt_ > %@ and spentAt_ < %@",
             month.dateAt(.startOfMonth).date as NSDate,
             month.dateAt(.endOfMonth).date as NSDate)
+        return request
+    }
+
+    // single - uuid
+
+    static func request_expenseBy(uuid: UUID) -> NSFetchRequest<Expense> {
+        let request = NSFetchRequest<Expense>(entityName: "Expense")
+        request.sortDescriptors = [NSSortDescriptor(key: "uuid_", ascending: true)]
+        request.predicate = NSPredicate(
+            format: "uuid_ = %@", uuid.uuidString as NSString) // FIXME: 没问题吧？
         return request
     }
 
@@ -192,15 +206,62 @@ extension Expense {
     // MARK: - combined data
 
     var expenseInfo: ExpenseInfo {
-        ExpenseInfo(originalText: originalText,
-                    spentAt: spentAt,
-                    event: event,
-                    amount: amount,
-                    generatedTags: generatedTags.map { $0.name },
-                    tags: tags.map { $0.name },
-                    focus: focus?.name,
-                    forWho: forWho.map { $0.name },
-                    story: story == nil ? nil : ExpenseInfo.Story(rating: story?.rating, emoji: story?.emoji, text: story?.text))
+        get {
+            ExpenseInfo(originalText: originalText,
+                        spentAt: spentAt,
+                        event: event,
+                        amount: amount,
+                        generatedTags: generatedTags.map { $0.name },
+                        tags: tags.map { $0.name },
+                        focus: focus?.name,
+                        forWho: forWho.map { $0.name },
+                        story: story == nil ? nil : ExpenseInfo.Story(rating: story?.rating, emoji: story?.emoji, text: story?.text))
+        }
+
+        set {
+            // Expense
+
+            //   - properties: spentAt event amount
+            spentAt = newValue.spentAt
+            event = newValue.event
+            amount = newValue.amount
+
+            //   - other: originalText?
+            originalText = newValue.originalText
+
+            //   - relationship: story? focus generatedTags tags forWho
+            if newValue.story != nil {
+                story = Story.create(story: newValue.story!, context: managedObjectContext!)
+            } else {
+                story = nil
+            }
+
+            if newValue.focus != nil {
+                focus = Focus.focus(name: newValue.focus!, context: managedObjectContext!)
+            }
+
+            if newValue.generatedTags.count != 0 {
+                for name in newValue.generatedTags {
+                    // 添加关系
+                    // 如果Tag有了就直接添加；没有就创建之后再添加
+                    addToGeneratedTags_(Tag.tag(name: name, context: managedObjectContext!))
+                }
+            }
+
+            if newValue.tags.count != 0 {
+                for name in newValue.tags {
+                    // 添加关系
+                    addToTags_(Tag.tag(name: name, context: managedObjectContext!))
+                }
+            }
+
+            if newValue.forWho.count != 0 {
+                for name in newValue.forWho {
+                    // 添加关系
+                    addToForWho_(Someone.someone(name: name, context: managedObjectContext!))
+                }
+            }
+        }
     }
 
     // MARK: - operation
@@ -216,49 +277,47 @@ extension Expense {
         expense.updatedAt = DateInRegion(region: regionChina)
 
         //   - properties: spentAt event amount
-        expense.spentAt = expenseInfo.spentAt
-        expense.event = expenseInfo.event
-        expense.amount = expenseInfo.amount
-
         //   - other: originalText?
-        expense.originalText = expenseInfo.originalText
-
         //   - relationship: story? focus generatedTags tags forWho
-        if expenseInfo.story != nil {
-            expense.story = Story.create(story: expenseInfo.story!, context: context)
-        } else {
-            expense.story = nil
-        }
-
-        if expenseInfo.focus != nil {
-            expense.focus = Focus.focus(name: expenseInfo.focus!, context: context)
-        }
-
-        if expenseInfo.generatedTags.count != 0 {
-            for name in expenseInfo.generatedTags {
-                // 添加关系
-                // 如果Tag有了就直接添加；没有就创建之后再添加
-                expense.addToGeneratedTags_(Tag.tag(name: name, context: context))
-            }
-        }
-
-        if expenseInfo.tags.count != 0 {
-            for name in expenseInfo.tags {
-                // 添加关系
-                expense.addToTags_(Tag.tag(name: name, context: context))
-            }
-        }
-
-        if expenseInfo.forWho.count != 0 {
-            for name in expenseInfo.forWho {
-                // 添加关系
-                expense.addToForWho_(Someone.someone(name: name, context: context))
-            }
-        }
+        expense.expenseInfo = expenseInfo
 
         expense.objectWillChange.send()
 
         try? context.save()
+    }
+
+    static func updateBy(uuid: UUID, expenseInfo: ExpenseInfo,
+                         context: NSManagedObjectContext) -> Bool
+    {
+        print(uuid)
+
+        if let expenses = try? context.fetch(Expense.request_expenseBy(uuid: uuid)) {
+            let expense: Expense = expenses.first!
+
+            // - system
+            expense.updatedAt = DateInRegion(region: regionChina)
+
+            //   - properties: spentAt event amount
+            //   - other: originalText?
+            //   - relationship: story? focus generatedTags tags forWho
+            expense.expenseInfo = expenseInfo // TODO: 这样就可以修改了吗？
+
+            expense.objectWillChange.send()
+
+            do {
+                try context.save()
+            } catch {
+                print("error 1")
+                return false
+            }
+
+        } else {
+            printFatalError("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] not fount expense by uuid")
+            print("error 2")
+            return false
+        }
+        print("error 3")
+        return false
     }
 
     // MARK: - analysis

@@ -40,7 +40,7 @@ struct ExpenseView: View {
                 if expenseInfo.story != nil {
                     Text(Image(systemName: "bookmark.fill"))
                         .foregroundColor(Color.blue)
-                } // FIXME: 没有故事的也有这个
+                }
 
                 Spacer()
 
@@ -88,6 +88,7 @@ struct ExpenseView: View {
                 // 这里的感叹号是因为修改的话必须传入确切的UUID
                 RacoonSheetConfig.showEditSheet(itemIdToEdit: uuidOfItemToEdit!, metadata: expenseInfo)
             }
+            printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] uuid:\(uuidOfItemToEdit!)")
         }
     }
 
