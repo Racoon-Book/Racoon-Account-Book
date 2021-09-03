@@ -2,6 +2,8 @@ import SwiftDate
 import SwiftUI
 
 struct DayExpensesView: View {
+    @Environment(\.managedObjectContext) private var context
+
     var date: DateInRegion
     var dayExpenses: [Expense]
 

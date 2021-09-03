@@ -78,7 +78,9 @@ extension Expense {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "uuid_", ascending: true)]
         request.predicate = NSPredicate(
-            format: "uuid_ = %@", uuid.uuidString as NSString) // FIXME: 没问题吧？
+            format: "uuid_ = %@", uuid as CVarArg) // FIXME: 没问题吧？
+        print(NSPredicate(
+            format: "uuid_ = %@", uuid as CVarArg))
         return request
     }
 
@@ -289,34 +291,46 @@ extension Expense {
     static func updateBy(uuid: UUID, expenseInfo: ExpenseInfo,
                          context: NSManagedObjectContext) -> Bool
     {
-        print(uuid)
-
-        if let expenses = try? context.fetch(Expense.request_expenseBy(uuid: uuid)) {
-            let expense: Expense = expenses.first!
+        printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] uuid")
+        do {
+            let expenses = try context.fetch(Expense.request_expenseBy(uuid: uuid))
 
             // - system
-            expense.updatedAt = DateInRegion(region: regionChina)
+            expenses.first!.updatedAt = DateInRegion(region: regionChina)
 
             //   - properties: spentAt event amount
             //   - other: originalText?
             //   - relationship: story? focus generatedTags tags forWho
-            expense.expenseInfo = expenseInfo // TODO: 这样就可以修改了吗？
+            expenses.first!.expenseInfo = expenseInfo // TODO: 这样就可以修改了吗？
 
-            expense.objectWillChange.send()
+            expenses.first!.objectWillChange.send()
 
             do {
                 try context.save()
+                expenses.first!.objectWillChange.send()
+                print("do 1")
+                let newExpenses = try context.fetch(Expense.request_expenseBy(uuid: uuid))
+                let newExpense: Expense = newExpenses.first!
+                printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] \(newExpense)")
+
+                return true
             } catch {
                 print("error 1")
                 return false
             }
 
-        } else {
-            printFatalError("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] not fount expense by uuid")
-            print("error 2")
-            return false
+        } catch {
+            let fetchError = error as NSError
+            printError(fetchError)
+            print("haha")
         }
-        print("error 3")
+
+//        if  else {
+//            printFatalError("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] not fount expense by uuid")
+//            print("error 2")
+//            return false
+//        }
+//        print("error 3")
         return false
     }
 

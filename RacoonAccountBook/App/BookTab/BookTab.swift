@@ -25,6 +25,9 @@ struct BookTab: View {
                                       sevenIn: 0,
                                       thirtyEx: expensesInLast30Days.sum(),
                                       thirtyIn: 0)
+                    .onAppear(){
+                        printLog("[\((#filePath as NSString).lastPathComponent) \(#function) line\(#line)] \(expensesInLast7Days)")
+                    }
                     .padding(cardPadding)
                 // TODO: 这里也许可以加个阴影？
 
@@ -56,7 +59,7 @@ struct BookTab: View {
                                                 DayExpensesView(
                                                     date: date,
                                                     dayExpenses: dayExpensesDict[day]!
-                                                )
+                                                ).id(UUID())
                                                 .padding([.horizontal], cardPadding) // 让圆角矩形边框不靠边
                                             } else {
                                                 EmptyView()
