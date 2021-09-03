@@ -292,6 +292,7 @@ extension Expense {
                 if let day = Day(rawValue: expense.spentAt.day) {
                     // 这里用叹号没有危险 因为Day全用的枚举
                     dayItems[day]!.append(expense)
+                    printLog("Appended \(expense.event)")
                 } else {
                     printError("")
                 }

@@ -1660,7 +1660,7 @@ let testMetaItem_188 = ExpenseInfo(
 
 let testMetaItem_189 = ExpenseInfo(
     originalText: "买DLSite点数",
-    spentMoneyAt: "210808".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210901".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "dlsite1000点数",
     amount: 60.0,
     tags: ["音声", "DLSite"],
@@ -1672,7 +1672,7 @@ let testMetaItem_189 = ExpenseInfo(
 
 let testMetaItem_190 = ExpenseInfo(
     originalText: "买湿巾花了三十八块八",
-    spentMoneyAt: "210901".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210902".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "湿巾",
     amount: 38.8,
     tags: ["湿巾", "餐桌"]
@@ -1680,7 +1680,7 @@ let testMetaItem_190 = ExpenseInfo(
 
 let testMetaItem_191 = ExpenseInfo(
     originalText: "买macOS开发书花了八十一",
-    spentMoneyAt: "210901".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210903".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "macOS开发书",
     amount: 81.0,
     tags: ["AppKit", "macOS", "Xcode"],

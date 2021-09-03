@@ -1,3 +1,4 @@
+import CoreData
 import SwiftDate
 import SwiftUI
 
@@ -30,7 +31,7 @@ struct BookTab: View {
                 ScrollViewReader { scrollView in
                     if
                         let (dayItemsDict, maxDayHavingItems) = Expense.getExpensesDiviedByDaysInMonth(today, context: context),
-                        let days:[Day] = dayItemsDict.keys.sorted()
+                        let days: [Day] = dayItemsDict.keys.sorted()
                     {
                         ScrollView(.vertical) {
                             VStack {
@@ -39,7 +40,7 @@ struct BookTab: View {
 
                                 // 一天的开销在一个圆角矩形中
                                 // 这个ForEach不写id没问题吧
-                                ForEach(days,id:\.self) { day in
+                                ForEach(days, id: \.self) { day in
 //                                    if let day = Day(rawValue: day.rawValue),
 //                                       let date = DateInRegion(
 //                                           year: thisYear,
@@ -48,16 +49,26 @@ struct BookTab: View {
 //                                           region: regionChina
 //                                       ),
 //                                       let ex = dayItemsDict[day],
-//                                       let dayItems = ex.items
+//                                       let dayItems = ex.expense
 //                                    {
-////                                        DayItemsView(
-////                                            date: date,
-////                                            dayItems: dayItems
-////                                        )
-////                                        .padding([.horizontal], cardPadding) // 让圆角矩形边框不靠边
+                                    ////                                        DayItemsView(
+                                    ////                                            date: date,
+                                    ////                                            dayItems: dayItems
+                                    ////                                        )
+                                    ////                                        .padding([.horizontal], cardPadding) // 让圆角矩形边框不靠边
 //                                        Text("haha")
 //                                    }
-                                    Text("\(day.rawValue)")
+
+                                    // 用叹号没有风险：这里Day是枚举
+                                    if dayItemsDict[day]!.count != 0 {
+                                        Text("\(day.rawValue)")
+//                                        DayItemsView(
+//                                            date: day,
+//                                            dayItems: dayItems
+//                                        )
+                                    } else {
+                                        EmptyView()
+                                    }
                                 }
                                 Text("haha")
                             }
