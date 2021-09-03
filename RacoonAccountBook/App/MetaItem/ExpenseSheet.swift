@@ -147,13 +147,13 @@ struct ExpenseSheet: View {
                     LargeButton(title: RacoonSheetConfig.shared.isEditMode ? "修改" : "记账",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                            printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
+                        printLog("[OrdinaryAddSheet] LargeDoneButton clicked.")
 
-                            if RacoonSheetConfig.shared.isEditMode {
-                                UpdateMetaItem()
-                            } else {
-                                AddNewMetaItem()
-                            }
+                        if RacoonSheetConfig.shared.isEditMode {
+                            UpdateMetaItem()
+                        } else {
+                            AddNewMetaItem()
+                        }
                     }
                     .font(.system(.title)) // TODO: 字有点小
                 }
@@ -227,16 +227,11 @@ struct ExpenseSheet: View {
         let noAmount: Bool = RacoonSheetConfig.shared.expense_inputting.amount == 0
 
         if !noEvent && !noAmount {
-            // 成功添加/修改
-            // TODO: add Core Data
-//            RacoonAccountBook.createItem(metadata: RacoonSheetConfig.shared.metadata_inputting)
+            // 进行添加
+            Expense.create(expenseInfo: RacoonSheetConfig.shared.expense_inputting, context: context)
 
             // 添加成功显示提示
             RacoonSheetConfig.shared.showingSuccessfullyAlert = true
-
-            // 没必要，因为每次打开sheet的时候进行更新，而且SuccessfullyAlert那边还要用呢！
-//            // 创建好数据之后将临时数据归零了
-//            DiscardCurrentMetaItem()
 
             RacoonSheetConfig.shared.showingMetaItemSheet = false // 收回sheet
         } else {
