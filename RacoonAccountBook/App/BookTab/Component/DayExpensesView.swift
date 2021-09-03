@@ -5,7 +5,7 @@ struct DayExpensesView: View {
     @Environment(\.managedObjectContext) private var context
 
     var date: DateInRegion
-    var dayExpenses: [Expense]
+    var dayExpenses: FetchedResults<Expense>
 
     var body: some View {
         let date_display: String = DisplayDate(date)
@@ -21,10 +21,12 @@ struct DayExpensesView: View {
                     Text(date_display)
                         .padding([.top], 10) // 日期上面的padding
                         .font(.system(.title2))
+                    
 
-                    ForEach(dayExpenses, id: \.self.objectID) { expense in
+                    ForEach(dayExpenses, id: \.self) { expense in
                         // TODO: 一天内的花销按添加顺序排列
                         // FIXME: 修改之后要刷新
+                        
                         ExpenseView(
                             expenseInfo: expense.expenseInfo,
                             uuidOfItemToEdit: expense.uuid)

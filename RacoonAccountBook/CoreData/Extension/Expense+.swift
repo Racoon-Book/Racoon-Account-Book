@@ -26,7 +26,7 @@ extension Expense {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
         request.predicate = NSPredicate(
-            format: "spentAt_ > %@ and spentAt_ < %@",
+            format: "spentAt_ >= %@ and spentAt_ < %@",
             (DateInRegion(region: regionChina) - 30.days).date as NSDate,
             DateInRegion(region: regionChina).date as NSDate)
         return request
@@ -36,7 +36,7 @@ extension Expense {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
         request.predicate = NSPredicate(
-            format: "spentAt_ > %@ and spentAt_ < %@",
+            format: "spentAt_ >= %@ and spentAt_ < %@",
             DateInRegion(region: regionChina).dateAt(.startOfMonth).date as NSDate,
             DateInRegion(region: regionChina).dateAt(.endOfMonth).date as NSDate)
         return request
@@ -46,7 +46,7 @@ extension Expense {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
         request.predicate = NSPredicate(
-            format: "spentAt_ > %@ and spentAt_ < %@",
+            format: "spentAt_ >= %@ and spentAt_ < %@",
             month.dateAt(.startOfMonth).date as NSDate,
             month.dateAt(.endOfMonth).date as NSDate)
         return request
@@ -58,7 +58,7 @@ extension Expense {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
         request.predicate = NSPredicate(
-            format: "spentAt_ > %@ and spentAt_ < %@",
+            format: "spentAt_ >= %@ and spentAt_ < %@",
             (DateInRegion(region: regionChina) - 7.days).date as NSDate,
             DateInRegion(region: regionChina).date as NSDate)
         return request
@@ -68,21 +68,21 @@ extension Expense {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
         request.predicate = NSPredicate(
-            format: "spentAt_ > %@ and spentAt_ < %@",
+            format: "spentAt_ >= %@ and spentAt_ < %@",
             DateInRegion(region: regionChina).dateAt(.startOfWeek).date as NSDate,
             DateInRegion(region: regionChina).dateAt(.endOfWeek).date as NSDate)
         return request
     }
 
     // multiple - period 1
-    
+
     static func request_expensesInDay(day: DateInRegion) -> NSFetchRequest<Expense> {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
         request.predicate = NSPredicate(
-            format: "spentAt_ > %@ and spentAt_ < %@",
-            DateInRegion(region: regionChina).dateAt(.startOfDay).date as NSDate,
-            DateInRegion(region: regionChina).dateAt(.endOfDay).date as NSDate)
+            format: "spentAt_ >= %@ and spentAt_ < %@",
+            day.dateAt(.startOfDay).date as NSDate,
+            day.dateAt(.endOfDay).date as NSDate)
         return request
     }
 
