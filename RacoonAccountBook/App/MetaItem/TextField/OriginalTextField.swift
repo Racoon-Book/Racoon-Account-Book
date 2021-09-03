@@ -35,7 +35,7 @@ struct OriginalTextField: View {
     private func UpdateMetaItem() {
         // 是编辑模式则创建日期不变
         let spentMoneyAt: DateInRegion = RacoonSheetConfig.shared.isEditMode ?
-            metadata_inputting.spentMoneyAt :
+            metadata_inputting.spentAt :
             OriginalText2SpentMoneyAt(from: metadata_inputting.originalText ?? "") ?? DateInRegion(region: regionChina)
 
         metadata_inputting.update(

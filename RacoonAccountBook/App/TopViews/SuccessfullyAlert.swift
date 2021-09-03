@@ -18,7 +18,7 @@ struct SuccessfullyAlert: View {
                 .padding([.horizontal, .top])
 
             // FIXME: 改好MetaItemView的init之后来改这个
-            ExpenseView(expenseInfo: RacoonSheetConfig.shared.metadata_inputting)
+            ExpenseView(expenseInfo: RacoonSheetConfig.shared.expense_inputting)
                 .padding()
         }
         .frame(width: UIScreen.main.bounds.width - 100)

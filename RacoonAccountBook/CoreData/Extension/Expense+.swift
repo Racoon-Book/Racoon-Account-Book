@@ -193,7 +193,7 @@ extension Expense {
 
     var expenseInfo: ExpenseInfo {
         ExpenseInfo(originalText: originalText,
-                    spentMoneyAt: spentAt,
+                    spentAt: spentAt,
                     event: event,
                     amount: amount,
                     generatedTags: generatedTags.map { $0.name },
@@ -216,7 +216,7 @@ extension Expense {
         expense.updatedAt = DateInRegion(region: regionChina)
 
         //   - properties: spentAt event amount
-        expense.spentAt = expenseInfo.spentMoneyAt
+        expense.spentAt = expenseInfo.spentAt
         expense.event = expenseInfo.event
         expense.amount = expenseInfo.amount
 

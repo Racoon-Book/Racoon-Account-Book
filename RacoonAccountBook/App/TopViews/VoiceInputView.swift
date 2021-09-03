@@ -33,7 +33,7 @@ struct VoiceInputView: View {
                         Spacer()
                         // 确定语音输入没问题 提交
                         CommitSpeechButton(
-                            metadata_inputting: $RacoonSheetConfig.shared.metadata_inputting,
+                            metadata_inputting: $RacoonSheetConfig.shared.expense_inputting,
                             recognizedText: $recognizedText
                         )
                         Spacer()

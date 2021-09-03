@@ -20,7 +20,7 @@ struct MainView: View {
     /// 添加时临时记录使用的metadata
     @State private var metadata_inputting = ExpenseInfo(
         originalText: "",
-        spentMoneyAt: DateInRegion(region: regionChina),
+        spentAt: DateInRegion(region: regionChina),
         event: "",
         amount: 0.0
     )

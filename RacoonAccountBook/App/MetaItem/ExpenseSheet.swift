@@ -5,7 +5,7 @@ import SwiftUI
 /// 用来输入或修改一个Item的MetaItem
 struct ExpenseSheet: View {
     @Environment(\.managedObjectContext) private var context
-    
+
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
     // MARK: - 界面参数
@@ -21,8 +21,8 @@ struct ExpenseSheet: View {
     @State private var showUnsuccessfullyAlert: Bool = false
     /// 错误提示框的信息
     private var unsuccessfullyAlertMessage: String {
-        let noEvent: Bool = RacoonSheetConfig.shared.metadata_inputting.event == ""
-        let noAmount: Bool = RacoonSheetConfig.shared.metadata_inputting.amount == 0
+        let noEvent: Bool = RacoonSheetConfig.shared.expense_inputting.event == ""
+        let noAmount: Bool = RacoonSheetConfig.shared.expense_inputting.amount == 0
 
         if noEvent, noAmount {
             return "未输入事件和金额"
@@ -61,7 +61,7 @@ struct ExpenseSheet: View {
                                 .font(.system(.headline))
                             // TODO: 每次打开sheet直接将光标放在这里，键盘默认弹出
                             OriginalTextField(
-                                hint: "用一句话写出你的花销", isEditing: $isEditing, metadata_inputting: $RacoonSheetConfig.shared.metadata_inputting, amount_string_inputting: $RacoonSheetConfig.shared.amount_string_inputting)
+                                hint: "用一句话写出你的花销", isEditing: $isEditing, metadata_inputting: $RacoonSheetConfig.shared.expense_inputting, amount_string_inputting: $RacoonSheetConfig.shared.amount_string_inputting)
                         }
 
                         // 三个要素 spentMoneyAt event amount
@@ -72,7 +72,7 @@ struct ExpenseSheet: View {
                             VStack {
                                 HStack {
                                     // TODO: 这个之后要改成可以点击修改的日期选择框
-                                    Text(DisplayDate(RacoonSheetConfig.shared.metadata_inputting.spentMoneyAt))
+                                    Text(DisplayDate(RacoonSheetConfig.shared.expense_inputting.spentAt))
                                         .font(.body)
                                         .padding(.top, 6.0)
                                     Spacer()
@@ -80,12 +80,12 @@ struct ExpenseSheet: View {
                                 HStack {
                                     MetaItemTextField(
                                         hint: "事件",
-                                        input_text: $RacoonSheetConfig.shared.metadata_inputting.event,
+                                        input_text: $RacoonSheetConfig.shared.expense_inputting.event,
                                         isEditing: $isEditing)
 
                                     AmountField(
                                         hint: "金额",
-                                        input_float: $RacoonSheetConfig.shared.metadata_inputting.amount,
+                                        input_float: $RacoonSheetConfig.shared.expense_inputting.amount,
                                         input_string: $RacoonSheetConfig.shared.amount_string_inputting,
                                         isEditing: $isEditing)
                                         .frame(
@@ -98,24 +98,24 @@ struct ExpenseSheet: View {
                         .frame(height: ExpenseSheet.coreMetaItemHeight)
 
                         // 标签 Tag
-                        TagsInputView(metadata_inputting: $RacoonSheetConfig.shared.metadata_inputting)
+                        TagsInputView(metadata_inputting: $RacoonSheetConfig.shared.expense_inputting)
 
                         // 标签添加建议 TagGenerated
-                        TagsSuggestionView(metadata_inputting: $RacoonSheetConfig.shared.metadata_inputting)
+                        TagsSuggestionView(metadata_inputting: $RacoonSheetConfig.shared.expense_inputting)
 
                         // 关注 Focus
-                        FocusSelectView(metadata_inputting: $RacoonSheetConfig.shared.metadata_inputting)
+                        FocusSelectView(metadata_inputting: $RacoonSheetConfig.shared.expense_inputting)
 
                         // MARK: - Other
 
                         // 财记 Story
                         if extraMetaItemConfig.showingStory {
                             StoryInputView(
-                                metadata_inputting: $RacoonSheetConfig.shared.metadata_inputting,
+                                metadata_inputting: $RacoonSheetConfig.shared.expense_inputting,
                                 showingStoryInputView: $extraMetaItemConfig.showingStory)
                                 .onAppear {
                                     // 出现的时候置为三星
-                                    RacoonSheetConfig.shared.metadata_inputting.story = ExpenseInfo.Story(
+                                    RacoonSheetConfig.shared.expense_inputting.story = ExpenseInfo.Story(
                                         rating: 3,
                                         emoji: "😃", // FIXME:
                                         text: nil)
@@ -127,7 +127,7 @@ struct ExpenseSheet: View {
                         // 为谁 ForWho
                         if extraMetaItemConfig.showingForWho {
                             ForWhoInputView(
-                                metadata_inputting: $RacoonSheetConfig.shared.metadata_inputting,
+                                metadata_inputting: $RacoonSheetConfig.shared.expense_inputting,
                                 showingForWhoInputView: $extraMetaItemConfig.showingForWho)
                         } else {
                             EmptyView()
@@ -138,7 +138,7 @@ struct ExpenseSheet: View {
                         if !extraMetaItemConfig.showingStory ||
                             !extraMetaItemConfig.showingForWho
                         {
-                            NewMetaDataButtons(metadata_inputting: $RacoonSheetConfig.shared.metadata_inputting,
+                            NewMetaDataButtons(metadata_inputting: $RacoonSheetConfig.shared.expense_inputting,
                                                extraMetaItemConfig: $extraMetaItemConfig)
                         }
                     }
@@ -223,8 +223,8 @@ struct ExpenseSheet: View {
         PutKeyboardBack() // 收起键盘
 
         // 至少amount不能为0，event不能为空
-        let noEvent: Bool = RacoonSheetConfig.shared.metadata_inputting.event == ""
-        let noAmount: Bool = RacoonSheetConfig.shared.metadata_inputting.amount == 0
+        let noEvent: Bool = RacoonSheetConfig.shared.expense_inputting.event == ""
+        let noAmount: Bool = RacoonSheetConfig.shared.expense_inputting.amount == 0
 
         if !noEvent && !noAmount {
             // 成功添加/修改
@@ -249,8 +249,8 @@ struct ExpenseSheet: View {
         PutKeyboardBack() // 收起键盘
 
         // 至少amount不能为0，event不能为空
-        let noEvent: Bool = RacoonSheetConfig.shared.metadata_inputting.event == ""
-        let noAmount: Bool = RacoonSheetConfig.shared.metadata_inputting.amount == 0
+        let noEvent: Bool = RacoonSheetConfig.shared.expense_inputting.event == ""
+        let noAmount: Bool = RacoonSheetConfig.shared.expense_inputting.amount == 0
 
         if !noEvent, !noAmount {
             // TODO: 用id革面革心
@@ -277,7 +277,7 @@ struct ExpenseSheet: View {
     }
 
     private func DiscardCurrentMetaItem() {
-        RacoonSheetConfig.shared.metadata_inputting.clear()
+        RacoonSheetConfig.shared.expense_inputting.clear()
         RacoonSheetConfig.shared.amount_string_inputting = ""
     }
 }

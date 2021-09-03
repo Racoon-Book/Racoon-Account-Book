@@ -17,7 +17,7 @@ struct ExpenseInfo {
     /// 消费发生的日期 单位：天
     ///
     /// 记昨天的账，日期为昨天
-    var spentMoneyAt: DateInRegion // TODO: 这里只存日期(天)，排序时相同的日期（天）用`createAt`排序
+    var spentAt: DateInRegion // TODO: 这里只存日期(天)，排序时相同的日期（天）用`createAt`排序
 
     /// 由`originalText`去掉钱数、日期自动生成
     var event: String
@@ -93,7 +93,7 @@ struct ExpenseInfo {
     mutating func clear() {
         originalText = ""
 
-        spentMoneyAt = DateInRegion(region: regionChina)
+        spentAt = DateInRegion(region: regionChina)
         event = ""
         amount = 0.0
 
@@ -123,7 +123,7 @@ struct ExpenseInfo {
     {
         if originalText != nil { self.originalText = originalText }
 
-        if spentMoneyAt != nil { self.spentMoneyAt = spentMoneyAt! }
+        if spentMoneyAt != nil { self.spentAt = spentMoneyAt! }
         if event != nil { self.event = event! }
         if amount_float != nil { self.amount = amount_float! }
 
@@ -147,7 +147,7 @@ extension ExpenseInfo: CustomStringConvertible {
 
         let event: String = self.event
         let amount = String(format: "%.1f", amount)
-        let date: String = spentMoneyAt.toFormat("yyyy/M/d", locale: Locales.chineseChina)
+        let date: String = spentAt.toFormat("yyyy/M/d", locale: Locales.chineseChina)
 
         let focus: String = self.focus ?? "nil"
 
