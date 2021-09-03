@@ -41,24 +41,6 @@ struct BookTab: View {
                                 // 一天的开销在一个圆角矩形中
                                 // 这个ForEach不写id没问题吧
                                 ForEach(days, id: \.self) { day in
-//                                    if let day = Day(rawValue: day.rawValue),
-//                                       let date = DateInRegion(
-//                                           year: thisYear,
-//                                           month: thisMonth,
-//                                           day: day.rawValue,
-//                                           region: regionChina
-//                                       ),
-//                                       let ex = dayItemsDict[day],
-//                                       let dayItems = ex.expense
-//                                    {
-                                    ////                                        DayItemsView(
-                                    ////                                            date: date,
-                                    ////                                            dayItems: dayItems
-                                    ////                                        )
-                                    ////                                        .padding([.horizontal], cardPadding) // 让圆角矩形边框不靠边
-//                                        Text("haha")
-//                                    }
-
                                     if let day = Day(rawValue: day.rawValue),
                                        let date = DateInRegion(
                                            year: thisYear,
@@ -68,9 +50,7 @@ struct BookTab: View {
                                        )
                                     {
                                         // 用叹号没有风险：这里Day是枚举
-
                                         if dayItemsDict[day]!.count != 0 {
-                                            Text("\(day.rawValue)")
                                             DayItemsView(
                                                 date: date,
                                                 dayItems: dayItemsDict[day]!
@@ -81,7 +61,6 @@ struct BookTab: View {
                                         }
                                     }
                                 }
-                                Text("haha")
                             }
 
                             .onAppear {

@@ -1627,11 +1627,13 @@ let testMetaItem_185 = ExpenseInfo(
     focus: "游戏"
 )
 
+// Sept.
+
 let testMetaItem_186 = ExpenseInfo(
     originalText: "买Office套件花了八块",
-    spentMoneyAt: "210804".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210901".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "office",
-    amount: 8.0,
+    amount: 1.0,
     tags: ["Microsoft", "Office"],
     focus: "软件服务",
     story: ExpenseInfo.Story(rating: 5,
@@ -1641,9 +1643,9 @@ let testMetaItem_186 = ExpenseInfo(
 
 let testMetaItem_187 = ExpenseInfo(
     originalText: "去钓鱼台花了20",
-    spentMoneyAt: "210807".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210901".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "钓鱼台",
-    amount: 20.0,
+    amount: 2.0,
     tags: ["旅游"],
     story: ExpenseInfo.Story(rating: 5,
                              emoji: "😆",
@@ -1652,17 +1654,17 @@ let testMetaItem_187 = ExpenseInfo(
 
 let testMetaItem_188 = ExpenseInfo(
     originalText: "九成宫门票四十",
-    spentMoneyAt: "210808".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210902".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "九成宫",
-    amount: 40.0,
+    amount: 3.0,
     tags: ["旅游"]
 )
 
 let testMetaItem_189 = ExpenseInfo(
     originalText: "买DLSite点数",
-    spentMoneyAt: "210901".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210902".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "dlsite1000点数",
-    amount: 60.0,
+    amount: 4.0,
     tags: ["音声", "DLSite"],
     focus: "软件服务",
     story: ExpenseInfo.Story(rating: 5,
@@ -1672,9 +1674,9 @@ let testMetaItem_189 = ExpenseInfo(
 
 let testMetaItem_190 = ExpenseInfo(
     originalText: "买湿巾花了三十八块八",
-    spentMoneyAt: "210902".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentMoneyAt: "210903".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "湿巾",
-    amount: 38.8,
+    amount: 5.0,
     tags: ["湿巾", "餐桌"]
 )
 
@@ -1682,7 +1684,7 @@ let testMetaItem_191 = ExpenseInfo(
     originalText: "买macOS开发书花了八十一",
     spentMoneyAt: "210903".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "macOS开发书",
-    amount: 81.0,
+    amount: 6.0,
     tags: ["AppKit", "macOS", "Xcode"],
     focus: "软件服务"
 )
