@@ -22,7 +22,7 @@ struct DayExpensesView: View {
                         .padding([.top], 10) // 日期上面的padding
                         .font(.system(.title2))
 
-                    ForEach(dayExpenses, id: \.self) { expense in
+                    ForEach(dayExpenses, id: \.self.uuid) { expense in
                         ExpenseView(expenseInfo: expense.expenseInfo,
                                     uuidOfItemToEdit: expense.uuid)
                             .padding([.top], 6) // 不同 MetaItemView 之间上下
