@@ -1,9 +1,8 @@
 import SwiftUI
 
-struct NewMetaDataButtons: View {
+struct NewExtraExpenseInfoButtons: View {
     @Binding var metadata_inputting: ExpenseInfo
 
-    // @Binding var extraMetaItemConfig: ExtraMetaItemConfig
     @Binding var showingStory: Bool
     @Binding var showingForWho: Bool
 

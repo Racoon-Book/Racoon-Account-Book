@@ -19,12 +19,12 @@ struct OriginalTextField: View {
         }
         onCommit: {
             print(Log().string + "Committed")
-            UpdateMetaItem()
+            UpdateExpenseInfo()
         }
         // 注意这里最好不用`.onReceive` 因为`Just()`所认为的修改应该不仅仅有值上的改变 还有地址上的改变 好像一赋值就会执行 这并不是所期望的
         .onChange(of: metadata_inputting.originalText) { _ in
             print(Log().string + "Changed.")
-            UpdateMetaItem()
+            UpdateExpenseInfo()
         }
         .autocapitalization(.none)
         .disableAutocorrection(false)
@@ -32,7 +32,7 @@ struct OriginalTextField: View {
         .keyboardType(.default) // TODO: Check https://stackoverflow.com/a/67892400/14298786 to change submitLabel after iOS 15. Also there's a `.onSubmit()` in which you can do some operations.
     }
 
-    private func UpdateMetaItem() {
+    private func UpdateExpenseInfo() {
         // 是编辑模式则创建日期不变
         let spentMoneyAt: DateInRegion = RacoonSheetConfig.shared.isEditMode ?
             metadata_inputting.spentAt :

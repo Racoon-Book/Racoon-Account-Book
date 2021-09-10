@@ -25,7 +25,7 @@ struct DayExpensesView: View {
                     ForEach(dayExpenses) { expense in
                         ExpenseView(expenseInfo: expense.expenseInfo,
                                     uuidOfItemToEdit: expense.uuid)
-                            .padding([.top], 6) // 不同 MetaItemView 之间上下
+                            .padding([.top], 6) // 不同 ExpenseView 之间上下
                     }
                 }
                 .padding([.horizontal], 10) // 日期和花销两边的padding

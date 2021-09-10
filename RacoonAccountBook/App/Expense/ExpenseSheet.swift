@@ -3,7 +3,7 @@ import CoreData
 import SwiftDate
 import SwiftUI
 
-/// 用来输入或修改一个Item的MetaItem
+/// 用来输入或修改一个Expense
 struct ExpenseSheet: View {
     @Environment(\.managedObjectContext) private var context
 
@@ -12,7 +12,7 @@ struct ExpenseSheet: View {
     // MARK: - 界面参数
 
     /// 呈现转换后的条目的信息的高度
-    static let coreMetaItemHeight = CGFloat(100) // 刚好呈下三个元素
+    static let coreThreeInfoHeight = CGFloat(100) // 刚好呈下三个元素
     /// 金额框的宽度
     static let amountFieldWidth = CGFloat(70) // 刚好容下四位数字带一个小数点
 
@@ -74,7 +74,7 @@ struct ExpenseSheet: View {
                                     Spacer()
                                 }
                                 HStack {
-                                    MetaItemTextField(
+                                    ExpenseInfoCommomTextField(
                                         hint: "事件",
                                         input_text: $RacoonSheetConfig.shared.expense_inputting.event,
                                         isEditing: $isEditing)
@@ -91,7 +91,7 @@ struct ExpenseSheet: View {
                             }
                             .padding([.horizontal], 10) // 三个要素离矩形边框远一点
                         }
-                        .frame(height: ExpenseSheet.coreMetaItemHeight)
+                        .frame(height: ExpenseSheet.coreThreeInfoHeight)
 
                         // 标签 Tag
                         TagsInputView(metadata_inputting: $RacoonSheetConfig.shared.expense_inputting)
@@ -127,7 +127,7 @@ struct ExpenseSheet: View {
                         if !RacoonSheetConfig.shared.showingStory ||
                             !RacoonSheetConfig.shared.showingForWho
                         {
-                            NewMetaDataButtons(metadata_inputting: $RacoonSheetConfig.shared.expense_inputting,
+                            NewExtraExpenseInfoButtons(metadata_inputting: $RacoonSheetConfig.shared.expense_inputting,
                                                showingStory: $RacoonSheetConfig.shared.showingStory,
                                                showingForWho: $RacoonSheetConfig.shared.showingForWho)
                         }
@@ -138,9 +138,9 @@ struct ExpenseSheet: View {
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
                         if RacoonSheetConfig.shared.isEditMode {
-                            UpdateMetaItem()
+                            UpdateExpense()
                         } else {
-                            AddNewMetaItem()
+                            AddNewExpense()
                         }
                     }
                     .font(.system(.title)) // TODO: 字有点小
@@ -161,7 +161,7 @@ struct ExpenseSheet: View {
                             // 修改：什么都不做
                         } else {
                             // 添加：清空所有输入框
-                            DiscardCurrentMetaItem() // 清空正在输入的 MetaItem
+                            DiscardCurrentExpenseInfo() // 清空正在输入的 ExpenseInfo
                         }
 
                         RacoonSheetConfig.shared.showingExpenseSheet = false // 收回sheet
@@ -173,7 +173,7 @@ struct ExpenseSheet: View {
                             showDeleteAlertSheet = true
                         } else {
                             // 添加：清空所有输入框
-                            DiscardCurrentMetaItem() // 清空正在输入的 MetaItem
+                            DiscardCurrentExpenseInfo() // 清空正在输入的 ExpenseInfo
                         }
 
                     }) { Text(RacoonSheetConfig.shared.isEditMode ? "删除" : "清除").bold() }
@@ -183,10 +183,10 @@ struct ExpenseSheet: View {
                 Button(action: {
                     if RacoonSheetConfig.shared.isEditMode {
                         // 修改
-                        UpdateMetaItem() // 用当前正在输入的MetaItem更新id为itemidToUpdate的数据库Item
+                        UpdateExpense() // 用当前正在输入的ExpenseInfo更新uuid为itemidToUpdate的数据库Expense
                     } else {
                         // 添加
-                        AddNewMetaItem() // 将当前正在输入的MetaItem存储到数据库
+                        AddNewExpense() // 将当前正在输入的ExpenseInfo存储到数据库
                     }
 
                 }) { Text(RacoonSheetConfig.shared.isEditMode ? "修改" : "记账").bold() })
@@ -201,12 +201,12 @@ struct ExpenseSheet: View {
         .actionSheet(isPresented: $showDeleteAlertSheet) {
             ActionSheet(title: Text("删除此记录"),
                         message: Text("删除此记录会同时删除对应的财记，且无法找回"),
-                        buttons: [.cancel(), .destructive(Text("删除"), action: DeleteMetaItem)])
+                        buttons: [.cancel(), .destructive(Text("删除"), action: DeleteExpense)])
         }
         .environmentObject(RacoonSheetConfig)
     }
 
-    private func DeleteMetaItem() {
+    private func DeleteExpense() {
         PutKeyboardBack()
 
         let deleteResult: Bool = Expense.delete(uuid: RacoonSheetConfig.shared.uuidOfExpenseToEdit!, context: context)
@@ -219,7 +219,7 @@ struct ExpenseSheet: View {
         RacoonSheetConfig.shared.showingExpenseSheet = false // 收回sheet
     }
 
-    private func AddNewMetaItem() {
+    private func AddNewExpense() {
         PutKeyboardBack() // 收起键盘
 
         // 至少amount不能为0，event不能为空
@@ -240,7 +240,7 @@ struct ExpenseSheet: View {
         }
     }
 
-    private func UpdateMetaItem() {
+    private func UpdateExpense() {
         PutKeyboardBack() // 收起键盘
 
         // 至少amount不能为0，event不能为空
@@ -269,7 +269,7 @@ struct ExpenseSheet: View {
         }
     }
 
-    private func DiscardCurrentMetaItem() {
+    private func DiscardCurrentExpenseInfo() {
         RacoonSheetConfig.shared.expense_inputting.clear()
         RacoonSheetConfig.shared.amount_string_inputting = ""
     }

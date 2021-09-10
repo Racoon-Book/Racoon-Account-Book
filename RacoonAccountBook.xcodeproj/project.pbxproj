@@ -34,7 +34,7 @@
 		4878A76226AC6AA900DCBC8D /* OriginalText2Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76126AC6AA900DCBC8D /* OriginalText2Event.swift */; };
 		4878A76526AD926C00DCBC8D /* OriginalTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76426AD926C00DCBC8D /* OriginalTextField.swift */; };
 		4878A76726AD931B00DCBC8D /* AmountField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76626AD931B00DCBC8D /* AmountField.swift */; };
-		4878A76926AD93DD00DCBC8D /* MetaItemTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76826AD93DD00DCBC8D /* MetaItemTextField.swift */; };
+		4878A76926AD93DD00DCBC8D /* ExpenseInfoCommomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76826AD93DD00DCBC8D /* ExpenseInfoCommomTextField.swift */; };
 		4878A76B26AD944900DCBC8D /* TagField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76A26AD944900DCBC8D /* TagField.swift */; };
 		4878A76E26AD962F00DCBC8D /* TagsInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76D26AD962F00DCBC8D /* TagsInputView.swift */; };
 		4878A77026AD9BBA00DCBC8D /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76F26AD9BBA00DCBC8D /* Array+.swift */; };
@@ -111,7 +111,7 @@
 		4878A76126AC6AA900DCBC8D /* OriginalText2Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2Event.swift; sourceTree = "<group>"; };
 		4878A76426AD926C00DCBC8D /* OriginalTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalTextField.swift; sourceTree = "<group>"; };
 		4878A76626AD931B00DCBC8D /* AmountField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountField.swift; sourceTree = "<group>"; };
-		4878A76826AD93DD00DCBC8D /* MetaItemTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaItemTextField.swift; sourceTree = "<group>"; };
+		4878A76826AD93DD00DCBC8D /* ExpenseInfoCommomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseInfoCommomTextField.swift; sourceTree = "<group>"; };
 		4878A76A26AD944900DCBC8D /* TagField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagField.swift; sourceTree = "<group>"; };
 		4878A76D26AD962F00DCBC8D /* TagsInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsInputView.swift; sourceTree = "<group>"; };
 		4878A76F26AD9BBA00DCBC8D /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
@@ -289,7 +289,7 @@
 			children = (
 				4878A76426AD926C00DCBC8D /* OriginalTextField.swift */,
 				4878A76626AD931B00DCBC8D /* AmountField.swift */,
-				4878A76826AD93DD00DCBC8D /* MetaItemTextField.swift */,
+				4878A76826AD93DD00DCBC8D /* ExpenseInfoCommomTextField.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -620,7 +620,7 @@
 				4878A76E26AD962F00DCBC8D /* TagsInputView.swift in Sources */,
 				488D3AAB269F86E400287A50 /* TestExpenseInfo.swift in Sources */,
 				4830D9C426B1FDA5007710FD /* SingleNewItemView.swift in Sources */,
-				4878A76926AD93DD00DCBC8D /* MetaItemTextField.swift in Sources */,
+				4878A76926AD93DD00DCBC8D /* ExpenseInfoCommomTextField.swift in Sources */,
 				488D3A90269F0F5500287A50 /* ExpenseSheet.swift in Sources */,
 				488D3A92269F0F5E00287A50 /* BookTab.swift in Sources */,
 				487FA76E26E244E000DD924F /* Expense+FetchData.swift in Sources */,

@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct MetaItemTextField: View {
+struct ExpenseInfoCommomTextField: View {
     var hint: String = ""
 
     @Binding var input_text: String
