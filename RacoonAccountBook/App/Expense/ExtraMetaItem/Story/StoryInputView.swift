@@ -2,23 +2,23 @@ import SwiftDate
 import SwiftUI
 
 struct StoryInputView: View {
-    @Binding var metadata_inputting: ExpenseInfo
+    @Binding var expenseInfo_inputting: ExpenseInfo
 
-    init(metadata_inputting: Binding<ExpenseInfo>, showingStoryInputView: Binding<Bool>) {
-        self._metadata_inputting = metadata_inputting
+    init(expenseInfo_inputting: Binding<ExpenseInfo>, showingStoryInputView: Binding<Bool>) {
+        self._expenseInfo_inputting = expenseInfo_inputting
         self._showingStoryInputView = showingStoryInputView
 
         // 有story就将初值设置为story.rating
         self._rating = State(initialValue:
-            (metadata_inputting.story.wrappedValue == nil) ?
+            (expenseInfo_inputting.story.wrappedValue == nil) ?
                 3 :
-                (metadata_inputting.story.wrappedValue!.rating ?? 3))
+                (expenseInfo_inputting.story.wrappedValue!.rating ?? 3))
 
         // 有emoji就将初值设置为story.emoji
         self._selectedEmoji = State(initialValue:
-            (metadata_inputting.story.wrappedValue == nil) ?
+            (expenseInfo_inputting.story.wrappedValue == nil) ?
                 emojiStickers.first! :
-                (metadata_inputting.story.wrappedValue!.emoji ?? emojiStickers.first!))
+                (expenseInfo_inputting.story.wrappedValue!.emoji ?? emojiStickers.first!))
     }
 
     @State private var rating: Int
@@ -38,7 +38,7 @@ struct StoryInputView: View {
 
                 // 关闭财记的按钮：删除财记且设置showing为false
                 Button(action: {
-                    metadata_inputting.story = nil
+                    expenseInfo_inputting.story = nil
                     showingStoryInputView = false
                 }, label: {
                     Text(Image(systemName: "multiply.square"))
@@ -58,7 +58,7 @@ struct StoryInputView: View {
                         Spacer() // 如果不加这个 四星和五星受到Picker影响没法点
                     }
                     StoryField(
-                        story: $metadata_inputting.story,
+                        story: $expenseInfo_inputting.story,
                         hint: "添加财记～")
                 }
                 .padding([.horizontal], 4)
@@ -76,21 +76,21 @@ struct StoryInputView: View {
 
     private func UpdateStoryRating() {
         // FIXME: 之后添加是否显示story之后，onAppear就先创建story story删除之后重新置story为nil
-        if metadata_inputting.story == nil {
-            metadata_inputting.story = ExpenseInfo.Story(
+        if expenseInfo_inputting.story == nil {
+            expenseInfo_inputting.story = ExpenseInfo.Story(
                 rating: rating,
                 emoji: nil,
                 text: nil)
         } else {
-            metadata_inputting.story!.update(rating: rating)
+            expenseInfo_inputting.story!.update(rating: rating)
         }
     }
 
     private func UpdateStoryEmoji() {
-        if metadata_inputting.story == nil {
-            metadata_inputting.story = ExpenseInfo.Story(rating: nil, emoji: selectedEmoji, text: nil)
+        if expenseInfo_inputting.story == nil {
+            expenseInfo_inputting.story = ExpenseInfo.Story(rating: nil, emoji: selectedEmoji, text: nil)
         } else {
-            metadata_inputting.story!.update(emoji: selectedEmoji)
+            expenseInfo_inputting.story!.update(emoji: selectedEmoji)
         }
     }
 }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SingleTagViewForModify: View {
-    @Binding var metadata_inputting: ExpenseInfo // 点击x号需要在tags中删除tag
+    @Binding var expenseInfo_inputting: ExpenseInfo // 点击x号需要在tags中删除tag
 
     var tag: String
 
@@ -13,8 +13,8 @@ struct SingleTagViewForModify: View {
         HStack {
             if isEditMode {
                 Button(action: {
-                    metadata_inputting.generatedTags.append(tag)
-                    metadata_inputting.tags.remove(object: tag)
+                    expenseInfo_inputting.generatedTags.append(tag)
+                    expenseInfo_inputting.tags.remove(object: tag)
                 }, label: {
                     Text(Image(systemName: "multiply.circle"))
                 })
@@ -22,8 +22,8 @@ struct SingleTagViewForModify: View {
             Text(tag)
                 .onTapGesture {
                     if isSuggestedTag {
-                        metadata_inputting.tags.append(tag)
-                        metadata_inputting.generatedTags.remove(object: tag)
+                        expenseInfo_inputting.tags.append(tag)
+                        expenseInfo_inputting.generatedTags.remove(object: tag)
                     }
                 }
         }

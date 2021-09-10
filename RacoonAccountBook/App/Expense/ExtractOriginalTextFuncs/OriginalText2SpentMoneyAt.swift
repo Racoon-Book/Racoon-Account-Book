@@ -18,7 +18,7 @@ func OriginalText2SpentMoneyAt(from originalText: String) -> DateInRegion? {
     } else if originalText.contains("明天") {
         return DateInRegion(region: regionChina).dateAt(.tomorrow).dateAt(.endOfDay)
     } else if originalText.contains("上周") || originalText.contains("上周末") {
-        // FIXME: 这里`.prevWeek`是以周日开始的，可能有方法可以设置每一周的开始时间，但这里再往后延？主页的ItemView的日期显示也是这个问题
+        // FIXME: 这里`.prevWeek`是以周日开始的，可能有方法可以设置每一周的开始时间，但这里再往后延？主页BookTab的日期显示也是这个问题
         // 是星期日的话，上周就是七天前
         // 不是星期日，上周是这周的开始
         let today = DateInRegion(region: regionChina)

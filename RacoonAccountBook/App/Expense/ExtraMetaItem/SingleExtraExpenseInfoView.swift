@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct SingleNewItemView: View {
-    @Binding var metadata_inputting: ExpenseInfo // 点击x号需要在tags中删除tag
+struct SingleExtraExpenseInfoView: View {
+    @Binding var expenseInfo_inputting: ExpenseInfo // 点击x号需要在tags中删除tag
 
-    var metaDataName: String // 显示要添加的新MetaData的显示名称
+    var extraExpenseInfoName: String // 显示要添加的新ExpenseInfo的显示名称
     @Binding var showing: Bool
 
     var color: Color
@@ -15,7 +15,7 @@ struct SingleNewItemView: View {
             }, label: {
                 HStack {
                     Text(Image(systemName: "plus.circle"))
-                    Text(metaDataName)
+                    Text(extraExpenseInfoName)
                 }
                 .padding(4)
                 .foregroundColor(.white) // 设置tag和图标的颜色

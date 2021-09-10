@@ -5,7 +5,7 @@ import SwiftUI
 
 struct MultilineTagsViewForModify: View {
     @Binding var tags: [String] // 点击x号需要在tags中删除tag
-    @Binding var metadata_inputting: ExpenseInfo
+    @Binding var expenseInfo_inputting: ExpenseInfo
 
     var isEditMode: Bool // 是的话会显示x号
     var isSuggestion: Bool = false
@@ -63,7 +63,7 @@ struct MultilineTagsViewForModify: View {
     }
 
     private func item(for tag: String) -> some View {
-        SingleTagViewForModify(metadata_inputting: $metadata_inputting, tag: tag, isEditMode: isEditMode, isSuggestedTag: isSuggestion, color: color)
+        SingleTagViewForModify(expenseInfo_inputting: $expenseInfo_inputting, tag: tag, isEditMode: isEditMode, isSuggestedTag: isSuggestion, color: color)
     }
 
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {

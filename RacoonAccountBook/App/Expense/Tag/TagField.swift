@@ -3,7 +3,7 @@ import SwiftUI
 struct TagField: View {
     var hint: String = ""
     @State var input_text: String = ""
-    @Binding var metadata_inputting: ExpenseInfo
+    @Binding var expenseInfo_inputting: ExpenseInfo
 
     var body: some View {
         TextField(
@@ -11,7 +11,7 @@ struct TagField: View {
             text: $input_text) { _ in }
         onCommit: {
             if input_text != "" {
-                metadata_inputting.tags.append(input_text)
+                expenseInfo_inputting.tags.append(input_text)
                 input_text = ""
             }
         }

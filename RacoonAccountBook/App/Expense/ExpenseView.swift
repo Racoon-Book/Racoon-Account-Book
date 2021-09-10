@@ -15,8 +15,8 @@ struct ExpenseView: View {
     /// 条目是否能编辑
     var isEditable: Bool = true
 
-    /// 要修改的Item的id
-    var uuidOfItemToEdit: UUID? = nil
+    /// 要修改的Expense的id
+    var uuidOfExpenseToEdit: UUID? = nil
 
     var body: some View {
         let amount_dispaly = String(format: "%.1f", expenseInfo.amount)
@@ -76,13 +76,13 @@ struct ExpenseView: View {
                 }
             }
         }
-        // 点击Item弹出Sheet对Expense进行修改
-        // 修改的逻辑是这样的：有一个真实的在数据库中的值，将该值拷贝一份放入新创建的metadata_inputting，这样打开Sheet就会显示修改前的值；这个值是一个临时的变量，在Sheet中修改不会直接影响到该变量；只有当最后点击`修改`按钮的时候才会对数据库中的真实值进行修改
+        // 点击单个Expense弹出Sheet对Expense进行修改
+        // 修改的逻辑是这样的：有一个真实的在数据库中的值，将该值拷贝一份放入新创建的expenseInfo_inputting，这样打开Sheet就会显示修改前的值；这个值是一个临时的变量，在Sheet中修改不会直接影响到该变量；只有当最后点击`修改`按钮的时候才会对数据库中的真实值进行修改
         .onTapGesture {
             // 是修改模式才判断点击
             if isEditable {
                 // 这里的感叹号是因为修改的话必须传入确切的UUID
-                RacoonSheetConfig.showEditSheet(itemIdToEdit: uuidOfItemToEdit!, expenseInfo: expenseInfo)
+                RacoonSheetConfig.showEditSheet(uuidOfExpenseToEdit: uuidOfExpenseToEdit!, expenseInfo: expenseInfo)
             }
         }
     }

@@ -21,7 +21,7 @@ struct SheetConfig {
 
     // MARK: - 修改相关
 
-    /// 是否为修改某个Item的Sheet
+    /// 是否为修改某个Expense的Sheet
     var isEditMode: Bool = false
     /// 要修改的Expense的uuid
     var uuidOfExpenseToEdit: UUID? = nil

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TagsInputView: View {
-    @Binding var metadata_inputting: ExpenseInfo
+    @Binding var expenseInfo_inputting: ExpenseInfo
 
     var body: some View {
         HStack {
@@ -9,14 +9,14 @@ struct TagsInputView: View {
                 .font(.system(.headline))
             VStack(alignment: .leading) {
                 MultilineTagsViewForModify(
-                    tags: $metadata_inputting.tags,
-                    metadata_inputting: $metadata_inputting,
+                    tags: $expenseInfo_inputting.tags,
+                    expenseInfo_inputting: $expenseInfo_inputting,
                     isEditMode: true,
                     color: Color("Add-Tag")
                 )
                 TagField(
                     hint: "添加新标签",
-                    metadata_inputting: $metadata_inputting
+                    expenseInfo_inputting: $expenseInfo_inputting
                 )
                 .padding([.vertical], 5) // 不和下面的挨太近
             }

@@ -24,7 +24,7 @@ struct DayExpensesView: View {
 
                     ForEach(dayExpenses) { expense in
                         ExpenseView(expenseInfo: expense.expenseInfo,
-                                    uuidOfItemToEdit: expense.uuid)
+                                    uuidOfExpenseToEdit: expense.uuid)
                             .padding([.top], 6) // 不同 ExpenseView 之间上下
                     }
                 }

@@ -2,7 +2,7 @@ import CoreData
 import SwiftUI
 
 struct FocusSelectView: View {
-    @Binding var metadata_inputting: ExpenseInfo
+    @Binding var expenseInfo_inputting: ExpenseInfo
     @Environment(\.managedObjectContext) private var context
 
     @FetchRequest(fetchRequest: Focus.request_allFocus)
@@ -17,7 +17,7 @@ struct FocusSelectView: View {
                     foci: .constant(focusList.map { focus in
                         focus.name
                     }),
-                    metadata_inputting: $metadata_inputting,
+                    expenseInfo_inputting: $expenseInfo_inputting,
                     selectedColor: Color("focus"),
                     unselectedColor: Color("focus-unselected")
                 )

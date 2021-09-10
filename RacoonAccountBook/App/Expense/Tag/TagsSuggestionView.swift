@@ -1,17 +1,17 @@
 import SwiftUI
 
 struct TagsSuggestionView: View {
-    @Binding var metadata_inputting: ExpenseInfo
+    @Binding var expenseInfo_inputting: ExpenseInfo
 
     var body: some View {
         HStack {
-            if metadata_inputting.generatedTags != [] {
+            if expenseInfo_inputting.generatedTags != [] {
                 Text("建议")
                     .font(.system(.headline))
                 VStack(alignment: .leading) {
                     MultilineTagsViewForModify(
-                        tags: $metadata_inputting.generatedTags,
-                        metadata_inputting: $metadata_inputting,
+                        tags: $expenseInfo_inputting.generatedTags,
+                        expenseInfo_inputting: $expenseInfo_inputting,
                         isEditMode: false,
                         isSuggestion: true,
                         color: Color("AntiqueWhite")

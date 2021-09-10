@@ -57,13 +57,13 @@ struct ExpenseSheet: View {
                                 .font(.system(.headline))
                             // TODO: 每次打开sheet直接将光标放在这里，键盘默认弹出
                             OriginalTextField(
-                                hint: "用一句话写出你的花销", isEditing: $isEditing, metadata_inputting: $RacoonSheetConfig.shared.expense_inputting, amount_string_inputting: $RacoonSheetConfig.shared.amount_string_inputting)
+                                hint: "用一句话写出你的花销", isEditing: $isEditing, expenseInfo_inputting: $RacoonSheetConfig.shared.expense_inputting, amount_string_inputting: $RacoonSheetConfig.shared.amount_string_inputting)
                         }
 
                         // 三个要素 spentMoneyAt event amount
                         ZStack {
                             RoundedRectangle(cornerRadius: 15)
-                                .foregroundColor(Color("Add-MetaItemBG"))
+                                .foregroundColor(Color("Add-ExpenseBG"))
 
                             VStack {
                                 HStack {
@@ -94,20 +94,20 @@ struct ExpenseSheet: View {
                         .frame(height: ExpenseSheet.coreThreeInfoHeight)
 
                         // 标签 Tag
-                        TagsInputView(metadata_inputting: $RacoonSheetConfig.shared.expense_inputting)
+                        TagsInputView(expenseInfo_inputting: $RacoonSheetConfig.shared.expense_inputting)
 
                         // 标签添加建议 TagGenerated
-                        TagsSuggestionView(metadata_inputting: $RacoonSheetConfig.shared.expense_inputting)
+                        TagsSuggestionView(expenseInfo_inputting: $RacoonSheetConfig.shared.expense_inputting)
 
                         // 关注 Focus
-                        FocusSelectView(metadata_inputting: $RacoonSheetConfig.shared.expense_inputting)
+                        FocusSelectView(expenseInfo_inputting: $RacoonSheetConfig.shared.expense_inputting)
 
                         // MARK: - Other
 
                         // 财记 Story
                         if RacoonSheetConfig.shared.showingStory {
                             StoryInputView(
-                                metadata_inputting: $RacoonSheetConfig.shared.expense_inputting,
+                                expenseInfo_inputting: $RacoonSheetConfig.shared.expense_inputting,
                                 showingStoryInputView: $RacoonSheetConfig.shared.showingStory)
                         } else {
                             EmptyView()
@@ -116,7 +116,7 @@ struct ExpenseSheet: View {
                         // 为谁 ForWho
                         if RacoonSheetConfig.shared.showingForWho {
                             ForWhoInputView(
-                                metadata_inputting: $RacoonSheetConfig.shared.expense_inputting,
+                                expenseInfo_inputting: $RacoonSheetConfig.shared.expense_inputting,
                                 showingForWhoInputView: $RacoonSheetConfig.shared.showingForWho)
                         } else {
                             EmptyView()
@@ -127,9 +127,9 @@ struct ExpenseSheet: View {
                         if !RacoonSheetConfig.shared.showingStory ||
                             !RacoonSheetConfig.shared.showingForWho
                         {
-                            NewExtraExpenseInfoButtons(metadata_inputting: $RacoonSheetConfig.shared.expense_inputting,
-                                               showingStory: $RacoonSheetConfig.shared.showingStory,
-                                               showingForWho: $RacoonSheetConfig.shared.showingForWho)
+                            NewExtraExpenseInfoButtons(expenseInfo_inputting: $RacoonSheetConfig.shared.expense_inputting,
+                                                       showingStory: $RacoonSheetConfig.shared.showingStory,
+                                                       showingForWho: $RacoonSheetConfig.shared.showingForWho)
                         }
                     }
                     .padding([.vertical]) // 所有输入框离手机边框远一点
@@ -137,11 +137,11 @@ struct ExpenseSheet: View {
                     LargeButton(title: RacoonSheetConfig.shared.isEditMode ? "修改" : "记账",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                        if RacoonSheetConfig.shared.isEditMode {
-                            UpdateExpense()
-                        } else {
-                            AddNewExpense()
-                        }
+                            if RacoonSheetConfig.shared.isEditMode {
+                                UpdateExpense()
+                            } else {
+                                AddNewExpense()
+                            }
                     }
                     .font(.system(.title)) // TODO: 字有点小
                 }
@@ -183,7 +183,7 @@ struct ExpenseSheet: View {
                 Button(action: {
                     if RacoonSheetConfig.shared.isEditMode {
                         // 修改
-                        UpdateExpense() // 用当前正在输入的ExpenseInfo更新uuid为itemidToUpdate的数据库Expense
+                        UpdateExpense() // 用当前正在输入的ExpenseInfo更新uuid为uuidOfExpenseToEdit的数据库Expense
                     } else {
                         // 添加
                         AddNewExpense() // 将当前正在输入的ExpenseInfo存储到数据库

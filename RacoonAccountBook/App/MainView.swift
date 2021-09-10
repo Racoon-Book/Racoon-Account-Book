@@ -65,7 +65,7 @@ struct MainView: View {
 
             // VoiceInputView 在 FloatingAddButton 中显示
             if selectedTab != MainView.Tab3 {
-                FloatingAddButton(metadata_inputting: $expenseInfo_inputting)
+                FloatingAddButton(expenseInfo_inputting: $expenseInfo_inputting)
             }
         }
         .sheet(

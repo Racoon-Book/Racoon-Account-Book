@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SingleSomebodyView: View {
-    @Binding var metadata_inputting: ExpenseInfo // 点击x号需要在tags中删除tag
+    @Binding var expenseInfo_inputting: ExpenseInfo // 点击x号需要在tags中删除tag
 
     var sb: String
 
@@ -12,7 +12,7 @@ struct SingleSomebodyView: View {
         HStack {
             if isEditMode {
                 Button(action: {
-                    metadata_inputting.forWho.remove(object: sb)
+                    expenseInfo_inputting.forWho.remove(object: sb)
                 }, label: {
                     Text(Image(systemName: "multiply.circle"))
                 })

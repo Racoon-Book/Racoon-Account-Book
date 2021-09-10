@@ -8,13 +8,13 @@ struct OriginalTextField: View {
 
     @Binding var isEditing: Bool
 
-    @Binding var metadata_inputting: ExpenseInfo
+    @Binding var expenseInfo_inputting: ExpenseInfo
     @Binding var amount_string_inputting: String
 
     var body: some View {
         TextField(
             hint,
-            text: $metadata_inputting.originalText ?? "") { isEditing in
+            text: $expenseInfo_inputting.originalText ?? "") { isEditing in
                 self.isEditing = isEditing
         }
         onCommit: {
@@ -22,7 +22,7 @@ struct OriginalTextField: View {
             UpdateExpenseInfo()
         }
         // 注意这里最好不用`.onReceive` 因为`Just()`所认为的修改应该不仅仅有值上的改变 还有地址上的改变 好像一赋值就会执行 这并不是所期望的
-        .onChange(of: metadata_inputting.originalText) { _ in
+        .onChange(of: expenseInfo_inputting.originalText) { _ in
             print(Log().string + "Changed.")
             UpdateExpenseInfo()
         }
@@ -35,14 +35,14 @@ struct OriginalTextField: View {
     private func UpdateExpenseInfo() {
         // 是编辑模式则创建日期不变
         let spentMoneyAt: DateInRegion = RacoonSheetConfig.shared.isEditMode ?
-            metadata_inputting.spentAt :
-            OriginalText2SpentMoneyAt(from: metadata_inputting.originalText ?? "") ?? DateInRegion(region: regionChina)
+            expenseInfo_inputting.spentAt :
+            OriginalText2SpentMoneyAt(from: expenseInfo_inputting.originalText ?? "") ?? DateInRegion(region: regionChina)
 
-        metadata_inputting.update(
+        expenseInfo_inputting.update(
             spentMoneyAt: spentMoneyAt,
-            event: OriginalText2Event(from: metadata_inputting.originalText ?? "") ?? "",
-            amount_float: OriginalText2Amount(from: metadata_inputting.originalText ?? "") ?? 0.0,
-            generatedTags: OriginalText2GeneratedTags(from: metadata_inputting.originalText ?? ""))
-        amount_string_inputting = String(metadata_inputting.amount)
+            event: OriginalText2Event(from: expenseInfo_inputting.originalText ?? "") ?? "",
+            amount_float: OriginalText2Amount(from: expenseInfo_inputting.originalText ?? "") ?? 0.0,
+            generatedTags: OriginalText2GeneratedTags(from: expenseInfo_inputting.originalText ?? ""))
+        amount_string_inputting = String(expenseInfo_inputting.amount)
     }
 }

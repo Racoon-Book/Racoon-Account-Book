@@ -2,7 +2,7 @@ import SwiftDate
 import SwiftUI
 
 struct ForWhoInputView: View {
-    @Binding var metadata_inputting: ExpenseInfo
+    @Binding var expenseInfo_inputting: ExpenseInfo
 
     @Binding var showingForWhoInputView: Bool
 
@@ -17,7 +17,7 @@ struct ForWhoInputView: View {
 
                 // 关闭为谁的按钮
                 Button(action: {
-                    metadata_inputting.forWho = []
+                    expenseInfo_inputting.forWho = []
                     showingForWhoInputView = false
                 }, label: {
                     Text(Image(systemName: "multiply.square"))
@@ -26,9 +26,9 @@ struct ForWhoInputView: View {
                 })
             }
 
-            if metadata_inputting.forWho != [] {
-                ForEach(metadata_inputting.forWho, id: \.self) { sb in
-                    SingleSomebodyView(metadata_inputting: $metadata_inputting,
+            if expenseInfo_inputting.forWho != [] {
+                ForEach(expenseInfo_inputting.forWho, id: \.self) { sb in
+                    SingleSomebodyView(expenseInfo_inputting: $expenseInfo_inputting,
                                        sb: sb,
                                        isEditMode: true,
                                        color: Color.orange)
@@ -36,7 +36,7 @@ struct ForWhoInputView: View {
                 .padding([.leading], 4) // 和上下的对齐
             }
 
-            ForWhoField(metadata_inputting: $metadata_inputting)
+            ForWhoField(expenseInfo_inputting: $expenseInfo_inputting)
 
             Spacer()
         }

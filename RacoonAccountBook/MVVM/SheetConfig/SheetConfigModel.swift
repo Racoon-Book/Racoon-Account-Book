@@ -30,9 +30,9 @@ class SheetConfigModel: ObservableObject {
     }
 
     // 是更新的情况
-    func showEditSheet(itemIdToEdit: UUID, expenseInfo: ExpenseInfo) {
+    func showEditSheet(uuidOfExpenseToEdit: UUID, expenseInfo: ExpenseInfo) {
         shared.isEditMode = true
-        shared.uuidOfExpenseToEdit = itemIdToEdit
+        shared.uuidOfExpenseToEdit = uuidOfExpenseToEdit
 
         shared.expense_inputting = expenseInfo // 这个只是临时用的 给一个初值进去就行了
         shared.amount_string_inputting = String(String(format: "%.1f", expenseInfo.amount))

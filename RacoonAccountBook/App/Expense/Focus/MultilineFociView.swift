@@ -2,7 +2,7 @@ import SwiftUI
 
 struct MultilineFociView: View {
     @Binding var foci: [String]
-    @Binding var metadata_inputting: ExpenseInfo
+    @Binding var expenseInfo_inputting: ExpenseInfo
 
     var selectedColor: Color
     var unselectedColor: Color
@@ -59,7 +59,7 @@ struct MultilineFociView: View {
     }
 
     private func item(for focus: String) -> some View {
-        SingleFocusView(metadata_inputting: $metadata_inputting,
+        SingleFocusView(expenseInfo_inputting: $expenseInfo_inputting,
                         focus: focus,
                         selectedColor: selectedColor,
                         unselectedColor: unselectedColor)
