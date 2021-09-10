@@ -30,12 +30,12 @@ class SheetConfigModel: ObservableObject {
     }
 
     // 是更新的情况
-    func showEditSheet(itemIdToEdit: UUID, metadata: ExpenseInfo) {
+    func showEditSheet(itemIdToEdit: UUID, expenseInfo: ExpenseInfo) {
         shared.isEditMode = true
         shared.uuidOfExpenseToEdit = itemIdToEdit
 
-        shared.expense_inputting = metadata // 这个只是临时用的 给一个初值进去就行了
-        shared.amount_string_inputting = String(String(format: "%.1f", metadata.amount))
+        shared.expense_inputting = expenseInfo // 这个只是临时用的 给一个初值进去就行了
+        shared.amount_string_inputting = String(String(format: "%.1f", expenseInfo.amount))
 
         shared.showingExpenseSheet = true
 
@@ -43,7 +43,7 @@ class SheetConfigModel: ObservableObject {
         shared.showingSuccessfullyAlert = false
         shared.showingVoiceInputView = false
 
-        shared.showingStory = metadata.story != nil
-        shared.showingForWho = metadata.forWho.count != 0
+        shared.showingStory = expenseInfo.story != nil
+        shared.showingForWho = expenseInfo.forWho.count != 0
     }
 }

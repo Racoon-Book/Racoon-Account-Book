@@ -136,8 +136,8 @@ struct ExpenseInfo {
     }
 
     /// 更新self
-    mutating func update(metadata: ExpenseInfo) {
-        self = metadata
+    mutating func update(expenseInfo: ExpenseInfo) {
+        self = expenseInfo
     }
 }
 
@@ -159,7 +159,7 @@ extension ExpenseInfo: CustomStringConvertible {
         return """
         ExpenseInfo: {
         "originalText": \(originalText),
-        "spentMoneyAt": \(date), "event": \(event), "amount": \(amount),
+        "spentAt": \(date), "event": \(event), "amount": \(amount),
         "generatedTags": \(generatedTags), "tags": \(tags),
         "focus": \(focus), "forWho": \(forWho),
         "story": \(story)}

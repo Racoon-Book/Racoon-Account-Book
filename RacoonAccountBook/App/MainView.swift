@@ -17,8 +17,8 @@ struct MainView: View {
     /// 默认值为打开之后呈现的Tab (默认为账本界面)
     @State private var selectedTab = MainView.Tab1
 
-    /// 添加时临时记录使用的metadata
-    @State private var metadata_inputting = ExpenseInfo(
+    /// 添加时临时记录使用的expenseInfo
+    @State private var expenseInfo_inputting = ExpenseInfo(
         originalText: "",
         spentAt: DateInRegion(region: regionChina),
         event: "",
@@ -65,7 +65,7 @@ struct MainView: View {
 
             // VoiceInputView 在 FloatingAddButton 中显示
             if selectedTab != MainView.Tab3 {
-                FloatingAddButton(metadata_inputting: $metadata_inputting)
+                FloatingAddButton(metadata_inputting: $expenseInfo_inputting)
             }
         }
         .sheet(
@@ -85,7 +85,7 @@ struct MainView: View {
         print(Log().string + "Dismissed")
 
         func DiscardCurrentExpense() {
-            metadata_inputting.clear()
+            expenseInfo_inputting.clear()
             amount_string_inputting = ""
         }
     }

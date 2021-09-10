@@ -33,7 +33,7 @@ struct VoiceInputView: View {
                         Spacer()
                         // 确定语音输入没问题 提交
                         CommitSpeechButton(
-                            metadata_inputting: $RacoonSheetConfig.shared.expense_inputting,
+                            expenseInfo_inputting: $RacoonSheetConfig.shared.expense_inputting,
                             recognizedText: $recognizedText
                         )
                         Spacer()
@@ -52,13 +52,13 @@ struct CommitSpeechButton: View {
 //    @Binding var sheetConfig: SheetConfig
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
-    @Binding var metadata_inputting: ExpenseInfo
+    @Binding var expenseInfo_inputting: ExpenseInfo
 
     @Binding var recognizedText: String // （自用）用来动态显示识别结果
 
     var body: some View {
         Button(action: {
-            metadata_inputting.originalText = recognizedText // 将结果传给 OrdinaryAddSheet
+            expenseInfo_inputting.originalText = recognizedText // 将结果传给 OrdinaryAddSheet
 
             UpdateExpense()
 
@@ -78,10 +78,10 @@ struct CommitSpeechButton: View {
     }
 
     private func UpdateExpense() {
-        metadata_inputting.update(
-            event: OriginalText2Event(from: metadata_inputting.originalText ?? "") ?? "",
-            amount_float: OriginalText2Amount(from: metadata_inputting.originalText ?? "") ?? 0.0,
-            generatedTags: OriginalText2GeneratedTags(from: metadata_inputting.originalText ?? "")
+        expenseInfo_inputting.update(
+            event: OriginalText2Event(from: expenseInfo_inputting.originalText ?? "") ?? "",
+            amount_float: OriginalText2Amount(from: expenseInfo_inputting.originalText ?? "") ?? 0.0,
+            generatedTags: OriginalText2GeneratedTags(from: expenseInfo_inputting.originalText ?? "")
         )
     }
 }

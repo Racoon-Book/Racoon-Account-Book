@@ -82,7 +82,7 @@ struct ExpenseView: View {
             // 是修改模式才判断点击
             if isEditable {
                 // 这里的感叹号是因为修改的话必须传入确切的UUID
-                RacoonSheetConfig.showEditSheet(itemIdToEdit: uuidOfItemToEdit!, metadata: expenseInfo)
+                RacoonSheetConfig.showEditSheet(itemIdToEdit: uuidOfItemToEdit!, expenseInfo: expenseInfo)
             }
         }
     }
