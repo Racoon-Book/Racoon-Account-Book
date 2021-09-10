@@ -17,13 +17,13 @@ struct RacoonAccountBookApp: App {
                 for expense in allExpenses {
                     persistenceController.container.viewContext.delete(expense)
                 }
-                for expenseInfo in testMetaItems {
+                for expenseInfo in testExpenseInfos {
                     Expense.create(expenseInfo: expenseInfo, context: persistenceController.container.viewContext)
                 }
 
                 let nowAllExpenses = try? persistenceController.container.viewContext.fetch(Expense.request_allExpenses)
 
-                print(Log().string + "删除并重新插入了测试数据共\(testMetaItems.count)条, 现在数据库中有\(nowAllExpenses?.count ?? -1)条Expense")
+                print(Log().string + "删除并重新插入了测试数据共\(testExpenseInfos.count)条, 现在数据库中有\(nowAllExpenses?.count ?? -1)条Expense")
             } else {
                 print(Log().string + "no data in Core Data")
             }

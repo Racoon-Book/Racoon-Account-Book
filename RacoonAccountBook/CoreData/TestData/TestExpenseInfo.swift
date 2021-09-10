@@ -5,7 +5,7 @@ import SwiftDate
 
 // [测试数据]
 
-let testMetaItem_1 = ExpenseInfo(
+let testExpenseInfo_1 = ExpenseInfo(
     originalText: "做核酸花了八十",
     spentAt: "210213".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "做核酸检测",
@@ -13,7 +13,7 @@ let testMetaItem_1 = ExpenseInfo(
     tags: ["返校", "新冠", "核酸检测"]
 )
 
-let testMetaItem_2 = ExpenseInfo(
+let testExpenseInfo_2 = ExpenseInfo(
     originalText: "自动售卖机买饮料花了四块五",
     spentAt: "210220".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "自动售卖机买饮料",
@@ -21,7 +21,7 @@ let testMetaItem_2 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_3 = ExpenseInfo(
+let testExpenseInfo_3 = ExpenseInfo(
     originalText: "今天下午去水木书屋买电子导引的课本",
     spentAt: "210221".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "去水木清华买电子导引的课本",
@@ -29,7 +29,7 @@ let testMetaItem_3 = ExpenseInfo(
     tags: ["课本", "电子信息", "水木书屋"]
 )
 
-let testMetaItem_4 = ExpenseInfo(
+let testExpenseInfo_4 = ExpenseInfo(
     originalText: "宿舍买水票花了二百",
     spentAt: "210222".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "宿舍买水票",
@@ -38,7 +38,7 @@ let testMetaItem_4 = ExpenseInfo(
     focus: "宿舍"
 )
 
-let testMetaItem_5 = ExpenseInfo(
+let testExpenseInfo_5 = ExpenseInfo(
     originalText: "买书三十五",
     spentAt: "210222".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "买书",
@@ -46,7 +46,7 @@ let testMetaItem_5 = ExpenseInfo(
     tags: ["书"]
 )
 
-let testMetaItem_6 = ExpenseInfo(
+let testExpenseInfo_6 = ExpenseInfo(
     originalText: "被篮球砸去校医院看",
     spentAt: "210223".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "被篮球砸去校医院看",
@@ -57,7 +57,7 @@ let testMetaItem_6 = ExpenseInfo(
                              text: "呜呜呜 好疼 竟然被篮球砸。")
 )
 
-let testMetaItem_7 = ExpenseInfo(
+let testExpenseInfo_7 = ExpenseInfo(
     originalText: "洗衣 四块",
     spentAt: "210224".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -65,7 +65,7 @@ let testMetaItem_7 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_8 = ExpenseInfo(
+let testExpenseInfo_8 = ExpenseInfo(
     originalText: "饮料 四块五",
     spentAt: "210226".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -73,7 +73,7 @@ let testMetaItem_8 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_9 = ExpenseInfo(
+let testExpenseInfo_9 = ExpenseInfo(
     originalText: "跑脚本买了百度云三个月的服务器花了十八块钱",
     spentAt: "210226".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "跑脚本买了百度云三个月的服务器",
@@ -85,7 +85,7 @@ let testMetaItem_9 = ExpenseInfo(
                              text: "算是白嫖的吧 蛮便宜。手上有个服务器还是能方便一点。")
 )
 
-let testMetaItem_10 = ExpenseInfo(
+let testExpenseInfo_10 = ExpenseInfo(
     originalText: "开学买课本花了一百五十四",
     spentAt: "210226".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "开学买课本",
@@ -93,7 +93,7 @@ let testMetaItem_10 = ExpenseInfo(
     tags: ["课本"]
 )
 
-let testMetaItem_11 = ExpenseInfo(
+let testExpenseInfo_11 = ExpenseInfo(
     originalText: "超市买东西 五十一块四",
     spentAt: "210228".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "超市买东西",
@@ -101,7 +101,7 @@ let testMetaItem_11 = ExpenseInfo(
     tags: ["超市"]
 )
 
-let testMetaItem_12 = ExpenseInfo(
+let testExpenseInfo_12 = ExpenseInfo(
     originalText: "跟实验室学姐见面打印成绩证明花了十块",
     spentAt: "210301".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "跟实验室学姐见面打印成绩证明",
@@ -112,7 +112,7 @@ let testMetaItem_12 = ExpenseInfo(
                              text: "从来没去打印过成绩，这次是需要才去打印的。")
 )
 
-let testMetaItem_13 = ExpenseInfo(
+let testExpenseInfo_13 = ExpenseInfo(
     originalText: "淘宝买HEVC标准花了三十",
     spentAt: "210301".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "淘宝买HEVC标准",
@@ -123,7 +123,7 @@ let testMetaItem_13 = ExpenseInfo(
                              text: "第一次买标准还考虑了标准到底是什么")
 )
 
-let testMetaItem_14 = ExpenseInfo(
+let testExpenseInfo_14 = ExpenseInfo(
     originalText: "零食 五块五",
     spentAt: "210301".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "零食",
@@ -131,7 +131,7 @@ let testMetaItem_14 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_15 = ExpenseInfo(
+let testExpenseInfo_15 = ExpenseInfo(
     originalText: "零食 六块",
     spentAt: "210302".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "零食",
@@ -139,7 +139,7 @@ let testMetaItem_15 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_16 = ExpenseInfo(
+let testExpenseInfo_16 = ExpenseInfo(
     originalText: "零食 五块",
     spentAt: "210302".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "零食",
@@ -147,7 +147,7 @@ let testMetaItem_16 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_17 = ExpenseInfo(
+let testExpenseInfo_17 = ExpenseInfo(
     originalText: "饮料 十二",
     spentAt: "210303".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -155,7 +155,7 @@ let testMetaItem_17 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_18 = ExpenseInfo(
+let testExpenseInfo_18 = ExpenseInfo(
     originalText: "在图书馆犹豫好久买了二手的触控板 六百九十三",
     spentAt: "210306".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "二手的触控板",
@@ -167,7 +167,7 @@ let testMetaItem_18 = ExpenseInfo(
                              text: "还是挺方便的，一直在用。话说二手的和官方的也差不了多少，不如当时直接在官网买，但能省一点也不是什么坏事，毕竟跟新的没什么差别。")
 )
 
-let testMetaItem_19 = ExpenseInfo(
+let testExpenseInfo_19 = ExpenseInfo(
     originalText: "给扬帆仙女们买盲盒花了四十",
     spentAt: "210306".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "给扬帆仙女们买盲盒",
@@ -179,7 +179,7 @@ let testMetaItem_19 = ExpenseInfo(
                              text: "扬帆的最后一次活动，学长的策划还是蛮好的嘛")
 )
 
-let testMetaItem_20 = ExpenseInfo(
+let testExpenseInfo_20 = ExpenseInfo(
     originalText: "班上女生节交了十五",
     spentAt: "210306".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "班上女生节",
@@ -188,7 +188,7 @@ let testMetaItem_20 = ExpenseInfo(
     forWho: ["无97"]
 )
 
-let testMetaItem_21 = ExpenseInfo(
+let testExpenseInfo_21 = ExpenseInfo(
     originalText: "洗衣 四块",
     spentAt: "210308".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -196,7 +196,7 @@ let testMetaItem_21 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_22 = ExpenseInfo(
+let testExpenseInfo_22 = ExpenseInfo(
     originalText: "花一百三十八买了两件格子衬衫",
     spentAt: "210309".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "两件格子衬衫",
@@ -204,7 +204,7 @@ let testMetaItem_22 = ExpenseInfo(
     tags: ["格子衬衫"]
 )
 
-let testMetaItem_23 = ExpenseInfo(
+let testExpenseInfo_23 = ExpenseInfo(
     originalText: "在楼下贩卖机买了鱼豆腐 十一块",
     spentAt: "210310".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "在楼下贩卖机买了鱼豆腐",
@@ -212,7 +212,7 @@ let testMetaItem_23 = ExpenseInfo(
     tags: ["零食", "鱼豆腐"]
 )
 
-let testMetaItem_24 = ExpenseInfo(
+let testExpenseInfo_24 = ExpenseInfo(
     originalText: "买饮料 六块",
     spentAt: "210311".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "买饮料",
@@ -220,7 +220,7 @@ let testMetaItem_24 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_25 = ExpenseInfo(
+let testExpenseInfo_25 = ExpenseInfo(
     originalText: "买了16寸的电脑支架 一百一",
     spentAt: "210311".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "16寸的电脑支架",
@@ -232,7 +232,7 @@ let testMetaItem_25 = ExpenseInfo(
                              text: "之前的电脑支架坏掉了，所以买了个新的。最开始买的十三寸，回来觉得太小了换了个大的。非常方便带到图书馆哦")
 )
 
-let testMetaItem_26 = ExpenseInfo(
+let testExpenseInfo_26 = ExpenseInfo(
     originalText: "买面包 七块",
     spentAt: "210312".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "买面包",
@@ -240,7 +240,7 @@ let testMetaItem_26 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_27 = ExpenseInfo(
+let testExpenseInfo_27 = ExpenseInfo(
     originalText: "咖啡 六块",
     spentAt: "210315".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "咖啡",
@@ -248,7 +248,7 @@ let testMetaItem_27 = ExpenseInfo(
     tags: ["咖啡"]
 )
 
-let testMetaItem_28 = ExpenseInfo(
+let testExpenseInfo_28 = ExpenseInfo(
     originalText: "饮料 五块",
     spentAt: "210316".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -256,7 +256,7 @@ let testMetaItem_28 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_29 = ExpenseInfo(
+let testExpenseInfo_29 = ExpenseInfo(
     originalText: "饮料 六块",
     spentAt: "210318".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -264,7 +264,7 @@ let testMetaItem_29 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_30 = ExpenseInfo(
+let testExpenseInfo_30 = ExpenseInfo(
     originalText: "花38买了超大号的垃圾袋",
     spentAt: "210318".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "超大号的垃圾袋",
@@ -276,7 +276,7 @@ let testMetaItem_30 = ExpenseInfo(
                              text: "宿舍垃圾堆的有点多，一下子收拾掉真好。但买的有点多了，慢慢用吧。")
 )
 
-let testMetaItem_31 = ExpenseInfo(
+let testExpenseInfo_31 = ExpenseInfo(
     originalText: "洗衣 四块",
     spentAt: "210319".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -284,7 +284,7 @@ let testMetaItem_31 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_32 = ExpenseInfo(
+let testExpenseInfo_32 = ExpenseInfo(
     originalText: "饮料 四块五",
     spentAt: "210322".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -292,7 +292,7 @@ let testMetaItem_32 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_33 = ExpenseInfo(
+let testExpenseInfo_33 = ExpenseInfo(
     originalText: "宿舍买笤帚均摊8块",
     spentAt: "210325".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "宿舍买笤帚",
@@ -301,7 +301,7 @@ let testMetaItem_33 = ExpenseInfo(
     focus: "宿舍"
 )
 
-let testMetaItem_34 = ExpenseInfo(
+let testExpenseInfo_34 = ExpenseInfo(
     originalText: "饮料 五块",
     spentAt: "210325".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -309,7 +309,7 @@ let testMetaItem_34 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_35 = ExpenseInfo(
+let testExpenseInfo_35 = ExpenseInfo(
     originalText: "吃的 十四",
     spentAt: "210325".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "零食",
@@ -317,7 +317,7 @@ let testMetaItem_35 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_36 = ExpenseInfo(
+let testExpenseInfo_36 = ExpenseInfo(
     originalText: "买水花了八块",
     spentAt: "210326".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "买水",
@@ -325,7 +325,7 @@ let testMetaItem_36 = ExpenseInfo(
     tags: ["水"]
 )
 
-let testMetaItem_37 = ExpenseInfo(
+let testExpenseInfo_37 = ExpenseInfo(
     originalText: "饭卡充值六百",
     spentAt: "210329".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饭卡充值",
@@ -333,7 +333,7 @@ let testMetaItem_37 = ExpenseInfo(
     tags: ["校园卡"]
 )
 
-let testMetaItem_38 = ExpenseInfo(
+let testExpenseInfo_38 = ExpenseInfo(
     originalText: "报六级考费十七",
     spentAt: "210329".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "报六级考费",
@@ -341,16 +341,16 @@ let testMetaItem_38 = ExpenseInfo(
     tags: ["六级"]
 )
 
-let testMetaItem_39 = ExpenseInfo(
+let testExpenseInfo_39 = ExpenseInfo(
     originalText: "雀魂月卡三十六",
     spentAt: "210329".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "雀魂月卡",
     amount: 36.0,
     tags: ["雀魂", "月卡"],
-    focus: "游戏"
+    focus: "雀魂"
 )
 
-let testMetaItem_40 = ExpenseInfo(
+let testExpenseInfo_40 = ExpenseInfo(
     originalText: "饮料四块五",
     spentAt: "210329".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -358,7 +358,7 @@ let testMetaItem_40 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_41 = ExpenseInfo(
+let testExpenseInfo_41 = ExpenseInfo(
     originalText: "饮料三块",
     spentAt: "210329".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -366,7 +366,7 @@ let testMetaItem_41 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_42 = ExpenseInfo(
+let testExpenseInfo_42 = ExpenseInfo(
     originalText: "忘带卡了 清芬快餐二十五块五",
     spentAt: "210329".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "清芬快餐",
@@ -374,7 +374,7 @@ let testMetaItem_42 = ExpenseInfo(
     tags: ["清芬", "快餐"]
 )
 
-let testMetaItem_43 = ExpenseInfo(
+let testExpenseInfo_43 = ExpenseInfo(
     originalText: "奶茶二十",
     spentAt: "210402".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "奶茶",
@@ -382,7 +382,7 @@ let testMetaItem_43 = ExpenseInfo(
     tags: ["奶茶"]
 )
 
-let testMetaItem_44 = ExpenseInfo(
+let testExpenseInfo_44 = ExpenseInfo(
     originalText: "清明节当天花七百买了个雀魂带saki的号",
     spentAt: "210402".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "雀魂带saki的号",
@@ -394,7 +394,7 @@ let testMetaItem_44 = ExpenseInfo(
                              text: "怎么说呢，刚刚接触日麻，看到了雀魂，超级想要saki，但限定活动已经过去了55。看到有卖号的，等了一段时间，这个号真的超级值哦，还送我了QQ小号，两个限定起码八百以上了，还有别的好多角色，还是雀圣的号。希望有了这个号雀力日进吧。")
 )
 
-let testMetaItem_45 = ExpenseInfo(
+let testExpenseInfo_45 = ExpenseInfo(
     originalText: "饮料三块",
     spentAt: "210404".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -402,7 +402,7 @@ let testMetaItem_45 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_46 = ExpenseInfo(
+let testExpenseInfo_46 = ExpenseInfo(
     originalText: "雀魂月卡三十六块一",
     spentAt: "210404".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "雀魂月卡",
@@ -411,7 +411,7 @@ let testMetaItem_46 = ExpenseInfo(
     focus: "游戏"
 )
 
-let testMetaItem_47 = ExpenseInfo(
+let testExpenseInfo_47 = ExpenseInfo(
     originalText: "吃的五块",
     spentAt: "210404".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "零食",
@@ -419,7 +419,7 @@ let testMetaItem_47 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_48 = ExpenseInfo(
+let testExpenseInfo_48 = ExpenseInfo(
     originalText: "咖啡二十",
     spentAt: "210405".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "咖啡",
@@ -430,7 +430,7 @@ let testMetaItem_48 = ExpenseInfo(
                              text: "美式咖啡 超级难喝…以后一定买带糖的")
 )
 
-let testMetaItem_49 = ExpenseInfo(
+let testExpenseInfo_49 = ExpenseInfo(
     originalText: "买hima的音声画了六十二",
     spentAt: "210407".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "买hima的音声",
@@ -443,7 +443,7 @@ let testMetaItem_49 = ExpenseInfo(
                              text: "第一次在dlsite上买音声，体验超级好。hima出的怎么也要支持一下hh。数数的那个我直接无了")
 )
 
-let testMetaItem_50 = ExpenseInfo(
+let testExpenseInfo_50 = ExpenseInfo(
     originalText: "饮料三块",
     spentAt: "210408".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -451,7 +451,7 @@ let testMetaItem_50 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_51 = ExpenseInfo(
+let testExpenseInfo_51 = ExpenseInfo(
     originalText: "饮料四块五",
     spentAt: "210409".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -459,7 +459,7 @@ let testMetaItem_51 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_52 = ExpenseInfo(
+let testExpenseInfo_52 = ExpenseInfo(
     originalText: "饮料五块",
     spentAt: "210411".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -467,7 +467,7 @@ let testMetaItem_52 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_53 = ExpenseInfo(
+let testExpenseInfo_53 = ExpenseInfo(
     originalText: "晚饭十七",
     spentAt: "210412".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "晚饭",
@@ -475,7 +475,7 @@ let testMetaItem_53 = ExpenseInfo(
     tags: ["晚饭"]
 )
 
-let testMetaItem_54 = ExpenseInfo(
+let testExpenseInfo_54 = ExpenseInfo(
     originalText: "给饭卡充了八百",
     spentAt: "210413".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "给饭卡充值",
@@ -483,7 +483,7 @@ let testMetaItem_54 = ExpenseInfo(
     tags: ["校园卡"]
 )
 
-let testMetaItem_55 = ExpenseInfo(
+let testExpenseInfo_55 = ExpenseInfo(
     originalText: "零食十块",
     spentAt: "210413".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "零食",
@@ -491,7 +491,7 @@ let testMetaItem_55 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_56 = ExpenseInfo(
+let testExpenseInfo_56 = ExpenseInfo(
     originalText: "洗衣四块",
     spentAt: "210413".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -499,7 +499,7 @@ let testMetaItem_56 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_57 = ExpenseInfo(
+let testExpenseInfo_57 = ExpenseInfo(
     originalText: "洗衣三块",
     spentAt: "210414".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -507,7 +507,7 @@ let testMetaItem_57 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_58 = ExpenseInfo(
+let testExpenseInfo_58 = ExpenseInfo(
     originalText: "饮料五块",
     spentAt: "210417".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -515,7 +515,7 @@ let testMetaItem_58 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_59 = ExpenseInfo(
+let testExpenseInfo_59 = ExpenseInfo(
     originalText: "饮料五块五",
     spentAt: "210418".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -523,7 +523,7 @@ let testMetaItem_59 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_60 = ExpenseInfo(
+let testExpenseInfo_60 = ExpenseInfo(
     originalText: "买空白的本子花了七十四",
     spentAt: "210420".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "空白的本子",
@@ -534,7 +534,7 @@ let testMetaItem_60 = ExpenseInfo(
                              text: "对草稿本的需求还是蛮大的。一次买了不少。希望能对学习有帮助。不过还是希望能有iPad 这样各方面都会方便一些。")
 )
 
-let testMetaItem_61 = ExpenseInfo(
+let testExpenseInfo_61 = ExpenseInfo(
     originalText: "饮料五块",
     spentAt: "210420".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -542,7 +542,7 @@ let testMetaItem_61 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_62 = ExpenseInfo(
+let testExpenseInfo_62 = ExpenseInfo(
     originalText: "买了十五块的奶茶",
     spentAt: "210421".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "奶茶",
@@ -550,7 +550,7 @@ let testMetaItem_62 = ExpenseInfo(
     tags: ["奶茶"]
 )
 
-let testMetaItem_63 = ExpenseInfo(
+let testExpenseInfo_63 = ExpenseInfo(
     originalText: "饮料五块五",
     spentAt: "210425".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -558,7 +558,7 @@ let testMetaItem_63 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_64 = ExpenseInfo(
+let testExpenseInfo_64 = ExpenseInfo(
     originalText: "饮料六块",
     spentAt: "210427".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -566,7 +566,7 @@ let testMetaItem_64 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_65 = ExpenseInfo(
+let testExpenseInfo_65 = ExpenseInfo(
     originalText: "饮料五块",
     spentAt: "210427".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -574,7 +574,7 @@ let testMetaItem_65 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_66 = ExpenseInfo(
+let testExpenseInfo_66 = ExpenseInfo(
     originalText: "讨论买哈密瓜味的冰激凌花了十三",
     spentAt: "210427".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "哈密瓜味的冰激凌",
@@ -582,7 +582,7 @@ let testMetaItem_66 = ExpenseInfo(
     tags: ["冰激凌"]
 )
 
-let testMetaItem_67 = ExpenseInfo(
+let testExpenseInfo_67 = ExpenseInfo(
     originalText: "饮料五块",
     spentAt: "210428".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -590,7 +590,7 @@ let testMetaItem_67 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_68 = ExpenseInfo(
+let testExpenseInfo_68 = ExpenseInfo(
     originalText: "贩卖机买鱼豆腐十一",
     spentAt: "210501".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "鱼豆腐",
@@ -598,7 +598,7 @@ let testMetaItem_68 = ExpenseInfo(
     tags: ["鱼豆腐", "零食"]
 )
 
-let testMetaItem_69 = ExpenseInfo(
+let testExpenseInfo_69 = ExpenseInfo(
     originalText: "饮料三块五",
     spentAt: "210502".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -606,7 +606,7 @@ let testMetaItem_69 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_70 = ExpenseInfo(
+let testExpenseInfo_70 = ExpenseInfo(
     originalText: "洗衣四块",
     spentAt: "210502".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -614,7 +614,7 @@ let testMetaItem_70 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_71 = ExpenseInfo(
+let testExpenseInfo_71 = ExpenseInfo(
     originalText: "零食四块",
     spentAt: "210502".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "零食",
@@ -622,7 +622,7 @@ let testMetaItem_71 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_72 = ExpenseInfo(
+let testExpenseInfo_72 = ExpenseInfo(
     originalText: "冰激凌十六",
     spentAt: "210502".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "冰激凌",
@@ -630,7 +630,7 @@ let testMetaItem_72 = ExpenseInfo(
     tags: ["冰激凌"]
 )
 
-let testMetaItem_73 = ExpenseInfo(
+let testExpenseInfo_73 = ExpenseInfo(
     originalText: "饮料六块",
     spentAt: "210502".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -638,7 +638,7 @@ let testMetaItem_73 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_74 = ExpenseInfo(
+let testExpenseInfo_74 = ExpenseInfo(
     originalText: "充了二百元话费",
     spentAt: "210502".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "话费",
@@ -646,7 +646,7 @@ let testMetaItem_74 = ExpenseInfo(
     tags: ["话费"]
 )
 
-let testMetaItem_75 = ExpenseInfo(
+let testExpenseInfo_75 = ExpenseInfo(
     originalText: "去天津的往返车票 一百二",
     spentAt: "210502".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "去天津的往返车票",
@@ -658,7 +658,7 @@ let testMetaItem_75 = ExpenseInfo(
                              text: "去天津看海真的好棒！说实话 真没花多少钱，但体验是超级棒！")
 )
 
-let testMetaItem_76 = ExpenseInfo(
+let testExpenseInfo_76 = ExpenseInfo(
     originalText: "天津市内交通 二十四",
     spentAt: "210502".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "天津市内交通",
@@ -667,7 +667,7 @@ let testMetaItem_76 = ExpenseInfo(
     focus: "旅游"
 )
 
-let testMetaItem_77 = ExpenseInfo(
+let testExpenseInfo_77 = ExpenseInfo(
     originalText: "零食十五",
     spentAt: "210505".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "零食",
@@ -675,7 +675,7 @@ let testMetaItem_77 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_78 = ExpenseInfo(
+let testExpenseInfo_78 = ExpenseInfo(
     originalText: "杯面六块",
     spentAt: "210507".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "杯面",
@@ -683,7 +683,7 @@ let testMetaItem_78 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_79 = ExpenseInfo(
+let testExpenseInfo_79 = ExpenseInfo(
     originalText: "午饭二十八块五",
     spentAt: "210510".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "午饭",
@@ -691,7 +691,7 @@ let testMetaItem_79 = ExpenseInfo(
     tags: ["午饭"]
 )
 
-let testMetaItem_80 = ExpenseInfo(
+let testExpenseInfo_80 = ExpenseInfo(
     originalText: "饮料五块",
     spentAt: "210414".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -699,7 +699,7 @@ let testMetaItem_80 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_81 = ExpenseInfo(
+let testExpenseInfo_81 = ExpenseInfo(
     originalText: "给たんたんめん充值花了十六",
     spentAt: "210516".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "给たんたんめん充值",
@@ -712,7 +712,7 @@ let testMetaItem_81 = ExpenseInfo(
                              text: "注册了paypal，买fanbox。たんたんめん是我超喜欢的画师，感觉他画的画就特别灵动！拿到了一堆高清的图还有psd，自己学画画的时候也可以尝试参考。")
 )
 
-let testMetaItem_82 = ExpenseInfo(
+let testExpenseInfo_82 = ExpenseInfo(
     originalText: "饮料五块五",
     spentAt: "210517".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -720,7 +720,7 @@ let testMetaItem_82 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_83 = ExpenseInfo(
+let testExpenseInfo_83 = ExpenseInfo(
     originalText: "洗衣四块",
     spentAt: "210519".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -728,7 +728,7 @@ let testMetaItem_83 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_84 = ExpenseInfo(
+let testExpenseInfo_84 = ExpenseInfo(
     originalText: "手环带子二十九",
     spentAt: "210520".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "手环带子",
@@ -740,7 +740,7 @@ let testMetaItem_84 = ExpenseInfo(
                              text: "原来的那个手环真的不结实啊。新的也很贵")
 )
 
-let testMetaItem_85 = ExpenseInfo(
+let testExpenseInfo_85 = ExpenseInfo(
     originalText: "饮料四块五",
     spentAt: "210521".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -748,7 +748,7 @@ let testMetaItem_85 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_86 = ExpenseInfo(
+let testExpenseInfo_86 = ExpenseInfo(
     originalText: "饮料五块",
     spentAt: "210522".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -756,7 +756,7 @@ let testMetaItem_86 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_87 = ExpenseInfo(
+let testExpenseInfo_87 = ExpenseInfo(
     originalText: "奶茶十四",
     spentAt: "210523".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "奶茶",
@@ -764,7 +764,7 @@ let testMetaItem_87 = ExpenseInfo(
     tags: ["奶茶"]
 )
 
-let testMetaItem_88 = ExpenseInfo(
+let testExpenseInfo_88 = ExpenseInfo(
     originalText: "零食十三",
     spentAt: "210525".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "零食",
@@ -772,16 +772,16 @@ let testMetaItem_88 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_89 = ExpenseInfo(
+let testExpenseInfo_89 = ExpenseInfo(
     originalText: "雀魂月卡三十五",
     spentAt: "210525".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "雀魂月卡",
     amount: 35.0,
     tags: ["雀魂", "月卡"],
-    focus: "游戏"
+    focus: "雀魂"
 )
 
-let testMetaItem_90 = ExpenseInfo(
+let testExpenseInfo_90 = ExpenseInfo(
     originalText: "打印四毛",
     spentAt: "210525".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "打印",
@@ -789,7 +789,7 @@ let testMetaItem_90 = ExpenseInfo(
     tags: ["打印"]
 )
 
-let testMetaItem_91 = ExpenseInfo(
+let testExpenseInfo_91 = ExpenseInfo(
     originalText: "洗衣三块八",
     spentAt: "210526".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -797,7 +797,7 @@ let testMetaItem_91 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_92 = ExpenseInfo(
+let testExpenseInfo_92 = ExpenseInfo(
     originalText: "饮料三块",
     spentAt: "210526".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -805,7 +805,7 @@ let testMetaItem_92 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_93 = ExpenseInfo(
+let testExpenseInfo_93 = ExpenseInfo(
     originalText: "酸奶九块",
     spentAt: "210526".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "酸奶",
@@ -813,7 +813,7 @@ let testMetaItem_93 = ExpenseInfo(
     tags: ["酸奶", "零食"]
 )
 
-let testMetaItem_94 = ExpenseInfo(
+let testExpenseInfo_94 = ExpenseInfo(
     originalText: "把图片处理为高清花了三十五",
     spentAt: "210527".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "把图片处理为高清",
@@ -825,7 +825,7 @@ let testMetaItem_94 = ExpenseInfo(
                              text: "一直对AI没什么兴趣的，直到发现了GitHub伤的waifu。原来机器学习还能做这个，真不错！把たんたんめん的图都放大了一遍，メンヘラちゃん的表情包也是。觉得能让我对图像处理产生兴趣这是最重要的")
 )
 
-let testMetaItem_95 = ExpenseInfo(
+let testExpenseInfo_95 = ExpenseInfo(
     originalText: "给山哥买生日蛋糕花了七十",
     spentAt: "210528".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "给山哥买生日蛋糕",
@@ -837,7 +837,7 @@ let testMetaItem_95 = ExpenseInfo(
                              text: "自己还花了蛮多时间去策划的，山哥生快，希望新的一岁更加牛逼吧！")
 )
 
-let testMetaItem_96 = ExpenseInfo(
+let testExpenseInfo_96 = ExpenseInfo(
     originalText: "饮料五块",
     spentAt: "210528".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -845,7 +845,7 @@ let testMetaItem_96 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_97 = ExpenseInfo(
+let testExpenseInfo_97 = ExpenseInfo(
     originalText: "饮料五元",
     spentAt: "210531".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -853,7 +853,7 @@ let testMetaItem_97 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_98 = ExpenseInfo(
+let testExpenseInfo_98 = ExpenseInfo(
     originalText: "午饭七块五",
     spentAt: "210531".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "午饭",
@@ -861,7 +861,7 @@ let testMetaItem_98 = ExpenseInfo(
     tags: ["午饭"]
 )
 
-let testMetaItem_99 = ExpenseInfo(
+let testExpenseInfo_99 = ExpenseInfo(
     originalText: "电费十块",
     spentAt: "210531".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "电费",
@@ -869,7 +869,7 @@ let testMetaItem_99 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_100 = ExpenseInfo(
+let testExpenseInfo_100 = ExpenseInfo(
     originalText: "洗衣四块",
     spentAt: "210601".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -877,7 +877,7 @@ let testMetaItem_100 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_101 = ExpenseInfo(
+let testExpenseInfo_101 = ExpenseInfo(
     originalText: "饮料四块五",
     spentAt: "210602".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -885,7 +885,7 @@ let testMetaItem_101 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_102 = ExpenseInfo(
+let testExpenseInfo_102 = ExpenseInfo(
     originalText: "饮料六块",
     spentAt: "210602".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -893,7 +893,7 @@ let testMetaItem_102 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_103 = ExpenseInfo(
+let testExpenseInfo_103 = ExpenseInfo(
     originalText: "饮料五块",
     spentAt: "210602".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -901,7 +901,7 @@ let testMetaItem_103 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_104 = ExpenseInfo(
+let testExpenseInfo_104 = ExpenseInfo(
     originalText: "饭卡充值 四百",
     spentAt: "210603".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饭卡充值",
@@ -909,7 +909,7 @@ let testMetaItem_104 = ExpenseInfo(
     tags: ["校园卡"]
 )
 
-let testMetaItem_105 = ExpenseInfo(
+let testExpenseInfo_105 = ExpenseInfo(
     originalText: "零食十块",
     spentAt: "210604".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "零食",
@@ -917,7 +917,7 @@ let testMetaItem_105 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_106 = ExpenseInfo(
+let testExpenseInfo_106 = ExpenseInfo(
     originalText: "班费五十",
     spentAt: "210607".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "班费",
@@ -925,7 +925,7 @@ let testMetaItem_106 = ExpenseInfo(
     tags: ["无97"]
 )
 
-let testMetaItem_107 = ExpenseInfo(
+let testExpenseInfo_107 = ExpenseInfo(
     originalText: "饮料五块",
     spentAt: "210608".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -933,7 +933,7 @@ let testMetaItem_107 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_108 = ExpenseInfo(
+let testExpenseInfo_108 = ExpenseInfo(
     originalText: "午饭花了七块",
     spentAt: "210609".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "午饭",
@@ -941,7 +941,7 @@ let testMetaItem_108 = ExpenseInfo(
     tags: ["午饭"]
 )
 
-let testMetaItem_109 = ExpenseInfo(
+let testExpenseInfo_109 = ExpenseInfo(
     originalText: "方便面六块",
     spentAt: "210610".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "方便面",
@@ -949,7 +949,7 @@ let testMetaItem_109 = ExpenseInfo(
     tags: ["方便面"]
 )
 
-let testMetaItem_110 = ExpenseInfo(
+let testExpenseInfo_110 = ExpenseInfo(
     originalText: "饮料六块",
     spentAt: "210611".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -957,7 +957,7 @@ let testMetaItem_110 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_111 = ExpenseInfo(
+let testExpenseInfo_111 = ExpenseInfo(
     originalText: "饮料六块",
     spentAt: "210612".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -965,7 +965,7 @@ let testMetaItem_111 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_112 = ExpenseInfo(
+let testExpenseInfo_112 = ExpenseInfo(
     originalText: "水木咖啡 奶茶十二",
     spentAt: "210612".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "水木咖啡 奶茶",
@@ -976,7 +976,7 @@ let testMetaItem_112 = ExpenseInfo(
                              text: "讨论项目。学到了不少呢，感觉现在的项目还缺少很多东西。逐渐添加上吧")
 )
 
-let testMetaItem_113 = ExpenseInfo(
+let testExpenseInfo_113 = ExpenseInfo(
     originalText: "零食四块",
     spentAt: "210615".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "零食",
@@ -984,7 +984,7 @@ let testMetaItem_113 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_114 = ExpenseInfo(
+let testExpenseInfo_114 = ExpenseInfo(
     originalText: "饮料七块",
     spentAt: "210616".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -992,7 +992,7 @@ let testMetaItem_114 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_115 = ExpenseInfo(
+let testExpenseInfo_115 = ExpenseInfo(
     originalText: "饮料四块五",
     spentAt: "210616".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1000,7 +1000,7 @@ let testMetaItem_115 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_116 = ExpenseInfo(
+let testExpenseInfo_116 = ExpenseInfo(
     originalText: "洗衣四块",
     spentAt: "210617".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1008,7 +1008,7 @@ let testMetaItem_116 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_117 = ExpenseInfo(
+let testExpenseInfo_117 = ExpenseInfo(
     originalText: "饮料六块",
     spentAt: "210617".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1016,7 +1016,7 @@ let testMetaItem_117 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_118 = ExpenseInfo(
+let testExpenseInfo_118 = ExpenseInfo(
     originalText: "饮料六块",
     spentAt: "210617".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1024,7 +1024,7 @@ let testMetaItem_118 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_119 = ExpenseInfo(
+let testExpenseInfo_119 = ExpenseInfo(
     originalText: "薯片六块",
     spentAt: "210617".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "薯片",
@@ -1032,7 +1032,7 @@ let testMetaItem_119 = ExpenseInfo(
     tags: ["零食", "薯片"]
 )
 
-let testMetaItem_120 = ExpenseInfo(
+let testExpenseInfo_120 = ExpenseInfo(
     originalText: "饮料六块",
     spentAt: "210618".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1040,7 +1040,7 @@ let testMetaItem_120 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_121 = ExpenseInfo(
+let testExpenseInfo_121 = ExpenseInfo(
     originalText: "饮料六块",
     spentAt: "210619".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1048,7 +1048,7 @@ let testMetaItem_121 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_122 = ExpenseInfo(
+let testExpenseInfo_122 = ExpenseInfo(
     originalText: "expressVPN十五个月六百六十三",
     spentAt: "210619".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "expressVPN十五个月",
@@ -1060,7 +1060,7 @@ let testMetaItem_122 = ExpenseInfo(
                              text: "好贵。但怎么说呢，自己每天都要用，有一个稳定的体验好的梯子还是蛮重要的。")
 )
 
-let testMetaItem_123 = ExpenseInfo(
+let testExpenseInfo_123 = ExpenseInfo(
     originalText: "奶茶十八",
     spentAt: "210619".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1068,7 +1068,7 @@ let testMetaItem_123 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_124 = ExpenseInfo(
+let testExpenseInfo_124 = ExpenseInfo(
     originalText: "买唯花的音声六十一",
     spentAt: "210619".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "唯花的音声",
@@ -1081,7 +1081,7 @@ let testMetaItem_124 = ExpenseInfo(
                              text: "呜呜呜 好清楚的声音！当天在B站看到有预览版就直接上DLsite买了")
 )
 
-let testMetaItem_125 = ExpenseInfo(
+let testExpenseInfo_125 = ExpenseInfo(
     originalText: "饮料三块",
     spentAt: "210619".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1089,7 +1089,7 @@ let testMetaItem_125 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_126 = ExpenseInfo(
+let testExpenseInfo_126 = ExpenseInfo(
     originalText: "打印两毛",
     spentAt: "210620".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "打印",
@@ -1097,7 +1097,7 @@ let testMetaItem_126 = ExpenseInfo(
     tags: ["打印"]
 )
 
-let testMetaItem_127 = ExpenseInfo(
+let testExpenseInfo_127 = ExpenseInfo(
     originalText: "饮料五块五",
     spentAt: "210620".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1105,7 +1105,7 @@ let testMetaItem_127 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_128 = ExpenseInfo(
+let testExpenseInfo_128 = ExpenseInfo(
     originalText: "打印三块六",
     spentAt: "210621".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "打印",
@@ -1113,7 +1113,7 @@ let testMetaItem_128 = ExpenseInfo(
     tags: ["打印"]
 )
 
-let testMetaItem_129 = ExpenseInfo(
+let testExpenseInfo_129 = ExpenseInfo(
     originalText: "饮料三块",
     spentAt: "210621".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1121,7 +1121,7 @@ let testMetaItem_129 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_130 = ExpenseInfo(
+let testExpenseInfo_130 = ExpenseInfo(
     originalText: "零食六块",
     spentAt: "210621".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "零食",
@@ -1129,7 +1129,7 @@ let testMetaItem_130 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_131 = ExpenseInfo(
+let testExpenseInfo_131 = ExpenseInfo(
     originalText: "清芬快餐二十一",
     spentAt: "210622".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "清芬快餐",
@@ -1137,7 +1137,7 @@ let testMetaItem_131 = ExpenseInfo(
     tags: ["清芬", "快餐"]
 )
 
-let testMetaItem_132 = ExpenseInfo(
+let testExpenseInfo_132 = ExpenseInfo(
     originalText: "饮料四块五",
     spentAt: "210622".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1145,7 +1145,7 @@ let testMetaItem_132 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_133 = ExpenseInfo(
+let testExpenseInfo_133 = ExpenseInfo(
     originalText: "咖啡六块",
     spentAt: "210622".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "咖啡",
@@ -1156,7 +1156,7 @@ let testMetaItem_133 = ExpenseInfo(
                              text: "考信号与系统前买的咖啡，确实让我打起了精神，但喝的有点凉，而且考完试发现自己一直紧张，所以最后有点恶心")
 )
 
-let testMetaItem_134 = ExpenseInfo(
+let testExpenseInfo_134 = ExpenseInfo(
     originalText: "洗衣四块",
     spentAt: "210623".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -1164,7 +1164,7 @@ let testMetaItem_134 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_135 = ExpenseInfo(
+let testExpenseInfo_135 = ExpenseInfo(
     originalText: "超市买东西花了九十四块五",
     spentAt: "210623".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "超市买东西",
@@ -1172,7 +1172,7 @@ let testMetaItem_135 = ExpenseInfo(
     tags: ["超市"]
 )
 
-let testMetaItem_136 = ExpenseInfo(
+let testExpenseInfo_136 = ExpenseInfo(
     originalText: "三大包湿巾三十五",
     spentAt: "210623".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "三大包湿巾",
@@ -1184,7 +1184,7 @@ let testMetaItem_136 = ExpenseInfo(
                              text: "终于有了湿巾，到手之后发现好好用啊！不过它是无香的，想要有香味的（买的时候没仔细看嗫）")
 )
 
-let testMetaItem_137 = ExpenseInfo(
+let testExpenseInfo_137 = ExpenseInfo(
     originalText: "帆布鞋六十九",
     spentAt: "210624".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "帆布鞋",
@@ -1192,7 +1192,7 @@ let testMetaItem_137 = ExpenseInfo(
     tags: ["帆布鞋"]
 )
 
-let testMetaItem_138 = ExpenseInfo(
+let testExpenseInfo_138 = ExpenseInfo(
     originalText: "买二十个衣架花了十五块三",
     spentAt: "210624".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "买二十个衣架",
@@ -1204,7 +1204,7 @@ let testMetaItem_138 = ExpenseInfo(
                              text: "质量好差，我没想到那么细。夏天挂挂衣服还好，但冬天衣服我感觉这个怕是撑不起来")
 )
 
-let testMetaItem_139 = ExpenseInfo(
+let testExpenseInfo_139 = ExpenseInfo(
     originalText: "饮料三块",
     spentAt: "210624".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1212,7 +1212,7 @@ let testMetaItem_139 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_140 = ExpenseInfo(
+let testExpenseInfo_140 = ExpenseInfo(
     originalText: "冰激凌十四",
     spentAt: "210625".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "冰激凌",
@@ -1220,7 +1220,7 @@ let testMetaItem_140 = ExpenseInfo(
     tags: ["冰激凌"]
 )
 
-let testMetaItem_141 = ExpenseInfo(
+let testExpenseInfo_141 = ExpenseInfo(
     originalText: "薯片七块",
     spentAt: "210625".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "薯片",
@@ -1228,7 +1228,7 @@ let testMetaItem_141 = ExpenseInfo(
     tags: ["薯片", "零食"]
 )
 
-let testMetaItem_142 = ExpenseInfo(
+let testExpenseInfo_142 = ExpenseInfo(
     originalText: "跳线两盒 十七块二",
     spentAt: "210625".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "跳线两盒",
@@ -1239,7 +1239,7 @@ let testMetaItem_142 = ExpenseInfo(
                              text: "电设实验用跳线还是方便一点 一次多买了一盒")
 )
 
-let testMetaItem_143 = ExpenseInfo(
+let testExpenseInfo_143 = ExpenseInfo(
     originalText: "饮料五块",
     spentAt: "210625".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1247,7 +1247,7 @@ let testMetaItem_143 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_144 = ExpenseInfo(
+let testExpenseInfo_144 = ExpenseInfo(
     originalText: "雀魂月卡三十五块七",
     spentAt: "210625".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "雀魂月卡",
@@ -1259,7 +1259,7 @@ let testMetaItem_144 = ExpenseInfo(
                              text: "说实话不怎么想充月卡……还是把精力放在提升雀力上吧")
 )
 
-let testMetaItem_145 = ExpenseInfo(
+let testExpenseInfo_145 = ExpenseInfo(
     originalText: "床帘一百一十八",
     spentAt: "210626".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "床帘",
@@ -1271,7 +1271,7 @@ let testMetaItem_145 = ExpenseInfo(
                              text: "好棒的床帘！有了在宿舍自己的空间！虽然装的时候超级费力气，但装好之后第一个晚上就睡的特别舒服")
 )
 
-let testMetaItem_146 = ExpenseInfo(
+let testExpenseInfo_146 = ExpenseInfo(
     originalText: "饮料七块五",
     spentAt: "210626".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1279,7 +1279,7 @@ let testMetaItem_146 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_147 = ExpenseInfo(
+let testExpenseInfo_147 = ExpenseInfo(
     originalText: "洗衣三块",
     spentAt: "210626".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -1287,7 +1287,7 @@ let testMetaItem_147 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_148 = ExpenseInfo(
+let testExpenseInfo_148 = ExpenseInfo(
     originalText: "和高中同学聚点串吧 AA一百一十五",
     spentAt: "210626".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "和高中同学聚点串吧",
@@ -1299,7 +1299,7 @@ let testMetaItem_148 = ExpenseInfo(
                              text: "好久没见到高中同学了啊！聊得很多话题，超级开心！lg虽然迟到了很久，但之后第二场也很愉快啊！")
 )
 
-let testMetaItem_149 = ExpenseInfo(
+let testExpenseInfo_149 = ExpenseInfo(
     originalText: "宿舍电费三十",
     spentAt: "210627".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "宿舍电费",
@@ -1308,7 +1308,7 @@ let testMetaItem_149 = ExpenseInfo(
     focus: "宿舍"
 )
 
-let testMetaItem_150 = ExpenseInfo(
+let testExpenseInfo_150 = ExpenseInfo(
     originalText: "和iOS Club的同学聚餐花了四十六",
     spentAt: "210627".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "和iOS Club的同学聚餐",
@@ -1320,7 +1320,7 @@ let testMetaItem_150 = ExpenseInfo(
                              text: "聚餐～虽然来的人不是很多，但认识了不少朋友！在社团继续加油吧！")
 )
 
-let testMetaItem_151 = ExpenseInfo(
+let testExpenseInfo_151 = ExpenseInfo(
     originalText: "给B站双语音声up主充电花了六块",
     spentAt: "210628".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "B站双语音声up主充电",
@@ -1329,7 +1329,7 @@ let testMetaItem_151 = ExpenseInfo(
     focus: "支持"
 )
 
-let testMetaItem_152 = ExpenseInfo(
+let testExpenseInfo_152 = ExpenseInfo(
     originalText: "尝试讯飞转写日语 两块四",
     spentAt: "210629".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "讯飞转写日语",
@@ -1338,7 +1338,7 @@ let testMetaItem_152 = ExpenseInfo(
     focus: "软件服务"
 )
 
-let testMetaItem_153 = ExpenseInfo(
+let testExpenseInfo_153 = ExpenseInfo(
     originalText: "买零食五块",
     spentAt: "210701".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "零食",
@@ -1346,7 +1346,7 @@ let testMetaItem_153 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_154 = ExpenseInfo(
+let testExpenseInfo_154 = ExpenseInfo(
     originalText: "买水两块",
     spentAt: "210702".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "买水",
@@ -1354,7 +1354,7 @@ let testMetaItem_154 = ExpenseInfo(
     tags: ["水"]
 )
 
-let testMetaItem_155 = ExpenseInfo(
+let testExpenseInfo_155 = ExpenseInfo(
     originalText: "洗衣三块五",
     spentAt: "210702".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -1362,7 +1362,7 @@ let testMetaItem_155 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_156 = ExpenseInfo(
+let testExpenseInfo_156 = ExpenseInfo(
     originalText: "饮料五块",
     spentAt: "210707".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1370,7 +1370,7 @@ let testMetaItem_156 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_157 = ExpenseInfo(
+let testExpenseInfo_157 = ExpenseInfo(
     originalText: "饮料三块",
     spentAt: "210708".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1378,7 +1378,7 @@ let testMetaItem_157 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_158 = ExpenseInfo(
+let testExpenseInfo_158 = ExpenseInfo(
     originalText: "买了百度云半年的服务器用来做课程演示 花了74",
     spentAt: "210708".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "百度云半年服务器",
@@ -1390,7 +1390,7 @@ let testMetaItem_158 = ExpenseInfo(
                              text: "买来用吧，感觉手上没一台服务器做事情还是不方便。")
 )
 
-let testMetaItem_159 = ExpenseInfo(
+let testExpenseInfo_159 = ExpenseInfo(
     originalText: "买饮料花了五块五",
     spentAt: "210709".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1398,7 +1398,7 @@ let testMetaItem_159 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_160 = ExpenseInfo(
+let testExpenseInfo_160 = ExpenseInfo(
     originalText: "买饮料花了四块七",
     spentAt: "210711".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1406,7 +1406,7 @@ let testMetaItem_160 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_161 = ExpenseInfo(
+let testExpenseInfo_161 = ExpenseInfo(
     originalText: "充二百元话费",
     spentAt: "210712".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "话费",
@@ -1414,7 +1414,7 @@ let testMetaItem_161 = ExpenseInfo(
     tags: ["话费"]
 )
 
-let testMetaItem_162 = ExpenseInfo(
+let testExpenseInfo_162 = ExpenseInfo(
     originalText: "iPad Pro",
     spentAt: "210716".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "买iPad",
@@ -1426,7 +1426,7 @@ let testMetaItem_162 = ExpenseInfo(
                              text: "终于拿到了iPad Pro！感谢父母～到手之后发现确实可以做很多事情哈，效率++")
 )
 
-let testMetaItem_163 = ExpenseInfo(
+let testExpenseInfo_163 = ExpenseInfo(
     originalText: "Apple Pencil教育优惠895",
     spentAt: "210716".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "Pencil",
@@ -1435,7 +1435,7 @@ let testMetaItem_163 = ExpenseInfo(
     focus: "电子设备"
 )
 
-let testMetaItem_164 = ExpenseInfo(
+let testExpenseInfo_164 = ExpenseInfo(
     originalText: "AirPods Pro教育优惠753",
     spentAt: "210716".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "AirPods Pro",
@@ -1447,7 +1447,7 @@ let testMetaItem_164 = ExpenseInfo(
                              text: "还行吧，但感觉问题也不少")
 )
 
-let testMetaItem_165 = ExpenseInfo(
+let testExpenseInfo_165 = ExpenseInfo(
     originalText: "洗衣三块",
     spentAt: "210716".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -1455,7 +1455,7 @@ let testMetaItem_165 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_166 = ExpenseInfo(
+let testExpenseInfo_166 = ExpenseInfo(
     originalText: "iPad Pro双面夹90",
     spentAt: "210716".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "保护壳",
@@ -1464,7 +1464,7 @@ let testMetaItem_166 = ExpenseInfo(
     focus: "电子设备"
 )
 
-let testMetaItem_167 = ExpenseInfo(
+let testExpenseInfo_167 = ExpenseInfo(
     originalText: "夜宵十一块五",
     spentAt: "210717".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "夜宵",
@@ -1472,7 +1472,7 @@ let testMetaItem_167 = ExpenseInfo(
     tags: ["夜宵"]
 )
 
-let testMetaItem_168 = ExpenseInfo(
+let testExpenseInfo_168 = ExpenseInfo(
     originalText: "充话费100",
     spentAt: "210718".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "充话费",
@@ -1480,7 +1480,7 @@ let testMetaItem_168 = ExpenseInfo(
     tags: ["话费"]
 )
 
-let testMetaItem_169 = ExpenseInfo(
+let testExpenseInfo_169 = ExpenseInfo(
     originalText: "和舍友出去吃火锅花了43.5",
     spentAt: "210719".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "吃火锅",
@@ -1489,7 +1489,7 @@ let testMetaItem_169 = ExpenseInfo(
     focus: "聚餐"
 )
 
-let testMetaItem_170 = ExpenseInfo(
+let testExpenseInfo_170 = ExpenseInfo(
     originalText: "洗衣三块",
     spentAt: "210719".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -1497,7 +1497,7 @@ let testMetaItem_170 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_171 = ExpenseInfo(
+let testExpenseInfo_171 = ExpenseInfo(
     originalText: "打印材料两块五",
     spentAt: "210720".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "打印",
@@ -1505,7 +1505,7 @@ let testMetaItem_171 = ExpenseInfo(
     tags: ["打印"]
 )
 
-let testMetaItem_172 = ExpenseInfo(
+let testExpenseInfo_172 = ExpenseInfo(
     originalText: "充饭卡花了四百",
     spentAt: "210721".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "充饭卡",
@@ -1513,7 +1513,7 @@ let testMetaItem_172 = ExpenseInfo(
     tags: ["饭卡"]
 )
 
-let testMetaItem_173 = ExpenseInfo(
+let testExpenseInfo_173 = ExpenseInfo(
     originalText: "买Notability花了六十",
     spentAt: "210721".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "Notability",
@@ -1525,7 +1525,7 @@ let testMetaItem_173 = ExpenseInfo(
                              text: "感觉一般般 功能不是那么多，有的操作并不是很顺手。而且很多主题都要另外付费ummm")
 )
 
-let testMetaItem_174 = ExpenseInfo(
+let testExpenseInfo_174 = ExpenseInfo(
     originalText: "买Procreate花了六十八",
     spentAt: "210721".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "Procreate",
@@ -1537,7 +1537,7 @@ let testMetaItem_174 = ExpenseInfo(
                              text: "好棒！加油画画吧！现在还在尝试着描别的画师的草稿，先把pencil拿稳吧ww")
 )
 
-let testMetaItem_175 = ExpenseInfo(
+let testExpenseInfo_175 = ExpenseInfo(
     originalText: "买饮料五块",
     spentAt: "210723".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1545,7 +1545,7 @@ let testMetaItem_175 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_176 = ExpenseInfo(
+let testExpenseInfo_176 = ExpenseInfo(
     originalText: "买饮料五块",
     spentAt: "210725".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "饮料",
@@ -1553,7 +1553,7 @@ let testMetaItem_176 = ExpenseInfo(
     tags: ["饮料"]
 )
 
-let testMetaItem_177 = ExpenseInfo(
+let testExpenseInfo_177 = ExpenseInfo(
     originalText: "回家火车票 425",
     spentAt: "210725".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "火车票",
@@ -1561,7 +1561,7 @@ let testMetaItem_177 = ExpenseInfo(
     tags: ["火车票"]
 )
 
-let testMetaItem_178 = ExpenseInfo(
+let testExpenseInfo_178 = ExpenseInfo(
     originalText: "桃李地下聚餐42",
     spentAt: "210726".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "桃李地下",
@@ -1570,7 +1570,7 @@ let testMetaItem_178 = ExpenseInfo(
     focus: "聚餐"
 )
 
-let testMetaItem_179 = ExpenseInfo(
+let testExpenseInfo_179 = ExpenseInfo(
     originalText: "洗衣花了三块八",
     spentAt: "210727".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "洗衣",
@@ -1578,7 +1578,7 @@ let testMetaItem_179 = ExpenseInfo(
     tags: ["洗衣"]
 )
 
-let testMetaItem_180 = ExpenseInfo(
+let testExpenseInfo_180 = ExpenseInfo(
     originalText: "楼下买吃的花了二十",
     spentAt: "210731".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "楼下吃的",
@@ -1586,7 +1586,7 @@ let testMetaItem_180 = ExpenseInfo(
     tags: ["零食"]
 )
 
-let testMetaItem_181 = ExpenseInfo(
+let testExpenseInfo_181 = ExpenseInfo(
     originalText: "超市买东西花了八十二块七",
     spentAt: "210801".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "超市买东西",
@@ -1594,7 +1594,7 @@ let testMetaItem_181 = ExpenseInfo(
     tags: ["超市", "奶"]
 )
 
-let testMetaItem_182 = ExpenseInfo(
+let testExpenseInfo_182 = ExpenseInfo(
     originalText: "一份面皮三块五",
     spentAt: "210801".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "面皮",
@@ -1602,7 +1602,7 @@ let testMetaItem_182 = ExpenseInfo(
     tags: ["面皮"]
 )
 
-let testMetaItem_183 = ExpenseInfo(
+let testExpenseInfo_183 = ExpenseInfo(
     originalText: "买打气筒给自行车充气花了二十八块五",
     spentAt: "210803".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "打气筒",
@@ -1610,7 +1610,7 @@ let testMetaItem_183 = ExpenseInfo(
     tags: ["打气筒", "自行车"]
 )
 
-let testMetaItem_184 = ExpenseInfo(
+let testExpenseInfo_184 = ExpenseInfo(
     originalText: "买礼品卡花了二十",
     spentAt: "210804".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "中国app store礼品卡",
@@ -1618,22 +1618,20 @@ let testMetaItem_184 = ExpenseInfo(
     tags: ["礼品卡"]
 )
 
-let testMetaItem_185 = ExpenseInfo(
+let testExpenseInfo_185 = ExpenseInfo(
     originalText: "淘宝礼品卡代充花了七十",
-    spentAt: "210815".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentAt: "210804".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "美区app store礼品卡",
-    amount: 100.0,
+    amount: 70.0,
     tags: ["礼品卡"],
     focus: "游戏"
 )
 
-// Sept.
-
-let testMetaItem_186 = ExpenseInfo(
+let testExpenseInfo_186 = ExpenseInfo(
     originalText: "买Office套件花了八块",
     spentAt: "210901".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "office",
-    amount: 1.0,
+    amount: 8.0,
     tags: ["Microsoft", "Office"],
     focus: "软件服务",
     story: ExpenseInfo.Story(rating: 5,
@@ -1641,30 +1639,30 @@ let testMetaItem_186 = ExpenseInfo(
                              text: "学校给的Office不知道怎么就装不上，某宝买了一个非常好用！iPad上也下载好了，而且还是自己改密码的那种；虽然不知道哪天就跑路了，但是先用着吧")
 )
 
-let testMetaItem_187 = ExpenseInfo(
+let testExpenseInfo_187 = ExpenseInfo(
     originalText: "去钓鱼台花了20",
-    spentAt: "210901".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentAt: "210902".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "钓鱼台",
-    amount: 2.0,
+    amount: 20.0,
     tags: ["旅游"],
-    story: ExpenseInfo.Story(rating: 5,
+    story: ExpenseInfo.Story(rating: 4,
                              emoji: "😆",
                              text: "超级不错！虽然景区不大，但里面的水库惊艳到我了，看到了彩虹色的水雾！太棒了")
 )
 
-let testMetaItem_188 = ExpenseInfo(
+let testExpenseInfo_188 = ExpenseInfo(
     originalText: "九成宫门票四十",
-    spentAt: "210902".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentAt: "210903".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "九成宫",
-    amount: 3.0,
+    amount: 40.0,
     tags: ["旅游"]
 )
 
-let testMetaItem_189 = ExpenseInfo(
+let testExpenseInfo_189 = ExpenseInfo(
     originalText: "买DLSite点数",
-    spentAt: "210902".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentAt: "210903".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "dlsite1000点数",
-    amount: 4.0,
+    amount: 60.0,
     tags: ["音声", "DLSite"],
     focus: "软件服务",
     story: ExpenseInfo.Story(rating: 5,
@@ -1672,23 +1670,23 @@ let testMetaItem_189 = ExpenseInfo(
                              text: "又遇到了一个超级棒的音声！直接去买了")
 )
 
-let testMetaItem_190 = ExpenseInfo(
+let testExpenseInfo_190 = ExpenseInfo(
     originalText: "买湿巾花了三十八块八",
-    spentAt: "210903".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentAt: "210904".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "湿巾",
-    amount: 5.0,
+    amount: 38.8,
     tags: ["湿巾", "餐桌"]
 )
 
-let testMetaItem_191 = ExpenseInfo(
+let testExpenseInfo_191 = ExpenseInfo(
     originalText: "买macOS开发书花了八十一",
-    spentAt: "210903".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentAt: "210909".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "macOS开发书",
-    amount: 6.0,
+    amount: 81.0,
     tags: ["AppKit", "macOS", "Xcode"],
     focus: "软件服务"
 )
 
-let testMetaItems: [ExpenseInfo] = [testMetaItem_1, testMetaItem_2, testMetaItem_3, testMetaItem_4, testMetaItem_5, testMetaItem_6, testMetaItem_7, testMetaItem_8, testMetaItem_9, testMetaItem_10, testMetaItem_11, testMetaItem_12, testMetaItem_13, testMetaItem_14, testMetaItem_15, testMetaItem_16, testMetaItem_17, testMetaItem_18, testMetaItem_19, testMetaItem_20, testMetaItem_21, testMetaItem_22, testMetaItem_23, testMetaItem_24, testMetaItem_25, testMetaItem_26, testMetaItem_27, testMetaItem_28, testMetaItem_29, testMetaItem_30, testMetaItem_31, testMetaItem_32, testMetaItem_33, testMetaItem_34, testMetaItem_35, testMetaItem_36, testMetaItem_37, testMetaItem_38, testMetaItem_39, testMetaItem_40, testMetaItem_41, testMetaItem_42, testMetaItem_43, testMetaItem_44, testMetaItem_45, testMetaItem_46, testMetaItem_47, testMetaItem_48, testMetaItem_49, testMetaItem_50, testMetaItem_51, testMetaItem_52, testMetaItem_53, testMetaItem_54, testMetaItem_55, testMetaItem_56, testMetaItem_57, testMetaItem_58, testMetaItem_59, testMetaItem_60, testMetaItem_61, testMetaItem_62, testMetaItem_63, testMetaItem_64, testMetaItem_65, testMetaItem_66, testMetaItem_67, testMetaItem_68, testMetaItem_69, testMetaItem_70, testMetaItem_71, testMetaItem_72, testMetaItem_73, testMetaItem_74, testMetaItem_75, testMetaItem_76, testMetaItem_77, testMetaItem_78, testMetaItem_79, testMetaItem_80, testMetaItem_81, testMetaItem_82, testMetaItem_83, testMetaItem_84, testMetaItem_85, testMetaItem_86, testMetaItem_87, testMetaItem_88, testMetaItem_89, testMetaItem_90, testMetaItem_91, testMetaItem_92, testMetaItem_93, testMetaItem_94, testMetaItem_95, testMetaItem_96, testMetaItem_97, testMetaItem_98, testMetaItem_99, testMetaItem_100, testMetaItem_101, testMetaItem_102, testMetaItem_103, testMetaItem_104, testMetaItem_105, testMetaItem_106, testMetaItem_107, testMetaItem_108, testMetaItem_109, testMetaItem_110, testMetaItem_111, testMetaItem_112, testMetaItem_113, testMetaItem_114, testMetaItem_115, testMetaItem_116, testMetaItem_117, testMetaItem_118, testMetaItem_119, testMetaItem_120, testMetaItem_121, testMetaItem_122, testMetaItem_123, testMetaItem_124, testMetaItem_125, testMetaItem_126, testMetaItem_127, testMetaItem_128, testMetaItem_129, testMetaItem_130, testMetaItem_131, testMetaItem_132, testMetaItem_133, testMetaItem_134, testMetaItem_135, testMetaItem_136, testMetaItem_137, testMetaItem_138, testMetaItem_139, testMetaItem_140, testMetaItem_141, testMetaItem_142, testMetaItem_143, testMetaItem_144, testMetaItem_145, testMetaItem_146, testMetaItem_147, testMetaItem_148, testMetaItem_149, testMetaItem_150, testMetaItem_151, testMetaItem_152, testMetaItem_153, testMetaItem_154, testMetaItem_155, testMetaItem_156, testMetaItem_157, testMetaItem_158, testMetaItem_159, testMetaItem_160, testMetaItem_161, testMetaItem_162, testMetaItem_163, testMetaItem_164, testMetaItem_165, testMetaItem_166, testMetaItem_167, testMetaItem_168, testMetaItem_169, testMetaItem_170, testMetaItem_171, testMetaItem_172, testMetaItem_173, testMetaItem_174, testMetaItem_175, testMetaItem_176, testMetaItem_177, testMetaItem_178, testMetaItem_179, testMetaItem_180, testMetaItem_181, testMetaItem_182, testMetaItem_183, testMetaItem_184, testMetaItem_185, testMetaItem_186, testMetaItem_187, testMetaItem_188, testMetaItem_189, testMetaItem_190, testMetaItem_191]
+let testExpenseInfos: [ExpenseInfo] = [testExpenseInfo_1, testExpenseInfo_2, testExpenseInfo_3, testExpenseInfo_4, testExpenseInfo_5, testExpenseInfo_6, testExpenseInfo_7, testExpenseInfo_8, testExpenseInfo_9, testExpenseInfo_10, testExpenseInfo_11, testExpenseInfo_12, testExpenseInfo_13, testExpenseInfo_14, testExpenseInfo_15, testExpenseInfo_16, testExpenseInfo_17, testExpenseInfo_18, testExpenseInfo_19, testExpenseInfo_20, testExpenseInfo_21, testExpenseInfo_22, testExpenseInfo_23, testExpenseInfo_24, testExpenseInfo_25, testExpenseInfo_26, testExpenseInfo_27, testExpenseInfo_28, testExpenseInfo_29, testExpenseInfo_30, testExpenseInfo_31, testExpenseInfo_32, testExpenseInfo_33, testExpenseInfo_34, testExpenseInfo_35, testExpenseInfo_36, testExpenseInfo_37, testExpenseInfo_38, testExpenseInfo_39, testExpenseInfo_40, testExpenseInfo_41, testExpenseInfo_42, testExpenseInfo_43, testExpenseInfo_44, testExpenseInfo_45, testExpenseInfo_46, testExpenseInfo_47, testExpenseInfo_48, testExpenseInfo_49, testExpenseInfo_50, testExpenseInfo_51, testExpenseInfo_52, testExpenseInfo_53, testExpenseInfo_54, testExpenseInfo_55, testExpenseInfo_56, testExpenseInfo_57, testExpenseInfo_58, testExpenseInfo_59, testExpenseInfo_60, testExpenseInfo_61, testExpenseInfo_62, testExpenseInfo_63, testExpenseInfo_64, testExpenseInfo_65, testExpenseInfo_66, testExpenseInfo_67, testExpenseInfo_68, testExpenseInfo_69, testExpenseInfo_70, testExpenseInfo_71, testExpenseInfo_72, testExpenseInfo_73, testExpenseInfo_74, testExpenseInfo_75, testExpenseInfo_76, testExpenseInfo_77, testExpenseInfo_78, testExpenseInfo_79, testExpenseInfo_80, testExpenseInfo_81, testExpenseInfo_82, testExpenseInfo_83, testExpenseInfo_84, testExpenseInfo_85, testExpenseInfo_86, testExpenseInfo_87, testExpenseInfo_88, testExpenseInfo_89, testExpenseInfo_90, testExpenseInfo_91, testExpenseInfo_92, testExpenseInfo_93, testExpenseInfo_94, testExpenseInfo_95, testExpenseInfo_96, testExpenseInfo_97, testExpenseInfo_98, testExpenseInfo_99, testExpenseInfo_100, testExpenseInfo_101, testExpenseInfo_102, testExpenseInfo_103, testExpenseInfo_104, testExpenseInfo_105, testExpenseInfo_106, testExpenseInfo_107, testExpenseInfo_108, testExpenseInfo_109, testExpenseInfo_110, testExpenseInfo_111, testExpenseInfo_112, testExpenseInfo_113, testExpenseInfo_114, testExpenseInfo_115, testExpenseInfo_116, testExpenseInfo_117, testExpenseInfo_118, testExpenseInfo_119, testExpenseInfo_120, testExpenseInfo_121, testExpenseInfo_122, testExpenseInfo_123, testExpenseInfo_124, testExpenseInfo_125, testExpenseInfo_126, testExpenseInfo_127, testExpenseInfo_128, testExpenseInfo_129, testExpenseInfo_130, testExpenseInfo_131, testExpenseInfo_132, testExpenseInfo_133, testExpenseInfo_134, testExpenseInfo_135, testExpenseInfo_136, testExpenseInfo_137, testExpenseInfo_138, testExpenseInfo_139, testExpenseInfo_140, testExpenseInfo_141, testExpenseInfo_142, testExpenseInfo_143, testExpenseInfo_144, testExpenseInfo_145, testExpenseInfo_146, testExpenseInfo_147, testExpenseInfo_148, testExpenseInfo_149, testExpenseInfo_150, testExpenseInfo_151, testExpenseInfo_152, testExpenseInfo_153, testExpenseInfo_154, testExpenseInfo_155, testExpenseInfo_156, testExpenseInfo_157, testExpenseInfo_158, testExpenseInfo_159, testExpenseInfo_160, testExpenseInfo_161, testExpenseInfo_162, testExpenseInfo_163, testExpenseInfo_164, testExpenseInfo_165, testExpenseInfo_166, testExpenseInfo_167, testExpenseInfo_168, testExpenseInfo_169, testExpenseInfo_170, testExpenseInfo_171, testExpenseInfo_172, testExpenseInfo_173, testExpenseInfo_174, testExpenseInfo_175, testExpenseInfo_176, testExpenseInfo_177, testExpenseInfo_178, testExpenseInfo_179, testExpenseInfo_180, testExpenseInfo_181, testExpenseInfo_182, testExpenseInfo_183, testExpenseInfo_184, testExpenseInfo_185, testExpenseInfo_186, testExpenseInfo_187, testExpenseInfo_188, testExpenseInfo_189, testExpenseInfo_190, testExpenseInfo_191]
 
 #endif
