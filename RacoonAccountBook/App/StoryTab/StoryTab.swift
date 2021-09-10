@@ -13,7 +13,7 @@ struct StoryTab: View {
             NavigationView {
                 ScrollView(.vertical) {
                     VStack {
-                        ForEach(expensesWithStory, id: \.self.uuid) { expense in
+                        ForEach(expensesWithStory) { expense in
                             ExpenseStoryView(expense: expense)
                         }
                         .padding(.horizontal, 10) // 让圆角矩形边框不靠边
