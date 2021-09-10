@@ -109,13 +109,6 @@ struct ExpenseSheet: View {
                             StoryInputView(
                                 metadata_inputting: $RacoonSheetConfig.shared.expense_inputting,
                                 showingStoryInputView: $RacoonSheetConfig.shared.showingStory)
-//                                .onAppear {
-//                                    // 出现的时候置为三星
-//                                    RacoonSheetConfig.shared.expense_inputting.story = ExpenseInfo.Story(
-//                                        rating: 3,
-//                                        emoji: "😃", // FIXME:
-//                                        text: nil)
-//                                }
                         } else {
                             EmptyView()
                         }

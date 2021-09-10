@@ -58,8 +58,6 @@ extension Expense {
         if let expenses = try? context.fetch(Expense.request_expenseBy(uuid: uuid)) {
             //   - system
             expenses.first!.updatedAt = DateInRegion(region: regionChina)
-            
-            print(Log().debug + "\(expenseInfo)")
 
             //   - properties: spentAt event amount
             //   - other: originalText?
