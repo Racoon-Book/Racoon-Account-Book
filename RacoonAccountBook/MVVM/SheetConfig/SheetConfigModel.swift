@@ -24,6 +24,9 @@ class SheetConfigModel: ObservableObject {
         shared.blurRadius = 0
         shared.showingSuccessfullyAlert = false
         shared.showingVoiceInputView = false
+
+        shared.showingStory = false
+        shared.showingForWho = false
     }
 
     // 是更新的情况
@@ -39,5 +42,8 @@ class SheetConfigModel: ObservableObject {
         shared.blurRadius = 0
         shared.showingSuccessfullyAlert = false
         shared.showingVoiceInputView = false
+
+        shared.showingStory = metadata.story != nil
+        shared.showingForWho = metadata.forWho.count != 0
     }
 }

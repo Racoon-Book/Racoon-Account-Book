@@ -37,13 +37,6 @@ struct ExpenseSheet: View {
         }
     }
 
-    // MARK: - 添加界面额外的添加选项
-
-    /// 是否显示除了基础条目以外的条目
-    @State private var extraMetaItemConfig = ExtraMetaItemConfig(
-        showingStory: false,
-        showingForWho: false)
-
     // MARK: - 是否正在编辑某个文本框
 
     /// 是否正在编辑某个文本框
@@ -110,10 +103,10 @@ struct ExpenseSheet: View {
                         // MARK: - Other
 
                         // 财记 Story
-                        if extraMetaItemConfig.showingStory {
+                        if RacoonSheetConfig.shared.showingStory {
                             StoryInputView(
                                 metadata_inputting: $RacoonSheetConfig.shared.expense_inputting,
-                                showingStoryInputView: $extraMetaItemConfig.showingStory)
+                                showingStoryInputView: $RacoonSheetConfig.shared.showingStory)
                                 .onAppear {
                                     // 出现的时候置为三星
                                     RacoonSheetConfig.shared.expense_inputting.story = ExpenseInfo.Story(
@@ -126,21 +119,22 @@ struct ExpenseSheet: View {
                         }
 
                         // 为谁 ForWho
-                        if extraMetaItemConfig.showingForWho {
+                        if RacoonSheetConfig.shared.showingForWho {
                             ForWhoInputView(
                                 metadata_inputting: $RacoonSheetConfig.shared.expense_inputting,
-                                showingForWhoInputView: $extraMetaItemConfig.showingForWho)
+                                showingForWhoInputView: $RacoonSheetConfig.shared.showingForWho)
                         } else {
                             EmptyView()
                         }
 
                         // 新添加的项
                         // 任意一个没在呈现就要出现
-                        if !extraMetaItemConfig.showingStory ||
-                            !extraMetaItemConfig.showingForWho
+                        if !RacoonSheetConfig.shared.showingStory ||
+                            !RacoonSheetConfig.shared.showingForWho
                         {
                             NewMetaDataButtons(metadata_inputting: $RacoonSheetConfig.shared.expense_inputting,
-                                               extraMetaItemConfig: $extraMetaItemConfig)
+                                               showingStory: $RacoonSheetConfig.shared.showingStory,
+                                               showingForWho: $RacoonSheetConfig.shared.showingForWho)
                         }
                     }
                     .padding([.vertical]) // 所有输入框离手机边框远一点
@@ -148,11 +142,11 @@ struct ExpenseSheet: View {
                     LargeButton(title: RacoonSheetConfig.shared.isEditMode ? "修改" : "记账",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                            if RacoonSheetConfig.shared.isEditMode {
-                                UpdateMetaItem()
-                            } else {
-                                AddNewMetaItem()
-                            }
+                        if RacoonSheetConfig.shared.isEditMode {
+                            UpdateMetaItem()
+                        } else {
+                            AddNewMetaItem()
+                        }
                     }
                     .font(.system(.title)) // TODO: 字有点小
                 }

@@ -3,7 +3,9 @@ import SwiftUI
 struct NewMetaDataButtons: View {
     @Binding var metadata_inputting: ExpenseInfo
 
-    @Binding var extraMetaItemConfig: ExtraMetaItemConfig
+    // @Binding var extraMetaItemConfig: ExtraMetaItemConfig
+    @Binding var showingStory: Bool
+    @Binding var showingForWho: Bool
 
     var body: some View {
         HStack {
@@ -12,13 +14,13 @@ struct NewMetaDataButtons: View {
 
             SingleNewItemView(metadata_inputting: $metadata_inputting,
                               metaDataName: "财记",
-                              showing: $extraMetaItemConfig.showingStory,
+                              showing: $showingStory,
                               color: Color("Add-Tag"))
                 .padding([.horizontal], 4)
 
             SingleNewItemView(metadata_inputting: $metadata_inputting,
                               metaDataName: "为谁",
-                              showing: $extraMetaItemConfig.showingForWho,
+                              showing: $showingForWho,
                               color: Color.orange)
                 .padding([.horizontal], 4)
 

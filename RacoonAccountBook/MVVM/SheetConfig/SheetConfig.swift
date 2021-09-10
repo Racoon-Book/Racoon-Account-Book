@@ -39,4 +39,7 @@ struct SheetConfig {
 
     /// 控制TabView模糊的程度，语音输入时模糊画面
     var blurRadius: CGFloat = 0
+
+    var showingStory: Bool = false
+    var showingForWho: Bool = false
 }
