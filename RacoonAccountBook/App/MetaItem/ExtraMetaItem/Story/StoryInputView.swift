@@ -41,7 +41,7 @@ struct StoryInputView: View {
                         Spacer() // 如果不加这个 四星和五星受到Picker影响没法点
                     }
                     StoryField(
-                        metadata_inputting: $metadata_inputting,
+                        story: $metadata_inputting.story,
                         hint: "添加财记～")
                 }
                 .padding([.horizontal], 4)

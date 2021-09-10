@@ -2,11 +2,19 @@ import SwiftDate
 import SwiftUI
 
 struct StoryField: View {
-    @Binding var metadata_inputting: ExpenseInfo
+    @Binding var story_inputting: ExpenseInfo.Story?
 
     var hint: String = ""
 
-    @State private var text: String = ""
+    @State private var text: String
+
+    init(story: Binding<ExpenseInfo.Story?>, hint: String) {
+        self._story_inputting = story
+
+        text = (story.wrappedValue == nil) ? "" : (story.wrappedValue!.text ?? "")
+
+        self.hint = hint
+    }
 
     var body: some View {
         ZStack {
@@ -28,10 +36,10 @@ struct StoryField: View {
     }
 
     private func UpdateStoryText() {
-        if metadata_inputting.story == nil {
-            metadata_inputting.story = ExpenseInfo.Story(rating: nil, emoji: nil, text: text)
+        if story_inputting == nil {
+            story_inputting = ExpenseInfo.Story(rating: nil, emoji: nil, text: text)
         } else {
-            metadata_inputting.story!.update(text: text)
+            story_inputting!.update(text: text)
         }
     }
 }
