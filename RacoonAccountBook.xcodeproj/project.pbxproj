@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4823CD2D269FFE6900C7217F /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823CD2C269FFE6900C7217F /* LargeButton.swift */; };
+		482DAB1D26EB34490071518F /* MultilineTagsForDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482DAB1C26EB34490071518F /* MultilineTagsForDisplay.swift */; };
 		4830D9C126B1FD1C007710FD /* NewMetaDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9C026B1FD1C007710FD /* NewMetaDataView.swift */; };
 		4830D9C426B1FDA5007710FD /* SingleNewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9C326B1FDA5007710FD /* SingleNewItemView.swift */; };
 		4830D9CC26B25CF0007710FD /* ForWhoInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9CB26B25CF0007710FD /* ForWhoInputView.swift */; };
@@ -38,8 +39,8 @@
 		4878A76B26AD944900DCBC8D /* TagField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76A26AD944900DCBC8D /* TagField.swift */; };
 		4878A76E26AD962F00DCBC8D /* TagsInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76D26AD962F00DCBC8D /* TagsInputView.swift */; };
 		4878A77026AD9BBA00DCBC8D /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A76F26AD9BBA00DCBC8D /* Array+.swift */; };
-		4878A77226ADAA8000DCBC8D /* MultilineTagsViewModifiedForVStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77126ADAA8000DCBC8D /* MultilineTagsViewModifiedForVStack.swift */; };
-		4878A77426ADAF1E00DCBC8D /* SingleTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77326ADAF1E00DCBC8D /* SingleTagView.swift */; };
+		4878A77226ADAA8000DCBC8D /* MultilineTagsViewForModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77126ADAA8000DCBC8D /* MultilineTagsViewForModify.swift */; };
+		4878A77426ADAF1E00DCBC8D /* SingleTagViewForModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77326ADAF1E00DCBC8D /* SingleTagViewForModify.swift */; };
 		4878A77626ADBD5D00DCBC8D /* TagsSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77526ADBD5D00DCBC8D /* TagsSuggestionView.swift */; };
 		4878A77926AE8CE900DCBC8D /* StoryInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77826AE8CE900DCBC8D /* StoryInputView.swift */; };
 		4878A77B26AE8DB800DCBC8D /* StoryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4878A77A26AE8DB800DCBC8D /* StoryField.swift */; };
@@ -87,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		4823CD2C269FFE6900C7217F /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
+		482DAB1C26EB34490071518F /* MultilineTagsForDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTagsForDisplay.swift; sourceTree = "<group>"; };
 		4830D9C026B1FD1C007710FD /* NewMetaDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMetaDataView.swift; sourceTree = "<group>"; };
 		4830D9C326B1FDA5007710FD /* SingleNewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleNewItemView.swift; sourceTree = "<group>"; };
 		4830D9CB26B25CF0007710FD /* ForWhoInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForWhoInputView.swift; sourceTree = "<group>"; };
@@ -116,8 +118,8 @@
 		4878A76A26AD944900DCBC8D /* TagField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagField.swift; sourceTree = "<group>"; };
 		4878A76D26AD962F00DCBC8D /* TagsInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsInputView.swift; sourceTree = "<group>"; };
 		4878A76F26AD9BBA00DCBC8D /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
-		4878A77126ADAA8000DCBC8D /* MultilineTagsViewModifiedForVStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTagsViewModifiedForVStack.swift; sourceTree = "<group>"; };
-		4878A77326ADAF1E00DCBC8D /* SingleTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTagView.swift; sourceTree = "<group>"; };
+		4878A77126ADAA8000DCBC8D /* MultilineTagsViewForModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTagsViewForModify.swift; sourceTree = "<group>"; };
+		4878A77326ADAF1E00DCBC8D /* SingleTagViewForModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTagViewForModify.swift; sourceTree = "<group>"; };
 		4878A77526ADBD5D00DCBC8D /* TagsSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsSuggestionView.swift; sourceTree = "<group>"; };
 		4878A77826AE8CE900DCBC8D /* StoryInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryInputView.swift; sourceTree = "<group>"; };
 		4878A77A26AE8DB800DCBC8D /* StoryField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryField.swift; sourceTree = "<group>"; };
@@ -310,8 +312,9 @@
 			children = (
 				4878A76D26AD962F00DCBC8D /* TagsInputView.swift */,
 				4878A77526ADBD5D00DCBC8D /* TagsSuggestionView.swift */,
-				4878A77126ADAA8000DCBC8D /* MultilineTagsViewModifiedForVStack.swift */,
-				4878A77326ADAF1E00DCBC8D /* SingleTagView.swift */,
+				4878A77126ADAA8000DCBC8D /* MultilineTagsViewForModify.swift */,
+				4878A77326ADAF1E00DCBC8D /* SingleTagViewForModify.swift */,
+				482DAB1C26EB34490071518F /* MultilineTagsForDisplay.swift */,
 				4878A76A26AD944900DCBC8D /* TagField.swift */,
 			);
 			path = Tag;
@@ -571,7 +574,7 @@
 			files = (
 				6EEE01BB26D115D1006797E8 /* Expense+DataOperation.swift in Sources */,
 				488D3A7A269F0E5B00287A50 /* MainView.swift in Sources */,
-				4878A77426ADAF1E00DCBC8D /* SingleTagView.swift in Sources */,
+				4878A77426ADAF1E00DCBC8D /* SingleTagViewForModify.swift in Sources */,
 				4823CD2D269FFE6900C7217F /* LargeButton.swift in Sources */,
 				6E6EA6A626AD50D80084055E /* RatingView.swift in Sources */,
 				4897FE9C26AC0CCC001AE9BA /* FloatingAddButton.swift in Sources */,
@@ -582,7 +585,7 @@
 				4844ED4326D10F6D0037C09A /* SuccessfullyAlert.swift in Sources */,
 				4830D9CC26B25CF0007710FD /* ForWhoInputView.swift in Sources */,
 				488D3AAE269F8C5400287A50 /* Print+.swift in Sources */,
-				4878A77226ADAA8000DCBC8D /* MultilineTagsViewModifiedForVStack.swift in Sources */,
+				4878A77226ADAA8000DCBC8D /* MultilineTagsViewForModify.swift in Sources */,
 				6EBB7ABB26B27680004E692B /* ExView.swift in Sources */,
 				48C6360326A44B0B00E7BF15 /* IncomeExpenditureView.swift in Sources */,
 				488D3AA1269F5A2A00287A50 /* ExpenseView.swift in Sources */,
@@ -598,6 +601,7 @@
 				4878A76526AD926C00DCBC8D /* OriginalTextField.swift in Sources */,
 				48433BD826C61A6F00F72244 /* OriginalText2LexicalClass.swift in Sources */,
 				487FA77226E2450000DD924F /* Expense+CombinedDataStructure.swift in Sources */,
+				482DAB1D26EB34490071518F /* MultilineTagsForDisplay.swift in Sources */,
 				48F0A09C26A4CED6004898C0 /* DayExpensesView.swift in Sources */,
 				488D3AB0269F8F2F00287A50 /* ExpenseInfo.swift in Sources */,
 				488D3AA7269F6AD000287A50 /* Date+.swift in Sources */,

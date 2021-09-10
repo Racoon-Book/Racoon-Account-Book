@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SingleTagView: View {
+struct SingleTagViewForModify: View {
     @Binding var metadata_inputting: ExpenseInfo // 点击x号需要在tags中删除tag
 
     var tag: String
