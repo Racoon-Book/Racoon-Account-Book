@@ -61,6 +61,7 @@ struct ExpenseView: View {
                             color: Color("Add-Tag")
                         )
                     }
+                    
                 }
             }
 

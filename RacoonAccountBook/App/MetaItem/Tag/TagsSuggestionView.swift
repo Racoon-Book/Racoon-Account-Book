@@ -9,7 +9,7 @@ struct TagsSuggestionView: View {
                 Text("建议")
                     .font(.system(.headline))
                 VStack(alignment: .leading) {
-                    MultilineTagsViewForVStack(
+                    MultilineTagsViewModifiedForVStack(
                         tags: $metadata_inputting.generatedTags,
                         metadata_inputting: $metadata_inputting,
                         isEditMode: false,

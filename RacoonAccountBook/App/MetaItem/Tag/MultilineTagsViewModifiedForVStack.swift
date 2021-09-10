@@ -3,7 +3,7 @@
 
 import SwiftUI
 
-struct MultilineTagsViewForVStack: View {
+struct MultilineTagsViewModifiedForVStack: View {
     @Binding var tags: [String] // 点击x号需要在tags中删除tag
     @Binding var metadata_inputting: ExpenseInfo
 
@@ -14,8 +14,8 @@ struct MultilineTagsViewForVStack: View {
     static let oneLineTagHeight = CGFloat(30)
 
     @State private var totalHeight
-//        = CGFloat.zero // << variant for ScrollView/List
-        = CGFloat.infinity // << variant for VStack
+        = CGFloat.zero // << variant for ScrollView/List
+//        = CGFloat.infinity // << variant for VStack
 
     var body: some View {
         VStack {
@@ -23,10 +23,10 @@ struct MultilineTagsViewForVStack: View {
                 self.generateContent(in: geometry)
             }
         }
-//        .frame(height: totalHeight) // << variant for ScrollView/List
+        .frame(height: totalHeight) // << variant for ScrollView/List
         .frame(
-            minHeight: tags == [] ? 0 : MultilineTagsViewForVStack.oneLineTagHeight,
-            maxHeight: max(totalHeight, MultilineTagsViewForVStack.oneLineTagHeight)) // << variant for VStack
+            minHeight: tags == [] ? 0 : MultilineTagsViewModifiedForVStack.oneLineTagHeight,
+            maxHeight: max(totalHeight, MultilineTagsViewModifiedForVStack.oneLineTagHeight)) // << variant for VStack
         // 这里以一行的tag为基准 确保tag不会出现被挤没的情况
     }
 

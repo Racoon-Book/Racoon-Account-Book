@@ -8,7 +8,7 @@ struct TagsInputView: View {
             Text("标签")
                 .font(.system(.headline))
             VStack(alignment: .leading) {
-                MultilineTagsViewForVStack(
+                MultilineTagsViewModifiedForVStack(
                     tags: $metadata_inputting.tags,
                     metadata_inputting: $metadata_inputting,
                     isEditMode: true,
