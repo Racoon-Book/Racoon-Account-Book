@@ -175,7 +175,7 @@ struct ExpenseSheet: View {
                     Button(action: {
                         if RacoonSheetConfig.shared.isEditMode {
                             // 修改：删除该条目
-                            // FIXME: x
+                            DeleteMetaItem()
                         } else {
                             // 添加：清空所有输入框
                             DiscardCurrentMetaItem() // 清空正在输入的 MetaItem
@@ -204,6 +204,19 @@ struct ExpenseSheet: View {
                 dismissButton: .default(Text("OK")))
         }
         .environmentObject(RacoonSheetConfig)
+    }
+
+    private func DeleteMetaItem() {
+        PutKeyboardBack()
+
+        let deleteResult: Bool = Expense.delete(uuid: RacoonSheetConfig.shared.uuidOfExpenseToEdit!, context: context)
+
+        if !deleteResult {
+            // TODO: 提示用户删除失败/成功
+            print(Log().error + "删除失败")
+        }
+
+        RacoonSheetConfig.shared.showingMetaItemSheet = false // 收回sheet
     }
 
     private func AddNewMetaItem() {

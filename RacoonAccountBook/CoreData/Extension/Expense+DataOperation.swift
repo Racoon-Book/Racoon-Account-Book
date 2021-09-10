@@ -25,6 +25,21 @@ extension Expense {
         try? context.save()
     }
 
+    static func delete(uuid: UUID, context: NSManagedObjectContext) -> Bool {
+        if let expenses = try? context.fetch(Expense.request_expenseBy(uuid: uuid)) {
+            if let expense = expenses.first {
+                // TODO: 删除对应的story
+                // TODO: 若forWho为空，删除对应的forWho
+                context.delete(expense)
+            }
+
+            try? context.save()
+            return true
+        } else {
+            return false
+        }
+    }
+
     static func updateBy(uuid: UUID, expenseInfo: ExpenseInfo,
                          context: NSManagedObjectContext) -> Bool
     {
