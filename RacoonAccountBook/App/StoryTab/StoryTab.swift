@@ -14,7 +14,40 @@ struct StoryTab: View {
                 ScrollView(.vertical) {
                     VStack {
                         ForEach(expensesWithStory) { expense in
-                            ExpenseStoryView(expense: expense)
+                            ZStack(alignment: .leading) {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .foregroundColor(Color("StoryBG"))
+
+                                VStack(alignment: .leading) {
+                                    let text = expense.story?.text ?? "为本次花销添加一段财记吧"
+                                    let amountFormatted = String(format: "%.1f", expense.amount)
+
+                                    Text(DisplayDate(expense.spentAt.convertTo(region: regionChina)))
+                                        .font(.caption)
+                                        .padding(.top, 6.0)
+
+                                    Text("在\(expense.event)上花了\(amountFormatted)元")
+                                        .font(.title2)
+                                        .padding(.vertical, 9.0)
+
+                                    Text(text)
+                                        .font(.body)
+
+                                    HStack(alignment: .center) {
+                                        if let rating = expense.story?.rating {
+                                            RatingView(rating: Int(rating))
+                                        }
+
+                                        Spacer()
+
+                                        if let emoji = expense.story?.emoji {
+                                            Text(emoji)
+                                                .font(.title)
+                                        }
+                                    }
+                                }
+                                .padding(.all, 10)
+                            }
                         }
                         .padding(.horizontal, 10) // 让圆角矩形边框不靠边
                     }
