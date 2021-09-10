@@ -18,7 +18,7 @@ struct IncomeExpenditureView: View {
             // 内容
             GeometryReader { geo in
                 VStack(alignment: .leading) {
-                    Text("收支")
+                    Text("支出")
                         .font(.system(.title2))
                         .padding([.bottom], 3)
                         .foregroundColor(Color("AntiqueWhite"))
@@ -35,10 +35,10 @@ struct IncomeExpenditureView: View {
                 .padding()
             }
         }
-        .frame(height: frameHeight) // FIXME: 这里目前只能固定了 GeometryReader好像会把界面撑大
+        .frame(height: Self.frameHeight) // FIXME: 这里目前只能固定了 GeometryReader好像会把界面撑大
     }
 
-    let frameHeight: CGFloat = 160
+    static let frameHeight: CGFloat = 135
 }
 
 struct PeriodExInView: View {
@@ -53,12 +53,12 @@ struct PeriodExInView: View {
         let exName = (usingRelativeDays ?
             period == .seven ? "7日" : "30日" :
             period == .seven ? "本周" : "本月")
-            + "支出"
+//            + "支出"
 
-        let inName = (usingRelativeDays ?
-            period == .seven ? "7日" : "30日" :
-            period == .seven ? "本周" : "本月")
-            + "收入"
+//        let inName = (usingRelativeDays ?
+//            period == .seven ? "7日" : "30日" :
+//            period == .seven ? "本周" : "本月")
+//            + "收入"
 
         VStack(alignment: .leading) {
             Text(exName)
@@ -67,8 +67,9 @@ struct PeriodExInView: View {
             Text(String(format: "%.1f", expenditure))
                 .font(.system(size: 45))
 
-            Text(inName + "\(String(format: "%.1f", income))元")
-                .font(.system(.subheadline))
+            // TODO: 收入统计 目前还没有考虑
+            // Text(inName + "\(String(format: "%.1f", income))元")
+            // .font(.system(.subheadline))
         }
         .foregroundColor(.white)
     }
