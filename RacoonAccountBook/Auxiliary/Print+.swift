@@ -61,4 +61,8 @@ struct Log: CustomStringConvertible {
     public var fatalerror: String {
         "[FATAL ERROR] " + description
     }
+
+    public var debug: String {
+        "[DEBUG] " + description
+    }
 }
