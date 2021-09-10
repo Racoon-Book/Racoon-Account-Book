@@ -33,7 +33,7 @@ struct MultilineTagsForDisplay: View {
         return ZStack(alignment: .topLeading) {
             ForEach(self.tags, id: \.self) { tag in
                 self.item(for: tag)
-                    .padding([.horizontal, .vertical], 4)
+                    .padding([.trailing], 4)
                     .alignmentGuide(.leading, computeValue: { d in
                         if abs(width - d.width) > g.size.width {
                             width = 0
