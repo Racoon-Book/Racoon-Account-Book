@@ -20,6 +20,8 @@ struct ExpenseSheet: View {
 
     /// 输入出错时的提示框是否出现
     @State private var showUnsuccessfullyAlert: Bool = false
+    /// 删除时提示框是否出现
+    @State private var showDeleteAlertSheet: Bool = false
     /// 错误提示框的信息
     private var unsuccessfullyAlertMessage: String {
         let noEvent: Bool = RacoonSheetConfig.shared.expense_inputting.event == ""
@@ -175,7 +177,7 @@ struct ExpenseSheet: View {
                     Button(action: {
                         if RacoonSheetConfig.shared.isEditMode {
                             // 修改：删除该条目
-                            DeleteMetaItem()
+                            showDeleteAlertSheet = true
                         } else {
                             // 添加：清空所有输入框
                             DiscardCurrentMetaItem() // 清空正在输入的 MetaItem
@@ -202,6 +204,11 @@ struct ExpenseSheet: View {
                 title: Text("提示"),
                 message: Text(unsuccessfullyAlertMessage),
                 dismissButton: .default(Text("OK")))
+        }
+        .actionSheet(isPresented: $showDeleteAlertSheet) {
+            ActionSheet(title: Text("删除此记录"),
+                        message: Text("删除此记录会同时删除对应的财记，且无法找回"),
+                        buttons: [.cancel(), .destructive(Text("删除"), action: DeleteMetaItem)])
         }
         .environmentObject(RacoonSheetConfig)
     }
