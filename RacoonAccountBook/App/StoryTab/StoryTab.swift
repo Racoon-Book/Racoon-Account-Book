@@ -14,6 +14,7 @@ struct StoryTab: View {
                 ScrollView(.vertical) {
                     VStack {
                         ForEach(expensesWithStory) { expense in
+                            // 换成一个单另的View之后 ForEach的更新就不work了
                             ZStack(alignment: .leading) {
                                 RoundedRectangle(cornerRadius: 15)
                                     .foregroundColor(Color("StoryBG"))

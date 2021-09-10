@@ -22,6 +22,15 @@ extension Expense {
 
         expense.objectWillChange.send()
 
+        expense.focus?.objectWillChange.send()
+        expense.story?.objectWillChange.send()
+        expense.forWho.forEach {
+            $0.objectWillChange.send()
+        }
+        expense.tags.forEach {
+            $0.objectWillChange.send()
+        }
+
         try? context.save()
     }
 
@@ -56,6 +65,15 @@ extension Expense {
             expenses.first!.expenseInfo = expenseInfo
 
             expenses.first!.objectWillChange.send()
+
+            expenses.first!.focus?.objectWillChange.send()
+            expenses.first!.story?.objectWillChange.send()
+            expenses.first!.forWho.forEach {
+                $0.objectWillChange.send()
+            }
+            expenses.first!.tags.forEach {
+                $0.objectWillChange.send()
+            }
 
             do {
                 try context.save()
