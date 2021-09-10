@@ -11,17 +11,16 @@ import SwiftUI
 //    }
 // }
 
-// TODO: 滑动改变评级
 struct RatingButtonView: View {
-    @Binding var rating: StarRating
+    @Binding var rating: Int
 
     var body: some View {
         HStack {
-            SingleStarButtonView(rating: $rating, starPosition: .one)
-            SingleStarButtonView(rating: $rating, starPosition: .two)
-            SingleStarButtonView(rating: $rating, starPosition: .three)
-            SingleStarButtonView(rating: $rating, starPosition: .four)
-            SingleStarButtonView(rating: $rating, starPosition: .five)
+            SingleStarButtonView(rating: $rating, starPosition: 1)
+            SingleStarButtonView(rating: $rating, starPosition: 2)
+            SingleStarButtonView(rating: $rating, starPosition: 3)
+            SingleStarButtonView(rating: $rating, starPosition: 4)
+            SingleStarButtonView(rating: $rating, starPosition: 5)
         }
         .foregroundColor(Color.yellow)
         .font(.system(size: 20))
@@ -30,35 +29,17 @@ struct RatingButtonView: View {
 
 // rating 评价 枚举类型
 struct SingleStarButtonView: View {
-    @Binding var rating: StarRating
-    var starPosition: StarRating
+    @Binding var rating: Int
+    var starPosition: Int
 
     var body: some View {
         Button(action: {
             withAnimation(.default) {
                 rating = starPosition
             }
-            print(Log().string + "用户评了\(starPosition.rawValue)星")
+            print(Log().string + "用户评了\(starPosition)星")
         }) {
-            Image(systemName: rating.rawValue >= starPosition.rawValue ? "star.fill" : "star")
-        }
-    }
-}
-
-// TODO: 之后如果要添加半颗星，添加枚举类型就好了
-enum StarRating: Float {
-    case one = 1
-    case two = 2
-    case three = 3
-    case four = 4
-    case five = 5
-}
-
-struct RatingButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            RatingButtonView(rating: .constant(.three))
-            RatingButtonView(rating: .constant(.four))
+            Image(systemName: rating >= starPosition ? "star.fill" : "star")
         }
     }
 }

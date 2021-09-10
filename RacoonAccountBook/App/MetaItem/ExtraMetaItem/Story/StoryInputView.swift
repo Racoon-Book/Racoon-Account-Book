@@ -4,13 +4,30 @@ import SwiftUI
 struct StoryInputView: View {
     @Binding var metadata_inputting: ExpenseInfo
 
-    @State private var rating = StarRating.three
+    init(metadata_inputting: Binding<ExpenseInfo>, showingStoryInputView: Binding<Bool>) {
+        self._metadata_inputting = metadata_inputting
+        self._showingStoryInputView = showingStoryInputView
 
-    @State private var selectedEmoji: String = emojiStickers.first!
+        // 有story就将初值设置为story.rating
+        self._rating = State(initialValue:
+            (metadata_inputting.story.wrappedValue == nil) ?
+                3 :
+                (metadata_inputting.story.wrappedValue!.rating ?? 3))
 
-    static let height = CGFloat(90)
+        // 有emoji就将初值设置为story.emoji
+        self._selectedEmoji = State(initialValue:
+            (metadata_inputting.story.wrappedValue == nil) ?
+                emojiStickers.first! :
+                (metadata_inputting.story.wrappedValue!.emoji ?? emojiStickers.first!))
+    }
+
+    @State private var rating: Int
+
+    @State private var selectedEmoji: String
 
     @Binding var showingStoryInputView: Bool
+
+    static let height = CGFloat(90)
 
     var body: some View {
         HStack {
@@ -61,11 +78,11 @@ struct StoryInputView: View {
         // FIXME: 之后添加是否显示story之后，onAppear就先创建story story删除之后重新置story为nil
         if metadata_inputting.story == nil {
             metadata_inputting.story = ExpenseInfo.Story(
-                rating: Int(rating.rawValue),
+                rating: rating,
                 emoji: nil,
                 text: nil)
         } else {
-            metadata_inputting.story!.update(rating: Int(rating.rawValue))
+            metadata_inputting.story!.update(rating: rating)
         }
     }
 

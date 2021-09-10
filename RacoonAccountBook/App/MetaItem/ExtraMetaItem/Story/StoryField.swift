@@ -11,7 +11,7 @@ struct StoryField: View {
     init(story: Binding<ExpenseInfo.Story?>, hint: String) {
         self._story_inputting = story
 
-        text = (story.wrappedValue == nil) ? "" : (story.wrappedValue!.text ?? "")
+        self._text = State(initialValue: (story.wrappedValue == nil) ? "" : (story.wrappedValue!.text ?? ""))
 
         self.hint = hint
     }
