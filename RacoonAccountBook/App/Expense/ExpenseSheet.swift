@@ -164,7 +164,7 @@ struct ExpenseSheet: View {
                             DiscardCurrentMetaItem() // 清空正在输入的 MetaItem
                         }
 
-                        RacoonSheetConfig.shared.showingMetaItemSheet = false // 收回sheet
+                        RacoonSheetConfig.shared.showingExpenseSheet = false // 收回sheet
                     }) { Text("取消").bold() }
 
                     Button(action: {
@@ -216,7 +216,7 @@ struct ExpenseSheet: View {
             print(Log().error + "删除失败")
         }
 
-        RacoonSheetConfig.shared.showingMetaItemSheet = false // 收回sheet
+        RacoonSheetConfig.shared.showingExpenseSheet = false // 收回sheet
     }
 
     private func AddNewMetaItem() {
@@ -233,7 +233,7 @@ struct ExpenseSheet: View {
             // 添加成功显示提示
             RacoonSheetConfig.shared.showingSuccessfullyAlert = true
 
-            RacoonSheetConfig.shared.showingMetaItemSheet = false // 收回sheet
+            RacoonSheetConfig.shared.showingExpenseSheet = false // 收回sheet
         } else {
             // 有未输入的条目 显示提示信息
             showUnsuccessfullyAlert = true
@@ -259,10 +259,10 @@ struct ExpenseSheet: View {
                 RacoonSheetConfig.shared.showingSuccessfullyAlert = true
             } else {
                 // 未成功修改
-                print(Log().fatalerror + "UpdateMetaItem cannot find id")
+                print(Log().fatalerror + "UpdateExpense cannot find id")
             }
 
-            RacoonSheetConfig.shared.showingMetaItemSheet = false // 收回sheet
+            RacoonSheetConfig.shared.showingExpenseSheet = false // 收回sheet
         } else {
             // 有未输入的条目 显示提示信息
             showUnsuccessfullyAlert = true

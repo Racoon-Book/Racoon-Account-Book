@@ -157,7 +157,7 @@ extension ExpenseInfo: CustomStringConvertible {
         let story: String = self.story == nil ? "nil" : "\(emoji) \(rating) stars - \(text)"
 
         return """
-        MetaItem: {
+        ExpenseInfo: {
         "originalText": \(originalText),
         "spentMoneyAt": \(date), "event": \(event), "amount": \(amount),
         "generatedTags": \(generatedTags), "tags": \(tags),

@@ -7,7 +7,7 @@ struct ExpenseView: View {
 
     // MARK: - 基础数据
 
-    /// 该View呈现的MetaItem
+    /// 该View呈现的expense
     var expenseInfo: ExpenseInfo
 
     // MARK: - 修改相关
@@ -76,7 +76,7 @@ struct ExpenseView: View {
                 }
             }
         }
-        // 点击Item弹出Sheet对MetaItem进行修改
+        // 点击Item弹出Sheet对Expense进行修改
         // 修改的逻辑是这样的：有一个真实的在数据库中的值，将该值拷贝一份放入新创建的metadata_inputting，这样打开Sheet就会显示修改前的值；这个值是一个临时的变量，在Sheet中修改不会直接影响到该变量；只有当最后点击`修改`按钮的时候才会对数据库中的真实值进行修改
         .onTapGesture {
             // 是修改模式才判断点击
@@ -85,9 +85,5 @@ struct ExpenseView: View {
                 RacoonSheetConfig.showEditSheet(itemIdToEdit: uuidOfItemToEdit!, metadata: expenseInfo)
             }
         }
-    }
-
-    private func didDismissEditingMetaItemSheet() {
-        print(Log().string)
     }
 }

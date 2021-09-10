@@ -206,7 +206,7 @@
 			path = NLP;
 			sourceTree = "<group>";
 		};
-		4844ED4126D0D7FF0037C09A /* MetaItem */ = {
+		4844ED4126D0D7FF0037C09A /* Expense */ = {
 			isa = PBXGroup;
 			children = (
 				488D3AA0269F5A2A00287A50 /* ExpenseView.swift */,
@@ -218,7 +218,7 @@
 				486ECDFB26B0E34200EF00B1 /* Focus */,
 				4830D9C226B1FD5A007710FD /* ExtraMetaItem */,
 			);
-			path = MetaItem;
+			path = Expense;
 			sourceTree = "<group>";
 		};
 		4844ED4426D110DA0037C09A /* Info */ = {
@@ -371,7 +371,7 @@
 				488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */,
 				488D3A79269F0E5B00287A50 /* MainView.swift */,
 				48C6360526A44B5700E7BF15 /* TopViews */,
-				4844ED4126D0D7FF0037C09A /* MetaItem */,
+				4844ED4126D0D7FF0037C09A /* Expense */,
 				48C6360426A44B1400E7BF15 /* BookTab */,
 				48C6360726A44B8300E7BF15 /* StoryTab */,
 				48C6360626A44B6000E7BF15 /* ReportTab */,

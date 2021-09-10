@@ -70,8 +70,8 @@ struct MainView: View {
         }
         .sheet(
             // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
-            isPresented: $RacoonSheetConfig.shared.showingMetaItemSheet,
-            onDismiss: didDismissOrdinaryAddSheet
+            isPresented: $RacoonSheetConfig.shared.showingExpenseSheet,
+            onDismiss: didDismissExpenseSheet
         ) {
             ExpenseSheet()
                 .environmentObject(RacoonSheetConfig)
@@ -79,12 +79,12 @@ struct MainView: View {
         }
     }
 
-    private func didDismissOrdinaryAddSheet() {
-        DiscardCurrentMetaItem()
+    private func didDismissExpenseSheet() {
+        DiscardCurrentExpense()
 
         print(Log().string + "Dismissed")
 
-        func DiscardCurrentMetaItem() {
+        func DiscardCurrentExpense() {
             metadata_inputting.clear()
             amount_string_inputting = ""
         }

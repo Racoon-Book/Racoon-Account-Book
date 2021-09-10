@@ -19,7 +19,7 @@ class SheetConfigModel: ObservableObject {
         shared.expense_inputting = ExpenseInfo(spentAt: DateInRegion(region: regionChina), event: "", amount: 0)
         shared.amount_string_inputting = ""
 
-        shared.showingMetaItemSheet = true
+        shared.showingExpenseSheet = true
 
         shared.blurRadius = 0
         shared.showingSuccessfullyAlert = false
@@ -37,7 +37,7 @@ class SheetConfigModel: ObservableObject {
         shared.expense_inputting = metadata // 这个只是临时用的 给一个初值进去就行了
         shared.amount_string_inputting = String(String(format: "%.1f", metadata.amount))
 
-        shared.showingMetaItemSheet = true
+        shared.showingExpenseSheet = true
 
         shared.blurRadius = 0
         shared.showingSuccessfullyAlert = false

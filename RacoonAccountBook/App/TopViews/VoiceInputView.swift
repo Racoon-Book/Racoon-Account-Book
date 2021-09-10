@@ -60,7 +60,7 @@ struct CommitSpeechButton: View {
         Button(action: {
             metadata_inputting.originalText = recognizedText // 将结果传给 OrdinaryAddSheet
 
-            UpdateMetaItem()
+            UpdateExpense()
 
             withAnimation { // TODO: 不太清楚这个动画有没有作用
                 RacoonSheetConfig.shared.blurRadius = 0 // 取消模糊
@@ -68,7 +68,7 @@ struct CommitSpeechButton: View {
                 RacoonSheetConfig.shared.isEditMode = false
 
                 RacoonSheetConfig.shared.showingVoiceInputView = false // 提交之后收起语音添加界面
-                RacoonSheetConfig.shared.showingMetaItemSheet = true // 呈现 OrdinaryAddSheet
+                RacoonSheetConfig.shared.showingExpenseSheet = true // 呈现 OrdinaryAddSheet
             }
             recognizedText = ""
         }, label: {
@@ -77,7 +77,7 @@ struct CommitSpeechButton: View {
         })
     }
 
-    private func UpdateMetaItem() {
+    private func UpdateExpense() {
         metadata_inputting.update(
             event: OriginalText2Event(from: metadata_inputting.originalText ?? "") ?? "",
             amount_float: OriginalText2Amount(from: metadata_inputting.originalText ?? "") ?? 0.0,

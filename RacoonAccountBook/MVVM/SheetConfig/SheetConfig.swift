@@ -7,7 +7,7 @@ import SwiftUI
 struct SheetConfig {
     // MARK: - 显示的数据相关
 
-    /// 正在输入的MetaItem（临时）
+    /// 正在输入的expense（临时）
     ///
     /// 添加：确定之后保存数据并清零
     ///
@@ -29,7 +29,7 @@ struct SheetConfig {
     // MARK: - 是否显示某视图
 
     /// 是否正在显示添加账目的Sheet
-    var showingMetaItemSheet: Bool = false
+    var showingExpenseSheet: Bool = false
     /// 是否正在显示语音输入界面
     var showingVoiceInputView: Bool = false
     /// 是否正在显示成功添加之后的提示
