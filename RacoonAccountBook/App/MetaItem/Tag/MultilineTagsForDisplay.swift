@@ -3,11 +3,8 @@
 import SwiftUI
 
 struct MultilineTagsForDisplay: View {
-    @Binding var tags: [String] // 点击x号需要在tags中删除tag
-    @Binding var metadata_inputting: ExpenseInfo
+    var tags: [String] // 点击x号需要在tags中删除tag
 
-    var isEditMode: Bool // 是的话会显示x号
-    var isSuggestion: Bool = false
     var color: Color
 
     static let oneLineTagHeight = CGFloat(30)
@@ -62,11 +59,7 @@ struct MultilineTagsForDisplay: View {
     }
 
     private func item(for tag: String) -> some View {
-        Text(tag)
-            .padding(4)
-            .foregroundColor(.white) // 设置tag和图标的颜色
-            .background(color)
-            .cornerRadius(6) // 这个不能删 不然边框不是圆的
+        SingleComponentView(text: tag, color: color)
     }
 
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {

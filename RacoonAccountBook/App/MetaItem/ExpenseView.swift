@@ -55,13 +55,10 @@ struct ExpenseView: View {
             // TODO: 这里用MultilineTagsViewForScrollView界面会出问题，反正也不会添加很多标签，一行就够了；但是输入那块地方不够还是的多行
             if expenseInfo.tags != [] {
                 HStack {
-                    ForEach(expenseInfo.tags, id: \.self) { tag in
-                        SingleComponentView(
-                            text: tag,
-                            color: Color("Add-Tag")
-                        )
-                    }
-                    
+                    MultilineTagsForDisplay(
+                        tags: expenseInfo.tags.sorted(),
+                        color: Color("Add-Tag")
+                    )
                 }
             }
 
@@ -72,12 +69,10 @@ struct ExpenseView: View {
                 }
 
                 if expenseInfo.forWho != [] {
-                    ForEach(expenseInfo.forWho, id: \.self) { sb in
-                        SingleComponentView(
-                            text: sb,
-                            color: Color.orange
-                        )
-                    }
+                    MultilineTagsForDisplay(
+                        tags: expenseInfo.forWho.sorted(),
+                        color: Color.orange
+                    )
                 }
             }
         }
