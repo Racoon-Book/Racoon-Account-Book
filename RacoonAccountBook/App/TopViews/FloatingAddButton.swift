@@ -35,14 +35,10 @@ struct FloatingAddButton: View {
                                        .font(.system(size: FloatingAddButton.addButtonSize * 0.6))
                                }
                            })
-                        .swiftSpeechRecordOnHold(locale: Locale(identifier: ChineseSpeechIdentifier))
-                        .simultaneousGesture(TapGesture().onEnded {
+                        .swiftSpeechRecordOnHoldWithTap(locale: Locale(identifier: ChineseSpeechIdentifier), tapAction: {
                             print(Log().string + "Tapped")
-
                             RacoonSheetConfig.showCreateSheet()
-
-                            // TODO: 在语音输入下误触（Tap）本按钮
-                        })
+                        }, tapDuration: 80)
                         .onStartRecording { _ in
                             withAnimation { RacoonSheetConfig.shared.blurRadius = 4.0 }
                             RacoonSheetConfig.shared.showingVoiceInputView = true
