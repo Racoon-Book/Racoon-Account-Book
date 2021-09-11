@@ -4,22 +4,9 @@ import Foundation
 import SwiftUI
 
 struct ColorSet {
-    private var colorSchema: ColorSchema
-
-    init(colorSchema: ColorSchema) {
-        self.colorSchema = colorSchema
-    }
-
-    var StoryBackground: Color {
-        switch colorSchema {
-        case .defaultSchema:
-            return Color(hex: 0xFAF6F0)
-        }
-    }
+    var StoryBackground: Color
 }
 
-enum ColorSchema {
-    case defaultSchema
-}
-
-let defaultColorSet = ColorSet(colorSchema: .defaultSchema)
+let defaultColorSet = ColorSet(
+    StoryBackground: Color(hex: 0xFAF6F0)
+)
