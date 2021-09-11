@@ -15,7 +15,7 @@ struct MainView: View {
     /// 当前选中的Tab
     ///
     /// 默认值为打开之后呈现的Tab (默认为账本界面)
-    @State private var selectedTab = MainView.Tab1
+    @State private var selectedTab = MainView.Tab3
 
     /// 添加时临时记录使用的expenseInfo
     @State private var expenseInfo_inputting = ExpenseInfo(
@@ -28,6 +28,19 @@ struct MainView: View {
     /// 临时记录输入的金额字符串（因为可能用户并没有输入小数）
     @State private var amount_string_inputting: String = ""
 
+    /// 菜单向左平移量与宽度的比值
+    @State private var sideMenuOffsetX: Float = 1
+
+    func onSideMenuClose() {
+        sideMenuOffsetX = 1
+        RacoonSheetConfig.shared.blurRadius = 0
+    }
+
+    func onSideMenuOpen() {
+        sideMenuOffsetX = 0
+        RacoonSheetConfig.shared.blurRadius = 4.0
+    }
+
     var body: some View {
         ZStack {
             TabView(selection: $selectedTab) {
@@ -37,6 +50,12 @@ struct MainView: View {
                         Text(MainView.Tab1)
                     }
                     .tag(MainView.Tab1)
+                    .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local).onEnded { value in
+                        // 判断左滑
+                        if value.translation.width > 0, value.translation.height > -30, value.translation.height < 30 {
+                            withAnimation { onSideMenuOpen() }
+                        }
+                    })
 
                 StoryTab()
                     .tabItem {
@@ -45,8 +64,7 @@ struct MainView: View {
                     }
                     .tag(MainView.Tab2)
 
-//                ReportTab()
-                Text("ReportTab")
+                ReportTab()
                     .tabItem {
                         Image(systemName: "chart.pie.fill")
                         Text(MainView.Tab3)
@@ -66,6 +84,11 @@ struct MainView: View {
             // VoiceInputView 在 FloatingAddButton 中显示
             if selectedTab != MainView.Tab3 {
                 FloatingAddButton(expenseInfo_inputting: $expenseInfo_inputting)
+            }
+
+            // 显示SideMenu
+            if selectedTab == MainView.Tab1 {
+                SideMenu(onSideMenuClose: onSideMenuClose, sideMenuOffsetX: sideMenuOffsetX)
             }
         }
         .sheet(

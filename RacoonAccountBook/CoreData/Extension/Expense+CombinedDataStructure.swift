@@ -43,6 +43,8 @@ extension Expense {
             }
 
             if newValue.generatedTags.count != 0 {
+                generatedTags = []
+
                 for name in newValue.generatedTags {
                     // 添加关系
                     // 如果Tag有了就直接添加；没有就创建之后再添加
@@ -51,6 +53,9 @@ extension Expense {
             }
 
             if newValue.tags.count != 0 {
+                // 先删掉所有的tag，再重新建立关系
+                tags = []
+
                 for name in newValue.tags {
                     // 添加关系
                     addToTags_(Tag.tag(name: name, context: managedObjectContext!))
@@ -58,6 +63,8 @@ extension Expense {
             }
 
             if newValue.forWho.count != 0 {
+                forWho = []
+
                 for name in newValue.forWho {
                     // 添加关系
                     addToForWho_(Someone.someone(name: name, context: managedObjectContext!))
