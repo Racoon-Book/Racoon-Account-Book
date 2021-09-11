@@ -23,7 +23,7 @@ struct StoryField: View {
                 .cornerRadius(6)
                 .overlay(
                     RoundedRectangle(cornerRadius: 16)
-                        .stroke(Color("Add-Tag"), lineWidth: 2)
+                        .stroke(defaultColorSet.capsule.tag, lineWidth: 2)
                 )
         }
         .onChange(of: text) { _ in

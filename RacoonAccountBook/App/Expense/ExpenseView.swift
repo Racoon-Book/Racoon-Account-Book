@@ -57,7 +57,7 @@ struct ExpenseView: View {
                 HStack {
                     MultilineTagsForDisplay(
                         tags: expenseInfo.tags.sorted(),
-                        color: Color("Add-Tag")
+                        color: defaultColorSet.capsule.tag
                     )
                 }
             }
@@ -65,13 +65,13 @@ struct ExpenseView: View {
             // [focus] & [forWho]
             HStack {
                 if let focus = expenseInfo.focus {
-                    SingleComponentView(text: focus, color: Color("focus"))
+                    SingleComponentView(text: focus, color: defaultColorSet.capsule.focus)
                 }
 
                 if expenseInfo.forWho != [] {
                     MultilineTagsForDisplay(
                         tags: expenseInfo.forWho.sorted(),
-                        color: Color.orange
+                        color: defaultColorSet.capsule.person
                     )
                 }
             }

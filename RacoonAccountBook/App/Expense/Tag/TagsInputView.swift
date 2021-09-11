@@ -12,7 +12,7 @@ struct TagsInputView: View {
                     tags: $expenseInfo_inputting.tags,
                     expenseInfo_inputting: $expenseInfo_inputting,
                     isEditMode: true,
-                    color: Color("Add-Tag")
+                    color: defaultColorSet.capsule.tag
                 )
                 TagField(
                     hint: "添加新标签",

@@ -14,7 +14,7 @@ struct DayExpensesView: View {
             ZStack {
                 // 浅色圆角矩形背景
                 RoundedRectangle(cornerRadius: 15)
-                    .foregroundColor(Color("AntiqueWhite"))
+                    .foregroundColor(defaultColorSet.cardBackground)
 
                 // 一天的所有花销条目列出来
                 VStack(alignment: .leading) {

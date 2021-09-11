@@ -80,14 +80,13 @@ struct MainView: View {
     }
 
     private func didDismissExpenseSheet() {
-        DiscardCurrentExpense()
-
-        print(Log().string + "Dismissed")
-
         func DiscardCurrentExpense() {
             expenseInfo_inputting.clear()
             amount_string_inputting = ""
         }
+        DiscardCurrentExpense()
+
+        print(Log().string + "Dismissed")
     }
 }
 

@@ -146,7 +146,7 @@ extension ExpenseInfo: CustomStringConvertible {
         let originalText: String = self.originalText ?? "nil"
 
         let event: String = self.event
-        let amount = String(format: "%.1f", amount)
+        let amount = String(format: "%.1f", self.amount)
         let date: String = spentAt.toFormat("yyyy/M/d", locale: Locales.chineseChina)
 
         let focus: String = self.focus ?? "nil"

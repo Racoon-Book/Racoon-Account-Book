@@ -18,8 +18,8 @@ struct FocusSelectView: View {
                         focus.name
                     }),
                     expenseInfo_inputting: $expenseInfo_inputting,
-                    selectedColor: Color("focus"),
-                    unselectedColor: Color("focus-unselected")
+                    selectedColor: defaultColorSet.capsule.focus,
+                    unselectedColor: defaultColorSet.capsule.unselectedFocus
                 )
             }
         }

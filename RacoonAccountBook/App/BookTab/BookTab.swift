@@ -209,7 +209,7 @@ struct BookTab: View {
                 ScrollViewReader { _ in
 
                     ScrollView(.vertical) {
-                        VStack {
+                        ZStack {
                             // Check https://stackoverflow.com/questions/56675532/swiftui-iterating-through-dictionary-with-foreach
                             // WWDC21可以替换为OrderedDictionary https://stackoverflow.com/a/68023633/14298786
 
@@ -266,6 +266,8 @@ struct BookTab: View {
             // 为了不出现数字分位符`,`使用`String()`
             // TOOD: 这个之后换成月份选择下拉框
             .navigationBarTitleDisplayMode(.inline)
+
+            defaultColorSet.tabBackground.ignoresSafeArea()
         }
         .edgesIgnoringSafeArea(.top)
     }

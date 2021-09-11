@@ -13,7 +13,7 @@ struct IncomeExpenditureView: View {
         ZStack {
             // 背景
             RoundedRectangle(cornerRadius: 15)
-                .foregroundColor(Color("eye"))
+                .foregroundColor(defaultColorSet.cardBackground)
 
             // 内容
             GeometryReader { geo in
@@ -21,7 +21,7 @@ struct IncomeExpenditureView: View {
                     Text("支出")
                         .font(.system(.title2))
                         .padding([.bottom], 3)
-                        .foregroundColor(Color("AntiqueWhite"))
+                        .foregroundColor(defaultColorSet.cardBackground)
 
                     HStack {
                         PeriodExInView(period: .seven, usingRelativeDays: usingRelativeDays,

@@ -17,7 +17,7 @@ struct StoryTab: View {
                             // 换成一个单另的View之后 ForEach的更新就不work了
                             ZStack(alignment: .leading) {
                                 RoundedRectangle(cornerRadius: 15)
-                                    .foregroundColor(defaultColorSet.StoryBackground)
+                                    .foregroundColor(defaultColorSet.tabBackground)
 
                                 VStack(alignment: .leading) {
                                     let text = expense.story?.text ?? "为本次花销添加一段财记吧"

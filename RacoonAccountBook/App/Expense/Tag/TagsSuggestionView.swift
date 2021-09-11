@@ -14,7 +14,7 @@ struct TagsSuggestionView: View {
                         expenseInfo_inputting: $expenseInfo_inputting,
                         isEditMode: false,
                         isSuggestion: true,
-                        color: Color("AntiqueWhite")
+                        color: defaultColorSet.capsule.unselectedTag
                     )
                 }
             } else {

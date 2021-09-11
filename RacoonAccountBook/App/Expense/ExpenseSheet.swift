@@ -63,7 +63,7 @@ struct ExpenseSheet: View {
                         // 三个要素 spentMoneyAt event amount
                         ZStack {
                             RoundedRectangle(cornerRadius: 15)
-                                .foregroundColor(Color("Add-ExpenseBG"))
+                                .foregroundColor(defaultColorSet.previewBackground)
 
                             VStack {
                                 HStack {
