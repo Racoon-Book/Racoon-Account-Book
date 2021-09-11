@@ -42,7 +42,7 @@ struct FloatingAddButton: View {
                             // TODO: 在语音输入下误触（Tap）本按钮
                         })
                         .onStartRecording { _ in
-                            RacoonSheetConfig.shared.blurRadius = 4.0
+                            withAnimation { RacoonSheetConfig.shared.blurRadius = 4.0 }
                             RacoonSheetConfig.shared.showingVoiceInputView = true
                         }
                         .printRecognizedText(includePartialResults: true)
