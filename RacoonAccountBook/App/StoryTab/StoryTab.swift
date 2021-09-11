@@ -6,8 +6,8 @@ struct StoryTab: View {
 
     @FetchRequest(fetchRequest: Expense.request_allExpensesWithStory)
     var expensesWithStory
-    
-    static let emojiSize:CGFloat = 50
+
+    static let emojiSize: CGFloat = 50
 
     var body: some View {
         // TODO: 像账本那样做一个深色的统计页面应该比较好
@@ -44,7 +44,7 @@ struct StoryTab: View {
                                         Spacer()
 
                                         if let emoji = expense.story?.emoji {
-                                            ZStack{
+                                            ZStack {
                                                 RoundedRectangle(cornerRadius: 12)
                                                     .foregroundColor(defaultColorSet.emojiBackground)
                                                 Text(emoji)
@@ -63,6 +63,7 @@ struct StoryTab: View {
                 .padding(.vertical, 10) // 让上下两个stroy不靠边
                 .background(defaultColorSet.tabBackground.ignoresSafeArea())
                 .navigationTitle("最近的财记")
+                .toolbar { NavigationLink(destination: Settings()) { Text("截图导入") } }
                 .navigationBarTitleDisplayMode(.inline)
             }
         } else {

@@ -263,6 +263,7 @@ struct BookTab: View {
         }
         .background(defaultColorSet.tabBackground.ignoresSafeArea())
         .navigationTitle("\(String(thisYear))年\(thisMonth)月 花销")
+        .toolbar { NavigationLink(destination: Settings()) { Text("截图导入") } }
         // 为了不出现数字分位符`,`使用`String()`
         // TOOD: 这个之后换成月份选择下拉框
         .navigationBarTitleDisplayMode(.inline)
