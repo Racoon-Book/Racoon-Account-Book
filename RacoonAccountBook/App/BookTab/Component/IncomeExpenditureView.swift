@@ -21,7 +21,7 @@ struct IncomeExpenditureView: View {
                     Text("支出")
                         .font(.system(.title2))
                         .padding([.bottom], 3)
-                        .foregroundColor(defaultColorSet.cardBackground)
+                        .foregroundColor(defaultColorSet.bookTabTitle)
 
                     HStack {
                         PeriodExInView(period: .seven, usingRelativeDays: usingRelativeDays,
@@ -71,7 +71,7 @@ struct PeriodExInView: View {
             // Text(inName + "\(String(format: "%.1f", income))元")
             // .font(.system(.subheadline))
         }
-        .foregroundColor(.white)
+        .foregroundColor(.black)
     }
 }
 

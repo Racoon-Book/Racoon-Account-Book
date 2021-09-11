@@ -6,6 +6,8 @@ struct StoryTab: View {
 
     @FetchRequest(fetchRequest: Expense.request_allExpensesWithStory)
     var expensesWithStory
+    
+    static let emojiSize:CGFloat = 50
 
     var body: some View {
         // TODO: 像账本那样做一个深色的统计页面应该比较好
@@ -24,7 +26,7 @@ struct StoryTab: View {
                                     let amountFormatted = String(format: "%.1f", expense.amount)
 
                                     Text(DisplayDate(expense.spentAt.convertTo(region: regionChina)))
-                                        .font(.caption)
+                                        .font(.title3)
                                         .padding(.top, 6.0)
 
                                     Text("在\(expense.event)上花了\(amountFormatted)元")
@@ -42,12 +44,17 @@ struct StoryTab: View {
                                         Spacer()
 
                                         if let emoji = expense.story?.emoji {
-                                            Text(emoji)
-                                                .font(.title)
+                                            ZStack{
+                                                RoundedRectangle(cornerRadius: 12)
+                                                    .foregroundColor(defaultColorSet.emojiBackground)
+                                                Text(emoji)
+                                                    .font(.title)
+                                            }
+                                            .frame(width: Self.emojiSize, height: Self.emojiSize, alignment: .center)
                                         }
                                     }
                                 }
-                                .padding(.all, 10)
+                                .padding(.horizontal, 10) // 字和左右边框的
                             }
                         }
                         .padding(.horizontal, 10) // 让圆角矩形边框不靠边

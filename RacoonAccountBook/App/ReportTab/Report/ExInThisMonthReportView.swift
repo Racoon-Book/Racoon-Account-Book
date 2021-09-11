@@ -10,7 +10,7 @@ struct ExInThisMonthReportView: View {
     var body: some View {
         ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: 15)
-                .foregroundColor(Color("ReportBG"))
+                .foregroundColor(defaultColorSet.cardBackground)
             
             VStack(alignment: .leading) {
                 Text("支出")

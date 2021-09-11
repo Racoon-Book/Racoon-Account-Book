@@ -6,7 +6,7 @@ import SwiftUI
 struct FloatingAddButton: View {
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
-    private static let addButtonSize = CGFloat(50)
+    private static let addButtonSize = CGFloat(59)
 
     @Binding var expenseInfo_inputting: ExpenseInfo
 
@@ -23,14 +23,16 @@ struct FloatingAddButton: View {
                            label: {
                                ZStack {
                                    Circle()
-                                       .fill(Color.yellow)
+                                       .fill(defaultColorSet.addButton)
                                        .frame(
                                            width: FloatingAddButton.addButtonSize,
                                            height: FloatingAddButton.addButtonSize)
+                                       .shadow(color: defaultColorSet.addButton,
+                                               radius: 5)
                                    Text(Image(systemName: "plus"))
-                                       .foregroundColor(.black)
+                                       .foregroundColor(.white)
                                        .bold()
-                                       .font(.system(size: FloatingAddButton.addButtonSize * 0.75))
+                                       .font(.system(size: FloatingAddButton.addButtonSize * 0.6))
                                }
                            })
                         .swiftSpeechRecordOnHold(locale: Locale(identifier: ChineseSpeechIdentifier))
@@ -49,7 +51,6 @@ struct FloatingAddButton: View {
                         .onRecognizeLatest(update: $recognizedText)
                         .padding([.horizontal], 25) // 远离右边
                         .padding([.vertical], 80) // 远离下边 因为有安全区，所以这个值比右边大一些
-                        .shadow(radius: 7)
                 }
             }
 

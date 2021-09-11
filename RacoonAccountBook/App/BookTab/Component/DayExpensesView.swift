@@ -20,7 +20,8 @@ struct DayExpensesView: View {
                 VStack(alignment: .leading) {
                     Text(date_display)
                         .padding([.top], 10) // 日期上面的padding
-                        .font(.system(.title2))
+                        .font(.system(.title3))
+                        .foregroundColor(defaultColorSet.bookTabTitle)
 
                     ForEach(dayExpenses) { expense in
                         ExpenseView(expenseInfo: expense.expenseInfo,
