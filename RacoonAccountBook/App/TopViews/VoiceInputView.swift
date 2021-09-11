@@ -23,7 +23,7 @@ struct VoiceInputView: View {
                     HStack {
                         Spacer()
                         Button {
-                            RacoonSheetConfig.shared.blurRadius = 0 // 取消模糊
+                            withAnimation { RacoonSheetConfig.shared.blurRadius = 0 } // 取消模糊
                             RacoonSheetConfig.shared.showingVoiceInputView = false // 关闭VoiceInputView
                             recognizedText = "" // 清除已识别文字
                         } label: {
