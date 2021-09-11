@@ -7,7 +7,7 @@ struct SideMenu: View {
 
     var body: some View {
         HStack {
-            MenuContent()
+            MenuContent(onSideMenuClosd: onSideMenuClose)
                 .background(Color.white)
                 .frame(width: CGFloat(menuWidth))
                 .offset(x: -CGFloat(menuWidth * sideMenuOffsetX))
@@ -32,18 +32,18 @@ struct SideMenu: View {
     }
 }
 
+struct Settings: View {
+    var body: some View {
+        Text("Settings")
+    }
+}
+
 struct MenuContent: View {
+    let onSideMenuClosd: () -> Void
+
     var body: some View {
         List {
-            Text("My Profile").onTapGesture {
-                print("My Profile")
-            }
-            Text("Posts").onTapGesture {
-                print("Posts")
-            }
-            Text("Logout").onTapGesture {
-                print("Logout")
-            }
+            NavigationLink(destination: Settings()) { Text("设置") }
         }
     }
 }

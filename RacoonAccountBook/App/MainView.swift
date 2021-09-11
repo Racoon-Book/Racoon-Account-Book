@@ -44,18 +44,24 @@ struct MainView: View {
     var body: some View {
         ZStack {
             TabView(selection: $selectedTab) {
-                BookTab()
-                    .tabItem {
-                        Image(systemName: "text.book.closed.fill")
-                        Text(MainView.Tab1)
+                NavigationView {
+                    ZStack {
+                        BookTab()
+                            .blur(radius: RacoonSheetConfig.shared.blurRadius)
+                            // 判断左滑
+                            .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local).onEnded { value in
+                                if value.translation.width > 0, value.translation.height > -30, value.translation.height < 30 {
+                                    withAnimation { onSideMenuOpen() }
+                                }
+                            })
+                        SideMenu(onSideMenuClose: onSideMenuClose, sideMenuOffsetX: sideMenuOffsetX)
                     }
-                    .tag(MainView.Tab1)
-                    .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local).onEnded { value in
-                        // 判断左滑
-                        if value.translation.width > 0, value.translation.height > -30, value.translation.height < 30 {
-                            withAnimation { onSideMenuOpen() }
-                        }
-                    })
+                }
+                .tabItem {
+                    Image(systemName: "text.book.closed.fill")
+                    Text(MainView.Tab1)
+                }
+                .tag(MainView.Tab1)
 
                 StoryTab()
                     .tabItem {
@@ -71,7 +77,6 @@ struct MainView: View {
                     }
                     .tag(MainView.Tab3)
             }
-            .blur(radius: RacoonSheetConfig.shared.blurRadius)
 
             // 成功记账提示
             if RacoonSheetConfig.shared.showingSuccessfullyAlert {
@@ -85,11 +90,6 @@ struct MainView: View {
             if selectedTab != MainView.Tab3 {
                 FloatingAddButton(expenseInfo_inputting: $expenseInfo_inputting)
             }
-
-            // 显示SideMenu
-            if selectedTab == MainView.Tab1 {
-                SideMenu(onSideMenuClose: onSideMenuClose, sideMenuOffsetX: sideMenuOffsetX)
-            }
         }
         .sheet(
             // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
@@ -100,6 +100,7 @@ struct MainView: View {
                 .environmentObject(RacoonSheetConfig)
                 .environment(\.managedObjectContext, context) // 注意Sheet和使用它的View并不是view hierarchy的关系，所以要手动传入EnvironmentObject
         }
+        // .edgesIgnoringSafeArea(.top)
     }
 
     private func didDismissExpenseSheet() {
