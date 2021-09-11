@@ -19,7 +19,7 @@ struct SuccessfullyAlert: View {
                 .padding()
         }
         .frame(width: UIScreen.main.bounds.width - 100)
-        .background(Color("alert.background").opacity(0.95))
+        .background(defaultColorSet.alertBackground)
         .cornerRadius(12)
         .clipped()
         .padding() // 和右边离远一点

@@ -39,7 +39,7 @@ struct ExpenseView: View {
                 // [story icon]
                 if expenseInfo.story != nil {
                     Text(Image(systemName: "bookmark.fill"))
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(defaultColorSet.storyRibbon)
                 }
 
                 Spacer()
