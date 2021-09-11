@@ -3,10 +3,42 @@ import SwiftDate
 import SwiftSpeech
 import SwiftUI
 
-struct FloatingAddButton: View {
-    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
+struct ButtonContent: View {
+    @Environment(\.swiftSpeechState) var state: SwiftSpeech.State
 
     private static let addButtonSize = CGFloat(59)
+
+    var scale: CGFloat {
+        switch state {
+        case .pending:
+            return 1.0
+        case .recording:
+            return 1.5
+        case .cancelling:
+            return 1.2
+        }
+    }
+
+    var body: some View {
+        ZStack {
+            Circle()
+                .fill(defaultColorSet.addButton)
+                .frame(
+                    width: ButtonContent.addButtonSize,
+                    height: ButtonContent.addButtonSize)
+                .shadow(color: defaultColorSet.addButton,
+                        radius: 5)
+            Text(Image(systemName: "plus"))
+                .foregroundColor(.white)
+                .bold()
+                .font(.system(size: ButtonContent.addButtonSize * 0.6))
+        }
+        .scaleEffect(scale)
+    }
+}
+
+struct FloatingAddButton: View {
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
     @Binding var expenseInfo_inputting: ExpenseInfo
 
@@ -19,22 +51,7 @@ struct FloatingAddButton: View {
                 Spacer()
                 VStack {
                     Spacer()
-                    Button(action: {},
-                           label: {
-                               ZStack {
-                                   Circle()
-                                       .fill(defaultColorSet.addButton)
-                                       .frame(
-                                           width: FloatingAddButton.addButtonSize,
-                                           height: FloatingAddButton.addButtonSize)
-                                       .shadow(color: defaultColorSet.addButton,
-                                               radius: 5)
-                                   Text(Image(systemName: "plus"))
-                                       .foregroundColor(.white)
-                                       .bold()
-                                       .font(.system(size: FloatingAddButton.addButtonSize * 0.6))
-                               }
-                           })
+                    ButtonContent()
                         .swiftSpeechRecordOnHoldWithTap(locale: Locale(identifier: ChineseSpeechIdentifier), tapAction: {
                             print(Log().string + "Tapped")
                             RacoonSheetConfig.showCreateSheet()
