@@ -14,7 +14,6 @@
 		4830D9CC26B25CF0007710FD /* ForWhoInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9CB26B25CF0007710FD /* ForWhoInputView.swift */; };
 		4830D9CE26B25D73007710FD /* ForWhoField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9CD26B25D73007710FD /* ForWhoField.swift */; };
 		4830D9D026B260A2007710FD /* SingleSomebodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9CF26B260A2007710FD /* SingleSomebodyView.swift */; };
-		4830D9D326B2DAF9007710FD /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 4830D9D226B2DAF9007710FD /* SwiftUICharts */; };
 		4830D9D526B354A4007710FD /* SingleComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9D426B354A4007710FD /* SingleComponentView.swift */; };
 		4830E28C26D00C0A00916DDC /* SheetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830E28B26D00C0A00916DDC /* SheetConfig.swift */; };
 		48433BD826C61A6F00F72244 /* OriginalText2LexicalClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48433BD726C61A6F00F72244 /* OriginalText2LexicalClass.swift */; };
@@ -78,8 +77,8 @@
 		6E3DBAEF26B2DEE100E8B678 /* ExChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DBAEE26B2DEE100E8B678 /* ExChartView.swift */; };
 		6E3DBAF126B2F1CB00E8B678 /* FocusPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DBAF026B2F1CB00E8B678 /* FocusPieChartView.swift */; };
 		6E6EA6A626AD50D80084055E /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6EA6A526AD50D80084055E /* RatingView.swift */; };
-		6EBB7ABB26B27680004E692B /* ExInThisMonthReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB7ABA26B27680004E692B /* ExInThisMonthReportView.swift */; };
 		6EA41F1726EC5373001E7D8E /* SwiftSpeech+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA41F1626EC5373001E7D8E /* SwiftSpeech+.swift */; };
+		6EBB7ABB26B27680004E692B /* ExInThisMonthReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB7ABA26B27680004E692B /* ExInThisMonthReportView.swift */; };
 		6EBB7AC526B2A072004E692B /* DayCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB7AC426B2A072004E692B /* DayCounterView.swift */; };
 		6EBB7AC726B2AEA6004E692B /* FocusExView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB7AC626B2AEA6004E692B /* FocusExView.swift */; };
 		6EEE01B626D0EE6C006797E8 /* AccountBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6EEE01B426D0EE6C006797E8 /* AccountBook.xcdatamodeld */; };
@@ -159,8 +158,8 @@
 		6E3DBAEE26B2DEE100E8B678 /* ExChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExChartView.swift; sourceTree = "<group>"; };
 		6E3DBAF026B2F1CB00E8B678 /* FocusPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusPieChartView.swift; sourceTree = "<group>"; };
 		6E6EA6A526AD50D80084055E /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
-		6EBB7ABA26B27680004E692B /* ExInThisMonthReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExInThisMonthReportView.swift; sourceTree = "<group>"; };
 		6EA41F1626EC5373001E7D8E /* SwiftSpeech+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftSpeech+.swift"; sourceTree = "<group>"; };
+		6EBB7ABA26B27680004E692B /* ExInThisMonthReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExInThisMonthReportView.swift; sourceTree = "<group>"; };
 		6EBB7AC426B2A072004E692B /* DayCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCounterView.swift; sourceTree = "<group>"; };
 		6EBB7AC626B2AEA6004E692B /* FocusExView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusExView.swift; sourceTree = "<group>"; };
 		6EEE01B526D0EE6C006797E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -174,7 +173,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4830D9D326B2DAF9007710FD /* SwiftUICharts in Frameworks */,
 				48B40E2D26AAE05C0030AAF6 /* SwiftSpeech in Frameworks */,
 				488D3AA5269F689B00287A50 /* SwiftDate in Frameworks */,
 			);
@@ -526,7 +524,6 @@
 			packageProductDependencies = (
 				488D3AA4269F689B00287A50 /* SwiftDate */,
 				48B40E2C26AAE05C0030AAF6 /* SwiftSpeech */,
-				4830D9D226B2DAF9007710FD /* SwiftUICharts */,
 			);
 			productName = RacoonAccountBook;
 			productReference = 488D3A74269F0E5B00287A50 /* 浣熊财记.app */;
@@ -558,7 +555,6 @@
 			packageReferences = (
 				488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */,
 				48B40E2B26AAE05C0030AAF6 /* XCRemoteSwiftPackageReference "SwiftSpeech" */,
-				4830D9D126B2DAF9007710FD /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = 488D3A75269F0E5B00287A50 /* Products */;
 			projectDirPath = "";
@@ -936,14 +932,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		4830D9D126B2DAF9007710FD /* XCRemoteSwiftPackageReference "ChartView" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/ChartView";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.5;
-			};
-		};
 		488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
@@ -963,11 +951,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4830D9D226B2DAF9007710FD /* SwiftUICharts */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4830D9D126B2DAF9007710FD /* XCRemoteSwiftPackageReference "ChartView" */;
-			productName = SwiftUICharts;
-		};
 		488D3AA4269F689B00287A50 /* SwiftDate */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */;

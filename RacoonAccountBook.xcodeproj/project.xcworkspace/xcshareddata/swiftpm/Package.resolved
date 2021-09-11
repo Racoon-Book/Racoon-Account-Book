@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "SwiftUICharts",
-        "repositoryURL": "https://github.com/AppPear/ChartView",
-        "state": {
-          "branch": null,
-          "revision": "9115a992c91fa19cbb4f2241084240d38654a1fc",
-          "version": "1.5.5"
-        }
-      },
-      {
         "package": "SwiftDate",
         "repositoryURL": "https://github.com/malcommac/SwiftDate.git",
         "state": {
@@ -24,8 +15,8 @@
         "repositoryURL": "https://github.com/Cay-Zhang/SwiftSpeech",
         "state": {
           "branch": null,
-          "revision": "5c876a9fe44ebf21591fa13b07970936d599859c",
-          "version": "0.9.2"
+          "revision": "6e41f289f5ccc1751ef5674972d46b48b326c4c6",
+          "version": "0.9.3"
         }
       }
     ]
