@@ -18,6 +18,15 @@ struct ButtonContent: View {
             return 1.2
         }
     }
+    
+    var buttonIcon: String {
+        switch state {
+        case .pending:
+            return "plus"
+        default:
+            return "mic.fill"
+        }
+    }
 
     var body: some View {
         ZStack {
@@ -28,7 +37,7 @@ struct ButtonContent: View {
                     height: ButtonContent.addButtonSize)
                 .shadow(color: defaultColorSet.addButton,
                         radius: 5)
-            Text(Image(systemName: "plus"))
+            Text(Image(systemName: buttonIcon))
                 .foregroundColor(.white)
                 .bold()
                 .font(.system(size: ButtonContent.addButtonSize * 0.6))
