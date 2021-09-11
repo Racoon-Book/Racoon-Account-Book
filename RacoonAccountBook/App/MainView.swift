@@ -15,7 +15,7 @@ struct MainView: View {
     /// 当前选中的Tab
     ///
     /// 默认值为打开之后呈现的Tab (默认为账本界面)
-    @State private var selectedTab = MainView.Tab1
+    @State private var selectedTab = MainView.Tab3
 
     /// 添加时临时记录使用的expenseInfo
     @State private var expenseInfo_inputting = ExpenseInfo(
@@ -45,8 +45,7 @@ struct MainView: View {
                     }
                     .tag(MainView.Tab2)
 
-//                ReportTab()
-                Text("ReportTab")
+                ReportTab()
                     .tabItem {
                         Image(systemName: "chart.pie.fill")
                         Text(MainView.Tab3)

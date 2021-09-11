@@ -77,7 +77,7 @@
 		6E3DBAEF26B2DEE100E8B678 /* ExChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DBAEE26B2DEE100E8B678 /* ExChartView.swift */; };
 		6E3DBAF126B2F1CB00E8B678 /* FocusPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DBAF026B2F1CB00E8B678 /* FocusPieChartView.swift */; };
 		6E6EA6A626AD50D80084055E /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6EA6A526AD50D80084055E /* RatingView.swift */; };
-		6EBB7ABB26B27680004E692B /* ExView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB7ABA26B27680004E692B /* ExView.swift */; };
+		6EBB7ABB26B27680004E692B /* ExInThisMonthReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB7ABA26B27680004E692B /* ExInThisMonthReportView.swift */; };
 		6EBB7AC526B2A072004E692B /* DayCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB7AC426B2A072004E692B /* DayCounterView.swift */; };
 		6EBB7AC726B2AEA6004E692B /* FocusExView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBB7AC626B2AEA6004E692B /* FocusExView.swift */; };
 		6EEE01B626D0EE6C006797E8 /* AccountBook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6EEE01B426D0EE6C006797E8 /* AccountBook.xcdatamodeld */; };
@@ -156,7 +156,7 @@
 		6E3DBAEE26B2DEE100E8B678 /* ExChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExChartView.swift; sourceTree = "<group>"; };
 		6E3DBAF026B2F1CB00E8B678 /* FocusPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusPieChartView.swift; sourceTree = "<group>"; };
 		6E6EA6A526AD50D80084055E /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
-		6EBB7ABA26B27680004E692B /* ExView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExView.swift; sourceTree = "<group>"; };
+		6EBB7ABA26B27680004E692B /* ExInThisMonthReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExInThisMonthReportView.swift; sourceTree = "<group>"; };
 		6EBB7AC426B2A072004E692B /* DayCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCounterView.swift; sourceTree = "<group>"; };
 		6EBB7AC626B2AEA6004E692B /* FocusExView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusExView.swift; sourceTree = "<group>"; };
 		6EEE01B526D0EE6C006797E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -430,7 +430,9 @@
 			isa = PBXGroup;
 			children = (
 				488D3A95269F188100287A50 /* ReportTab.swift */,
-				6EAD04E226B2D60100DB5FBA /* Component */,
+				48F35BD326EC3FD6003B570D /* Focus */,
+				48F35BD426EC3FF0003B570D /* Report */,
+				6EAD04E226B2D60100DB5FBA /* Habit */,
 			);
 			path = ReportTab;
 			sourceTree = "<group>";
@@ -453,6 +455,24 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		48F35BD326EC3FD6003B570D /* Focus */ = {
+			isa = PBXGroup;
+			children = (
+				6EBB7AC626B2AEA6004E692B /* FocusExView.swift */,
+				6E3DBAF026B2F1CB00E8B678 /* FocusPieChartView.swift */,
+			);
+			path = Focus;
+			sourceTree = "<group>";
+		};
+		48F35BD426EC3FF0003B570D /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				6EBB7ABA26B27680004E692B /* ExInThisMonthReportView.swift */,
+				6E3DBAEE26B2DEE100E8B678 /* ExChartView.swift */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
 		6E6EA6A026AD23250084055E /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,16 +481,12 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		6EAD04E226B2D60100DB5FBA /* Component */ = {
+		6EAD04E226B2D60100DB5FBA /* Habit */ = {
 			isa = PBXGroup;
 			children = (
-				6EBB7AC626B2AEA6004E692B /* FocusExView.swift */,
-				6EBB7ABA26B27680004E692B /* ExView.swift */,
 				6EBB7AC426B2A072004E692B /* DayCounterView.swift */,
-				6E3DBAEE26B2DEE100E8B678 /* ExChartView.swift */,
-				6E3DBAF026B2F1CB00E8B678 /* FocusPieChartView.swift */,
 			);
-			path = Component;
+			path = Habit;
 			sourceTree = "<group>";
 		};
 		6EEE01B926D115BE006797E8 /* CoreData */ = {
@@ -579,7 +595,7 @@
 				4830D9CC26B25CF0007710FD /* ForWhoInputView.swift in Sources */,
 				488D3AAE269F8C5400287A50 /* Print+.swift in Sources */,
 				4878A77226ADAA8000DCBC8D /* MultilineTagsViewForModify.swift in Sources */,
-				6EBB7ABB26B27680004E692B /* ExView.swift in Sources */,
+				6EBB7ABB26B27680004E692B /* ExInThisMonthReportView.swift in Sources */,
 				48C6360326A44B0B00E7BF15 /* IncomeExpenditureView.swift in Sources */,
 				488D3AA1269F5A2A00287A50 /* ExpenseView.swift in Sources */,
 				4878A77026AD9BBA00DCBC8D /* Array+.swift in Sources */,
