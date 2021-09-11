@@ -15,7 +15,7 @@ struct MainView: View {
     /// 当前选中的Tab
     ///
     /// 默认值为打开之后呈现的Tab (默认为账本界面)
-    @State private var selectedTab = MainView.Tab3
+    @State private var selectedTab = MainView.Tab1
 
     /// 添加时临时记录使用的expenseInfo
     @State private var expenseInfo_inputting = ExpenseInfo(

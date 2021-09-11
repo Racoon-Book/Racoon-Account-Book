@@ -17,7 +17,7 @@ struct StoryTab: View {
                             // 换成一个单另的View之后 ForEach的更新就不work了
                             ZStack(alignment: .leading) {
                                 RoundedRectangle(cornerRadius: 15)
-                                    .foregroundColor(defaultColorSet.tabBackground)
+                                    .foregroundColor(defaultColorSet.cardBackground)
 
                                 VStack(alignment: .leading) {
                                     let text = expense.story?.text ?? "为本次花销添加一段财记吧"
@@ -54,6 +54,7 @@ struct StoryTab: View {
                     }
                 }
                 .padding(.vertical, 10) // 让上下两个stroy不靠边
+                .background(defaultColorSet.tabBackground.ignoresSafeArea())
                 .navigationTitle("最近的财记")
                 .navigationBarTitleDisplayMode(.inline)
             }

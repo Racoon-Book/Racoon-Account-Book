@@ -262,12 +262,11 @@ struct BookTab: View {
                 }
                 .padding([.bottom], cardPadding) // 最下方别贴着屏幕底端
             }
+            .background(defaultColorSet.tabBackground.ignoresSafeArea())
             .navigationTitle("\(String(thisYear))年\(thisMonth)月 花销")
             // 为了不出现数字分位符`,`使用`String()`
             // TOOD: 这个之后换成月份选择下拉框
             .navigationBarTitleDisplayMode(.inline)
-
-            defaultColorSet.tabBackground.ignoresSafeArea()
         }
         .edgesIgnoringSafeArea(.top)
     }

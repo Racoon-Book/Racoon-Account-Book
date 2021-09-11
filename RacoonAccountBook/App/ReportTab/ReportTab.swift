@@ -51,6 +51,7 @@ struct ReportTab: View {
                 }
                 .padding(.bottom, 10.0)
             }
+            .background(defaultColorSet.tabBackground.ignoresSafeArea())
             .navigationTitle("本月的统计")
             .navigationBarTitleDisplayMode(.inline)
         }
