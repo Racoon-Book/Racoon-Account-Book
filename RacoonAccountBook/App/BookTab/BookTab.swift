@@ -3,6 +3,8 @@ import SwiftDate
 import SwiftUI
 
 struct BookTab: View {
+    @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
+
     @Environment(\.managedObjectContext) private var context
 
     @FetchRequest(fetchRequest: Expense.request_expensesInLast30days)
@@ -262,16 +264,35 @@ struct BookTab: View {
             .padding([.bottom], cardPadding) // 最下方别贴着屏幕底端
         }
         .background(defaultColorSet.tabBackground.ignoresSafeArea())
-        .navigationTitle("\(String(thisYear))年\(thisMonth)月 花销") // 为了不出现数字分位符`,`使用`String()`
+
+        // 为了不出现数字分位符`,`使用`String()`
+        // TOOD: 这个之后换成月份选择下拉框
+        .navigationTitle("\(String(thisYear))年\(thisMonth)月 花销")
         .navigationBarTitleDisplayMode(.inline)
+
+        // MARK: - 截图导入
+
         .navigationBarItems(
             // 右边有一个按钮
             trailing:
             Button(action: {
                 print(Log().string + "Clicked")
+                RacoonSheetConfig.shared.showingScreenshotImportSheet.toggle()
                 // TODO: 弹出Sheet来添加截图
-            }) { Text("截图导入") })
+            }) { Text("截图导入") }
+        )
+        .sheet(
+            // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
+            isPresented: $RacoonSheetConfig.shared.showingScreenshotImportSheet,
+            onDismiss: didDismissScreenshotImportSheet
+        ) {
+            ScreenshotImportSheet()
+                .environmentObject(RacoonSheetConfig)
+                .environment(\.managedObjectContext, context)
+        }
+    }
 
-        // TOOD: 这个之后换成月份选择下拉框
+    private func didDismissScreenshotImportSheet() {
+        print(Log().string + "Dismissed")
     }
 }

@@ -34,6 +34,8 @@ struct SheetConfig {
     var showingVoiceInputView: Bool = false
     /// 是否正在显示成功添加之后的提示
     var showingSuccessfullyAlert: Bool = false
+    /// 是否显示截图导入的界面
+    var showingScreenshotImportSheet: Bool = false
 
     // MARK: - 控制界面动态样式
 
