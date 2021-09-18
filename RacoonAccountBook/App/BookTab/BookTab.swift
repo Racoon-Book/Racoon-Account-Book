@@ -262,11 +262,16 @@ struct BookTab: View {
             .padding([.bottom], cardPadding) // 最下方别贴着屏幕底端
         }
         .background(defaultColorSet.tabBackground.ignoresSafeArea())
-        .navigationTitle("\(String(thisYear))年\(thisMonth)月 花销")
-        .toolbar { NavigationLink(destination: Settings()) { Text("截图导入") } }
-        // 为了不出现数字分位符`,`使用`String()`
-        // TOOD: 这个之后换成月份选择下拉框
+        .navigationTitle("\(String(thisYear))年\(thisMonth)月 花销") // 为了不出现数字分位符`,`使用`String()`
         .navigationBarTitleDisplayMode(.inline)
-        // .edgesIgnoringSafeArea(.top)
+        .navigationBarItems(
+            // 右边有一个按钮
+            trailing:
+            Button(action: {
+                print(Log().string + "Clicked")
+                // TODO: 弹出Sheet来添加截图
+            }) { Text("截图导入") })
+
+        // TOOD: 这个之后换成月份选择下拉框
     }
 }

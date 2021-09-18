@@ -63,7 +63,6 @@ struct StoryTab: View {
                 .padding(.vertical, 10) // 让上下两个stroy不靠边
                 .background(defaultColorSet.tabBackground.ignoresSafeArea())
                 .navigationTitle("最近的财记")
-                .toolbar { NavigationLink(destination: Settings()) { Text("截图导入") } }
                 .navigationBarTitleDisplayMode(.inline)
             }
         } else {
