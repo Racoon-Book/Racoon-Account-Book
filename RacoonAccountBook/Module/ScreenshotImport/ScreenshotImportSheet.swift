@@ -34,15 +34,13 @@ struct ScreenshotImportSheet: View {
                     Button(action: {
                         print("clicked 添加新账单")
                     }) {
-                        Label("添加新账单", systemImage: "photo")
+                            Label("添加新账单", systemImage: "photo")
                     }
                 }
             }
 
             if weChatBills.count != 0 {
                 Text("识别出\(weChatBills.count)条账目")
-
-                // TODO: 添加识别出的账单显示
 
                 VStack(alignment: .leading) {
                     Text("总支出\(weChatBills.sum())")
@@ -56,7 +54,7 @@ struct ScreenshotImportSheet: View {
                                 HStack {
                                     Text(weChatBill.name)
                                     Spacer()
-                                    Text("\(0 - weChatBill.amount)") // TODO: 两位小数
+                                    Text("\(weChatBill.amount)") // TODO: 两位小数
                                 }
                                 Text(DisplayDate(weChatBill.spentAt))
                             }
@@ -71,8 +69,8 @@ struct ScreenshotImportSheet: View {
                 LargeButton(title: "导入所选账目",
                             backgroundColor: Color.blue,
                             foregroundColor: Color.white) {
-                    print(Log().string + "按钮点击")
-                    // TODO: 将选中的条目添加到数据库并清除现场
+                        print(Log().string + "按钮点击")
+                        // TODO: 将选中的条目添加到数据库并清除现场
                 }
             } else {
                 // WeChatBills.count == 0
@@ -80,13 +78,13 @@ struct ScreenshotImportSheet: View {
                 LargeButton(title: "选择微信账单截图",
                             backgroundColor: Color.blue,
                             foregroundColor: Color.white) {
-                    showingImagePicker = true
+                        showingImagePicker = true
                 }
             }
         }
         .sheet(isPresented: $showingImagePicker,
                onDismiss: textExtractFromScreenshot) {
-            ImagePicker(image: self.$systemScreenshot)
+                ImagePicker(image: self.$systemScreenshot)
         }
     }
 
@@ -153,14 +151,21 @@ struct ScreenshotImportSheet: View {
             let string3: String = recognizedStrings[i + 2]
 
             if let amount = Float(string2),
-               let spentAt = string3.toDate("M月d日 hh:mm", region: regionChina) {
+               let spentAt = string3.toDate("M月d日 hh:mm", region: regionChina)
+            {
                 let name = string1
 
                 let wechatBill = WeChatBillInfo(
-                    name: name, amount: amount, spentAt: spentAt,
+                    name: name, amount: 0 - amount, spentAt: spentAt,
                     isDuplicated: false) // TODO: 添加duplicated判断
                 print(wechatBill)
-                weChatBills.append(wechatBill)
+
+                // 支出的情况
+                if wechatBill.amount > 0 {
+                    weChatBills.append(wechatBill)
+                } else {
+                    // TODO: 收入的情况 暂未考虑
+                }
 
                 i += 3
             } else {
@@ -169,7 +174,7 @@ struct ScreenshotImportSheet: View {
         }
 
         // TODO: add operations on WeChatBills
-        print("共获取到\(weChatBills.count)条WeChatBill")
-        print("[RecognizeText END]")
+        print(Log().string + "共获取到\(weChatBills.count)条WeChatBill")
+        print(Log().string + "[RecognizeText END]")
     }
 }
