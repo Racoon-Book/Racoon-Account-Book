@@ -35,3 +35,11 @@ extension RandomAccessCollection where Element == WeChatBillInfo {
         return self.reduce(0.0) { $0 + $1.amount }
     }
 }
+
+extension WeChatBillInfo {
+    func toExpenseInfo() -> ExpenseInfo {
+        print(Log().string + self.description)
+
+        return ExpenseInfo(spentAt: self.spentAt, event: self.name, amount: self.amount)
+    }
+}

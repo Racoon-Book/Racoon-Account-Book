@@ -60,6 +60,7 @@ struct ScreenshotImportSheet: View {
                                     ForEach(Array(weChatBills.enumerated()), id: \.element) { i, weChatBill in
 
                                         // weChatBillView
+                                        // TODO: 添加点击修改
                                         HStack {
                                             Image(systemName:
                                                 weChatBill.isSelected ? "checkmark.circle" : "circle")
@@ -96,12 +97,17 @@ struct ScreenshotImportSheet: View {
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
                             print(Log().string + "按钮点击")
-                            // TODO: 将选中的条目添加到数据库并清除现场
+
+                            // FIXME:
+                            // 导入数据库 清除状态 收回sheet
+                            AddSelectedWeChatBills()
+                            RacoonSheetConfig.shared.showingScreenshotImportSheet = false
+                            ClearImportSheetState()
                     }
                     .padding() // 离下面远一点
                 } else {
                     // WeChatBills.count == 0
-                    Spacer() // FIXME: 在ScrollView中没有效果
+                    Spacer()
                     Text("还没有选择截图哦")
                         .padding()
                     Spacer()
@@ -149,7 +155,11 @@ struct ScreenshotImportSheet: View {
                     if weChatBills.count != 0 {
                         Button(action: {
                             print(Log().string + "右上角导入点击")
-
+                            // FIXME:
+                            // 导入数据库 清除状态 收回sheet
+                            AddSelectedWeChatBills()
+                            RacoonSheetConfig.shared.showingScreenshotImportSheet = false
+                            ClearImportSheetState()
                         }) { Text("导入").bold() }
                     } else {
                         EmptyView()
@@ -168,6 +178,18 @@ struct ScreenshotImportSheet: View {
         showingImagePicker = false
         systemScreenshot = nil
         weChatBills = []
+    }
+
+    private func AddSelectedWeChatBills() {
+        // FIXME:
+        for wechatBill in weChatBills {
+            if wechatBill.isSelected == true {
+                Expense.create(expenseInfo: wechatBill.toExpenseInfo(), context: context)
+            }
+        }
+
+        // TODO: 添加成功显示提示 添加了几条
+//            RacoonSheetConfig.shared.showingSuccessfullyAlert = true // 注意不能直接在这里用这个，因为alert的内容没有指定为多条
     }
 
     private func textExtractFromScreenshot() {
