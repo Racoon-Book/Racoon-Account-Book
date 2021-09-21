@@ -183,6 +183,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		482A322A26F9AE1B00BDF958 /* ScreenshotImport */ = {
+			isa = PBXGroup;
+			children = (
+				485DF2D026F5D6F9003F1DB7 /* ScreenshotImportSheet.swift */,
+			);
+			path = ScreenshotImport;
+			sourceTree = "<group>";
+		};
+		482A322B26F9AE4100BDF958 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				482A322C26F9AE6C00BDF958 /* VoiceInput */,
+				4844ED4126D0D7FF0037C09A /* Expense */,
+				482A322A26F9AE1B00BDF958 /* ScreenshotImport */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		482A322C26F9AE6C00BDF958 /* VoiceInput */ = {
+			isa = PBXGroup;
+			children = (
+				48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */,
+			);
+			path = VoiceInput;
+			sourceTree = "<group>";
+		};
 		4830D9C226B1FD5A007710FD /* ExtraMetaItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,21 +255,12 @@
 			path = Expense;
 			sourceTree = "<group>";
 		};
-		4844ED4426D110DA0037C09A /* Info */ = {
+		4844ED4426D110DA0037C09A /* DataStructure */ = {
 			isa = PBXGroup;
 			children = (
 				488D3AAF269F8F2F00287A50 /* ExpenseInfo.swift */,
 			);
-			path = Info;
-			sourceTree = "<group>";
-		};
-		4844ED4526D111030037C09A /* SheetConfig */ = {
-			isa = PBXGroup;
-			children = (
-				4830E28B26D00C0A00916DDC /* SheetConfig.swift */,
-				4844ED3E26D0BD1D0037C09A /* SheetConfigModel.swift */,
-			);
-			path = SheetConfig;
+			path = DataStructure;
 			sourceTree = "<group>";
 		};
 		485E4CAE26E0C32A009E6162 /* Extension */ = {
@@ -348,6 +365,7 @@
 				6EEE01B926D115BE006797E8 /* CoreData */,
 				488D3A86269F0EF400287A50 /* MVVM */,
 				488D3A8E269F0F3D00287A50 /* App */,
+				482A322B26F9AE4100BDF958 /* Module */,
 				488D3A9B269F338800287A50 /* Components */,
 				488D3A97269F27C500287A50 /* Auxiliary */,
 				488D3A7B269F0E5E00287A50 /* Assets.xcassets */,
@@ -368,7 +386,8 @@
 		488D3A86269F0EF400287A50 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				4844ED4526D111030037C09A /* SheetConfig */,
+				4830E28B26D00C0A00916DDC /* SheetConfig.swift */,
+				4844ED3E26D0BD1D0037C09A /* SheetConfigModel.swift */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -379,7 +398,6 @@
 				488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */,
 				488D3A79269F0E5B00287A50 /* MainView.swift */,
 				48C6360526A44B5700E7BF15 /* TopViews */,
-				4844ED4126D0D7FF0037C09A /* Expense */,
 				48C6360426A44B1400E7BF15 /* BookTab */,
 				48C6360726A44B8300E7BF15 /* StoryTab */,
 				48C6360626A44B6000E7BF15 /* ReportTab */,
@@ -416,7 +434,6 @@
 			isa = PBXGroup;
 			children = (
 				488D3A91269F0F5E00287A50 /* BookTab.swift */,
-				485DF2D026F5D6F9003F1DB7 /* ScreenshotImportSheet.swift */,
 				48F0A09A26A4CEBB004898C0 /* Component */,
 			);
 			path = BookTab;
@@ -426,7 +443,6 @@
 			isa = PBXGroup;
 			children = (
 				4897FE9B26AC0CCC001AE9BA /* FloatingAddButton.swift */,
-				48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */,
 				4844ED4226D10F6D0037C09A /* SuccessfullyAlert.swift */,
 				6E128A4826EC40DF00ADF430 /* SideMenu.swift */,
 			);
@@ -501,7 +517,7 @@
 			children = (
 				6EEE01B426D0EE6C006797E8 /* AccountBook.xcdatamodeld */,
 				485E4CAE26E0C32A009E6162 /* Extension */,
-				4844ED4426D110DA0037C09A /* Info */,
+				4844ED4426D110DA0037C09A /* DataStructure */,
 				485E543026E0C2310077A8B4 /* TestData */,
 				6EEE01B726D0EEE4006797E8 /* Persistence.swift */,
 			);
