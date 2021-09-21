@@ -218,43 +218,45 @@ struct BookTab: View {
                             Text("这个月没有记账呢")
                         } else {
                             VStack {
-                                DayExpensesView(date: day1, dayExpenses: expensesInDay1)
-                                DayExpensesView(date: day2, dayExpenses: expensesInDay2)
-                                DayExpensesView(date: day3, dayExpenses: expensesInDay3)
-                                DayExpensesView(date: day4, dayExpenses: expensesInDay4)
-                                DayExpensesView(date: day5, dayExpenses: expensesInDay5)
-                                DayExpensesView(date: day6, dayExpenses: expensesInDay6)
-                                DayExpensesView(date: day7, dayExpenses: expensesInDay7)
-                                DayExpensesView(date: day8, dayExpenses: expensesInDay8)
-                                DayExpensesView(date: day9, dayExpenses: expensesInDay9)
-                            }
-                            VStack {
-                                DayExpensesView(date: day10, dayExpenses: expensesInDay10)
-                                DayExpensesView(date: day11, dayExpenses: expensesInDay11)
-                                DayExpensesView(date: day12, dayExpenses: expensesInDay12)
-                                DayExpensesView(date: day13, dayExpenses: expensesInDay13)
-                                DayExpensesView(date: day14, dayExpenses: expensesInDay14)
-                                DayExpensesView(date: day15, dayExpenses: expensesInDay15)
-                                DayExpensesView(date: day16, dayExpenses: expensesInDay16)
-                                DayExpensesView(date: day17, dayExpenses: expensesInDay17)
-                                DayExpensesView(date: day18, dayExpenses: expensesInDay18)
-                            }
-                            VStack {
-                                DayExpensesView(date: day19, dayExpenses: expensesInDay19)
-                                DayExpensesView(date: day20, dayExpenses: expensesInDay20)
-                                DayExpensesView(date: day21, dayExpenses: expensesInDay21)
-                                DayExpensesView(date: day22, dayExpenses: expensesInDay22)
-                                DayExpensesView(date: day23, dayExpenses: expensesInDay23)
-                                DayExpensesView(date: day24, dayExpenses: expensesInDay24)
-                                DayExpensesView(date: day25, dayExpenses: expensesInDay25)
-                                DayExpensesView(date: day26, dayExpenses: expensesInDay26)
-                                DayExpensesView(date: day27, dayExpenses: expensesInDay27)
-                            }
-                            VStack {
-                                DayExpensesView(date: day28, dayExpenses: expensesInDay28)
-                                DayExpensesView(date: day29, dayExpenses: expensesInDay29)
-                                DayExpensesView(date: day30, dayExpenses: expensesInDay30)
-                                DayExpensesView(date: day31, dayExpenses: expensesInDay31)
+                                VStack {
+                                    DayExpensesView(date: day1, dayExpenses: expensesInDay1)
+                                    DayExpensesView(date: day2, dayExpenses: expensesInDay2)
+                                    DayExpensesView(date: day3, dayExpenses: expensesInDay3)
+                                    DayExpensesView(date: day4, dayExpenses: expensesInDay4)
+                                    DayExpensesView(date: day5, dayExpenses: expensesInDay5)
+                                    DayExpensesView(date: day6, dayExpenses: expensesInDay6)
+                                    DayExpensesView(date: day7, dayExpenses: expensesInDay7)
+                                    DayExpensesView(date: day8, dayExpenses: expensesInDay8)
+                                    DayExpensesView(date: day9, dayExpenses: expensesInDay9)
+                                }
+                                VStack {
+                                    DayExpensesView(date: day10, dayExpenses: expensesInDay10)
+                                    DayExpensesView(date: day11, dayExpenses: expensesInDay11)
+                                    DayExpensesView(date: day12, dayExpenses: expensesInDay12)
+                                    DayExpensesView(date: day13, dayExpenses: expensesInDay13)
+                                    DayExpensesView(date: day14, dayExpenses: expensesInDay14)
+                                    DayExpensesView(date: day15, dayExpenses: expensesInDay15)
+                                    DayExpensesView(date: day16, dayExpenses: expensesInDay16)
+                                    DayExpensesView(date: day17, dayExpenses: expensesInDay17)
+                                    DayExpensesView(date: day18, dayExpenses: expensesInDay18)
+                                }
+                                VStack {
+                                    DayExpensesView(date: day19, dayExpenses: expensesInDay19)
+                                    DayExpensesView(date: day20, dayExpenses: expensesInDay20)
+                                    DayExpensesView(date: day21, dayExpenses: expensesInDay21)
+                                    DayExpensesView(date: day22, dayExpenses: expensesInDay22)
+                                    DayExpensesView(date: day23, dayExpenses: expensesInDay23)
+                                    DayExpensesView(date: day24, dayExpenses: expensesInDay24)
+                                    DayExpensesView(date: day25, dayExpenses: expensesInDay25)
+                                    DayExpensesView(date: day26, dayExpenses: expensesInDay26)
+                                    DayExpensesView(date: day27, dayExpenses: expensesInDay27)
+                                }
+                                VStack {
+                                    DayExpensesView(date: day28, dayExpenses: expensesInDay28)
+                                    DayExpensesView(date: day29, dayExpenses: expensesInDay29)
+                                    DayExpensesView(date: day30, dayExpenses: expensesInDay30)
+                                    DayExpensesView(date: day31, dayExpenses: expensesInDay31)
+                                }
                             }
                         }
                     }
