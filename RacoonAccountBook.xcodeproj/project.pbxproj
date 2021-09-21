@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4823CD2D269FFE6900C7217F /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823CD2C269FFE6900C7217F /* LargeButton.swift */; };
+		482A322E26F9AF5800BDF958 /* WeChatBillInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482A322D26F9AF5800BDF958 /* WeChatBillInfo.swift */; };
 		482DAB1D26EB34490071518F /* MultilineTagsForDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482DAB1C26EB34490071518F /* MultilineTagsForDisplay.swift */; };
 		4830D9C126B1FD1C007710FD /* NewMetaDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9C026B1FD1C007710FD /* NewMetaDataView.swift */; };
 		4830D9C426B1FDA5007710FD /* SingleExtraExpenseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9C326B1FDA5007710FD /* SingleExtraExpenseInfoView.swift */; };
@@ -90,6 +91,7 @@
 
 /* Begin PBXFileReference section */
 		4823CD2C269FFE6900C7217F /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
+		482A322D26F9AF5800BDF958 /* WeChatBillInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatBillInfo.swift; sourceTree = "<group>"; };
 		482DAB1C26EB34490071518F /* MultilineTagsForDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTagsForDisplay.swift; sourceTree = "<group>"; };
 		4830D9C026B1FD1C007710FD /* NewMetaDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMetaDataView.swift; sourceTree = "<group>"; };
 		4830D9C326B1FDA5007710FD /* SingleExtraExpenseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleExtraExpenseInfoView.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				488D3AAF269F8F2F00287A50 /* ExpenseInfo.swift */,
+				482A322D26F9AF5800BDF958 /* WeChatBillInfo.swift */,
 			);
 			path = DataStructure;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				488D3AA7269F6AD000287A50 /* Date+.swift in Sources */,
 				6E128A4926EC40DF00ADF430 /* SideMenu.swift in Sources */,
 				488D3A96269F188100287A50 /* ReportTab.swift in Sources */,
+				482A322E26F9AF5800BDF958 /* WeChatBillInfo.swift in Sources */,
 				6EEE01BD26D12533006797E8 /* Story+.swift in Sources */,
 				487FA76A26E2448E00DD924F /* Expense+Analysis.swift in Sources */,
 				6EBB7AC526B2A072004E692B /* DayCounterView.swift in Sources */,
