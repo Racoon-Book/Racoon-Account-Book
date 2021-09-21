@@ -193,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				485DF2D026F5D6F9003F1DB7 /* ScreenshotImportSheet.swift */,
+				482A322D26F9AF5800BDF958 /* WeChatBillInfo.swift */,
 			);
 			path = ScreenshotImport;
 			sourceTree = "<group>";
@@ -266,7 +267,6 @@
 			isa = PBXGroup;
 			children = (
 				488D3AAF269F8F2F00287A50 /* ExpenseInfo.swift */,
-				482A322D26F9AF5800BDF958 /* WeChatBillInfo.swift */,
 			);
 			path = DataStructure;
 			sourceTree = "<group>";
