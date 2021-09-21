@@ -1,5 +1,6 @@
 // ScreenshotImportSheet.swift
 
+import SwiftDate
 import SwiftUI
 import UIKit
 import Vision
@@ -39,42 +40,65 @@ struct ScreenshotImportSheet: View {
 //                                Label("添加新账单", systemImage: "photo")
 //                        }
                     }
+                    .padding() // 图片与sheet上边别接触
                 }
 
                 if weChatBills.count != 0 {
-                    Text("识别出\(weChatBills.count)条支出")
-
                     VStack(alignment: .leading) {
-                        Text("总支出\(weChatBills.sum())")
                         ScrollView {
-                            ForEach(Array(weChatBills.enumerated()), id: \.element) { i, weChatBill in
-                                HStack {
-                                    // weChatBillView
-                                    Image(systemName:
-                                        weChatBill.isSelected ? "checkmark.circle" : "circle")
-                                    VStack(alignment: .leading) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .foregroundColor(defaultColorSet.cardBackground)
+
+                                VStack {
+                                    HStack {
+                                        Text("识别出\(weChatBills.count)条花销")
+                                        Text("共\(String(format: "%.1f", weChatBills.sum()))元")
+                                    }
+                                    .padding()
+
+                                    ForEach(Array(weChatBills.enumerated()), id: \.element) { i, weChatBill in
+
+                                        // weChatBillView
                                         HStack {
-                                            Text(weChatBill.name)
+                                            Image(systemName:
+                                                weChatBill.isSelected ? "checkmark.circle" : "circle")
+                                                .foregroundColor(.accentColor)
+
+                                            VStack(alignment: .leading) {
+                                                Text(weChatBill.name)
+                                                    .font(.title3)
+                                                    .foregroundColor(.primary)
+                                                Text(DisplayDate(weChatBill.spentAt))
+                                                    .font(.caption)
+                                                    .foregroundColor(.secondary)
+                                            }
+
                                             Spacer()
-                                            Text("\(weChatBill.amount)") // TODO: 两位小数
+
+                                            Text(String(format: "%.1f", weChatBill.amount))
+                                                .font(.title)
                                         }
-                                        Text(DisplayDate(weChatBill.spentAt))
+                                        .padding(3) // 不同账单之间的
+                                        .onTapGesture {
+                                            print(Log().string + "tapped")
+                                            weChatBills[i].isSelected.toggle()
+                                        }
                                     }
                                 }
-                                .onTapGesture {
-                                    weChatBills[i].isSelected.toggle()
-                                    print(Log().string + "tapped")
-                                }
+                                .padding(3) // 给白框外围加padding
                             }
+                            .padding() // 白色框和手机边框
                         }
                     }
 
                     LargeButton(title: "导入所选账目",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                            print(Log().string + "按钮点击")
-                            // TODO: 将选中的条目添加到数据库并清除现场
+                        print(Log().string + "按钮点击")
+                        // TODO: 将选中的条目添加到数据库并清除现场
                     }
+                    .padding() // 离下面远一点
                 } else {
                     // WeChatBills.count == 0
                     Spacer() // FIXME: 在ScrollView中没有效果
@@ -84,11 +108,14 @@ struct ScreenshotImportSheet: View {
                     LargeButton(title: "选择微信账单截图",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                            showingImagePicker = true
+                        showingImagePicker = true
                     }
                     .padding()
                 }
             }
+            .background(defaultColorSet.alertBackground)
+            .ignoresSafeArea() // TODO:
+
             .navigationBarTitle(
                 Text("截图导入"),
                 displayMode: .inline)
@@ -131,7 +158,7 @@ struct ScreenshotImportSheet: View {
 
             .sheet(isPresented: $showingImagePicker,
                    onDismiss: textExtractFromScreenshot) {
-                    ImagePicker(image: self.$systemScreenshot)
+                ImagePicker(image: self.$systemScreenshot)
             }
         }
     }
@@ -206,8 +233,8 @@ struct ScreenshotImportSheet: View {
             let string3: String = recognizedStrings[i + 2]
 
             if let amount = Float(string2),
-               let spentAt = string3.toDate("M月d日 hh:mm", region: regionChina)
-            {
+               var spentAt = string3.toDate("M月d日 hh:mm", region: regionChina) {
+                spentAt = spentAt.dateBySet([.year: DateInRegion().year])! // 直接取，可能会崩
                 let name = string1
 
                 let wechatBill = WeChatBillInfo(

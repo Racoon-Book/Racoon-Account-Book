@@ -173,7 +173,9 @@ struct ExpenseSheet: View {
                             showDeleteAlertSheet = true
                         } else {
                             // 添加：清空所有输入框
-                            DiscardCurrentExpenseInfo() // 清空正在输入的 ExpenseInfo
+                            withAnimation {
+                                DiscardCurrentExpenseInfo() // 清空正在输入的 ExpenseInfo
+                            }
                         }
 
                     }) { Text(RacoonSheetConfig.shared.isEditMode ? "删除" : "清除").bold() }
