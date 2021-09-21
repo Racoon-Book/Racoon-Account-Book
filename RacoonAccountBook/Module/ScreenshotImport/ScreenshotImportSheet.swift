@@ -95,8 +95,8 @@ struct ScreenshotImportSheet: View {
                     LargeButton(title: "导入所选账目",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                        print(Log().string + "按钮点击")
-                        // TODO: 将选中的条目添加到数据库并清除现场
+                            print(Log().string + "按钮点击")
+                            // TODO: 将选中的条目添加到数据库并清除现场
                     }
                     .padding() // 离下面远一点
                 } else {
@@ -108,7 +108,7 @@ struct ScreenshotImportSheet: View {
                     LargeButton(title: "选择微信账单截图",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                        showingImagePicker = true
+                            showingImagePicker = true
                     }
                     .padding()
                 }
@@ -158,7 +158,7 @@ struct ScreenshotImportSheet: View {
 
             .sheet(isPresented: $showingImagePicker,
                    onDismiss: textExtractFromScreenshot) {
-                ImagePicker(image: self.$systemScreenshot)
+                    ImagePicker(image: self.$systemScreenshot)
             }
         }
     }
@@ -233,7 +233,8 @@ struct ScreenshotImportSheet: View {
             let string3: String = recognizedStrings[i + 2]
 
             if let amount = Float(string2),
-               var spentAt = string3.toDate("M月d日 hh:mm", region: regionChina) {
+               var spentAt = string3.toDate("M月d日 hh:mm", region: regionChina)
+            {
                 spentAt = spentAt.dateBySet([.year: DateInRegion().year])! // 直接取，可能会崩
                 let name = string1
 
