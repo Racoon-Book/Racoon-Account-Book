@@ -261,6 +261,7 @@ struct BookTab: View {
                         }
                     }
                     .padding([.horizontal], cardPadding) // 让圆角矩形边框不靠边
+//                    .padding([.vertical], 1) // 白色的圆角矩形互相别挨着
                 }
             }
             .padding([.bottom], cardPadding) // 最下方别贴着屏幕底端
