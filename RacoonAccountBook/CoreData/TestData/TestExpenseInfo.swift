@@ -347,7 +347,7 @@ let testExpenseInfo_39 = ExpenseInfo(
     event: "雀魂月卡",
     amount: 36.0,
     tags: ["雀魂", "月卡"],
-    focus: "雀魂"
+    focus: "游戏"
 )
 
 let testExpenseInfo_40 = ExpenseInfo(
@@ -778,7 +778,7 @@ let testExpenseInfo_89 = ExpenseInfo(
     event: "雀魂月卡",
     amount: 35.0,
     tags: ["雀魂", "月卡"],
-    focus: "雀魂"
+    focus: "游戏"
 )
 
 let testExpenseInfo_90 = ExpenseInfo(
@@ -1627,21 +1627,21 @@ let testExpenseInfo_185 = ExpenseInfo(
     focus: "游戏"
 )
 
-// let testExpenseInfo_186 = ExpenseInfo(
-//    originalText: "买Office套件花了八块",
-//    spentAt: "210901".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
-//    event: "office",
-//    amount: 8.0,
-//    tags: ["Microsoft", "Office"],
-//    focus: "软件服务",
-//    story: ExpenseInfo.Story(rating: 5,
-//                             emoji: "🧐",
-//                             text: "学校给的Office不知道怎么就装不上，某宝买了一个非常好用！iPad上也下载好了，而且还是自己改密码的那种；虽然不知道哪天就跑路了，但是先用着吧")
-// )
+let testExpenseInfo_186 = ExpenseInfo(
+    originalText: "买Office套件花了八块",
+    spentAt: "210804".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "office",
+    amount: 8.0,
+    tags: ["Microsoft", "Office"],
+    focus: "软件服务",
+    story: ExpenseInfo.Story(rating: 5,
+                             emoji: "🧐",
+                             text: "学校给的Office不知道怎么就装不上，某宝买了一个非常好用！iPad上也下载好了，而且还是自己改密码的那种；虽然不知道哪天就跑路了，但是先用着吧")
+)
 
 let testExpenseInfo_187 = ExpenseInfo(
     originalText: "去钓鱼台花了20",
-    spentAt: "210902".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentAt: "210807".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "钓鱼台",
     amount: 20.0,
     tags: ["旅游"],
@@ -1652,7 +1652,7 @@ let testExpenseInfo_187 = ExpenseInfo(
 
 let testExpenseInfo_188 = ExpenseInfo(
     originalText: "九成宫门票四十",
-    spentAt: "210903".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentAt: "210808".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "九成宫",
     amount: 40.0,
     tags: ["旅游"]
@@ -1660,7 +1660,7 @@ let testExpenseInfo_188 = ExpenseInfo(
 
 let testExpenseInfo_189 = ExpenseInfo(
     originalText: "买DLSite点数",
-    spentAt: "210903".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentAt: "210808".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "dlsite1000点数",
     amount: 60.0,
     tags: ["音声", "DLSite"],
@@ -1672,7 +1672,7 @@ let testExpenseInfo_189 = ExpenseInfo(
 
 let testExpenseInfo_190 = ExpenseInfo(
     originalText: "买湿巾花了三十八块八",
-    spentAt: "210904".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentAt: "210811".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "湿巾",
     amount: 38.8,
     tags: ["湿巾", "餐桌"]
@@ -1680,15 +1680,391 @@ let testExpenseInfo_190 = ExpenseInfo(
 
 let testExpenseInfo_191 = ExpenseInfo(
     originalText: "买macOS开发书花了八十一",
-    spentAt: "210909".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    spentAt: "210811".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
     event: "macOS开发书",
     amount: 81.0,
     tags: ["AppKit", "macOS", "Xcode"],
     focus: "软件服务"
 )
 
-let testExpenseInfos: [ExpenseInfo] = [testExpenseInfo_1, testExpenseInfo_2, testExpenseInfo_3, testExpenseInfo_4, testExpenseInfo_5, testExpenseInfo_6, testExpenseInfo_7, testExpenseInfo_8, testExpenseInfo_9, testExpenseInfo_10, testExpenseInfo_11, testExpenseInfo_12, testExpenseInfo_13, testExpenseInfo_14, testExpenseInfo_15, testExpenseInfo_16, testExpenseInfo_17, testExpenseInfo_18, testExpenseInfo_19, testExpenseInfo_20, testExpenseInfo_21, testExpenseInfo_22, testExpenseInfo_23, testExpenseInfo_24, testExpenseInfo_25, testExpenseInfo_26, testExpenseInfo_27, testExpenseInfo_28, testExpenseInfo_29, testExpenseInfo_30, testExpenseInfo_31, testExpenseInfo_32, testExpenseInfo_33, testExpenseInfo_34, testExpenseInfo_35, testExpenseInfo_36, testExpenseInfo_37, testExpenseInfo_38, testExpenseInfo_39, testExpenseInfo_40, testExpenseInfo_41, testExpenseInfo_42, testExpenseInfo_43, testExpenseInfo_44, testExpenseInfo_45, testExpenseInfo_46, testExpenseInfo_47, testExpenseInfo_48, testExpenseInfo_49, testExpenseInfo_50, testExpenseInfo_51, testExpenseInfo_52, testExpenseInfo_53, testExpenseInfo_54, testExpenseInfo_55, testExpenseInfo_56, testExpenseInfo_57, testExpenseInfo_58, testExpenseInfo_59, testExpenseInfo_60, testExpenseInfo_61, testExpenseInfo_62, testExpenseInfo_63, testExpenseInfo_64, testExpenseInfo_65, testExpenseInfo_66, testExpenseInfo_67, testExpenseInfo_68, testExpenseInfo_69, testExpenseInfo_70, testExpenseInfo_71, testExpenseInfo_72, testExpenseInfo_73, testExpenseInfo_74, testExpenseInfo_75, testExpenseInfo_76, testExpenseInfo_77, testExpenseInfo_78, testExpenseInfo_79, testExpenseInfo_80, testExpenseInfo_81, testExpenseInfo_82, testExpenseInfo_83, testExpenseInfo_84, testExpenseInfo_85, testExpenseInfo_86, testExpenseInfo_87, testExpenseInfo_88, testExpenseInfo_89, testExpenseInfo_90, testExpenseInfo_91, testExpenseInfo_92, testExpenseInfo_93, testExpenseInfo_94, testExpenseInfo_95, testExpenseInfo_96, testExpenseInfo_97, testExpenseInfo_98, testExpenseInfo_99, testExpenseInfo_100, testExpenseInfo_101, testExpenseInfo_102, testExpenseInfo_103, testExpenseInfo_104, testExpenseInfo_105, testExpenseInfo_106, testExpenseInfo_107, testExpenseInfo_108, testExpenseInfo_109, testExpenseInfo_110, testExpenseInfo_111, testExpenseInfo_112, testExpenseInfo_113, testExpenseInfo_114, testExpenseInfo_115, testExpenseInfo_116, testExpenseInfo_117, testExpenseInfo_118, testExpenseInfo_119, testExpenseInfo_120, testExpenseInfo_121, testExpenseInfo_122, testExpenseInfo_123, testExpenseInfo_124, testExpenseInfo_125, testExpenseInfo_126, testExpenseInfo_127, testExpenseInfo_128, testExpenseInfo_129, testExpenseInfo_130, testExpenseInfo_131, testExpenseInfo_132, testExpenseInfo_133, testExpenseInfo_134, testExpenseInfo_135, testExpenseInfo_136, testExpenseInfo_137, testExpenseInfo_138, testExpenseInfo_139, testExpenseInfo_140, testExpenseInfo_141, testExpenseInfo_142, testExpenseInfo_143, testExpenseInfo_144, testExpenseInfo_145, testExpenseInfo_146, testExpenseInfo_147, testExpenseInfo_148, testExpenseInfo_149, testExpenseInfo_150, testExpenseInfo_151, testExpenseInfo_152, testExpenseInfo_153, testExpenseInfo_154, testExpenseInfo_155, testExpenseInfo_156, testExpenseInfo_157, testExpenseInfo_158, testExpenseInfo_159, testExpenseInfo_160, testExpenseInfo_161, testExpenseInfo_162, testExpenseInfo_163, testExpenseInfo_164, testExpenseInfo_165, testExpenseInfo_166, testExpenseInfo_167, testExpenseInfo_168, testExpenseInfo_169, testExpenseInfo_170, testExpenseInfo_171, testExpenseInfo_172, testExpenseInfo_173, testExpenseInfo_174, testExpenseInfo_175, testExpenseInfo_176, testExpenseInfo_177, testExpenseInfo_178, testExpenseInfo_179, testExpenseInfo_180, testExpenseInfo_181, testExpenseInfo_182, testExpenseInfo_183, testExpenseInfo_184, testExpenseInfo_185,
-//                                       testExpenseInfo_186,
-                                       testExpenseInfo_187, testExpenseInfo_188, testExpenseInfo_189, testExpenseInfo_190, testExpenseInfo_191]
+let testExpenseInfo_192 = ExpenseInfo(
+    originalText: "买饮料5元",
+    spentAt: "210815".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "饮料",
+    amount: 5.0,
+    tags: ["饮料"]
+)
+
+let testExpenseInfo_193 = ExpenseInfo(
+    originalText: "早饭七块",
+    spentAt: "210820".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "早饭",
+    amount: 7.0,
+    tags: ["早饭"]
+)
+
+let testExpenseInfo_194 = ExpenseInfo(
+    originalText: "夹克558",
+    spentAt: "210823".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "夹克",
+    amount: 558.0,
+    tags: ["夹克"],
+    story: ExpenseInfo.Story(rating: 4,
+                             emoji: "🧐",
+                             text: "好贵！双面的感觉也不是那么实用。穿了一段时间感觉还好吧，样子还行；但是不怎么透气。总之感觉有点亏")
+)
+
+let testExpenseInfo_195 = ExpenseInfo(
+    originalText: "做核酸检测60",
+    spentAt: "210826".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "核酸",
+    amount: 60.0,
+    tags: ["核酸"]
+)
+
+let testExpenseInfo_196 = ExpenseInfo(
+    originalText: "买回学校火车票425.5",
+    spentAt: "210826".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "火车票",
+    amount: 425.5,
+    tags: ["火车票"]
+)
+
+let testExpenseInfo_197 = ExpenseInfo(
+    originalText: "雀魂服饰卷126块7",
+    spentAt: "210826".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "雀魂服饰卷",
+    amount: 126.7,
+    tags: ["雀魂", "服饰劵"],
+    focus: "游戏",
+    story: ExpenseInfo.Story(rating: 5,
+                             emoji: "😆",
+                             text: "三上千织的泳装是真的可以！")
+)
+
+let testExpenseInfo_198 = ExpenseInfo(
+    originalText: "雀魂月卡36.7",
+    spentAt: "210826".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "雀魂月卡",
+    amount: 36.7,
+    tags: ["雀魂", "月卡"],
+    focus: "游戏"
+)
+
+let testExpenseInfo_199 = ExpenseInfo(
+    originalText: "雀魂辉玉667",
+    spentAt: "210830".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "雀魂辉玉",
+    amount: 667.0,
+    tags: ["雀魂", "648"],
+    focus: "游戏",
+    story: ExpenseInfo.Story(rating: 1,
+                             emoji: "🥲",
+                             text: "哎 不应该给游戏充钱的。虽然确实出了很多角色，但是之后也没怎么打过日麻了，就很亏。")
+)
+
+let testExpenseInfo_200 = ExpenseInfo(
+    originalText: "甜品17",
+    spentAt: "210831".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "甜品",
+    amount: 17.0,
+    tags: ["甜品"]
+)
+
+let testExpenseInfo_201 = ExpenseInfo(
+    originalText: "宿舍电费20",
+    spentAt: "210831".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "宿舍电费",
+    amount: 20.0,
+    tags: ["宿舍", "电费"],
+    focus: "宿舍"
+)
+
+let testExpenseInfo_202 = ExpenseInfo(
+    originalText: "吃饭42",
+    spentAt: "210901".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "吃饭",
+    amount: 42.0,
+    tags: ["吃饭"]
+)
+
+let testExpenseInfo_203 = ExpenseInfo(
+    originalText: "饮料4.5",
+    spentAt: "210902".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "饮料",
+    amount: 4.5,
+    tags: ["饮料"]
+)
+
+let testExpenseInfo_204 = ExpenseInfo(
+    originalText: "桃李地下餐厅36",
+    spentAt: "210906".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "桃李地下",
+    amount: 36.0,
+    tags: ["桃李地下"]
+)
+
+let testExpenseInfo_205 = ExpenseInfo(
+    originalText: "充卡800",
+    spentAt: "210906".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "充卡",
+    amount: 800.0,
+    tags: ["校园卡"]
+)
+
+let testExpenseInfo_206 = ExpenseInfo(
+    originalText: "洗衣3元",
+    spentAt: "210906".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "洗衣",
+    amount: 3.0,
+    tags: ["洗衣"]
+)
+
+let testExpenseInfo_207 = ExpenseInfo(
+    originalText: "买水三块",
+    spentAt: "210912".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "水",
+    amount: 3.0,
+    tags: ["买矿泉水"]
+)
+
+let testExpenseInfo_208 = ExpenseInfo(
+    originalText: "吃火锅100",
+    spentAt: "210912".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "火锅",
+    amount: 100.0,
+    tags: ["吃火锅"],
+    story: ExpenseInfo.Story(rating: 5,
+                             emoji: "😆",
+                             text: "开学前去景山玩，找了一家非常不错的老北京火锅！")
+)
+
+let testExpenseInfo_209 = ExpenseInfo(
+    originalText: "洗衣3元",
+    spentAt: "210912".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "洗衣",
+    amount: 3.0,
+    tags: ["洗衣"]
+)
+
+let testExpenseInfo_210 = ExpenseInfo(
+    originalText: "dlsite3k点数",
+    spentAt: "210912".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "dlsite3k点数",
+    amount: 184.0,
+    tags: ["dlsite点数"],
+    focus: "支持",
+    story: ExpenseInfo.Story(rating: 4,
+                             emoji: "☺️",
+                             text: "3份月野きいろ的音声！")
+)
+
+let testExpenseInfo_211 = ExpenseInfo(
+    originalText: "小吃34.6",
+    spentAt: "210915".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "小吃",
+    amount: 34.6,
+    tags: ["小吃"]
+)
+
+let testExpenseInfo_212 = ExpenseInfo(
+    originalText: "买饮料被售卖机吞了4.5",
+    spentAt: "210915".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "自动售卖机吞",
+    amount: 4.5,
+    tags: ["自动售卖机", "饮料"],
+    story: ExpenseInfo.Story(rating: 1,
+                             emoji: "😠",
+                             text: "气死我了 当时晚上开完会，心情不太好去C楼自习，本来想着买瓶饮料淡定一下，结果就被售卖机吞了。哎，祸不单行")
+)
+
+let testExpenseInfo_213 = ExpenseInfo(
+    originalText: "咖啡六块五",
+    spentAt: "210916".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "咖啡",
+    amount: 6.5,
+    tags: ["咖啡"]
+)
+
+let testExpenseInfo_214 = ExpenseInfo(
+    originalText: "饮料5.5",
+    spentAt: "210924".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "饮料",
+    amount: 5.5,
+    tags: ["饮料"]
+)
+
+let testExpenseInfo_215 = ExpenseInfo(
+    originalText: "打印0.7",
+    spentAt: "210924".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "打印",
+    amount: 0.7,
+    tags: ["打印"]
+)
+
+let testExpenseInfo_216 = ExpenseInfo(
+    originalText: "饮料5",
+    spentAt: "210925".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "饮料",
+    amount: 5.0,
+    tags: ["饮料"]
+)
+
+let testExpenseInfo_217 = ExpenseInfo(
+    originalText: "零食4.8",
+    spentAt: "210926".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "零食",
+    amount: 4.8,
+    tags: ["零食"]
+)
+
+let testExpenseInfo_218 = ExpenseInfo(
+    originalText: "泳镜48",
+    spentAt: "210926".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "泳镜",
+    amount: 48.0,
+    tags: ["泳镜"],
+    story: ExpenseInfo.Story(rating: 3,
+                             emoji: "🥲",
+                             text: "怎么说呢，确实很有用。我终于能在游泳的时候看清东西了！但是没用几次里面就起雾了差评。要是经常游的话还得重买一个啊！")
+)
+
+let testExpenseInfo_219 = ExpenseInfo(
+    originalText: "帆布鞋138",
+    spentAt: "210926".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "帆布鞋两双",
+    amount: 138.0,
+    tags: ["帆布鞋"],
+    story: ExpenseInfo.Story(rating: 4,
+                             emoji: "😎",
+                             text: "还是帆布鞋舒服")
+)
+
+let testExpenseInfo_220 = ExpenseInfo(
+    originalText: "洗衣3.8",
+    spentAt: "210926".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "洗衣",
+    amount: 3.8,
+    tags: ["洗衣"]
+)
+
+let testExpenseInfo_221 = ExpenseInfo(
+    originalText: "小吃的10.2",
+    spentAt: "210927".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "小吃的",
+    amount: 10.2,
+    tags: ["小吃"]
+)
+
+let testExpenseInfo_222 = ExpenseInfo(
+    originalText: "饼干6.5",
+    spentAt: "210929".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "饼干",
+    amount: 6.5,
+    tags: ["饼干"]
+)
+
+let testExpenseInfo_223 = ExpenseInfo(
+    originalText: "咖啡厅24",
+    spentAt: "211001".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "咖啡厅",
+    amount: 24.0,
+    tags: ["咖啡厅", "紫荆书咖"],
+    story: ExpenseInfo.Story(rating: 5,
+                             emoji: "😌",
+                             text: "昨晚讨论，丢了外套；第二天去紫荆书咖找。本来打算拿到就走的，但想了想还是坐在那里自习了。饮料好好喝，很提神；环境也超级棒！产生了想去校内更多咖啡厅的想法！")
+)
+
+let testExpenseInfo_224 = ExpenseInfo(
+    originalText: "饮料5.5",
+    spentAt: "211004".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "饮料",
+    amount: 5.5,
+    tags: ["饮料"]
+)
+
+let testExpenseInfo_225 = ExpenseInfo(
+    originalText: "共享单车3",
+    spentAt: "211004".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "单车",
+    amount: 3.0,
+    tags: ["共享单车"]
+)
+
+let testExpenseInfo_226 = ExpenseInfo(
+    originalText: "自行车链条修理花了25",
+    spentAt: "211004".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "自行车链条",
+    amount: 25.0,
+    tags: ["自行车链条"],
+    story: ExpenseInfo.Story(rating: 3,
+                             emoji: "😅",
+                             text: "不是很值得吧。自行车，历经风雨明显已经不行了")
+)
+
+let testExpenseInfo_227 = ExpenseInfo(
+    originalText: "dlsite点数60",
+    spentAt: "211007".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "dlsite点数",
+    amount: 60.0,
+    tags: ["dlsite点数"],
+    focus: "支持",
+    story: ExpenseInfo.Story(rating: 5,
+                             emoji: "🥰",
+                             text: "买了雨音と心音に包まれて的前作和续作，真心不错！安静的氛围")
+)
+
+let testExpenseInfo_228 = ExpenseInfo(
+    originalText: "饮料5.5",
+    spentAt: "211009".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "饮料",
+    amount: 5.5,
+    tags: ["饮料"]
+)
+
+let testExpenseInfo_229 = ExpenseInfo(
+    originalText: "桃李和王可讨论36",
+    spentAt: "211009".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "桃李讨论",
+    amount: 36.0,
+    tags: ["桃李地下", "王可", "开发组"],
+    story: ExpenseInfo.Story(rating: 5,
+                             emoji: "😎",
+                             text: "商量了开发组事务 还挺高效的 希望能逐渐开展吧")
+)
+
+let testExpenseInfo_230 = ExpenseInfo(
+    originalText: "独峰书院买冰沙",
+    spentAt: "211010".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "独峰书院",
+    amount: 25.0,
+    tags: ["独峰书院"],
+    story: ExpenseInfo.Story(rating: 1,
+                             emoji: "🥲",
+                             text: "第一次去 也是最后一次去。环境不太行，而且很吵，感觉是吃饭的地方而不是自习的地方。买了抹茶冰沙，抹茶很好吃但是感觉太普通了。")
+)
+
+let testExpenseInfo_231 = ExpenseInfo(
+    originalText: "紫荆书咖红豆酸奶",
+    spentAt: "211011".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "紫荆书咖",
+    amount: 26.0,
+    story: ExpenseInfo.Story(rating: 5,
+                             emoji: "😃",
+                             text: "红豆酸奶！！")
+)
+
+let testExpenseInfo_232 = ExpenseInfo(
+    originalText: "买goodnotes",
+    spentAt: "211015".toDate("yyMMdd", region: regionChina) ?? DateInRegion(region: regionChina),
+    event: "goodnotes",
+    amount: 30,
+    focus: "软件服务",
+    story: ExpenseInfo.Story(rating: 2,
+                             emoji: "🥲",
+                             text: "因为Notability的耗电问题，下了Goodnotes使用，结果还是觉得Notability好一些啊！简洁明了。")
+)
+
+let testExpenseInfos: [ExpenseInfo] = [testExpenseInfo_1, testExpenseInfo_2, testExpenseInfo_3, testExpenseInfo_4, testExpenseInfo_5, testExpenseInfo_6, testExpenseInfo_7, testExpenseInfo_8, testExpenseInfo_9, testExpenseInfo_10, testExpenseInfo_11, testExpenseInfo_12, testExpenseInfo_13, testExpenseInfo_14, testExpenseInfo_15, testExpenseInfo_16, testExpenseInfo_17, testExpenseInfo_18, testExpenseInfo_19, testExpenseInfo_20, testExpenseInfo_21, testExpenseInfo_22, testExpenseInfo_23, testExpenseInfo_24, testExpenseInfo_25, testExpenseInfo_26, testExpenseInfo_27, testExpenseInfo_28, testExpenseInfo_29, testExpenseInfo_30, testExpenseInfo_31, testExpenseInfo_32, testExpenseInfo_33, testExpenseInfo_34, testExpenseInfo_35, testExpenseInfo_36, testExpenseInfo_37, testExpenseInfo_38, testExpenseInfo_39, testExpenseInfo_40, testExpenseInfo_41, testExpenseInfo_42, testExpenseInfo_43, testExpenseInfo_44, testExpenseInfo_45, testExpenseInfo_46, testExpenseInfo_47, testExpenseInfo_48, testExpenseInfo_49, testExpenseInfo_50, testExpenseInfo_51, testExpenseInfo_52, testExpenseInfo_53, testExpenseInfo_54, testExpenseInfo_55, testExpenseInfo_56, testExpenseInfo_57, testExpenseInfo_58, testExpenseInfo_59, testExpenseInfo_60, testExpenseInfo_61, testExpenseInfo_62, testExpenseInfo_63, testExpenseInfo_64, testExpenseInfo_65, testExpenseInfo_66, testExpenseInfo_67, testExpenseInfo_68, testExpenseInfo_69, testExpenseInfo_70, testExpenseInfo_71, testExpenseInfo_72, testExpenseInfo_73, testExpenseInfo_74, testExpenseInfo_75, testExpenseInfo_76, testExpenseInfo_77, testExpenseInfo_78, testExpenseInfo_79, testExpenseInfo_80, testExpenseInfo_81, testExpenseInfo_82, testExpenseInfo_83, testExpenseInfo_84, testExpenseInfo_85, testExpenseInfo_86, testExpenseInfo_87, testExpenseInfo_88, testExpenseInfo_89, testExpenseInfo_90, testExpenseInfo_91, testExpenseInfo_92, testExpenseInfo_93, testExpenseInfo_94, testExpenseInfo_95, testExpenseInfo_96, testExpenseInfo_97, testExpenseInfo_98, testExpenseInfo_99, testExpenseInfo_100, testExpenseInfo_101, testExpenseInfo_102, testExpenseInfo_103, testExpenseInfo_104, testExpenseInfo_105, testExpenseInfo_106, testExpenseInfo_107, testExpenseInfo_108, testExpenseInfo_109, testExpenseInfo_110, testExpenseInfo_111, testExpenseInfo_112, testExpenseInfo_113, testExpenseInfo_114, testExpenseInfo_115, testExpenseInfo_116, testExpenseInfo_117, testExpenseInfo_118, testExpenseInfo_119, testExpenseInfo_120, testExpenseInfo_121, testExpenseInfo_122, testExpenseInfo_123, testExpenseInfo_124, testExpenseInfo_125, testExpenseInfo_126, testExpenseInfo_127, testExpenseInfo_128, testExpenseInfo_129, testExpenseInfo_130, testExpenseInfo_131, testExpenseInfo_132, testExpenseInfo_133, testExpenseInfo_134, testExpenseInfo_135, testExpenseInfo_136, testExpenseInfo_137, testExpenseInfo_138, testExpenseInfo_139, testExpenseInfo_140, testExpenseInfo_141, testExpenseInfo_142, testExpenseInfo_143, testExpenseInfo_144, testExpenseInfo_145, testExpenseInfo_146, testExpenseInfo_147, testExpenseInfo_148, testExpenseInfo_149, testExpenseInfo_150, testExpenseInfo_151, testExpenseInfo_152, testExpenseInfo_153, testExpenseInfo_154, testExpenseInfo_155, testExpenseInfo_156, testExpenseInfo_157, testExpenseInfo_158, testExpenseInfo_159, testExpenseInfo_160, testExpenseInfo_161, testExpenseInfo_162, testExpenseInfo_163, testExpenseInfo_164, testExpenseInfo_165, testExpenseInfo_166, testExpenseInfo_167, testExpenseInfo_168, testExpenseInfo_169, testExpenseInfo_170, testExpenseInfo_171, testExpenseInfo_172, testExpenseInfo_173, testExpenseInfo_174, testExpenseInfo_175, testExpenseInfo_176, testExpenseInfo_177, testExpenseInfo_178, testExpenseInfo_179, testExpenseInfo_180, testExpenseInfo_181, testExpenseInfo_182, testExpenseInfo_183, testExpenseInfo_184, testExpenseInfo_185, testExpenseInfo_186, testExpenseInfo_187, testExpenseInfo_188, testExpenseInfo_189, testExpenseInfo_190, testExpenseInfo_191, testExpenseInfo_192, testExpenseInfo_193, testExpenseInfo_194, testExpenseInfo_195, testExpenseInfo_196, testExpenseInfo_197, testExpenseInfo_198, testExpenseInfo_199, testExpenseInfo_200, testExpenseInfo_201, testExpenseInfo_202, testExpenseInfo_203, testExpenseInfo_204, testExpenseInfo_205, testExpenseInfo_206, testExpenseInfo_207, testExpenseInfo_208, testExpenseInfo_209, testExpenseInfo_210, testExpenseInfo_211, testExpenseInfo_212, testExpenseInfo_213, testExpenseInfo_214, testExpenseInfo_215, testExpenseInfo_216, testExpenseInfo_217, testExpenseInfo_218, testExpenseInfo_219, testExpenseInfo_220, testExpenseInfo_221, testExpenseInfo_222, testExpenseInfo_223, testExpenseInfo_224, testExpenseInfo_225, testExpenseInfo_226, testExpenseInfo_227, testExpenseInfo_228, testExpenseInfo_229, testExpenseInfo_230, testExpenseInfo_231, testExpenseInfo_232]
 
 #endif
