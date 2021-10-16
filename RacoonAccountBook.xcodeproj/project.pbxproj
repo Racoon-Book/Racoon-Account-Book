@@ -51,6 +51,7 @@
 		487FA76E26E244E000DD924F /* Expense+FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487FA76D26E244E000DD924F /* Expense+FetchData.swift */; };
 		487FA77026E244F000DD924F /* Expense+Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487FA76F26E244F000DD924F /* Expense+Attributes.swift */; };
 		487FA77226E2450000DD924F /* Expense+CombinedDataStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487FA77126E2450000DD924F /* Expense+CombinedDataStructure.swift */; };
+		48888B3A271AF90000CC9E11 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = 48888B39271AF90000CC9E11 /* SwiftUICharts */; };
 		488D3A78269F0E5B00287A50 /* RacoonAccountBookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A77269F0E5B00287A50 /* RacoonAccountBookApp.swift */; };
 		488D3A7A269F0E5B00287A50 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A79269F0E5B00287A50 /* MainView.swift */; };
 		488D3A7C269F0E5E00287A50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 488D3A7B269F0E5E00287A50 /* Assets.xcassets */; };
@@ -181,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48888B3A271AF90000CC9E11 /* SwiftUICharts in Frameworks */,
 				48B40E2D26AAE05C0030AAF6 /* SwiftSpeech in Frameworks */,
 				488D3AA5269F689B00287A50 /* SwiftDate in Frameworks */,
 			);
@@ -552,6 +554,7 @@
 			packageProductDependencies = (
 				488D3AA4269F689B00287A50 /* SwiftDate */,
 				48B40E2C26AAE05C0030AAF6 /* SwiftSpeech */,
+				48888B39271AF90000CC9E11 /* SwiftUICharts */,
 			);
 			productName = RacoonAccountBook;
 			productReference = 488D3A74269F0E5B00287A50 /* 浣熊财记.app */;
@@ -583,6 +586,7 @@
 			packageReferences = (
 				488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */,
 				48B40E2B26AAE05C0030AAF6 /* XCRemoteSwiftPackageReference "SwiftSpeech" */,
+				48888B38271AF90000CC9E11 /* XCRemoteSwiftPackageReference "ChartView" */,
 			);
 			productRefGroup = 488D3A75269F0E5B00287A50 /* Products */;
 			projectDirPath = "";
@@ -964,6 +968,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		48888B38271AF90000CC9E11 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = exactVersion;
+				version = "2.0.0-beta.2";
+			};
+		};
 		488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
@@ -983,6 +995,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		48888B39271AF90000CC9E11 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48888B38271AF90000CC9E11 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
 		488D3AA4269F689B00287A50 /* SwiftDate */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */;
