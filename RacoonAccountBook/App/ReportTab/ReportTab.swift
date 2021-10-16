@@ -30,21 +30,15 @@ struct ReportTab: View {
                     VStack {
                         switch selectedSegment {
                         case .focus:
-                            Text("Focus")
-//                            FocusExView()
-//                            FocusPieChartView()
-//
+                            FocusChartView()
+
                         case .report:
                             ExInThisMonthReportView(expenseSumInThisMonth: expenses_thisMonth.sum(),
                                                     expenseCountInThisMonth: expenses_thisMonth.count,
                                                     maxExpense: expenses_thisMonth.max_expense())
-//                            ExChartView(expenses: expenses)
-//                            DayCounterView(expenses: expenses)
-//                            // FocusExView()
-//
+
                         case .habit:
                             Text("Habit")
-//                            DayCounterView(expenses: expenses)
                         }
                     }
                     .padding(.all, 10.0)
