@@ -290,7 +290,7 @@ struct BookTab: View {
             leading:
             isSideMenuOpen ?
                 Button(action: { onSideMenuClose() }) { Image(systemName: "xmark.circle") } :
-                Button(action: { onSideMenuOpen() }) { Image(systemName: "line.3.horizontal.circle") },
+                Button(action: { onSideMenuOpen() }) { Image(systemName: "line.horizontal.3.circle") },
             // 右边有一个按钮
             trailing:
             Button(action: {
