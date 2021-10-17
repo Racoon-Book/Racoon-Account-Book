@@ -32,12 +32,6 @@ struct SideMenu: View {
     }
 }
 
-struct Settings: View {
-    var body: some View {
-        Text("Settings")
-    }
-}
-
 struct MenuContent: View {
     let onSideMenuClosd: () -> Void
 

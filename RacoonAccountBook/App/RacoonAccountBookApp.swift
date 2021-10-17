@@ -28,14 +28,14 @@ struct RacoonAccountBookApp: App {
                 print(Log().string + "no data in Core Data")
             }
 
-            if Focus.focusAmount(context: persistenceController.container.viewContext) == 0 {
-                let focusList: [String] = ["电子设备", "软件服务", "聚餐", "游戏", "宿舍", "支持", "旅游"] // 初始化的focusList 只在用户第一次打开才会是这样
-                for focus in focusList {
-                    Focus.focus(name: focus, context: persistenceController.container.viewContext)
-                }
-            }
-
         #endif
+
+        if Focus.focusAmount(context: persistenceController.container.viewContext) == 0 {
+            let focusList: [String] = ["电子设备", "软件服务", "聚餐", "游戏", "宿舍", "支持", "旅游"] // 初始化的focusList 只在用户第一次打开才会是这样
+            for focus in focusList {
+                Focus.focus(name: focus, context: persistenceController.container.viewContext)
+            }
+        }
     }
 
     var body: some Scene {
