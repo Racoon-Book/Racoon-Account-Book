@@ -9,8 +9,6 @@ struct MultilineFocusViewForModify: View {
     @FetchRequest(fetchRequest: Focus.request_allFocus)
     var focusList
 
-//    @Binding var focusList: [String] // 点击x号需要在tags中删除tag
-
     var color: Color
 
     static let oneLineTagHeight = CGFloat(30)

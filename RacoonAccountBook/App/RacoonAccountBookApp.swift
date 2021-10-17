@@ -28,8 +28,12 @@ struct RacoonAccountBookApp: App {
                 print(Log().string + "no data in Core Data")
             }
 
+            // 每次重新测试app 删除所有的Focus
+            Focus.deleteAll(context: persistenceController.container.viewContext)
+
         #endif
 
+        // 如果focusList为空 为用户添加一组默认的focus
         if Focus.focusAmount(context: persistenceController.container.viewContext) == 0 {
             let focusList: [String] = ["电子设备", "软件服务", "聚餐", "游戏", "宿舍", "支持", "旅游"] // 初始化的focusList 只在用户第一次打开才会是这样
             for focus in focusList {

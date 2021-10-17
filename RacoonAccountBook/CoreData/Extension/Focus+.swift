@@ -57,6 +57,20 @@ extension Focus {
         }
     }
 
+    @discardableResult
+    static func deleteAll(context: NSManagedObjectContext) -> Bool {
+        if let focusList = try? context.fetch(Self.request_allFocus) {
+            for focus in focusList {
+                context.delete(focus)
+            }
+
+            try? context.save()
+            return true
+        } else {
+            return false
+        }
+    }
+
     // MARK: - analysis
 
     // 获取总共的focus种数

@@ -17,6 +17,8 @@ struct FocusModifyView: View {
             }
 
             MultilineFocusViewForModify(color: defaultColorSet.capsule.focus)
+
+            Spacer()
         }
         .padding() // 别碰到屏幕边儿上
     }
