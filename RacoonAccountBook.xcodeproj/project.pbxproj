@@ -72,6 +72,7 @@
 		48B40E2D26AAE05C0030AAF6 /* SwiftSpeech in Frameworks */ = {isa = PBXBuildFile; productRef = 48B40E2C26AAE05C0030AAF6 /* SwiftSpeech */; };
 		48B40E2F26AAE0F20030AAF6 /* VoiceInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */; };
 		48B40E3126AAE1290030AAF6 /* Locale+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B40E3026AAE1290030AAF6 /* Locale+.swift */; };
+		48C1FBC8271BFDB5008AB95A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48C1FBC7271BFDB5008AB95A /* Launch Screen.storyboard */; };
 		48C6360326A44B0B00E7BF15 /* IncomeExpenditureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C6360226A44B0B00E7BF15 /* IncomeExpenditureView.swift */; };
 		48C8D8E426A2B98B00E61A01 /* StarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */; };
 		48F0A09C26A4CED6004898C0 /* DayExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F0A09B26A4CED6004898C0 /* DayExpensesView.swift */; };
@@ -155,6 +156,7 @@
 		4897FE9B26AC0CCC001AE9BA /* FloatingAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingAddButton.swift; sourceTree = "<group>"; };
 		48B40E2E26AAE0F20030AAF6 /* VoiceInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceInputView.swift; sourceTree = "<group>"; };
 		48B40E3026AAE1290030AAF6 /* Locale+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+.swift"; sourceTree = "<group>"; };
+		48C1FBC7271BFDB5008AB95A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		48C6360226A44B0B00E7BF15 /* IncomeExpenditureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeExpenditureView.swift; sourceTree = "<group>"; };
 		48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButtonView.swift; sourceTree = "<group>"; };
 		48F0A09B26A4CED6004898C0 /* DayExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayExpensesView.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 				482A322B26F9AE4100BDF958 /* Module */,
 				488D3A9B269F338800287A50 /* Components */,
 				488D3A97269F27C500287A50 /* Auxiliary */,
+				48C1FBC7271BFDB5008AB95A /* Launch Screen.storyboard */,
 				488D3A7B269F0E5E00287A50 /* Assets.xcassets */,
 				488D3A80269F0E5E00287A50 /* Info.plist */,
 				488D3A7D269F0E5E00287A50 /* Preview Content */,
@@ -596,6 +599,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48C1FBC8271BFDB5008AB95A /* Launch Screen.storyboard in Resources */,
 				488D3A7F269F0E5E00287A50 /* Preview Assets.xcassets in Resources */,
 				488D3A7C269F0E5E00287A50 /* Assets.xcassets in Resources */,
 			);
