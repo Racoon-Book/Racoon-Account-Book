@@ -31,6 +31,10 @@ struct MainView: View {
     /// 菜单向左平移量与宽度的比值
     @State private var sideMenuOffsetX: Float = 1
 
+    var isSideMenuOpen: Bool {
+        return sideMenuOffsetX == 0
+    }
+
     func onSideMenuClose() {
         sideMenuOffsetX = 1
         RacoonSheetConfig.shared.blurRadius = 0
@@ -46,7 +50,7 @@ struct MainView: View {
             TabView(selection: $selectedTab) {
                 NavigationView {
                     ZStack {
-                        BookTab()
+                        BookTab(onSideMenuOpen: onSideMenuOpen, onSideMenuClose: onSideMenuClose, isSideMenuOpen: isSideMenuOpen)
                             .blur(radius: RacoonSheetConfig.shared.blurRadius)
                             // 判断左滑
                             .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local).onEnded { value in

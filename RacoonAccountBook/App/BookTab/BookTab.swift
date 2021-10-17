@@ -16,6 +16,10 @@ struct BookTab: View {
     private let year: Int
     private let month: Int
 
+    private let onSideMenuOpen: () -> Void
+    private let onSideMenuClose: () -> Void
+    private let isSideMenuOpen: Bool
+
     @FetchRequest var expensesInMonth: FetchedResults<Expense>
 
     // --- 31 ---
@@ -85,10 +89,17 @@ struct BookTab: View {
     @FetchRequest var expensesInDay31: FetchedResults<Expense>
 
     init(year: Int = DateInRegion(region: regionChina).year,
-         month: Int = DateInRegion(region: regionChina).month)
+         month: Int = DateInRegion(region: regionChina).month,
+         onSideMenuOpen: @escaping () -> Void,
+         onSideMenuClose: @escaping () -> Void,
+         isSideMenuOpen: Bool)
     {
         self.year = year
         self.month = month
+
+        self.onSideMenuOpen = onSideMenuOpen
+        self.onSideMenuClose = onSideMenuClose
+        self.isSideMenuOpen = isSideMenuOpen
 
         let request_expensesInMonth = Expense.request_expensesInMonth(DateInRegion(year: year, month: month, day: 1, region: regionChina))
         _expensesInMonth = FetchRequest(fetchRequest: request_expensesInMonth)
@@ -276,6 +287,10 @@ struct BookTab: View {
         // MARK: - 截图导入
 
         .navigationBarItems(
+            leading:
+            isSideMenuOpen ?
+                Button(action: { onSideMenuClose() }) { Image(systemName: "xmark.circle") } :
+                Button(action: { onSideMenuOpen() }) { Image(systemName: "line.3.horizontal.circle") },
             // 右边有一个按钮
             trailing:
             Button(action: {
