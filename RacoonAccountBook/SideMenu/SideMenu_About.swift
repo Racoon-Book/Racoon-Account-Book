@@ -65,9 +65,9 @@ struct SideMenu_About: View {
                                 repositoryURL: "https://github.com/Cay-Zhang/SwiftSpeech",
                                 licenseURL: "https://github.com/Cay-Zhang/SwiftSpeech/blob/master/LICENSE")
                             OpenSourceProjectView(
-                                projectName: "SwiftUICharts",
-                                repositoryURL: "https://github.com/mecid/SwiftUICharts",
-                                licenseURL: "https://github.com/mecid/SwiftUICharts/blob/main/LICENSE")
+                                projectName: "SwiftPieChart",
+                                repositoryURL: "https://github.com/ilamanov/SwiftPieChart",
+                                licenseURL: "https://github.com/ilamanov/SwiftPieChart/blob/main/LICENSE")
                         }
                     }
                 }
