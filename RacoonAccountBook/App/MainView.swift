@@ -91,7 +91,7 @@ struct MainView: View {
             }
 
             // VoiceInputView 在 FloatingAddButton 中显示
-            if selectedTab != MainView.Tab3 {
+            if selectedTab == MainView.Tab1 {
                 FloatingAddButton(expenseInfo_inputting: $expenseInfo_inputting)
             }
         }
