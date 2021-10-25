@@ -37,7 +37,8 @@ struct MenuContent: View {
 
     var body: some View {
         List {
-            NavigationLink(destination: Settings()) { Text("设置") }
+            NavigationLink(destination: SideMenu_Settings()) { Text("设置") }
+            NavigationLink(destination: SideMenu_About()) { Text("关于") }
         }
     }
 }

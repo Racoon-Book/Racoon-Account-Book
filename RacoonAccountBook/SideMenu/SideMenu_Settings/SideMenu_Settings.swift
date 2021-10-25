@@ -2,7 +2,7 @@
 
 import SwiftUI
 
-struct Settings: View {
+struct SideMenu_Settings: View {
     var body: some View {
         NavigationView {
             VStack {
