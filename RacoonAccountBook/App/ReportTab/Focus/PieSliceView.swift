@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-@available(OSX 10.15, *)
 struct PieSlice: View {
     var pieSliceData: PieSliceData
 
@@ -45,17 +44,9 @@ struct PieSlice: View {
     }
 }
 
-@available(OSX 10.15, *)
 struct PieSliceData {
     var startAngle: Angle
     var endAngle: Angle
     var text: String
     var color: Color
 }
-
-// @available(OSX 10.15.0, *)
-// struct PieSlice_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PieSlice(pieSliceData: PieSliceData(startAngle: Angle(degrees: 0.0), endAngle: Angle(degrees: 120.0), text: "30%", color: Color.black))
-//    }
-// }
