@@ -11,6 +11,10 @@ struct ReportTab: View {
 
     @State private var selectedSegment: SegmentChoice = .report
 
+    // FocusView
+    @State var sumList: [Double] = []
+    @State var focusNameList: [String] = []
+
     var body: some View {
         NavigationView {
             VStack {
@@ -41,6 +45,7 @@ struct ReportTab: View {
                             Text("Habit")
                         }
                     }
+                    .environment(\.managedObjectContext, context)
                     .padding(.all, 10.0)
                 }
                 .padding(.bottom, 10.0)

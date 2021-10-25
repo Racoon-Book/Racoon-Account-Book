@@ -81,4 +81,19 @@ extension Focus {
             return 0
         }
     }
+
+    static func FocusExpenseSumDictionary(context: NSManagedObjectContext) -> [String: Float] {
+        var focusExpenseSumDictionary: [String: Float] = [:]
+
+        if let foci = try? context.fetch(Focus.request_allFocus) {
+            for focus in foci {
+                let expenseSum: Float = focus.expenses.reduce(0.0) { $0 + $1.amount }
+                focusExpenseSumDictionary[focus.name] = expenseSum
+            }
+        } else {
+            print(Log().error + "no foci")
+        }
+
+        return focusExpenseSumDictionary
+    }
 }

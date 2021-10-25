@@ -1,17 +1,37 @@
 // FocusChartView.swift
 
+import CoreData
 import SwiftUI
-import SwiftUICharts
 
 struct FocusChartView: View {
-    // TODO
-    var demoData: [Double] = [8, 2, 4, 6, 12, 9, 2]
+    @Environment(\.managedObjectContext) var context
+
+    @State var sumList: [Double] = []
+    @State var focusNameList: [String] = []
 
     var body: some View {
-        PieChart()
-            .data(demoData)
-            .chartStyle(ChartStyle(backgroundColor: .white,
-                                   foregroundColor: ColorGradient(.blue, .purple)))
-            .frame(width: 300, height: 400, alignment: .center)
+        VStack {
+            PieChartView(
+                values: sumList,
+                names: focusNameList,
+                formatter: { value in String(format: "%.1f", value) },
+                backgroundColor: defaultColorSet.tabBackground
+            )
+        }
+        .onAppear {
+            var tempFocusNameList: [String] = []
+            var tempExpenseSumList: [Double] = []
+
+            let focusExpenseSumDict = Focus.FocusExpenseSumDictionary(context: context)
+            for (focusName, expenseSum) in focusExpenseSumDict {
+                tempFocusNameList.append(focusName)
+                tempExpenseSumList.append(Double(expenseSum))
+            }
+            sumList = tempExpenseSumList
+            focusNameList = tempFocusNameList
+
+            print(sumList)
+            print(focusNameList)
+        }
     }
 }
