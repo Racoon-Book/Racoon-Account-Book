@@ -6,12 +6,12 @@ struct SideMenu_About: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
+                VStack(alignment: .leading) {
                     // MARK: 团队
 
-                    VStack {
+                    VStack(alignment: .leading) {
                         Text("浣熊财记团队").font(.title)
-                            .padding()
+                            .padding([.vertical])
                         VStack(alignment: .leading) {
                             HStack {
                                 Link("杨希杰", destination: URL(string: "https://github.com/Yang-Xijie")!).font(.title3)
@@ -36,9 +36,9 @@ struct SideMenu_About: View {
 
                     // MARK: 协助
 
-                    VStack {
+                    VStack(alignment: .leading) {
                         Text("协助").font(.title)
-                            .padding()
+                            .padding([.vertical])
                         VStack(alignment: .leading) {
                             HStack {
                                 Link("李连达", destination: URL(string: "https://www.zcool.com.cn/u/22338505")!).font(.title3)
@@ -52,9 +52,9 @@ struct SideMenu_About: View {
 
                     // MARK: 开源项目使用
 
-                    VStack {
+                    VStack(alignment: .leading) {
                         Text("开源项目使用").font(.title)
-                            .padding()
+                            .padding([.vertical])
                         VStack(alignment: .leading) {
                             OpenSourceProjectView(
                                 projectName: "SwiftDate",
@@ -73,9 +73,9 @@ struct SideMenu_About: View {
                 }
                 .padding()
             }
-            .navigationTitle("关于")
-            .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationTitle("关于")
+        .navigationBarTitleDisplayMode(.inline)
     }
 
     struct OpenSourceProjectView: View {
