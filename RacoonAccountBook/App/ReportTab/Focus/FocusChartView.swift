@@ -23,7 +23,10 @@ struct FocusChartView: View {
             var tempExpenseSumList: [Double] = []
 
             let focusExpenseSumDict = Focus.FocusExpenseSumDictionary(context: context)
-            for (focusName, expenseSum) in focusExpenseSumDict {
+            for (focusName, expenseSum) in focusExpenseSumDict.sorted(by: {
+                $0.value > $1.value // 这里排序确保最高金额的颜色总是默认的第一个颜色
+            }
+            ) {
                 tempFocusNameList.append(focusName)
                 tempExpenseSumList.append(Double(expenseSum))
             }
