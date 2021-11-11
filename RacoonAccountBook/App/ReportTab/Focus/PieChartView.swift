@@ -90,7 +90,7 @@ public struct PieChartView: View {
                             .font(.title)
                             .foregroundColor(Color.gray)
                         Text(self.formatter(self.activeIndex == -1 ? values.reduce(0, +) : values[self.activeIndex]))
-                            .font(.title)
+                            .font(.system(.title, design: .rounded))
                     }
                 }
                 PieChartRows(colors: self.colors, names: self.names, values: self.values.map { self.formatter($0) }, percents: self.values.map { String(format: "%.0f%%", $0 * 100 / self.values.reduce(0, +)) })
@@ -119,12 +119,13 @@ struct PieChartRows: View {
 
                     Text(self.names[i])
                         .foregroundColor(Color.black)
-                        .font(.title2)
+                        .font(.system(.title2))
                     Text(self.values[i])
                         .foregroundColor(Color.gray)
+                        .font(.system(.title3, design: .rounded))
                     Text(self.percents[i])
                         .foregroundColor(Color.black)
-                        .font(.title2)
+                        .font(.system(.title2, design: .rounded))
 
                     Spacer()
                 }
