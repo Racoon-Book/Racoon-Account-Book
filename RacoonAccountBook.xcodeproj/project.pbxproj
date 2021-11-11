@@ -13,6 +13,7 @@
 		482A323226F9AFDF00BDF958 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482A323126F9AFDF00BDF958 /* ImagePicker.swift */; };
 		482ADEA5273D6D7300B5C591 /* CardSeperatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ADEA4273D6D7300B5C591 /* CardSeperatorView.swift */; };
 		482ADEA7273D6F4000B5C591 /* StoryReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ADEA6273D6F4000B5C591 /* StoryReportView.swift */; };
+		482ADEAB273D83DC00B5C591 /* BriefReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482ADEAA273D83DC00B5C591 /* BriefReportView.swift */; };
 		482DAB1D26EB34490071518F /* MultilineTagsForDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482DAB1C26EB34490071518F /* MultilineTagsForDisplay.swift */; };
 		4830D9C126B1FD1C007710FD /* NewMetaDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9C026B1FD1C007710FD /* NewMetaDataView.swift */; };
 		4830D9C426B1FDA5007710FD /* SingleExtraExpenseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830D9C326B1FDA5007710FD /* SingleExtraExpenseInfoView.swift */; };
@@ -106,6 +107,7 @@
 		482A323126F9AFDF00BDF958 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		482ADEA4273D6D7300B5C591 /* CardSeperatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSeperatorView.swift; sourceTree = "<group>"; };
 		482ADEA6273D6F4000B5C591 /* StoryReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryReportView.swift; sourceTree = "<group>"; };
+		482ADEAA273D83DC00B5C591 /* BriefReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BriefReportView.swift; sourceTree = "<group>"; };
 		482DAB1C26EB34490071518F /* MultilineTagsForDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTagsForDisplay.swift; sourceTree = "<group>"; };
 		4830D9C026B1FD1C007710FD /* NewMetaDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMetaDataView.swift; sourceTree = "<group>"; };
 		4830D9C326B1FDA5007710FD /* SingleExtraExpenseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleExtraExpenseInfoView.swift; sourceTree = "<group>"; };
@@ -540,6 +542,7 @@
 		48F35BD426EC3FF0003B570D /* Report */ = {
 			isa = PBXGroup;
 			children = (
+				482ADEAA273D83DC00B5C591 /* BriefReportView.swift */,
 				6EBB7ABA26B27680004E692B /* ExInThisMonthReportView.swift */,
 			);
 			path = Report;
@@ -698,6 +701,7 @@
 				6E128A4926EC40DF00ADF430 /* SideMenu.swift in Sources */,
 				488D3A96269F188100287A50 /* ReportTab.swift in Sources */,
 				482A323226F9AFDF00BDF958 /* ImagePicker.swift in Sources */,
+				482ADEAB273D83DC00B5C591 /* BriefReportView.swift in Sources */,
 				482A322E26F9AF5800BDF958 /* WeChatBillInfo.swift in Sources */,
 				6EEE01BD26D12533006797E8 /* Story+.swift in Sources */,
 				487FA76A26E2448E00DD924F /* Expense+Analysis.swift in Sources */,

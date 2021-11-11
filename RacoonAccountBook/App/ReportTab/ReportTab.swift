@@ -23,7 +23,7 @@ struct ReportTab: View {
                     Picker(selection: $selectedSegment, label: Text("页面")) {
                         Text("关注").tag(SegmentChoice.focus)
                         Text("简报").tag(SegmentChoice.report)
-                        Text("财记").tag(SegmentChoice.habit)
+                        Text("财记").tag(SegmentChoice.story)
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     .padding()
@@ -41,7 +41,7 @@ struct ReportTab: View {
                                                     expenseCountInThisMonth: expenses_thisMonth.count,
                                                     maxExpense: expenses_thisMonth.max_expense())
 
-                        case .habit:
+                        case .story:
                             StoryReportView()
                         }
                     }
@@ -60,6 +60,6 @@ struct ReportTab: View {
     enum SegmentChoice {
         case focus
         case report
-        case habit
+        case story
     }
 }
