@@ -42,7 +42,7 @@ struct ReportTab: View {
                                                     maxExpense: expenses_thisMonth.max_expense())
 
                         case .habit:
-                            Text("Habit")
+                            HabitView()
                         }
                     }
                     .environment(\.managedObjectContext, context)

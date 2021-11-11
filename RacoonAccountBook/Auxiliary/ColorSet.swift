@@ -6,6 +6,7 @@ import SwiftUI
 // consider sub ColorSet
 struct ColorSet {
     let cardBackground = Color(hex: 0xFCFCFC)
+    let cardTitle = Color(hex: 0x4B5FCD)
     let tabBackground = Color(hex: 0xF2F2F2)
 
     // MARK: - Sheet
