@@ -23,7 +23,7 @@ struct ReportTab: View {
                     Picker(selection: $selectedSegment, label: Text("页面")) {
                         Text("关注").tag(SegmentChoice.focus)
                         Text("简报").tag(SegmentChoice.report)
-                        Text("习惯").tag(SegmentChoice.habit)
+                        Text("财记").tag(SegmentChoice.habit)
                     }
                     .pickerStyle(SegmentedPickerStyle())
                     .padding()
@@ -42,7 +42,7 @@ struct ReportTab: View {
                                                     maxExpense: expenses_thisMonth.max_expense())
 
                         case .habit:
-                            HabitView()
+                            StoryReportView()
                         }
                     }
                     .environment(\.managedObjectContext, context)

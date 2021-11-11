@@ -8,13 +8,13 @@ struct CardSeperatorView: View {
     var dividerColor: Color = defaultColorSet.tabBackground
     var dividerHeight: CGFloat = 1
 
-    var title: String // 之后删掉这个 没有初值 必须初始化
+    var title: String
     var titleColor: Color = defaultColorSet.cardTitle
 
     var contentView = AnyView(DefaultContentView())
 
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .leading) {
             HStack {
                 Text(title)
                     .bold()
@@ -28,7 +28,7 @@ struct CardSeperatorView: View {
                 .fill(dividerColor)
                 .frame(height: dividerHeight)
 
-            VStack(alignment: .center) {
+            VStack(alignment: .leading) {
                 contentView
             }
             .padding([.horizontal, .bottom])
