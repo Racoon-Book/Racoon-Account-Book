@@ -10,8 +10,8 @@ struct CardSeperatorView: View {
 
     var title: String // 之后删掉这个 没有初值 必须初始化
     var titleColor: Color = defaultColorSet.cardTitle
-    
-    var contentView: some View = ContentView()
+
+    var contentView: some View = DefaultContentView()
 
     var body: some View {
         VStack(alignment: .center) {
@@ -29,7 +29,6 @@ struct CardSeperatorView: View {
                 .frame(height: dividerHeight)
 
             VStack(alignment: .center) {
-//                ContentView()
                 contentView
             }
             .padding([.horizontal, .bottom])
@@ -41,6 +40,12 @@ struct CardSeperatorView: View {
     }
 }
 
-func ContentView() -> some View {
-    return Text("test ContentView")
+// func DefaultContentViewFunc() -> View {
+//    return Text("test ContentView")
+// }
+
+struct DefaultContentView: View {
+    var body: some View {
+        Text("test ContentView")
+    }
 }

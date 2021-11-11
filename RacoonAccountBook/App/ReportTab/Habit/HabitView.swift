@@ -8,7 +8,7 @@ struct HabitView: View {
     }
 }
 
-struct ExReport:View {
+struct ExReport: View {
     var body: some View {
         VStack {
             Text("总支出")
