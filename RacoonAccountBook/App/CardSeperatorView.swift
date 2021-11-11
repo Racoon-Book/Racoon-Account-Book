@@ -11,7 +11,7 @@ struct CardSeperatorView: View {
     var title: String // 之后删掉这个 没有初值 必须初始化
     var titleColor: Color = defaultColorSet.cardTitle
 
-    var contentView: some View = DefaultContentView()
+    var contentView = AnyView(DefaultContentView())
 
     var body: some View {
         VStack(alignment: .center) {
@@ -39,10 +39,6 @@ struct CardSeperatorView: View {
         .clipped()
     }
 }
-
-// func DefaultContentViewFunc() -> View {
-//    return Text("test ContentView")
-// }
 
 struct DefaultContentView: View {
     var body: some View {

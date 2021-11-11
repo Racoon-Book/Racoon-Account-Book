@@ -4,7 +4,7 @@ import SwiftUI
 
 struct HabitView: View {
     var body: some View {
-        CardSeperatorView(title: "支出统计")
+        CardSeperatorView(title: "支出统计", contentView: AnyView(ExReport()))
     }
 }
 
