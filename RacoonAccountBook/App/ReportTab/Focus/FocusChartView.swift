@@ -32,9 +32,6 @@ struct FocusChartView: View {
             }
             sumList = tempExpenseSumList
             focusNameList = tempFocusNameList
-
-            print(sumList)
-            print(focusNameList)
         }
     }
 }

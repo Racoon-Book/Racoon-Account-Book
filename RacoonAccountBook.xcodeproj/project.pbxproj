@@ -85,6 +85,8 @@
 		48C1FBC8271BFDB5008AB95A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48C1FBC7271BFDB5008AB95A /* Launch Screen.storyboard */; };
 		48C6360326A44B0B00E7BF15 /* IncomeExpenditureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C6360226A44B0B00E7BF15 /* IncomeExpenditureView.swift */; };
 		48C8D8E426A2B98B00E61A01 /* StarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */; };
+		48D8907C273E7ADF008F1971 /* HabitReportCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8907B273E7ADF008F1971 /* HabitReportCard.swift */; };
+		48D8907E273E7AFF008F1971 /* StoryReportCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8907D273E7AFF008F1971 /* StoryReportCard.swift */; };
 		48F0A09C26A4CED6004898C0 /* DayExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F0A09B26A4CED6004898C0 /* DayExpensesView.swift */; };
 		48F0A09E26A55DFA004898C0 /* StoryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F0A09D26A55DF9004898C0 /* StoryTab.swift */; };
 		48F35BD026EC2B66003B570D /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F35BCF26EC2B66003B570D /* ColorSet.swift */; };
@@ -179,6 +181,8 @@
 		48C1FBC7271BFDB5008AB95A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		48C6360226A44B0B00E7BF15 /* IncomeExpenditureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeExpenditureView.swift; sourceTree = "<group>"; };
 		48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButtonView.swift; sourceTree = "<group>"; };
+		48D8907B273E7ADF008F1971 /* HabitReportCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitReportCard.swift; sourceTree = "<group>"; };
+		48D8907D273E7AFF008F1971 /* StoryReportCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryReportCard.swift; sourceTree = "<group>"; };
 		48F0A09B26A4CED6004898C0 /* DayExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayExpensesView.swift; sourceTree = "<group>"; };
 		48F0A09D26A55DF9004898C0 /* StoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTab.swift; sourceTree = "<group>"; };
 		48F35BCF26EC2B66003B570D /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
@@ -560,6 +564,8 @@
 			isa = PBXGroup;
 			children = (
 				482ADEA6273D6F4000B5C591 /* StoryReportView.swift */,
+				48D8907D273E7AFF008F1971 /* StoryReportCard.swift */,
+				48D8907B273E7ADF008F1971 /* HabitReportCard.swift */,
 			);
 			path = Story;
 			sourceTree = "<group>";
@@ -669,6 +675,7 @@
 				488D3AA9269F837300287A50 /* Binding+Optional.swift in Sources */,
 				4878A77626ADBD5D00DCBC8D /* TagsSuggestionView.swift in Sources */,
 				4844ED4326D10F6D0037C09A /* SuccessfullyAlert.swift in Sources */,
+				48D8907E273E7AFF008F1971 /* StoryReportCard.swift in Sources */,
 				4830D9CC26B25CF0007710FD /* ForWhoInputView.swift in Sources */,
 				488D3AAE269F8C5400287A50 /* Print+.swift in Sources */,
 				4878A77226ADAA8000DCBC8D /* MultilineTagsViewForModify.swift in Sources */,
@@ -706,6 +713,7 @@
 				6EEE01BD26D12533006797E8 /* Story+.swift in Sources */,
 				487FA76A26E2448E00DD924F /* Expense+Analysis.swift in Sources */,
 				4878A75E26AC65D600DCBC8D /* OriginalText2Amount.swift in Sources */,
+				48D8907C273E7ADF008F1971 /* HabitReportCard.swift in Sources */,
 				488D3A78269F0E5B00287A50 /* RacoonAccountBookApp.swift in Sources */,
 				6EEE01B826D0EEE4006797E8 /* Persistence.swift in Sources */,
 				4852795D26E1082000F7B45B /* RAC+Expense.swift in Sources */,

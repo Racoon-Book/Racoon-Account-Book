@@ -37,9 +37,11 @@ struct ReportTab: View {
                             FocusChartView()
 
                         case .report:
-                            ExInThisMonthReportView(expenseSumInThisMonth: expenses_thisMonth.sum(),
-                                                    expenseCountInThisMonth: expenses_thisMonth.count,
-                                                    maxExpense: expenses_thisMonth.max_expense())
+                            BriefReportView()
+
+//                            ExInThisMonthReportView(expenseSumInThisMonth: expenses_thisMonth.sum(),
+//                                                    expenseCountInThisMonth: expenses_thisMonth.count,
+//                                                    maxExpense: expenses_thisMonth.max_expense())
 
                         case .story:
                             StoryReportView()
