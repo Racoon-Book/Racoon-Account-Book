@@ -2,7 +2,7 @@ import SwiftUI
 
 struct StoryReportCardContent: View {
     /// 历史财记总数
-    var storyCount: Int = 1 // TODO: 这里要做成可变的
+    var storyCount: Int = 0
 
     var body: some View {
         VStack(alignment: .leading) {

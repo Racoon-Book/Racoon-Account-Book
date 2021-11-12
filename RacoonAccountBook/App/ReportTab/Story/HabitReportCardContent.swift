@@ -2,7 +2,7 @@ import SwiftUI
 
 struct HabitReportCardContent: View {
     /// 过去30天内财记总数
-    var expenseCount: Int = 1 // TODO: 这里要做成可变的
+    var expenseCount: Int = 0
 
     var body: some View {
         VStack(alignment: .leading) {
