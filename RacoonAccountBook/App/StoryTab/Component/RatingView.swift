@@ -1,10 +1,3 @@
-//
-//  RatingView.swift
-//  RacoonAccountBook
-//
-//  Created by c0per chen on 7/25/21.
-//
-
 import SwiftUI
 
 struct RatingView: View {
@@ -15,13 +8,14 @@ struct RatingView: View {
             ForEach(0 ..< rating, id: \.self) { _ in
                 Image(systemName: "star.fill")
                     .foregroundColor(.yellow)
+                    .font(.system(.title3))
             }
 
             ForEach(rating ..< 5, id: \.self) { _ in
                 Image(systemName: "star")
                     .foregroundColor(.yellow)
+                    .font(.system(.title3))
             }
         }
-        .padding(.top, 10.0)
     }
 }

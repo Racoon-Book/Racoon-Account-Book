@@ -17,32 +17,31 @@ struct StoryTab: View {
                     VStack {
                         ForEach(expensesWithStory) { expense in
                             // 换成一个单另的View之后 ForEach的更新就不work了
-                            ZStack(alignment: .leading) {
-                                RoundedRectangle(cornerRadius: 15)
-                                    .foregroundColor(defaultColorSet.cardBackground)
+
+                            VStack(alignment: .leading) {
+                                HStack {
+                                    Text("\(DisplayDate(expense.spentAt.convertTo(region: regionChina))) \(expense.event)")
+                                        .bold()
+                                        .foregroundColor(defaultColorSet.cardTitle)
+
+                                    Spacer()
+                                }
+                                .padding([.top, .leading])
+
+                                // seperator
+                                Rectangle()
+                                    .fill(defaultColorSet.tabBackground)
+                                    .frame(height: 1)
 
                                 VStack(alignment: .leading) {
+                                    // contentView
+                                    let amountFormatted = String(format: "¥%.1f", expense.amount)
                                     let text = expense.story?.text ?? "为本次花销添加一段财记吧"
-                                    let amountFormatted = String(format: "%.1f", expense.amount)
-
-                                    Text(DisplayDate(expense.spentAt.convertTo(region: regionChina)))
-                                        .font(.title3)
-                                        .padding(.top, 6.0)
-
-                                    Text("在\(expense.event)上花了\(amountFormatted)元")
-                                        .font(.title2)
-                                        .padding(.vertical, 9.0)
 
                                     Text(text)
                                         .font(.body)
 
                                     HStack(alignment: .center) {
-                                        if let rating = expense.story?.rating {
-                                            RatingView(rating: Int(rating))
-                                        }
-
-                                        Spacer()
-
                                         if let emoji = expense.story?.emoji {
                                             ZStack {
                                                 RoundedRectangle(cornerRadius: 12)
@@ -51,11 +50,27 @@ struct StoryTab: View {
                                                     .font(.title)
                                             }
                                             .frame(width: Self.emojiSize, height: Self.emojiSize, alignment: .center)
+
+                                            Spacer()
+                                        }
+
+                                        Text(amountFormatted)
+                                            .font(.system(.title, design: .rounded))
+                                            .foregroundColor(Color.blue)
+
+                                        Spacer()
+
+                                        if let rating = expense.story?.rating {
+                                            RatingView(rating: Int(rating))
                                         }
                                     }
                                 }
-                                .padding(.horizontal, 10) // 字和左右边框的
+                                .padding([.horizontal, .bottom])
                             }
+                            .frame(width: UIScreen.main.bounds.width - 20)
+                            .background(Color.white)
+                            .cornerRadius(10)
+                            .clipped()
                         }
                         .padding(.horizontal, 10) // 让圆角矩形边框不靠边
                     }
@@ -66,7 +81,10 @@ struct StoryTab: View {
                 .navigationBarTitleDisplayMode(.inline)
             }
         } else {
-            Text("一笔财记还没有呢 给自己的花销添加故事吧！")
+            VStack {
+                Text("一笔财记还没有呢")
+                Text("给花销添加背后故事吧！").font(.system(.title2))
+            }
         }
     }
 }
