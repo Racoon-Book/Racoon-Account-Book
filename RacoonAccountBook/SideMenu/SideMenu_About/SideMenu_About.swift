@@ -7,10 +7,29 @@ struct SideMenu_About: View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
+                    // MARK: 用户协议、更新日志、问题反馈
+
+                    Image("浣熊财记 艺术字")
+
+                    HStack {
+                        Link("用户协议", destination: URL(string: "https://racoon-book.github.io/About/Agreements.html")!).font(.title)
+                            .padding([.trailing])
+                        Link("更新日志", destination: URL(string: "https://racoon-book.github.io/About/UpdateHistory.html")!).font(.title)
+                    }
+                    .padding([.vertical])
+
+                    HStack {
+                        Link("问题反馈", destination: URL(string: "https://github.com/Racoon-Book/About/issues")!).font(.title).padding([.trailing])
+                        Link("功能讨论", destination: URL(string: "https://github.com/Racoon-Book/About/discussions")!).font(.title)
+                    }
+                    .padding([.vertical])
+
+                    Divider()
+
                     // MARK: 团队
 
                     VStack(alignment: .leading) {
-                        Text("浣熊财记团队").font(.title)
+                        Text("团队").font(.title)
                             .padding([.vertical])
                         VStack(alignment: .leading) {
                             HStack {
@@ -40,11 +59,11 @@ struct SideMenu_About: View {
                         Text("协助").font(.title)
                             .padding([.vertical])
                         VStack(alignment: .leading) {
+                            Link("THU iOS Club", destination: URL(string: "https://github.com/THU-iOS")!).font(.title3)
                             HStack {
                                 Link("李连达", destination: URL(string: "https://www.zcool.com.cn/u/22338505")!).font(.title3)
                                 Text("中国传媒大学 数媒网络").font(.caption)
                             }
-                            Link("THU iOS Club", destination: URL(string: "https://github.com/THU-iOS")!).font(.title3)
                         }
                     }
 
@@ -70,6 +89,11 @@ struct SideMenu_About: View {
                                 licenseURL: "https://github.com/ilamanov/SwiftPieChart/blob/main/LICENSE")
                         }
                     }
+
+                    Image("浣熊 开屏")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: UIScreen.main.bounds.width - 100)
                 }
                 .padding()
             }

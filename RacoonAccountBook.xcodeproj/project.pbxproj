@@ -267,7 +267,7 @@
 			children = (
 				6E128A4826EC40DF00ADF430 /* SideMenu.swift */,
 				488EA1FB271C117600311183 /* SideMenu_Settings */,
-				488EA1F5271C0EA400311183 /* SideMenu_About.swift */,
+				48D89081273E8765008F1971 /* SideMenu_About */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -524,6 +524,14 @@
 				6E6EA6A026AD23250084055E /* Component */,
 			);
 			path = StoryTab;
+			sourceTree = "<group>";
+		};
+		48D89081273E8765008F1971 /* SideMenu_About */ = {
+			isa = PBXGroup;
+			children = (
+				488EA1F5271C0EA400311183 /* SideMenu_About.swift */,
+			);
+			path = SideMenu_About;
 			sourceTree = "<group>";
 		};
 		48F0A09A26A4CEBB004898C0 /* Component */ = {
