@@ -109,6 +109,7 @@ struct ScreenshotImportSheet: View {
                     Spacer()
                     VStack {
                         Text("还没有选择截图哦")
+                            .padding()
                         Text("「微信」我的 -> 支付 -> 钱包 -> 交易")
                         Text("截图后回到此页面从相册中导入即可")
                         // TODO: 截图去重

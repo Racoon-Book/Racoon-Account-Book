@@ -226,7 +226,26 @@ struct BookTab: View {
                         // WWDC21可以替换为OrderedDictionary https://stackoverflow.com/a/68023633/14298786
 
                         if expensesInMonth.count == 0 {
-                            Text("这个月没有记账呢")
+                            VStack {
+                                Text("这个月没有记账呢")
+                                    .padding()
+
+                                Text("长按").font(.system(.title2)) +
+                                    Text("右下角加号") +
+                                    Text("语音输入")
+                                    .font(.system(.title2, design: .rounded))
+
+                                Text("点按").font(.system(.title2)) +
+                                    Text("右下角加号") +
+                                    Text("手动输入")
+                                    .font(.system(.title2, design: .rounded))
+
+                                Text("点按").font(.system(.title2)) +
+                                    Text("右上角按钮") +
+                                    Text("截图导入账单")
+                                    .font(.system(.title2, design: .rounded))
+                            }.padding()
+
                         } else {
                             VStack {
                                 VStack {
