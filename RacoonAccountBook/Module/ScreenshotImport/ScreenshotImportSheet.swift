@@ -98,7 +98,6 @@ struct ScreenshotImportSheet: View {
                                 foregroundColor: Color.white) {
                             print(Log().string + "按钮点击")
 
-                            // FIXME:
                             // 导入数据库 清除状态 收回sheet
                             AddSelectedWeChatBills()
                             RacoonSheetConfig.shared.showingScreenshotImportSheet = false
@@ -108,8 +107,12 @@ struct ScreenshotImportSheet: View {
                 } else {
                     // WeChatBills.count == 0
                     Spacer()
-                    Text("还没有选择截图哦")
-                        .padding()
+                    VStack {
+                        Text("还没有选择截图哦")
+                        Text("「微信」我的 -> 支付 -> 钱包 -> 交易")
+                        Text("截图后回到此页面从相册中导入即可")
+                        // TODO: 截图去重
+                    }.padding()
                     Spacer()
                     LargeButton(title: "选择微信账单截图",
                                 backgroundColor: Color.blue,
