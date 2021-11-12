@@ -2,6 +2,9 @@
 
 import SwiftUI
 
+let appVersionString: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
+
 struct SideMenu_About: View {
     var body: some View {
         NavigationView {
@@ -9,22 +12,31 @@ struct SideMenu_About: View {
                 VStack(alignment: .leading) {
                     // MARK: 用户协议、更新日志、问题反馈
 
-                    Image("浣熊财记 艺术字")
+                    VStack {
+                        Image("浣熊财记 艺术字")
 
-                    HStack {
-                        Link("用户协议", destination: URL(string: "https://racoon-book.github.io/About/Agreements.html")!).font(.title)
-                            .padding([.trailing])
-                        Link("更新日志", destination: URL(string: "https://racoon-book.github.io/About/UpdateHistory.html")!).font(.title)
+                        Text("v\(appVersionString) (\(buildNumber))")
+                            .font(.system(.headline, design: .rounded))
+
+                        Divider()
                     }
-                    .padding([.vertical])
 
-                    HStack {
-                        Link("问题反馈", destination: URL(string: "https://github.com/Racoon-Book/About/issues")!).font(.title).padding([.trailing])
-                        Link("功能讨论", destination: URL(string: "https://github.com/Racoon-Book/About/discussions")!).font(.title)
+                    VStack {
+                        HStack {
+                            Link("用户协议", destination: URL(string: "https://racoon-book.github.io/About/Agreements.html")!).font(.title)
+                                .padding([.trailing])
+                            Link("更新日志", destination: URL(string: "https://racoon-book.github.io/About/UpdateHistory.html")!).font(.title)
+                        }
+                        .padding([.vertical])
+
+                        HStack {
+                            Link("问题反馈", destination: URL(string: "https://github.com/Racoon-Book/About/issues")!).font(.title).padding([.trailing])
+                            Link("功能讨论", destination: URL(string: "https://github.com/Racoon-Book/About/discussions")!).font(.title)
+                        }
+                        .padding([.vertical])
+
+                        Divider()
                     }
-                    .padding([.vertical])
-
-                    Divider()
 
                     // MARK: 团队
 
