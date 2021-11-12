@@ -11,10 +11,11 @@ struct StoryTab: View {
 
     var body: some View {
         // TODO: 像账本那样做一个深色的统计页面应该比较好
-        if expensesWithStory.count != 0 {
-            NavigationView {
-                ScrollView(.vertical) {
-                    VStack {
+
+        NavigationView {
+            ScrollView(.vertical) {
+                VStack {
+                    if expensesWithStory.count != 0 {
                         ForEach(expensesWithStory) { expense in
                             // 换成一个单另的View之后 ForEach的更新就不work了
 
@@ -74,17 +75,17 @@ struct StoryTab: View {
                         }
                         .padding(.horizontal, 10) // 让圆角矩形边框不靠边
                     }
+                    else {
+                        Text("一笔财记还没有呢")
+                        Text("给花销添加背后故事吧！").font(.system(.title2))
+                    }
                 }
+
                 .padding(.vertical, 10) // 让上下两个stroy不靠边
-                .background(defaultColorSet.tabBackground.ignoresSafeArea())
                 .navigationTitle("最近的财记")
                 .navigationBarTitleDisplayMode(.inline)
             }
-        } else {
-            VStack {
-                Text("一笔财记还没有呢")
-                Text("给花销添加背后故事吧！").font(.system(.title2))
-            }
+            .background(defaultColorSet.tabBackground.ignoresSafeArea())
         }
     }
 }
