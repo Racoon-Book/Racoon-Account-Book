@@ -87,6 +87,7 @@
 		48C8D8E426A2B98B00E61A01 /* StarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */; };
 		48D8907C273E7ADF008F1971 /* HabitReportCardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8907B273E7ADF008F1971 /* HabitReportCardContent.swift */; };
 		48D8907E273E7AFF008F1971 /* StoryReportCardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8907D273E7AFF008F1971 /* StoryReportCardContent.swift */; };
+		48D89080273E8493008F1971 /* ReportItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D8907F273E8493008F1971 /* ReportItemView.swift */; };
 		48F0A09C26A4CED6004898C0 /* DayExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F0A09B26A4CED6004898C0 /* DayExpensesView.swift */; };
 		48F0A09E26A55DFA004898C0 /* StoryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F0A09D26A55DF9004898C0 /* StoryTab.swift */; };
 		48F35BD026EC2B66003B570D /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48F35BCF26EC2B66003B570D /* ColorSet.swift */; };
@@ -183,6 +184,7 @@
 		48C8D8E326A2B98B00E61A01 /* StarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarButtonView.swift; sourceTree = "<group>"; };
 		48D8907B273E7ADF008F1971 /* HabitReportCardContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitReportCardContent.swift; sourceTree = "<group>"; };
 		48D8907D273E7AFF008F1971 /* StoryReportCardContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryReportCardContent.swift; sourceTree = "<group>"; };
+		48D8907F273E8493008F1971 /* ReportItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportItemView.swift; sourceTree = "<group>"; };
 		48F0A09B26A4CED6004898C0 /* DayExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayExpensesView.swift; sourceTree = "<group>"; };
 		48F0A09D26A55DF9004898C0 /* StoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTab.swift; sourceTree = "<group>"; };
 		48F35BCF26EC2B66003B570D /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
@@ -548,6 +550,7 @@
 			children = (
 				482ADEAA273D83DC00B5C591 /* BriefReportView.swift */,
 				6EBB7ABA26B27680004E692B /* ExReportCardContent.swift */,
+				48D8907F273E8493008F1971 /* ReportItemView.swift */,
 			);
 			path = Report;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				48319C0C272712250077C3F6 /* PieChartView.swift in Sources */,
 				4878A77B26AE8DB800DCBC8D /* StoryField.swift in Sources */,
 				6EEE01B626D0EE6C006797E8 /* AccountBook.xcdatamodeld in Sources */,
+				48D89080273E8493008F1971 /* ReportItemView.swift in Sources */,
 				4878A76E26AD962F00DCBC8D /* TagsInputView.swift in Sources */,
 				488D3AAB269F86E400287A50 /* TestExpenseInfo.swift in Sources */,
 				4830D9C426B1FDA5007710FD /* SingleExtraExpenseInfoView.swift in Sources */,
