@@ -5,8 +5,10 @@ import SwiftUI
 struct SideMenu_Settings: View {
     var body: some View {
         NavigationView {
-            VStack {
-                FocusModifyView()
+            ScrollView {
+                VStack {
+                    FocusModifyView()
+                }
             }
         }
         .navigationTitle("设置")

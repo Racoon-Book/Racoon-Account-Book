@@ -18,7 +18,7 @@ struct FocusModifyView: View {
 
             MultilineFocusViewForModify(color: defaultColorSet.capsule.focus)
 
-            Spacer()
+            Text("删除关注后无法恢复 请在删除前确认")
         }
         .padding() // 别碰到屏幕边儿上
     }
