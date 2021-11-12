@@ -4,16 +4,7 @@ import SwiftUI
 struct ReportTab: View {
     @Environment(\.managedObjectContext) var context
 
-    @FetchRequest(fetchRequest: Expense.request_allExpenses)
-    var expenses_all
-    @FetchRequest(fetchRequest: Expense.request_expensesInThisMonth)
-    var expenses_thisMonth
-
     @State private var selectedSegment: SegmentChoice = .report
-
-    // FocusView
-    @State var sumList: [Double] = []
-    @State var focusNameList: [String] = []
 
     var body: some View {
         NavigationView {
@@ -38,10 +29,6 @@ struct ReportTab: View {
 
                         case .report:
                             BriefReportView()
-
-//                            ExInThisMonthReportView(expenseSumInThisMonth: expenses_thisMonth.sum(),
-//                                                    expenseCountInThisMonth: expenses_thisMonth.count,
-//                                                    maxExpense: expenses_thisMonth.max_expense())
 
                         case .story:
                             StoryReportView()

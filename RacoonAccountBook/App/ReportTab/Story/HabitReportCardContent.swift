@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct HabitReportCard: View {
+struct HabitReportCardContent: View {
     /// 过去30天内财记总数
     var expenseCount: Int = 1 // TODO: 这里要做成可变的
 

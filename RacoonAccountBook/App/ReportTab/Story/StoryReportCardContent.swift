@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct StoryReportCard: View {
+struct StoryReportCardContent: View {
     /// 历史财记总数
     var storyCount: Int = 1 // TODO: 这里要做成可变的
 
