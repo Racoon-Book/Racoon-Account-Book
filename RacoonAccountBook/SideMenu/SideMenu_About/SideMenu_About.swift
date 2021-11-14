@@ -73,7 +73,7 @@ struct SideMenu_About: View {
                         VStack(alignment: .leading) {
                             Link("THU iOS Club", destination: URL(string: "https://github.com/THU-iOS")!).font(.title3)
                             HStack {
-                                Link("李连达", destination: URL(string: "https://www.zcool.com.cn/u/22338505")!).font(.title3)
+                                Link("李林达", destination: URL(string: "https://www.zcool.com.cn/u/22338505")!).font(.title3)
                                 Text("中国传媒大学 数媒网络").font(.caption)
                             }
                         }
