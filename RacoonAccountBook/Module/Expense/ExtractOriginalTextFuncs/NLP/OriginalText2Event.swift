@@ -37,8 +37,8 @@ func OriginalText2Event(from originalText: String) -> String? {
         return verbAndNounStringArray[0]
     } else if let firstNoun: String = OriginalText2FirstNoun(from: originalText) {
         // 没找到动名词 返回第一个名词
-        return firstNoun // 失败会返回原字符串
+        return firstNoun // 失败会返回nil刚好
     } else {
-        return originalText
+        return nil
     }
 }
