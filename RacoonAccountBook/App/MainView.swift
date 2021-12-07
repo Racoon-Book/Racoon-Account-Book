@@ -11,6 +11,7 @@ struct MainView: View {
     private static let Tab1: String = "账本"
     private static let Tab2: String = "财记"
     private static let Tab3: String = "统计"
+    private static let Tab4: String = "我的"
 
     /// 当前选中的Tab
     ///
@@ -48,24 +49,13 @@ struct MainView: View {
     var body: some View {
         ZStack {
             TabView(selection: $selectedTab) {
-                NavigationView {
-                    ZStack {
-                        BookTab(onSideMenuOpen: onSideMenuOpen, onSideMenuClose: onSideMenuClose, isSideMenuOpen: isSideMenuOpen)
-                            .blur(radius: RacoonSheetConfig.shared.blurRadius)
-                            // 判断左滑
-                            .gesture(DragGesture(minimumDistance: 3.0, coordinateSpace: .local).onEnded { value in
-                                if value.translation.width > 0, value.translation.height > -30, value.translation.height < 30 {
-                                    withAnimation { onSideMenuOpen() }
-                                }
-                            })
-                        SideMenu(onSideMenuClose: onSideMenuClose, sideMenuOffsetX: sideMenuOffsetX)
+                BookTab(onSideMenuOpen: onSideMenuOpen, onSideMenuClose: onSideMenuClose, isSideMenuOpen: isSideMenuOpen)
+
+                    .tabItem {
+                        Image(systemName: "text.book.closed.fill")
+                        Text(MainView.Tab1)
                     }
-                }
-                .tabItem {
-                    Image(systemName: "text.book.closed.fill")
-                    Text(MainView.Tab1)
-                }
-                .tag(MainView.Tab1)
+                    .tag(MainView.Tab1)
 
                 StoryTab()
                     .tabItem {
