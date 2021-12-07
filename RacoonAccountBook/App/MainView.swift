@@ -69,6 +69,13 @@ struct MainView: View {
                         Text(MainView.Tab3)
                     }
                     .tag(MainView.Tab3)
+                
+               MeTab()
+                    .tabItem {
+                        Image(systemName: "person.fill")
+                        Text(MainView.Tab4)
+                    }
+                    .tag(MainView.Tab4)
             }
 
             // 成功记账提示

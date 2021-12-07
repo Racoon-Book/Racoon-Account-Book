@@ -10,8 +10,6 @@ struct StoryTab: View {
     static let emojiSize: CGFloat = 50
 
     var body: some View {
-        // TODO: 像账本那样做一个深色的统计页面应该比较好
-
         NavigationView {
             ScrollView(.vertical) {
                 ZStack {
@@ -76,8 +74,7 @@ struct StoryTab: View {
                                 .clipped()
                             }
                             .padding(.horizontal, 10) // 让圆角矩形边框不靠边
-                        }
-                        else {
+                        } else {
                             VStack(alignment: .center) {
                                 Text("一笔财记还没有呢")
                                 Text("给花销添加背后故事吧！").font(.system(.title2))
@@ -89,9 +86,9 @@ struct StoryTab: View {
                             .clipped()
                         }
                     }
-                    .padding(.vertical, 10) // 让上下两个stroy不靠边
+                    .padding(.vertical, 5) // 让上下两个stroy不靠边
                 }
-                .navigationTitle("最近的财记")
+                .navigationTitle("财记")
                 .navigationBarTitleDisplayMode(.inline)
             }
             .background(defaultColorSet.tabBackground.ignoresSafeArea()) // background color:真正上色

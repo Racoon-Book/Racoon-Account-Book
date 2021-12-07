@@ -40,7 +40,9 @@ struct BookTab: View {
                 .padding([.top, .bottom], 10) // 最下方别贴着屏幕底端
             }
             .background(defaultColorSet.tabBackground.ignoresSafeArea())
+            
             .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("支出")
 
             .navigationBarItems(
                 leading:
