@@ -30,52 +30,41 @@ struct BookTab: View {
     }
 
     var body: some View {
-        let cardPadding = CGFloat(10)
+        NavigationView {
+            ScrollView(.vertical) {
+                ZStack {
+                    defaultColorSet.tabBackground.ignoresSafeArea() // 把背景撑开 没有账单的时候显示会只有一个条块
 
-        VStack {
-            ScrollViewReader { _ in
-
-                ScrollView(.vertical) {
-                    ZStack {
-                        defaultColorSet.tabBackground.ignoresSafeArea() // 把背景撑开 没有账单的时候显示会只有一个条块
-
-                        MonthExpensesView(selectedDate: selectedDate)
-                    }
-                    .padding([.horizontal], cardPadding) // 让圆角矩形边框不靠边
-//                    .padding([.vertical], 1) // 白色的圆角矩形互相别挨着
+                    MonthExpensesView(selectedDate: selectedDate)
                 }
+                .padding([.top, .bottom], 10) // 最下方别贴着屏幕底端
             }
-            .padding([.bottom], cardPadding) // 最下方别贴着屏幕底端
-        }
-        .background(defaultColorSet.tabBackground.ignoresSafeArea())
-        .navigationBarTitleDisplayMode(.inline)
+            .background(defaultColorSet.tabBackground.ignoresSafeArea())
+            .navigationBarTitleDisplayMode(.inline)
 
-        // MARK: - 截图导入
+            .navigationBarItems(
+                leading:
+                HStack {
+                    // ...Date() - 不能选之后的时间
+                    DatePicker("", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
 
-        .navigationBarItems(
-            leading:
-            HStack {
-                isSideMenuOpen ?
-                    Button(action: { onSideMenuClose() }) { Image(systemName: "xmark.circle") } :
-                    Button(action: { onSideMenuOpen() }) { Image(systemName: "line.horizontal.3") }
-                // TODO: 添加月份选择
-                // ...Date() - 不能选之后的时间
-                DatePicker("", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
-            },
-            trailing:
-            // 截图导入
-            Button(action: {
-                RacoonSheetConfig.shared.showingScreenshotImportSheet.toggle()
-            }) { Text("截图导入") }
-        )
-        .sheet(
-            // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
-            isPresented: $RacoonSheetConfig.shared.showingScreenshotImportSheet,
-            onDismiss: didDismissScreenshotImportSheet
-        ) {
-            ScreenshotImportSheet()
-                .environmentObject(RacoonSheetConfig)
-                .environment(\.managedObjectContext, context)
+                    Spacer()
+                },
+                trailing:
+                // 截图导入
+                Button(action: {
+                    RacoonSheetConfig.shared.showingScreenshotImportSheet.toggle()
+                }) { Text("截图导入") }
+            )
+            .sheet(
+                // 点击FloatingAddButton会弹出sheet让用户添加；语音输入结束该页面也会弹出
+                isPresented: $RacoonSheetConfig.shared.showingScreenshotImportSheet,
+                onDismiss: didDismissScreenshotImportSheet
+            ) {
+                ScreenshotImportSheet()
+                    .environmentObject(RacoonSheetConfig)
+                    .environment(\.managedObjectContext, context)
+            }
         }
     }
 

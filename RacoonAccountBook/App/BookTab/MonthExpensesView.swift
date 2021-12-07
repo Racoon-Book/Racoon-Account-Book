@@ -210,7 +210,6 @@ struct MonthExpensesView: View {
             }.padding()
         } else {
             VStack {
-                Text("haha")
                 VStack {
                     DayExpensesView(date: day1, dayExpenses: expensesInDay1)
                     DayExpensesView(date: day2, dayExpenses: expensesInDay2)
@@ -251,6 +250,7 @@ struct MonthExpensesView: View {
                     DayExpensesView(date: day31, dayExpenses: expensesInDay31)
                 }
             }
+            .padding([.horizontal], 10) // 让圆角矩形边框不靠边
         }
     }
 }
