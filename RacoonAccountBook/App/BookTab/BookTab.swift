@@ -7,14 +7,16 @@ struct BookTab: View {
 
     @Environment(\.managedObjectContext) private var context
 
-    @FetchRequest(fetchRequest: Expense.request_expensesInLast30days)
-    var expensesInLast30Days
-
-    @FetchRequest(fetchRequest: Expense.request_expensesInLast7days)
-    var expensesInLast7Days
+//    @FetchRequest(fetchRequest: Expense.request_expensesInLast30days)
+//    var expensesInLast30Days
+//
+//    @FetchRequest(fetchRequest: Expense.request_expensesInLast7days)
+//    var expensesInLast7Days
 
     private let year: Int
     private let month: Int
+
+    @State private var selectedDate = Date()
 
     private let onSideMenuOpen: () -> Void
     private let onSideMenuClose: () -> Void
@@ -88,14 +90,15 @@ struct BookTab: View {
     @FetchRequest var expensesInDay30: FetchedResults<Expense>
     @FetchRequest var expensesInDay31: FetchedResults<Expense>
 
-    init(year: Int = DateInRegion(region: regionChina).year,
-         month: Int = DateInRegion(region: regionChina).month,
+    init(thisYear: Int = DateInRegion(region: regionChina).year,
+         thisMonth: Int = DateInRegion(region: regionChina).month,
          onSideMenuOpen: @escaping () -> Void,
          onSideMenuClose: @escaping () -> Void,
          isSideMenuOpen: Bool)
     {
-        self.year = year
-        self.month = month
+        // 打开app默认展示的月份为当月
+        self.year = thisYear
+        self.month = thisMonth
 
         self.onSideMenuOpen = onSideMenuOpen
         self.onSideMenuClose = onSideMenuClose
@@ -201,22 +204,21 @@ struct BookTab: View {
         _expensesInDay31 = FetchRequest(fetchRequest: request_day31)
     }
 
-    var body: some View {
-        let today = DateInRegion(region: regionChina)
-        let thisYear: Int = today.year
-        let thisMonth: Int = today.month
+    func fetchExpensesInMonth(date _: Date) {
+        print(Log().string + "executed")
+    }
 
+    var body: some View {
         let cardPadding = CGFloat(10)
 
         VStack {
-            IncomeExpenditureView(usingRelativeDays: true,
-                                  sevenEx: expensesInLast7Days.sum(),
-                                  sevenIn: 0,
-                                  thirtyEx: expensesInLast30Days.sum(),
-                                  thirtyIn: 0)
-
-                .padding(cardPadding)
-            // TODO: 这里也许可以加个阴影？
+            // 经iOS Club微沙龙提醒，这片UI貌似没有什么太大的用处，反而和下面的账单格格不入
+//            IncomeExpenditureView(usingRelativeDays: true,
+//                                  sevenEx: expensesInLast7Days.sum(),
+//                                  sevenIn: 0,
+//                                  thirtyEx: expensesInLast30Days.sum(),
+//                                  thirtyIn: 0)
+//                .padding(cardPadding)
 
             ScrollViewReader { _ in
 
@@ -225,8 +227,12 @@ struct BookTab: View {
                         // Check https://stackoverflow.com/questions/56675532/swiftui-iterating-through-dictionary-with-foreach
                         // WWDC21可以替换为OrderedDictionary https://stackoverflow.com/a/68023633/14298786
 
+                        defaultColorSet.tabBackground.ignoresSafeArea() // 把背景撑开 没有账单的时候显示会只有一个条块
+
                         if expensesInMonth.count == 0 {
                             VStack {
+                                Spacer()
+
                                 Text("这个月没有记账呢")
                                     .padding()
 
@@ -244,6 +250,8 @@ struct BookTab: View {
                                     Text("右上角按钮") +
                                     Text("截图导入账单")
                                     .font(.system(.title2, design: .rounded))
+
+                                Spacer()
                             }.padding()
 
                         } else {
@@ -297,25 +305,24 @@ struct BookTab: View {
             .padding([.bottom], cardPadding) // 最下方别贴着屏幕底端
         }
         .background(defaultColorSet.tabBackground.ignoresSafeArea())
-
-        // 为了不出现数字分位符`,`使用`String()`
-        // TOOD: 这个之后换成月份选择下拉框
-        .navigationTitle("\(String(thisYear))年\(thisMonth)月 花销")
         .navigationBarTitleDisplayMode(.inline)
 
         // MARK: - 截图导入
 
         .navigationBarItems(
             leading:
-            isSideMenuOpen ?
-                Button(action: { onSideMenuClose() }) { Image(systemName: "xmark.circle") } :
-                Button(action: { onSideMenuOpen() }) { Image(systemName: "line.horizontal.3") },
-            // 右边有一个按钮
+            HStack {
+                isSideMenuOpen ?
+                    Button(action: { onSideMenuClose() }) { Image(systemName: "xmark.circle") } :
+                    Button(action: { onSideMenuOpen() }) { Image(systemName: "line.horizontal.3") }
+                // TODO: 添加月份选择
+                // ...Date() - 不能选之后的时间
+                DatePicker("", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
+            },
             trailing:
+            // 截图导入
             Button(action: {
-                print(Log().string + "Clicked")
                 RacoonSheetConfig.shared.showingScreenshotImportSheet.toggle()
-                // TODO: 弹出Sheet来添加截图
             }) { Text("截图导入") }
         )
         .sheet(
