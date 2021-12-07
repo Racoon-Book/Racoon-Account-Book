@@ -4,7 +4,7 @@ import SwiftUI
 
 struct SideMenu_Settings: View {
     var body: some View {
-        List {
+        ScrollView(.vertical) {
             VStack {
                 FocusModifyView()
             }

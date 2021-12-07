@@ -40,18 +40,15 @@ struct BookTab: View {
                 .padding([.top, .bottom], 10) // 最下方别贴着屏幕底端
             }
             .background(defaultColorSet.tabBackground.ignoresSafeArea())
-            
+
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("支出")
 
             .navigationBarItems(
                 leading:
-                HStack {
-                    // ...Date() - 不能选之后的时间
-                    DatePicker("", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
+                // ...Date() - 不能选之后的时间
+                DatePicker("", selection: $selectedDate, in: ...Date(), displayedComponents: .date),
 
-                    Spacer()
-                },
                 trailing:
                 // 截图导入
                 Button(action: {
