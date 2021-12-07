@@ -6,10 +6,11 @@ struct MeTab: View {
     var body: some View {
         NavigationView {
             List {
-                NavigationLink(destination: SideMenu_Settings()) { Text("设置") }
-                NavigationLink(destination: SideMenu_About()) { Text("关于") }
+                Section { NavigationLink(destination: SideMenu_Settings()) { Text("设置") }}
+
+                Section { NavigationLink(destination: SideMenu_About()) { Text("关于") }}
             }
-            .background(Color.white)
+            .listStyle(.insetGrouped)
 
             .navigationTitle("我的")
             .navigationBarTitleDisplayMode(.inline)
