@@ -24,6 +24,7 @@
 		4830E28C26D00C0A00916DDC /* SheetConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4830E28B26D00C0A00916DDC /* SheetConfig.swift */; };
 		48319C0C272712250077C3F6 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48319C0A272712250077C3F6 /* PieChartView.swift */; };
 		48319C0D272712250077C3F6 /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48319C0B272712250077C3F6 /* PieSliceView.swift */; };
+		483F48E9275FAFFF00E57BCC /* MonthExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483F48E8275FAFFE00E57BCC /* MonthExpensesView.swift */; };
 		48433BD826C61A6F00F72244 /* OriginalText2LexicalClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48433BD726C61A6F00F72244 /* OriginalText2LexicalClass.swift */; };
 		4844ED3F26D0BD1D0037C09A /* SheetConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4844ED3E26D0BD1D0037C09A /* SheetConfigModel.swift */; };
 		4844ED4326D10F6D0037C09A /* SuccessfullyAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4844ED4226D10F6D0037C09A /* SuccessfullyAlert.swift */; };
@@ -121,6 +122,7 @@
 		4830E28B26D00C0A00916DDC /* SheetConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetConfig.swift; sourceTree = "<group>"; };
 		48319C0A272712250077C3F6 /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		48319C0B272712250077C3F6 /* PieSliceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
+		483F48E8275FAFFE00E57BCC /* MonthExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthExpensesView.swift; sourceTree = "<group>"; };
 		48433BD726C61A6F00F72244 /* OriginalText2LexicalClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalText2LexicalClass.swift; sourceTree = "<group>"; };
 		4844ED3E26D0BD1D0037C09A /* SheetConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetConfigModel.swift; sourceTree = "<group>"; };
 		4844ED4226D10F6D0037C09A /* SuccessfullyAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfullyAlert.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				488D3A91269F0F5E00287A50 /* BookTab.swift */,
+				483F48E8275FAFFE00E57BCC /* MonthExpensesView.swift */,
 				48F0A09A26A4CEBB004898C0 /* Component */,
 			);
 			path = BookTab;
@@ -745,6 +748,7 @@
 				486ECE0326B0E81500EF00B1 /* MultilineFociView.swift in Sources */,
 				482ADEA7273D6F4000B5C591 /* StoryReportView.swift in Sources */,
 				4830D9C126B1FD1C007710FD /* NewMetaDataView.swift in Sources */,
+				483F48E9275FAFFF00E57BCC /* MonthExpensesView.swift in Sources */,
 				4878A76726AD931B00DCBC8D /* AmountField.swift in Sources */,
 				48319C0C272712250077C3F6 /* PieChartView.swift in Sources */,
 				4878A77B26AE8DB800DCBC8D /* StoryField.swift in Sources */,
@@ -889,7 +893,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 107;
+				CURRENT_PROJECT_VERSION = 108;
 				DEVELOPMENT_ASSET_PATHS = "\"RacoonAccountBook/Preview Content\"";
 				DEVELOPMENT_TEAM = C4W6UUH267;
 				ENABLE_PREVIEWS = YES;
@@ -915,7 +919,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 107;
+				CURRENT_PROJECT_VERSION = 108;
 				DEVELOPMENT_ASSET_PATHS = "\"RacoonAccountBook/Preview Content\"";
 				DEVELOPMENT_TEAM = C4W6UUH267;
 				ENABLE_PREVIEWS = YES;
@@ -1002,7 +1006,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 107;
+				CURRENT_PROJECT_VERSION = 108;
 				DEVELOPMENT_ASSET_PATHS = "\"RacoonAccountBook/Preview Content\"";
 				DEVELOPMENT_TEAM = C4W6UUH267;
 				ENABLE_PREVIEWS = YES;
