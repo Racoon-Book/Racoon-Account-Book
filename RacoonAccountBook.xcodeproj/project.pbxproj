@@ -222,14 +222,14 @@
 			path = ScreenshotImport;
 			sourceTree = "<group>";
 		};
-		482A322B26F9AE4100BDF958 /* Module */ = {
+		482A322B26F9AE4100BDF958 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				482A322C26F9AE6C00BDF958 /* VoiceInput */,
 				4844ED4126D0D7FF0037C09A /* Expense */,
 				482A322A26F9AE1B00BDF958 /* ScreenshotImport */,
 			);
-			path = Module;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		482A322C26F9AE6C00BDF958 /* VoiceInput */ = {
@@ -407,8 +407,7 @@
 				6EEE01B926D115BE006797E8 /* CoreData */,
 				488D3A86269F0EF400287A50 /* MVVM */,
 				488D3A8E269F0F3D00287A50 /* App */,
-				48319C062726CA8C0077C3F6 /* SideMenu */,
-				482A322B26F9AE4100BDF958 /* Module */,
+				482A322B26F9AE4100BDF958 /* Modules */,
 				488D3A9B269F338800287A50 /* Components */,
 				488D3A97269F27C500287A50 /* Auxiliary */,
 				48C1FBC7271BFDB5008AB95A /* Launch Screen.storyboard */,
@@ -445,6 +444,7 @@
 				48C6360426A44B1400E7BF15 /* BookTab */,
 				48C6360726A44B8300E7BF15 /* StoryTab */,
 				48C6360626A44B6000E7BF15 /* ReportTab */,
+				48319C062726CA8C0077C3F6 /* SideMenu */,
 			);
 			path = App;
 			sourceTree = "<group>";
