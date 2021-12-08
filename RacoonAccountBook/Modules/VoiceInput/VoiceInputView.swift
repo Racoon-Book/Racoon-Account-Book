@@ -28,7 +28,7 @@ struct VoiceInputView: View {
                             recognizedText = "" // 清除已识别文字
                         } label: {
                             Text(Image(systemName: "xmark"))
-                                .font(.system(.title))
+                                .font(.system(size: 50))
                         }
                         Spacer()
                         // 确定语音输入没问题 提交
@@ -73,7 +73,7 @@ struct CommitSpeechButton: View {
             recognizedText = ""
         }, label: {
             Text(Image(systemName: "checkmark"))
-                .font(.system(.title))
+                .font(.system(size: 50))
         })
     }
 
