@@ -2,7 +2,6 @@
 
 import CoreData
 import Foundation
-import SwiftDate
 
 // include Array and FetchedResults
 extension RandomAccessCollection where Element: Expense {
@@ -22,7 +21,7 @@ extension RandomAccessCollection where Element: Expense {
         return self.filter { $0.story != nil }
     }
 
-    func days() -> [DateInRegion] {
+    func days() -> [Date] {
         // 将 expense 的时间设为当天的起始时间
         let raw_days = self.map { $0.spentAt.dateAt(.startOfDay) }
         let days = raw_days.enumerated().filter { index, day in

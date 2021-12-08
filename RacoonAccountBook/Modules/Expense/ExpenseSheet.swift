@@ -9,10 +9,6 @@ struct ExpenseSheet: View {
 
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
-    // MARK: - 日期选择
-
-    @State private var selectedDate = Date()
-
     // MARK: - 界面参数
 
     /// 呈现转换后的条目的信息的高度
@@ -73,15 +69,10 @@ struct ExpenseSheet: View {
                             VStack {
                                 HStack {
                                     // TODO: 这个之后要改成可以点击修改的日期选择框
-                                    Text(DisplayDate(RacoonSheetConfig.shared.expense_inputting.spentAt))
+                                    Text(DisplayDate(RacoonSheetConfig.shared.expense_inputting.spentAtDate))
                                         .font(.body)
                                         .padding(.top, 6.0)
-                                    DatePicker("", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
-                                        .onChange(of: selectedDate) { date in
-                                            print(selectedDate)
-                                            print("fdsfsafds=af=d=f-=d-f=-=-=s-=-")
-                                            RacoonSheetConfig.shared.expense_inputting.spentAt = DateInRegion(date, region: regionChina)
-                                        }
+                                    DatePicker("", selection: $RacoonSheetConfig.shared.expense_inputting.spentAtDate, in: ...Date(), displayedComponents: .date)
 
                                     Spacer()
                                 }

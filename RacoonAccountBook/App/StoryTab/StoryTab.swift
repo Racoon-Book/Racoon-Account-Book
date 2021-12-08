@@ -21,7 +21,7 @@ struct StoryTab: View {
 
                                 VStack(alignment: .leading) {
                                     HStack {
-                                        Text("\(DisplayDate(expense.spentAt.convertTo(region: regionChina))) \(expense.event)")
+                                        Text("\(DisplayDate(expense.spentAt)) \(expense.event)")
                                             .bold()
                                             .foregroundColor(defaultColorSet.cardTitle)
 

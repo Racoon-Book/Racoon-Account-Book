@@ -12,8 +12,8 @@ extension Expense {
 
         //   - system: uuid createdAt updatedAt
         expense.uuid = UUID()
-        expense.createdAt = DateInRegion(region: regionChina)
-        expense.updatedAt = DateInRegion(region: regionChina)
+        expense.createdAt = Date()
+        expense.updatedAt = Date()
 
         //   - properties: spentAt event amount
         //   - other: originalText?
@@ -57,7 +57,7 @@ extension Expense {
     {
         if let expenses = try? context.fetch(Expense.request_expenseBy(uuid: uuid)) {
             //   - system
-            expenses.first!.updatedAt = DateInRegion(region: regionChina)
+            expenses.first!.updatedAt = Date()
 
             //   - properties: spentAt event amount
             //   - other: originalText?

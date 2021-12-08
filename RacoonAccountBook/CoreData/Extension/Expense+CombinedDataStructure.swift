@@ -9,7 +9,7 @@ extension Expense {
     var expenseInfo: ExpenseInfo {
         get {
             ExpenseInfo(originalText: originalText,
-                        spentAt: spentAt,
+                        spentAtDate: spentAt,
                         event: event,
                         amount: amount,
                         generatedTags: generatedTags.map { $0.name },
@@ -23,7 +23,7 @@ extension Expense {
             // Expense
 
             //   - properties: spentAt event amount
-            spentAt = newValue.spentAt
+            spentAt = newValue.spentAtDate
             event = newValue.event
 
             amount = newValue.amount

@@ -28,25 +28,25 @@ extension Expense {
         set { uuid_ = newValue }
     }
 
-    var createdAt: DateInRegion {
+    var createdAt: Date {
         get {
             if createdAt_ != nil {
-                return createdAt_!.convertTo(region: regionChina)
+                return createdAt_!
             } else {
                 print(Log().fatalerror + "未获取到createdAt_")
-                return DateInRegion(region: regionChina)
+                return Date()
             }
         }
         set { createdAt_ = newValue.date }
     }
 
-    var updatedAt: DateInRegion {
+    var updatedAt: Date {
         get {
             if updatedAt_ != nil {
-                return updatedAt_!.convertTo(region: regionChina)
+                return updatedAt_!
             } else {
                 print(Log().fatalerror + "未获取到updatedAt_")
-                return DateInRegion(region: regionChina)
+                return Date()
             }
         }
         set { updatedAt_ = newValue.date }
@@ -54,13 +54,13 @@ extension Expense {
 
     // properties
 
-    var spentAt: DateInRegion {
+    var spentAt: Date {
         get {
             if spentAt_ != nil {
-                return spentAt_!.convertTo(region: regionChina)
+                return spentAt_!
             } else {
                 print(Log().fatalerror + "未获取到spentAt_")
-                return DateInRegion(region: regionChina)
+                return Date()
             }
         }
         set { spentAt_ = newValue.date }

@@ -70,7 +70,7 @@ struct ScreenshotImportSheet: View {
                                                 Text(weChatBill.name)
                                                     .font(.title3)
                                                     .foregroundColor(.primary)
-                                                Text(DisplayDate(weChatBill.spentAt))
+                                                Text(DisplayDate(weChatBill.spentAtDate))
                                                     .font(.caption)
                                                     .foregroundColor(.secondary)
                                             }
@@ -257,15 +257,18 @@ struct ScreenshotImportSheet: View {
             let string1: String = recognizedStrings[i]
             let string2: String = recognizedStrings[i + 1]
             let string3: String = recognizedStrings[i + 2]
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "M月d日 hh:mm";
 
             if let amount = Float(string2),
-               var spentAt = string3.toDate("M月d日 hh:mm", region: regionChina)
+               var spentAt = dateFormatter.date(from: string3)
             {
                 spentAt = spentAt.dateBySet([.year: DateInRegion().year])! // 直接取，可能会崩
                 let name = string1
 
                 let wechatBill = WeChatBillInfo(
-                    name: name, amount: 0 - amount, spentAt: spentAt,
+                    name: name, amount: 0 - amount, spentAtDate: spentAt,
                     isDuplicated: false) // TODO: 添加duplicated判断
                 print(wechatBill)
 

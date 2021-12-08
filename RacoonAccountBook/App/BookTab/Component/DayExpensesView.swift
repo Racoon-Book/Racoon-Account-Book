@@ -4,8 +4,15 @@ import SwiftUI
 struct DayExpensesView: View {
     @Environment(\.managedObjectContext) private var context
 
-    var date: DateInRegion
-    var dayExpenses: FetchedResults<Expense>
+    var date: Date
+    @FetchRequest var dayExpenses: FetchedResults<Expense>
+    
+    init(date: Date) {
+        self.date = date
+        let request = Expense.request_expensesInDay(day: date)
+        _dayExpenses = FetchRequest(fetchRequest: request)
+    }
+    
 
     var body: some View {
         let date_display: String = DisplayDate(date)

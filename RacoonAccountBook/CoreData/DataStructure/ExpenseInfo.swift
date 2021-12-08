@@ -17,7 +17,7 @@ struct ExpenseInfo {
     /// 消费发生的日期 单位：天
     ///
     /// 记昨天的账，日期为昨天
-    var spentAt: DateInRegion // TODO: 这里只存日期(天)，排序时相同的日期（天）用`createAt`排序
+    var spentAtDate: Date // TODO: 这里只存日期(天)，排序时相同的日期（天）用`createAt`排序
 
     /// 由`originalText`去掉钱数、日期自动生成
     var event: String
@@ -93,7 +93,7 @@ struct ExpenseInfo {
     mutating func clear() {
         originalText = ""
 
-        spentAt = DateInRegion(region: regionChina)
+        spentAtDate = Date()
         event = ""
         amount = 0.0
 
@@ -110,7 +110,7 @@ struct ExpenseInfo {
     /// 传nil进来表示不更新 或者直接不传
     mutating func update(originalText: String? = nil,
 
-                         spentMoneyAt: DateInRegion? = nil,
+                         spentMoneyAt: Date? = nil,
                          event: String? = nil,
                          amount_float: Float? = nil,
 
@@ -123,7 +123,7 @@ struct ExpenseInfo {
     {
         if originalText != nil { self.originalText = originalText }
 
-        if spentMoneyAt != nil { self.spentAt = spentMoneyAt! }
+        if spentMoneyAt != nil { self.spentAtDate = spentMoneyAt! }
         if event != nil { self.event = event! }
         if amount_float != nil { self.amount = amount_float! }
 
@@ -147,7 +147,7 @@ extension ExpenseInfo: CustomStringConvertible {
 
         let event: String = self.event
         let amount = String(format: "%.1f", self.amount)
-        let date: String = spentAt.toFormat("yyyy/M/d", locale: Locales.chineseChina)
+        let date: String = spentAtDate.toFormat("yyyy/M/d", locale: Locales.chineseChina)
 
         let focus: String = self.focus ?? "nil"
 

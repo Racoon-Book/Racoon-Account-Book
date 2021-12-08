@@ -13,7 +13,7 @@ struct SheetConfig {
     ///
     /// 修改：确定之后更新数据
     var expense_inputting = ExpenseInfo(
-        spentAt: DateInRegion(region: regionChina),
+        spentAtDate: Date(),
         event: "",
         amount: 0.0)
     /// 用来转换输入的可能不是小数的小数（临时）

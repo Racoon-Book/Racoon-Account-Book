@@ -21,7 +21,7 @@ struct MainView: View {
     /// 添加时临时记录使用的expenseInfo
     @State private var expenseInfo_inputting = ExpenseInfo(
         originalText: "",
-        spentAt: DateInRegion(region: regionChina),
+        spentAtDate: Date(),
         event: "",
         amount: 0.0
     )

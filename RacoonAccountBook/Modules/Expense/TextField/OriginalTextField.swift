@@ -34,9 +34,9 @@ struct OriginalTextField: View {
 
     private func UpdateExpenseInfo() {
         // 是编辑模式则创建日期不变
-        let spentMoneyAt: DateInRegion = RacoonSheetConfig.shared.isEditMode ?
-            expenseInfo_inputting.spentAt :
-            OriginalText2SpentMoneyAt(from: expenseInfo_inputting.originalText ?? "") ?? DateInRegion(region: regionChina)
+        let spentMoneyAt: Date = RacoonSheetConfig.shared.isEditMode ?
+            expenseInfo_inputting.spentAtDate :
+            OriginalText2SpentMoneyAt(from: expenseInfo_inputting.originalText ?? "") ?? Date()
 
         expenseInfo_inputting.update(
             spentMoneyAt: spentMoneyAt,

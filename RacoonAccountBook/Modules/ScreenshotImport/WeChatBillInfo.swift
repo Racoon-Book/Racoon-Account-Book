@@ -15,7 +15,7 @@ struct WeChatBillInfo: CustomStringConvertible, Identifiable, Hashable {
     /// 支出用负数表示 收入用正数表示
     var amount: Float
     /// 支出日期和时间
-    var spentAt: DateInRegion
+    var spentAtDate: Date
 
     // MARK: Temp Properties
 
@@ -26,7 +26,7 @@ struct WeChatBillInfo: CustomStringConvertible, Identifiable, Hashable {
     var isSelected: Bool = true
 
     var description: String {
-        "\(name) \(amount) \(spentAt)" // 改成Display
+        "\(name) \(amount) \(spentAtDate)" // 改成Display
     }
 }
 
@@ -40,6 +40,6 @@ extension WeChatBillInfo {
     func toExpenseInfo() -> ExpenseInfo {
         print(Log().string + self.description)
 
-        return ExpenseInfo(spentAt: self.spentAt, event: self.name, amount: self.amount)
+        return ExpenseInfo(spentAtDate: self.spentAtDate, event: self.name, amount: self.amount)
     }
 }

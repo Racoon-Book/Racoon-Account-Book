@@ -1,7 +1,7 @@
 import Foundation
 import SwiftDate
 
-func DisplayDate(_ date: DateInRegion) -> String {
+func DisplayDate(_ date: Date) -> String {
     let isYesterday: Bool = date.compare(.isYesterday)
     let isToday: Bool = date.compare(.isToday)
     let isTomorrow: Bool = date.compare(.isTomorrow)

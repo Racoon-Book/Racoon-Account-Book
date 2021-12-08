@@ -16,7 +16,7 @@ class SheetConfigModel: ObservableObject {
         shared.isEditMode = false
         shared.uuidOfExpenseToEdit = nil
 
-        shared.expense_inputting = ExpenseInfo(spentAt: DateInRegion(region: regionChina), event: "", amount: 0)
+        shared.expense_inputting = ExpenseInfo(spentAtDate: Date(), event: "", amount: 0)
         shared.amount_string_inputting = ""
 
         shared.showingExpenseSheet = true
