@@ -18,7 +18,7 @@ struct ButtonContent: View {
             return 1.2
         }
     }
-    
+
     var buttonIcon: String {
         switch state {
         case .pending:
@@ -34,7 +34,8 @@ struct ButtonContent: View {
                 .fill(defaultColorSet.addButton)
                 .frame(
                     width: ButtonContent.addButtonSize,
-                    height: ButtonContent.addButtonSize)
+                    height: ButtonContent.addButtonSize
+                )
                 .shadow(color: defaultColorSet.addButton,
                         radius: 5)
             Text(Image(systemName: buttonIcon))

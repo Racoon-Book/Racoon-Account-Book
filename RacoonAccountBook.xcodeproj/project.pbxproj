@@ -69,7 +69,6 @@
 		488D3A9F269F42AF00287A50 /* PutKeyboardBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3A9E269F42AF00287A50 /* PutKeyboardBack.swift */; };
 		488D3AA1269F5A2A00287A50 /* ExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AA0269F5A2A00287A50 /* ExpenseView.swift */; };
 		488D3AA5269F689B00287A50 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 488D3AA4269F689B00287A50 /* SwiftDate */; };
-		488D3AA7269F6AD000287A50 /* DisplayDate+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AA6269F6AD000287A50 /* DisplayDate+.swift */; };
 		488D3AA9269F837300287A50 /* Binding+Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AA8269F837300287A50 /* Binding+Optional.swift */; };
 		488D3AAB269F86E400287A50 /* TestExpenseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AAA269F86E400287A50 /* TestExpenseInfo.swift */; };
 		488D3AAE269F8C5400287A50 /* Print+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488D3AAD269F8C5400287A50 /* Print+.swift */; };
@@ -169,7 +168,6 @@
 		488D3A95269F188100287A50 /* ReportTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTab.swift; sourceTree = "<group>"; };
 		488D3A9E269F42AF00287A50 /* PutKeyboardBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutKeyboardBack.swift; sourceTree = "<group>"; };
 		488D3AA0269F5A2A00287A50 /* ExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseView.swift; sourceTree = "<group>"; };
-		488D3AA6269F6AD000287A50 /* DisplayDate+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DisplayDate+.swift"; sourceTree = "<group>"; };
 		488D3AA8269F837300287A50 /* Binding+Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Optional.swift"; sourceTree = "<group>"; };
 		488D3AAA269F86E400287A50 /* TestExpenseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExpenseInfo.swift; sourceTree = "<group>"; };
 		488D3AAD269F8C5400287A50 /* Print+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Print+.swift"; sourceTree = "<group>"; };
@@ -323,7 +321,6 @@
 				485E4CAF26E0C38F009E6162 /* Focus+.swift */,
 				4852795E26E10FE500F7B45B /* Someone+.swift */,
 				4852795C26E1082000F7B45B /* RAC+Expense.swift */,
-				6EECDA262760EF8E004DB90C /* Date+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -461,7 +458,7 @@
 				482A322F26F9AFC000BDF958 /* Image+.swift */,
 				48F35BCF26EC2B66003B570D /* ColorSet.swift */,
 				48F35BD126EC2F3C003B570D /* Color+.swift */,
-				488D3AA6269F6AD000287A50 /* DisplayDate+.swift */,
+				6EECDA262760EF8E004DB90C /* Date+.swift */,
 				488D3AA8269F837300287A50 /* Binding+Optional.swift */,
 				4878A76F26AD9BBA00DCBC8D /* Array+.swift */,
 				488D3A9E269F42AF00287A50 /* PutKeyboardBack.swift */,
@@ -722,7 +719,6 @@
 				48F0A09C26A4CED6004898C0 /* DayExpensesView.swift in Sources */,
 				488D3AB0269F8F2F00287A50 /* ExpenseInfo.swift in Sources */,
 				488EA1F6271C0EA400311183 /* SideMenu_About.swift in Sources */,
-				488D3AA7269F6AD000287A50 /* DisplayDate+.swift in Sources */,
 				488EA1FD271C11FA00311183 /* SingleFocusViewForModify.swift in Sources */,
 				488D3A96269F188100287A50 /* ReportTab.swift in Sources */,
 				482A323226F9AFDF00BDF958 /* ImagePicker.swift in Sources */,

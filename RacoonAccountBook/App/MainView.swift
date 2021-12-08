@@ -69,8 +69,8 @@ struct MainView: View {
                         Text(MainView.Tab3)
                     }
                     .tag(MainView.Tab3)
-                
-               MeTab()
+
+                MeTab()
                     .tabItem {
                         Image(systemName: "person.fill")
                         Text(MainView.Tab4)

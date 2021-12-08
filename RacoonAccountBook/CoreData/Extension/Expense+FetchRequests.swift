@@ -30,7 +30,8 @@ extension Expense {
         request.predicate = NSPredicate(
             format: "spentAt_ >= %@ and spentAt_ < %@",
             (Date() - 30.days).date as NSDate,
-            Date().date as NSDate)
+            Date().date as NSDate
+        )
         return request
     }
 
@@ -40,7 +41,8 @@ extension Expense {
         request.predicate = NSPredicate(
             format: "spentAt_ >= %@ and spentAt_ < %@",
             Date().dateAt(.startOfMonth).date as NSDate,
-            Date().dateAt(.endOfMonth).date as NSDate)
+            Date().dateAt(.endOfMonth).date as NSDate
+        )
         return request
     }
 
@@ -50,7 +52,8 @@ extension Expense {
         request.predicate = NSPredicate(
             format: "spentAt_ >= %@ and spentAt_ < %@",
             month.dateAt(.startOfMonth).date as NSDate,
-            month.dateAt(.endOfMonth).date as NSDate)
+            month.dateAt(.endOfMonth).date as NSDate
+        )
         return request
     }
 
@@ -62,7 +65,8 @@ extension Expense {
         request.predicate = NSPredicate(
             format: "spentAt_ >= %@ and spentAt_ < %@",
             (Date() - 7.days).date as NSDate,
-            Date().date as NSDate)
+            Date().date as NSDate
+        )
         return request
     }
 
@@ -72,7 +76,8 @@ extension Expense {
         request.predicate = NSPredicate(
             format: "spentAt_ >= %@ and spentAt_ < %@",
             Date().dateAt(.startOfWeek).date as NSDate,
-            Date().dateAt(.endOfWeek).date as NSDate)
+            Date().dateAt(.endOfWeek).date as NSDate
+        )
         return request
     }
 
@@ -84,7 +89,8 @@ extension Expense {
         request.predicate = NSPredicate(
             format: "spentAt_ >= %@ and spentAt_ < %@",
             day.dateAt(.startOfDay).date as NSDate,
-            day.dateAt(.endOfDay).date as NSDate)
+            day.dateAt(.endOfDay).date as NSDate
+        )
         return request
     }
 
@@ -94,7 +100,8 @@ extension Expense {
         let request = NSFetchRequest<Expense>(entityName: "Expense")
         request.sortDescriptors = [NSSortDescriptor(key: "uuid_", ascending: true)]
         request.predicate = NSPredicate(
-            format: "uuid_ = %@", uuid as CVarArg)
+            format: "uuid_ = %@", uuid as CVarArg
+        )
         return request
     }
 }

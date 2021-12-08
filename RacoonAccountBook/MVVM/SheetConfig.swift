@@ -15,7 +15,8 @@ struct SheetConfig {
     var expense_inputting = ExpenseInfo(
         spentAtDate: Date(),
         event: "",
-        amount: 0.0)
+        amount: 0.0
+    )
     /// 用来转换输入的可能不是小数的小数（临时）
     var amount_string_inputting: String = ""
 

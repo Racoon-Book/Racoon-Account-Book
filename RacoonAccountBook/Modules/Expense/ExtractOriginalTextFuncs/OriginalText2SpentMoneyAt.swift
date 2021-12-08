@@ -9,7 +9,6 @@ func OriginalText2SpentMoneyAt(from originalText: String) -> Date? {
     }
 
     if originalText.contains("今天") {
-        // 今天的话要返回当前的时间
         return Date()
     } else if originalText.contains("昨天") {
         return Date().dateAt(.yesterday)

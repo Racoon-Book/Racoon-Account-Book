@@ -52,7 +52,7 @@ struct MonthExpensesView: View {
             }.padding()
         } else {
             VStack {
-                ForEach(0..<MonthExpensesView.dates.count, id: \.self) {
+                ForEach(0 ..< MonthExpensesView.dates.count, id: \.self) {
                     DayExpensesView(date: MonthExpensesView.dates[$0])
                 }
             }
