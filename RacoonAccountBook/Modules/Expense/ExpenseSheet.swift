@@ -72,17 +72,7 @@ struct ExpenseSheet: View {
                                     Text(DisplayDate(RacoonSheetConfig.shared.expense_inputting.spentAtDate))
                                         .font(.body)
                                         .padding(.top, 6.0)
-<<<<<<< HEAD
                                     DatePicker("", selection: $RacoonSheetConfig.shared.expense_inputting.spentAtDate, in: ...Date(), displayedComponents: .date)
-=======
-                                    DatePicker("", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
-                                        .onAppear {
-                                            selectedDate = RacoonSheetConfig.shared.expense_inputting.spentAt.date
-                                        }
-                                        .onChange(of: selectedDate) { date in
-                                            RacoonSheetConfig.shared.expense_inputting.spentAt = DateInRegion(date, region: regionChina)
-                                        }
->>>>>>> a6b7eaf47920b31eb939cec9a4aaee7107f1a035
 
                                     Spacer()
                                 }
