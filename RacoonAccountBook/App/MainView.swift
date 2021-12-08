@@ -50,6 +50,7 @@ struct MainView: View {
         ZStack {
             TabView(selection: $selectedTab) {
                 BookTab(onSideMenuOpen: onSideMenuOpen, onSideMenuClose: onSideMenuClose, isSideMenuOpen: isSideMenuOpen)
+                    .blur(radius: RacoonSheetConfig.shared.blurRadius)
                     .tabItem {
                         Image(systemName: "text.book.closed.fill")
                         Text(MainView.Tab1)
