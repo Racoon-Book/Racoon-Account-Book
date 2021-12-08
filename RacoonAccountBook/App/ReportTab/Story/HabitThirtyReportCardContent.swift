@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct HabitReportCardContent: View {
+struct HabitThirtyReportCardContent: View {
     /// 过去30天内财记总数
     var expenseCount: Int = 0
 
