@@ -82,7 +82,7 @@ struct ScreenshotImportSheet: View {
                                         }
                                         .padding(3) // 不同账单之间的
                                         .onTapGesture {
-                                            print(Log().string + "tapped")
+//                                            print(Log().string + "tapped")
                                             weChatBills[i].isSelected.toggle()
                                         }
                                     }
@@ -96,7 +96,7 @@ struct ScreenshotImportSheet: View {
                     LargeButton(title: "导入所选账目",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                            print(Log().string + "按钮点击")
+//                            print(Log().string + "按钮点击")
 
                             // 导入数据库 清除状态 收回sheet
                             AddSelectedWeChatBills()
@@ -135,7 +135,7 @@ struct ScreenshotImportSheet: View {
                 leading:
                 HStack {
                     Button(action: {
-                        print(Log().string + "左上角取消点击")
+//                        print(Log().string + "左上角取消点击")
 
                         ClearImportSheetState() // 清空正在输入的 ExpenseInfo
 
@@ -144,7 +144,7 @@ struct ScreenshotImportSheet: View {
 
                     if weChatBills.count != 0 {
                         Button(action: {
-                            print(Log().string + "左上角清除点击")
+//                            print(Log().string + "左上角清除点击")
                             withAnimation {
                                 ClearImportSheetState()
                             }
@@ -158,7 +158,7 @@ struct ScreenshotImportSheet: View {
                 HStack {
                     if weChatBills.count != 0 {
                         Button(action: {
-                            print(Log().string + "右上角导入点击")
+//                            print(Log().string + "右上角导入点击")
                             // FIXME:
                             // 导入数据库 清除状态 收回sheet
                             AddSelectedWeChatBills()
@@ -286,7 +286,7 @@ struct ScreenshotImportSheet: View {
         }
 
         // TODO: add operations on WeChatBills
-        print(Log().string + "共获取到\(weChatBills.count)条WeChatBill")
-        print(Log().string + "[RecognizeText END]")
+//        print(Log().string + "共获取到\(weChatBills.count)条WeChatBill")
+//        print(Log().string + "[RecognizeText END]")
     }
 }

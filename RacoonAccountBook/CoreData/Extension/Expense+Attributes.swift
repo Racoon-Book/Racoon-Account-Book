@@ -71,7 +71,7 @@ extension Expense {
             if event_ != nil {
                 return event_!
             } else {
-                print(Log().string + "未获取到event")
+//                print(Log().string + "未获取到event")
                 return ""
             }
         }

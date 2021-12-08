@@ -18,12 +18,12 @@ struct OriginalTextField: View {
                 self.isEditing = isEditing
         }
         onCommit: {
-            print(Log().string + "Committed")
+//            print(Log().string + "Committed")
             UpdateExpenseInfo()
         }
         // 注意这里最好不用`.onReceive` 因为`Just()`所认为的修改应该不仅仅有值上的改变 还有地址上的改变 好像一赋值就会执行 这并不是所期望的
         .onChange(of: expenseInfo_inputting.originalText) { _ in
-            print(Log().string + "Changed.")
+//            print(Log().string + "Changed.")
             UpdateExpenseInfo()
         }
         .autocapitalization(.none)

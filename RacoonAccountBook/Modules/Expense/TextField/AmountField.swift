@@ -25,7 +25,7 @@ struct AmountField: View {
         })
         // 别用 onReceive()
         .onChange(of: input_string) { _ in
-            print(Log().string + "Changed.")
+//            print(Log().string + "Changed.")
             if let newValue = Float(input_string) {
                 self.input_float = newValue
             }

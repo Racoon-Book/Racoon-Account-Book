@@ -21,7 +21,7 @@ struct BookTab: View {
          onSideMenuClose: @escaping () -> Void,
          isSideMenuOpen: Bool)
     {
-        print(Log().string + "BookTab View init")
+//        print(Log().string + "BookTab View init")
         // 打开app默认展示的月份为当月
 
         self.onSideMenuOpen = onSideMenuOpen
@@ -69,6 +69,6 @@ struct BookTab: View {
     }
 
     private func didDismissScreenshotImportSheet() {
-        print(Log().string + "Dismissed")
+//        print(Log().string + "Dismissed")
     }
 }

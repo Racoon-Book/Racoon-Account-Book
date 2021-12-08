@@ -110,7 +110,7 @@ struct MainView: View {
         }
         DiscardCurrentExpense()
 
-        print(Log().string + "Dismissed")
+//        print(Log().string + "Dismissed")
     }
 }
 
