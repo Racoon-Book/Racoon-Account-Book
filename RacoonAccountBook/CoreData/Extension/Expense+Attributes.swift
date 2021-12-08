@@ -37,7 +37,7 @@ extension Expense {
                 return Date()
             }
         }
-        set { createdAt_ = newValue.date }
+        set { createdAt_ = newValue }
     }
 
     var updatedAt: Date {
@@ -49,7 +49,7 @@ extension Expense {
                 return Date()
             }
         }
-        set { updatedAt_ = newValue.date }
+        set { updatedAt_ = newValue }
     }
 
     // properties
@@ -63,7 +63,7 @@ extension Expense {
                 return Date()
             }
         }
-        set { spentAt_ = newValue.date }
+        set { spentAt_ = newValue }
     }
 
     var event: String {

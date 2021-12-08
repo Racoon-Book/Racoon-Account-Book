@@ -29,8 +29,8 @@ extension Expense {
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
         request.predicate = NSPredicate(
             format: "spentAt_ >= %@ and spentAt_ < %@",
-            (Date() - 30.days).date as NSDate,
-            Date().date as NSDate
+            (Date() - 30.days) as NSDate,
+            Date() as NSDate
         )
         return request
     }
@@ -40,8 +40,8 @@ extension Expense {
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
         request.predicate = NSPredicate(
             format: "spentAt_ >= %@ and spentAt_ < %@",
-            Date().dateAt(.startOfMonth).date as NSDate,
-            Date().dateAt(.endOfMonth).date as NSDate
+            Date().dateAt(.startOfMonth) as NSDate,
+            Date().dateAt(.endOfMonth) as NSDate
         )
         return request
     }
@@ -51,8 +51,8 @@ extension Expense {
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
         request.predicate = NSPredicate(
             format: "spentAt_ >= %@ and spentAt_ < %@",
-            month.dateAt(.startOfMonth).date as NSDate,
-            month.dateAt(.endOfMonth).date as NSDate
+            month.dateAt(.startOfMonth) as NSDate,
+            month.dateAt(.endOfMonth) as NSDate
         )
         return request
     }
@@ -64,8 +64,8 @@ extension Expense {
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
         request.predicate = NSPredicate(
             format: "spentAt_ >= %@ and spentAt_ < %@",
-            (Date() - 7.days).date as NSDate,
-            Date().date as NSDate
+            (Date() - 7.days) as NSDate,
+            Date() as NSDate
         )
         return request
     }
@@ -75,8 +75,8 @@ extension Expense {
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
         request.predicate = NSPredicate(
             format: "spentAt_ >= %@ and spentAt_ < %@",
-            Date().dateAt(.startOfWeek).date as NSDate,
-            Date().dateAt(.endOfWeek).date as NSDate
+            Date().dateAt(.startOfWeek) as NSDate,
+            Date().dateAt(.endOfWeek) as NSDate
         )
         return request
     }
@@ -88,8 +88,8 @@ extension Expense {
         request.sortDescriptors = [NSSortDescriptor(key: "spentAt_", ascending: true)]
         request.predicate = NSPredicate(
             format: "spentAt_ >= %@ and spentAt_ < %@",
-            day.dateAt(.startOfDay).date as NSDate,
-            day.dateAt(.endOfDay).date as NSDate
+            day.dateAt(.startOfDay) as NSDate,
+            day.dateAt(.endOfDay) as NSDate
         )
         return request
     }

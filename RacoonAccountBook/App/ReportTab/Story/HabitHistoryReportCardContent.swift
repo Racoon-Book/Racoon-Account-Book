@@ -11,9 +11,7 @@ struct HabitHistoryReportCardContent: View {
             if expenseCount == 0 {
                 Text("使用浣熊财记以来，你似乎还没有记账呢。用浣熊财记开启你的记账之旅吧！")
             } else {
-                Text("使用") +
-                    Text(" 浣熊财记 ").font(.system(.title2, design: .rounded)) +
-                    Text("以来，你共记了") +
+                Text("使用浣熊财记以来，你共记了") +
                     Text(" \(expenseCount) ").font(.system(.title, design: .rounded)) +
                     Text("笔账。")
                 Text("看样子已经走上了坚持记账的道路呢！")
