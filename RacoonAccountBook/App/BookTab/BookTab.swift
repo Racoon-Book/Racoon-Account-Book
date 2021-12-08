@@ -36,6 +36,7 @@ struct BookTab: View {
                     defaultColorSet.tabBackground.ignoresSafeArea() // 把背景撑开 没有账单的时候显示会只有一个条块
 
                     MonthExpensesView(selectedDate: selectedDate)
+                        .blur(radius: RacoonSheetConfig.shared.blurRadius)
                 }
                 .padding([.top, .bottom], 10) // 最下方别贴着屏幕底端
             }
