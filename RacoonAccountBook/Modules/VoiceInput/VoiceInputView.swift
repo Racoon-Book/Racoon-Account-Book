@@ -79,6 +79,7 @@ struct CommitSpeechButton: View {
 
     private func UpdateExpense() {
         expenseInfo_inputting.update(
+            spentMoneyAt: OriginalText2SpentMoneyAt(from: expenseInfo_inputting.originalText ?? "") ?? Date(),
             event: OriginalText2Event(from: expenseInfo_inputting.originalText ?? "") ?? "",
             amount_float: OriginalText2Amount(from: expenseInfo_inputting.originalText ?? "") ?? 0.0,
             generatedTags: OriginalText2GeneratedTags(from: expenseInfo_inputting.originalText ?? "")
