@@ -14,7 +14,7 @@ struct ExReportCardContent: View {
             if expenseSum == 0 {
                 Text("还没有记账信息呢")
             } else {
-                let expenseAvgInThisMonth = String(format: "%.1f", expenseSum / Float(DateInRegion(region: regionChina).day))
+                let expenseAvgInThisMonth = String(format: "%.1f", expenseSum / Float(Date().day))
                 ReportItemView(
                     reportTitle: "总支出",
                     reportBody: "¥\(expenseSum)",

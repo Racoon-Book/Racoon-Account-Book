@@ -36,10 +36,10 @@ struct Log: CustomStringConvertible {
     init(filePath: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) {
         let fileName = (filePath as NSString).lastPathComponent
 
-        let date = DateInRegion(region: regionChina)
-        time_short = date.toFormat("H:mm:ss", locale: Locales.chineseChina)
-        time_medium = date.toFormat("M/d H:mm:ss", locale: Locales.chineseChina)
-        time_verbose = date.toFormat("yyyy/M/d H:mm:ss.SSS", locale: Locales.chineseChina)
+        let date = Date()
+        time_short = date.toFormat("H:mm:ss")
+        time_medium = date.toFormat("M/d H:mm:ss")
+        time_verbose = date.toFormat("yyyy/M/d H:mm:ss.SSS")
 
         log_short = "\(fileName)(\(line))"
         log_medium = "\(fileName)(\(line)) \(funcName)"

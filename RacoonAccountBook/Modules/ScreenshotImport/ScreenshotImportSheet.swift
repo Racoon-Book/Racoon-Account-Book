@@ -264,7 +264,7 @@ struct ScreenshotImportSheet: View {
             if let amount = Float(string2),
                var spentAt = dateFormatter.date(from: string3)
             {
-                spentAt = spentAt.dateBySet([.year: DateInRegion().year])! // 直接取，可能会崩
+                spentAt = spentAt.dateBySet([.year: Date().year])! // 直接取，可能会崩
                 let name = string1
 
                 let wechatBill = WeChatBillInfo(

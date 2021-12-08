@@ -15,8 +15,8 @@ struct BookTab: View {
 
     // --- 31 ---
 
-    init(thisYear _: Int = DateInRegion(region: regionChina).year,
-         thisMonth _: Int = DateInRegion(region: regionChina).month,
+    init(thisYear _: Int = Date().year,
+         thisMonth _: Int = Date().month,
          onSideMenuOpen: @escaping () -> Void,
          onSideMenuClose: @escaping () -> Void,
          isSideMenuOpen: Bool)
