@@ -9,6 +9,10 @@ struct ExpenseSheet: View {
 
     @EnvironmentObject var RacoonSheetConfig: SheetConfigModel
 
+    // MARK: - 日期选择
+
+    @State private var selectedDate = Date()
+
     // MARK: - 界面参数
 
     /// 呈现转换后的条目的信息的高度
@@ -57,7 +61,8 @@ struct ExpenseSheet: View {
                                 .font(.system(.headline))
                             // TODO: 每次打开sheet直接将光标放在这里，键盘默认弹出
                             OriginalTextField(
-                                hint: "用一句话写出你的花销", isEditing: $isEditing, expenseInfo_inputting: $RacoonSheetConfig.shared.expense_inputting, amount_string_inputting: $RacoonSheetConfig.shared.amount_string_inputting)
+                                hint: "用一句话写出你的花销", isEditing: $isEditing, expenseInfo_inputting: $RacoonSheetConfig.shared.expense_inputting, amount_string_inputting: $RacoonSheetConfig.shared.amount_string_inputting
+                            )
                         }
 
                         // 三个要素 spentMoneyAt event amount
@@ -71,22 +76,32 @@ struct ExpenseSheet: View {
                                     Text(DisplayDate(RacoonSheetConfig.shared.expense_inputting.spentAt))
                                         .font(.body)
                                         .padding(.top, 6.0)
+                                    DatePicker("", selection: $selectedDate, in: ...Date(), displayedComponents: .date)
+                                        .onChange(of: selectedDate) { date in
+                                            print(selectedDate)
+                                            print("fdsfsafds=af=d=f-=d-f=-=-=s-=-")
+                                            RacoonSheetConfig.shared.expense_inputting.spentAt = DateInRegion(date, region: regionChina)
+                                        }
+
                                     Spacer()
                                 }
                                 HStack {
                                     ExpenseInfoCommomTextField(
                                         hint: "事件",
                                         input_text: $RacoonSheetConfig.shared.expense_inputting.event,
-                                        isEditing: $isEditing)
+                                        isEditing: $isEditing
+                                    )
 
                                     AmountField(
                                         hint: "金额",
                                         input_float: $RacoonSheetConfig.shared.expense_inputting.amount,
                                         input_string: $RacoonSheetConfig.shared.amount_string_inputting,
-                                        isEditing: $isEditing)
-                                        .frame(
-                                            maxWidth: ExpenseSheet.amountFieldWidth,
-                                            alignment: .trailing)
+                                        isEditing: $isEditing
+                                    )
+                                    .frame(
+                                        maxWidth: ExpenseSheet.amountFieldWidth,
+                                        alignment: .trailing
+                                    )
                                 }
                             }
                             .padding([.horizontal], 10) // 三个要素离矩形边框远一点
@@ -108,7 +123,8 @@ struct ExpenseSheet: View {
                         if RacoonSheetConfig.shared.showingStory {
                             StoryInputView(
                                 expenseInfo_inputting: $RacoonSheetConfig.shared.expense_inputting,
-                                showingStoryInputView: $RacoonSheetConfig.shared.showingStory)
+                                showingStoryInputView: $RacoonSheetConfig.shared.showingStory
+                            )
                         } else {
                             EmptyView()
                         }
@@ -117,7 +133,8 @@ struct ExpenseSheet: View {
                         if RacoonSheetConfig.shared.showingForWho {
                             ForWhoInputView(
                                 expenseInfo_inputting: $RacoonSheetConfig.shared.expense_inputting,
-                                showingForWhoInputView: $RacoonSheetConfig.shared.showingForWho)
+                                showingForWhoInputView: $RacoonSheetConfig.shared.showingForWho
+                            )
                         } else {
                             EmptyView()
                         }
@@ -137,11 +154,11 @@ struct ExpenseSheet: View {
                     LargeButton(title: RacoonSheetConfig.shared.isEditMode ? "修改" : "记账",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                            if RacoonSheetConfig.shared.isEditMode {
-                                UpdateExpense()
-                            } else {
-                                AddNewExpense()
-                            }
+                        if RacoonSheetConfig.shared.isEditMode {
+                            UpdateExpense()
+                        } else {
+                            AddNewExpense()
+                        }
                     }
                     .font(.system(.title)) // TODO: 字有点小
                 }
@@ -150,7 +167,8 @@ struct ExpenseSheet: View {
             // Sheet最上方的标题
             .navigationBarTitle(
                 Text(RacoonSheetConfig.shared.isEditMode ? "修改账目" : "记一笔账"),
-                displayMode: .inline)
+                displayMode: .inline
+            )
             // [Sheet左右两侧的按钮]
             .navigationBarItems(
                 // 左边有两个按钮
@@ -191,14 +209,16 @@ struct ExpenseSheet: View {
                         AddNewExpense() // 将当前正在输入的ExpenseInfo存储到数据库
                     }
 
-                }) { Text(RacoonSheetConfig.shared.isEditMode ? "修改" : "记账").bold() })
+                }) { Text(RacoonSheetConfig.shared.isEditMode ? "修改" : "记账").bold() }
+            )
         }
         // 发生错误的提示错误
         .alert(isPresented: $showUnsuccessfullyAlert) {
             Alert(
                 title: Text("提示"),
                 message: Text(unsuccessfullyAlertMessage),
-                dismissButton: .default(Text("OK")))
+                dismissButton: .default(Text("OK"))
+            )
         }
         .actionSheet(isPresented: $showDeleteAlertSheet) {
             ActionSheet(title: Text("删除此记录"),
@@ -254,7 +274,8 @@ struct ExpenseSheet: View {
             let successfullyUpdate: Bool = Expense.updateBy(
                 uuid: RacoonSheetConfig.shared.uuidOfExpenseToEdit!,
                 expenseInfo: RacoonSheetConfig.shared.expense_inputting,
-                context: context)
+                context: context
+            )
 
             if successfullyUpdate {
                 // 添加成功显示提示
