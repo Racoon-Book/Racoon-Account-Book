@@ -15,7 +15,7 @@ struct MeTab: View {
             .navigationTitle("我的")
             .navigationBarTitleDisplayMode(.inline)
 
-            .background(defaultColorSet.tabBackground.ignoresSafeArea()) // background color:真正上色
+            .background(defaultColorSet.tabBackground.ignoresSafeArea()) // FIXME: 这个颜色怎么和其他的Tab不一样？
         }
     }
 }

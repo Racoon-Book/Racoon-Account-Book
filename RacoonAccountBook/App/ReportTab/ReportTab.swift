@@ -17,6 +17,7 @@ struct ReportTab: View {
                         Text("财记").tag(SegmentChoice.story)
                     }
                     .pickerStyle(SegmentedPickerStyle())
+                    .padding([.top])
                     Spacer()
                 }
 
