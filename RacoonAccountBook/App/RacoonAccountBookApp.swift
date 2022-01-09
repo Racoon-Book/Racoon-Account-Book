@@ -1,7 +1,9 @@
 // App Entrance
 
+import AVFoundation
 import CoreData
 import SwiftUI
+import XCLog
 
 @main
 struct RacoonAccountBookApp: App {
@@ -10,6 +12,12 @@ struct RacoonAccountBookApp: App {
     let persistenceController = PersistenceController.shared
 
     init() {
+        #if DEV
+            XCLog(.trace, "RacoonAccountBook Dev 开始运行")
+        #else
+            XCLog(.trace, "RacoonAccountBook 开始运行")
+        #endif
+
         #if DEV
             // 测试的时候 删除所有的Focus 再进行添加
             Focus.deleteAll(context: persistenceController.container.viewContext)
@@ -43,9 +51,9 @@ struct RacoonAccountBookApp: App {
 
                 let nowAllExpenses = try? persistenceController.container.viewContext.fetch(Expense.request_allExpenses)
 
-                print(Log().string + "删除并重新插入了测试数据共\(GetTestExpenseInfos().count)条, 现在数据库中有\(nowAllExpenses?.count ?? -1)条Expense")
+                XCLog(.info, "删除并重新插入了测试数据共\(GetTestExpenseInfos().count)条, 现在数据库中有\(nowAllExpenses?.count ?? -1)条Expense")
             } else {
-                print(Log().string + "no data in Core Data")
+                XCLog(.error, "无法获取数据库数据")
             }
 
         #endif

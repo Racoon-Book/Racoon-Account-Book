@@ -1133,7 +1133,7 @@
 			repositoryURL = "https://github.com/Yang-Xijie/XCLog";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.2;
+				minimumVersion = 1.0.0;
 			};
 		};
 		488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
