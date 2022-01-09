@@ -52,8 +52,8 @@
       </BuildableProductRunnable>
       <EnvironmentVariables>
          <EnvironmentVariable
-            key = "LOG"
-            value = "[\((#file as NSString).lastPathComponent) \(#function) line\(#line)]"
+            key = "OS_ACTIVITY_MODE"
+            value = "disable"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
