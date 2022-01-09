@@ -108,6 +108,7 @@
 
 /* Begin PBXFileReference section */
 		480B711D278AD081002C2A2E /* UserDefaults+isFirstLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+isFirstLaunch.swift"; sourceTree = "<group>"; };
+		480B711F278AD303002C2A2E /* MarkNotation.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = MarkNotation.md; sourceTree = "<group>"; };
 		4823CD2C269FFE6900C7217F /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
 		482A322D26F9AF5800BDF958 /* WeChatBillInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatBillInfo.swift; sourceTree = "<group>"; };
 		482A322F26F9AFC000BDF958 /* Image+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+.swift"; sourceTree = "<group>"; };
@@ -220,6 +221,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		480B7120278AD363002C2A2E /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				480B711F278AD303002C2A2E /* MarkNotation.md */,
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
 		482A322A26F9AE1B00BDF958 /* ScreenshotImport */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +405,7 @@
 			isa = PBXGroup;
 			children = (
 				488D3A76269F0E5B00287A50 /* RacoonAccountBook */,
+				480B7120278AD363002C2A2E /* Docs */,
 				48F06833278AC64700CD9099 /* Scripts */,
 				488D3A75269F0E5B00287A50 /* Products */,
 			);
