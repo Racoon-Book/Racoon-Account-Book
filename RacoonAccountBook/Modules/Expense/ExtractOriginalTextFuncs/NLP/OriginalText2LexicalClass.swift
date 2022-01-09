@@ -11,7 +11,7 @@ func OriginalText2LexicalClass(from originalText: String) -> ([String], [String]
     var lexicalClasses: [String] = []
 
     let tagger = NLTagger(tagSchemes: [.lexicalClass])
-    tagger.setLanguage(NLChinese, range: originalText.startIndex ..< originalText.endIndex)
+    tagger.setLanguage(NLLanguage.simplifiedChinese, range: originalText.startIndex ..< originalText.endIndex)
     tagger.string = originalText
     let options: NLTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
 

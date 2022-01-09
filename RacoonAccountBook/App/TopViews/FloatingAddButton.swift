@@ -62,7 +62,7 @@ struct FloatingAddButton: View {
                 VStack {
                     Spacer()
                     ButtonContent()
-                        .swiftSpeechRecordOnHoldWithTap(locale: Locale(identifier: ChineseSpeechIdentifier), tapAction: {
+                        .swiftSpeechRecordOnHoldWithTap(locale: Locale(identifier: "zh_Hans_CN"), tapAction: {
 //                            print(Log().string + "Tapped")
                             RacoonSheetConfig.showCreateSheet()
                         }, tapDuration: 80)
