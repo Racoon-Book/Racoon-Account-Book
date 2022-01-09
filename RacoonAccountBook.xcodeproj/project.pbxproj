@@ -629,10 +629,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 488D3A83269F0E5E00287A50 /* Build configuration list for PBXNativeTarget "RacoonAccountBook" */;
 			buildPhases = (
+				48F06834278AC79200CD9099 /* Set Build Number */,
 				488D3A70269F0E5B00287A50 /* Sources */,
 				488D3A71269F0E5B00287A50 /* Frameworks */,
 				488D3A72269F0E5B00287A50 /* Resources */,
-				48F06834278AC79200CD9099 /* Set Build Number */,
 			);
 			buildRules = (
 			);
