@@ -1,20 +1,6 @@
 import Foundation
 import SwiftDate
 
-extension Date {
-    static func dates(from fromDate: Date, to toDate: Date) -> [Date] {
-        var dates: [Date] = []
-        var date = fromDate
-
-        while date <= toDate {
-            dates.append(date)
-            guard let newDate = Calendar.current.date(byAdding: .day, value: 1, to: date) else { break }
-            date = newDate
-        }
-        return dates
-    }
-}
-
 func DisplayDate(_ date: Date) -> String {
     let isYesterday: Bool = date.compare(.isYesterday)
     let isToday: Bool = date.compare(.isToday)

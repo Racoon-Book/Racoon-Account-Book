@@ -1,5 +1,3 @@
-// Color+.swift
-
 import Foundation
 import SwiftUI
 

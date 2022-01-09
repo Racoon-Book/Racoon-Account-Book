@@ -1,5 +1,3 @@
-// UserDefaults+isFirstLaunch.swift
-
 import Foundation
 
 extension UserDefaults {

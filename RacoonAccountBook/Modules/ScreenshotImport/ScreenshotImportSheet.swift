@@ -98,10 +98,10 @@ struct ScreenshotImportSheet: View {
                                 foregroundColor: Color.white) {
 //                            print(Log().string + "按钮点击")
 
-                            // 导入数据库 清除状态 收回sheet
-                            AddSelectedWeChatBills()
-                            RacoonSheetConfig.shared.showingScreenshotImportSheet = false
-                            ClearImportSheetState()
+                        // 导入数据库 清除状态 收回sheet
+                        AddSelectedWeChatBills()
+                        RacoonSheetConfig.shared.showingScreenshotImportSheet = false
+                        ClearImportSheetState()
                     }
                     .padding() // 离下面远一点
                 } else {
@@ -118,7 +118,7 @@ struct ScreenshotImportSheet: View {
                     LargeButton(title: "选择微信账单截图",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-                            showingImagePicker = true
+                        showingImagePicker = true
                     }
                     .padding()
                 }
@@ -128,7 +128,8 @@ struct ScreenshotImportSheet: View {
 
             .navigationBarTitle(
                 Text("截图导入"),
-                displayMode: .inline)
+                displayMode: .inline
+            )
             // [Sheet左右两侧的按钮]
             .navigationBarItems(
                 // 左边有两个按钮
@@ -168,11 +169,12 @@ struct ScreenshotImportSheet: View {
                     } else {
                         EmptyView()
                     }
-                })
+                }
+            )
 
             .sheet(isPresented: $showingImagePicker,
                    onDismiss: textExtractFromScreenshot) {
-                    ImagePicker(image: self.$systemScreenshot)
+                ImagePicker(image: self.$systemScreenshot)
             }
         }
     }
@@ -211,9 +213,8 @@ struct ScreenshotImportSheet: View {
             let h = screenshot.size.height
             let x_start = CGFloat(51.0 / 325.0)
             let y_start = CGFloat(125.0 / 708.0)
-            let croppedScreenshot: UIImage = cropImage(imageToCrop: screenshot, toRect: CGRectMake(
-                w * x_start, h * y_start,
-                w * (1 - x_start), h * (1 - y_start)))
+            let croppedScreenshot: UIImage = cropImage(imageToCrop: screenshot, toRect:
+                CGRect(x: w * x_start, y: h * y_start, width: w * (1 - x_start), height: h * (1 - y_start)))
 
             // MARK: recognition
 
@@ -237,7 +238,7 @@ struct ScreenshotImportSheet: View {
         }
     }
 
-    private func recognizeTextHandler(request: VNRequest, error: Error?) {
+    private func recognizeTextHandler(request: VNRequest, error _: Error?) {
         guard let observations =
             request.results as? [VNRecognizedTextObservation]
         else {
@@ -257,9 +258,9 @@ struct ScreenshotImportSheet: View {
             let string1: String = recognizedStrings[i]
             let string2: String = recognizedStrings[i + 1]
             let string3: String = recognizedStrings[i + 2]
-            
+
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "M月d日 hh:mm";
+            dateFormatter.dateFormat = "M月d日 hh:mm"
 
             if let amount = Float(string2),
                var spentAt = dateFormatter.date(from: string3)
@@ -269,7 +270,8 @@ struct ScreenshotImportSheet: View {
 
                 let wechatBill = WeChatBillInfo(
                     name: name, amount: 0 - amount, spentAtDate: spentAt,
-                    isDuplicated: false) // TODO: 添加duplicated判断
+                    isDuplicated: false
+                ) // TODO: 添加duplicated判断
                 print(wechatBill)
 
                 // 支出的情况
