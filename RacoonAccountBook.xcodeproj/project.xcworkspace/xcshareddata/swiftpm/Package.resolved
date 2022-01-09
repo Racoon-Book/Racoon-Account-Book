@@ -18,6 +18,15 @@
           "revision": "6e41f289f5ccc1751ef5674972d46b48b326c4c6",
           "version": "0.9.3"
         }
+      },
+      {
+        "package": "XCLog",
+        "repositoryURL": "https://github.com/Yang-Xijie/XCLog",
+        "state": {
+          "branch": null,
+          "revision": "e86e587fac44469e70c8e212573a414e91b3dc3c",
+          "version": "0.0.2"
+        }
       }
     ]
   },

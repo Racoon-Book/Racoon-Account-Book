@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		480B711E278AD081002C2A2E /* UserDefaults+isFirstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480B711D278AD081002C2A2E /* UserDefaults+isFirstLaunch.swift */; };
 		480B7124278AD9EF002C2A2E /* DisplayDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480B7123278AD9EF002C2A2E /* DisplayDate.swift */; };
+		480B7128278ADF99002C2A2E /* XCLog in Frameworks */ = {isa = PBXBuildFile; productRef = 480B7127278ADF99002C2A2E /* XCLog */; };
 		4823CD2D269FFE6900C7217F /* LargeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4823CD2C269FFE6900C7217F /* LargeButton.swift */; };
 		482A322E26F9AF5800BDF958 /* WeChatBillInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482A322D26F9AF5800BDF958 /* WeChatBillInfo.swift */; };
 		482A323026F9AFC000BDF958 /* cropImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482A322F26F9AFC000BDF958 /* cropImage.swift */; };
@@ -213,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				480B7128278ADF99002C2A2E /* XCLog in Frameworks */,
 				48B40E2D26AAE05C0030AAF6 /* SwiftSpeech in Frameworks */,
 				488D3AA5269F689B00287A50 /* SwiftDate in Frameworks */,
 			);
@@ -666,6 +668,7 @@
 			packageProductDependencies = (
 				488D3AA4269F689B00287A50 /* SwiftDate */,
 				48B40E2C26AAE05C0030AAF6 /* SwiftSpeech */,
+				480B7127278ADF99002C2A2E /* XCLog */,
 			);
 			productName = RacoonAccountBook;
 			productReference = 488D3A74269F0E5B00287A50 /* 浣熊财记.app */;
@@ -697,6 +700,7 @@
 			packageReferences = (
 				488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */,
 				48B40E2B26AAE05C0030AAF6 /* XCRemoteSwiftPackageReference "SwiftSpeech" */,
+				480B7126278ADF99002C2A2E /* XCRemoteSwiftPackageReference "XCLog" */,
 			);
 			productRefGroup = 488D3A75269F0E5B00287A50 /* Products */;
 			projectDirPath = "";
@@ -1124,6 +1128,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		480B7126278ADF99002C2A2E /* XCRemoteSwiftPackageReference "XCLog" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Yang-Xijie/XCLog";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.2;
+			};
+		};
 		488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
@@ -1143,6 +1155,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		480B7127278ADF99002C2A2E /* XCLog */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 480B7126278ADF99002C2A2E /* XCRemoteSwiftPackageReference "XCLog" */;
+			productName = XCLog;
+		};
 		488D3AA4269F689B00287A50 /* SwiftDate */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 488D3AA3269F689A00287A50 /* XCRemoteSwiftPackageReference "SwiftDate" */;
