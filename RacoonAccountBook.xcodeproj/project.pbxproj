@@ -189,6 +189,7 @@
 		48D8907B273E7ADF008F1971 /* HabitThirtyReportCardContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitThirtyReportCardContent.swift; sourceTree = "<group>"; };
 		48D8907D273E7AFF008F1971 /* StoryReportCardContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryReportCardContent.swift; sourceTree = "<group>"; };
 		48D8907F273E8493008F1971 /* ReportItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportItemView.swift; sourceTree = "<group>"; };
+		48F06832278AC58400CD9099 /* set_build_number.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = set_build_number.sh; sourceTree = "<group>"; };
 		48F0A09B26A4CED6004898C0 /* DayExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayExpensesView.swift; sourceTree = "<group>"; };
 		48F0A09D26A55DF9004898C0 /* StoryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTab.swift; sourceTree = "<group>"; };
 		48F35BCF26EC2B66003B570D /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
@@ -393,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				488D3A76269F0E5B00287A50 /* RacoonAccountBook */,
+				48F06833278AC64700CD9099 /* Scripts */,
 				488D3A75269F0E5B00287A50 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -539,6 +541,14 @@
 			path = About;
 			sourceTree = "<group>";
 		};
+		48F06833278AC64700CD9099 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				48F06832278AC58400CD9099 /* set_build_number.sh */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
 		48F0A09A26A4CEBB004898C0 /* Component */ = {
 			isa = PBXGroup;
 			children = (
@@ -609,6 +619,7 @@
 				488D3A70269F0E5B00287A50 /* Sources */,
 				488D3A71269F0E5B00287A50 /* Frameworks */,
 				488D3A72269F0E5B00287A50 /* Resources */,
+				48F06834278AC79200CD9099 /* Set Build Number */,
 			);
 			buildRules = (
 			);
@@ -671,6 +682,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		48F06834278AC79200CD9099 /* Set Build Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Set Build Number";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/Scripts/set_build_number.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		488D3A70269F0E5B00287A50 /* Sources */ = {
@@ -897,7 +929,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 111;
+				CURRENT_PROJECT_VERSION = "Build and Versoin are set automatically.";
 				DEVELOPMENT_ASSET_PATHS = "\"RacoonAccountBook/Preview Content\"";
 				DEVELOPMENT_TEAM = C4W6UUH267;
 				ENABLE_PREVIEWS = YES;
@@ -907,7 +939,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 0.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.racoonAccountBook.alpha;
 				PRODUCT_NAME = "浣熊财记";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -923,7 +955,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 111;
+				CURRENT_PROJECT_VERSION = "Build and Versoin are set automatically.";
 				DEVELOPMENT_ASSET_PATHS = "\"RacoonAccountBook/Preview Content\"";
 				DEVELOPMENT_TEAM = C4W6UUH267;
 				ENABLE_PREVIEWS = YES;
@@ -933,7 +965,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 0.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.racoonAccountBook.alpha;
 				PRODUCT_NAME = "浣熊财记";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1010,7 +1042,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 111;
+				CURRENT_PROJECT_VERSION = "Build and Versoin are set automatically.";
 				DEVELOPMENT_ASSET_PATHS = "\"RacoonAccountBook/Preview Content\"";
 				DEVELOPMENT_TEAM = C4W6UUH267;
 				ENABLE_PREVIEWS = YES;
@@ -1020,7 +1052,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 0.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.racoon.RacoonAccountBook.dev;
 				PRODUCT_NAME = "浣熊财记Dev";
 				SWIFT_VERSION = 5.0;
