@@ -1,4 +1,5 @@
 import SwiftUI
+import XCLog
 
 struct SingleFocusViewForModify: View {
     @Environment(\.managedObjectContext) private var context
@@ -13,7 +14,7 @@ struct SingleFocusViewForModify: View {
     var body: some View {
         HStack {
             Button(action: {
-                print(Log().error + "删除了对应的focus 还没做 因为删除可能会影响用户已经输入的账目")
+                XCLog(.error, "删除了对应的focus 还没做 因为删除可能会影响用户已经输入的账目")
 
                 let focus = Focus.focus(name: focus, context: context)
                 context.delete(focus)

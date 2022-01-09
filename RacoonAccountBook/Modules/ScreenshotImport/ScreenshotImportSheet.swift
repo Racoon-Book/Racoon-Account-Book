@@ -4,6 +4,7 @@ import SwiftDate
 import SwiftUI
 import UIKit
 import Vision
+import XCLog
 
 struct ScreenshotImportSheet: View {
     @Environment(\.managedObjectContext) private var context
@@ -35,7 +36,7 @@ struct ScreenshotImportSheet: View {
 
                         // TODO: 添加多张图片的导入
 //                        Button(action: {
-//                            print("clicked 添加新账单")
+//                            XCLog("clicked 添加新账单")
 //                        }) {
 //                                Label("添加新账单", systemImage: "photo")
 //                        }
@@ -83,7 +84,6 @@ struct ScreenshotImportSheet: View {
                                         }
                                         .padding(3) // 不同账单之间的
                                         .onTapGesture {
-//                                            print(Log().string + "tapped")
                                             weChatBills[i].isSelected.toggle()
                                         }
                                     }
@@ -97,8 +97,6 @@ struct ScreenshotImportSheet: View {
                     LargeButton(title: "导入所选账目",
                                 backgroundColor: Color.blue,
                                 foregroundColor: Color.white) {
-//                            print(Log().string + "按钮点击")
-
                         // 导入数据库 清除状态 收回sheet
                         AddSelectedWeChatBills()
                         RacoonSheetConfig.shared.showingScreenshotImportSheet = false
@@ -135,8 +133,6 @@ struct ScreenshotImportSheet: View {
                 leading:
                 HStack {
                     Button(action: {
-//                        print(Log().string + "左上角取消点击")
-
                         ClearImportSheetState() // 清空正在输入的 ExpenseInfo
 
                         RacoonSheetConfig.shared.showingScreenshotImportSheet = false // 收回sheet
@@ -144,7 +140,6 @@ struct ScreenshotImportSheet: View {
 
                     if weChatBills.count != 0 {
                         Button(action: {
-//                            print(Log().string + "左上角清除点击")
                             withAnimation {
                                 ClearImportSheetState()
                             }
@@ -158,7 +153,6 @@ struct ScreenshotImportSheet: View {
                 HStack {
                     if weChatBills.count != 0 {
                         Button(action: {
-//                            print(Log().string + "右上角导入点击")
                             // FIXME:
                             // 导入数据库 清除状态 收回sheet
                             AddSelectedWeChatBills()
@@ -201,9 +195,10 @@ struct ScreenshotImportSheet: View {
         // 清空WeChatBills
         weChatBills = []
 
-        print("loadImage()")
+        XCLog(.trace, "loadImage()")
         if let screenshot = systemScreenshot {
-            print("inputImage not nil")
+            XCLog(.trace, "inputImage not nil")
+
             displayImage = Image(uiImage: screenshot) // 显示的还是原始截图
 
             // MARK: Crop Image
@@ -228,11 +223,12 @@ struct ScreenshotImportSheet: View {
             request.recognitionLanguages = ["zh-Hans"]
 
             do {
-                print("Recognizing...")
+                XCLog(.trace, "Recognizing...")
+
                 // Perform the text-recognition request.
                 try requestHandler.perform([request])
             } catch {
-                print("Unable to perform the requests: \(error).")
+                XCLog(.error, "Unable to perform the requests: \(error).")
             }
         }
     }
@@ -248,8 +244,8 @@ struct ScreenshotImportSheet: View {
             observation.topCandidates(1).first?.string
         }
 
-        print("[RecognizeText START]")
-        print(recognizedStrings)
+        XCLog(.trace, "[RecognizeText START]")
+        XCLog(.info, recognizedStrings.description)
         // Process the recognized strings.
 
         var i: Int = 0
@@ -271,7 +267,6 @@ struct ScreenshotImportSheet: View {
                     name: name, amount: 0 - amount, spentAtDate: spentAt,
                     isDuplicated: false
                 ) // TODO: 添加duplicated判断
-                print(wechatBill)
 
                 // 支出的情况
                 if wechatBill.amount > 0 {
@@ -287,7 +282,9 @@ struct ScreenshotImportSheet: View {
         }
 
         // TODO: add operations on WeChatBills
-//        print(Log().string + "共获取到\(weChatBills.count)条WeChatBill")
-//        print(Log().string + "[RecognizeText END]")
+
+        XCLog(.info, "共获取到\(weChatBills.count)条WeChatBill")
+        XCLog(.info, weChatBills.description)
+        XCLog(.trace, "[RecognizeText END]")
     }
 }

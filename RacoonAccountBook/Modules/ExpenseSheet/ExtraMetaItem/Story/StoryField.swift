@@ -27,7 +27,6 @@ struct StoryField: View {
                 )
         }
         .onChange(of: text) { _ in
-//            print(Log().string + "Changed")
             UpdateStoryText()
         }
         .autocapitalization(.none)

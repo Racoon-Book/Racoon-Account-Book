@@ -109,16 +109,5 @@ struct MainView: View {
             amount_string_inputting = ""
         }
         DiscardCurrentExpense()
-
-//        print(Log().string + "Dismissed")
     }
 }
-
-// struct MainView_Previews: PreviewProvider {
-//    @StateObject static var PreviewAccountBook = AccountBookModel()
-//
-//    static var previews: some View {
-//        MainView()
-//            .environmentObject(PreviewAccountBook)
-//    }
-// }

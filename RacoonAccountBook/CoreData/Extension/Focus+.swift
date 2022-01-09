@@ -2,6 +2,7 @@
 
 import CoreData
 import Foundation
+import XCLog
 
 extension Focus {
     // MARK: - fetch requests
@@ -21,7 +22,7 @@ extension Focus {
             if name_ != nil {
                 return name_!
             } else {
-                print(Log().fatalerror + "未获取到name")
+                XCLog(.error, "未获取到name")
                 return ""
             }
         }
@@ -91,7 +92,7 @@ extension Focus {
                 focusExpenseSumDictionary[focus.name] = expenseSum
             }
         } else {
-            print(Log().error + "no foci")
+            XCLog(.error, "no foci")
         }
 
         return focusExpenseSumDictionary

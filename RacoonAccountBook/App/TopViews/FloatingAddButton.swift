@@ -63,7 +63,6 @@ struct FloatingAddButton: View {
                     Spacer()
                     ButtonContent()
                         .swiftSpeechRecordOnHoldWithTap(locale: Locale(identifier: "zh_Hans_CN"), tapAction: {
-//                            print(Log().string + "Tapped")
                             RacoonSheetConfig.showCreateSheet()
                         }, tapDuration: 80)
                         .onStartRecording { _ in

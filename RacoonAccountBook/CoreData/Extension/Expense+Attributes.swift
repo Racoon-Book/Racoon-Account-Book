@@ -3,6 +3,7 @@
 import CoreData
 import Foundation
 import SwiftDate
+import XCLog
 
 extension Expense {
     // MARK: - Attributes
@@ -21,7 +22,7 @@ extension Expense {
             if uuid_ != nil {
                 return uuid_!
             } else {
-                print(Log().fatalerror + "未获取到uuid_")
+                XCLog(.error, "未获取到uuid_")
                 return UUID()
             }
         }
@@ -33,7 +34,7 @@ extension Expense {
             if createdAt_ != nil {
                 return createdAt_!
             } else {
-                print(Log().fatalerror + "未获取到createdAt_")
+                XCLog(.error, "未获取到createdAt_")
                 return Date()
             }
         }
@@ -45,7 +46,7 @@ extension Expense {
             if updatedAt_ != nil {
                 return updatedAt_!
             } else {
-                print(Log().fatalerror + "未获取到updatedAt_")
+                XCLog(.error, "未获取到updatedAt_")
                 return Date()
             }
         }
@@ -59,7 +60,7 @@ extension Expense {
             if spentAt_ != nil {
                 return spentAt_!
             } else {
-                print(Log().fatalerror + "未获取到spentAt_")
+                XCLog(.error, "未获取到spentAt_")
                 return Date()
             }
         }
@@ -71,7 +72,6 @@ extension Expense {
             if event_ != nil {
                 return event_!
             } else {
-//                print(Log().string + "未获取到event")
                 return ""
             }
         }

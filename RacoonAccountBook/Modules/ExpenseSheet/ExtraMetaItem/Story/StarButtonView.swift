@@ -37,7 +37,6 @@ struct SingleStarButtonView: View {
             withAnimation(.default) {
                 rating = starPosition
             }
-//            print(Log().string + "用户评了\(starPosition)星")
         }) {
             Image(systemName: rating >= starPosition ? "star.fill" : "star")
         }

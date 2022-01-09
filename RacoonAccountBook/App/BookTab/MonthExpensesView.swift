@@ -13,8 +13,6 @@ struct MonthExpensesView: View {
     static var dates: [Date] = [Date()]
 
     init(selectedDate: Date) {
-//        print(Log().string + "MonthExpensesView View init")
-
         self.selectedDate = selectedDate
         // 打开app默认展示的月份为当月
         let monthStart = selectedDate.dateAt(.startOfMonth)

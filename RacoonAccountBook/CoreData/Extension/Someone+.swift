@@ -2,6 +2,7 @@
 
 import CoreData
 import Foundation
+import XCLog
 
 extension Someone {
     // MARK: - fetch requests
@@ -21,7 +22,7 @@ extension Someone {
             if name_ != nil {
                 return name_!
             } else {
-                print(Log().fatalerror + "未获取到name")
+                XCLog(.error, "未获取到name")
                 return ""
             }
         }

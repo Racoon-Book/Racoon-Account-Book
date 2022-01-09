@@ -2,6 +2,7 @@ import Combine
 import CoreData
 import SwiftDate
 import SwiftUI
+import XCLog
 
 /// 用来输入或修改一个Expense
 struct ExpenseSheet: View {
@@ -226,7 +227,7 @@ struct ExpenseSheet: View {
 
         if !deleteResult {
             // TODO: 提示用户删除失败/成功
-            print(Log().error + "删除失败")
+            XCLog(.error, "删除失败")
         }
 
         RacoonSheetConfig.shared.showingExpenseSheet = false // 收回sheet
@@ -273,7 +274,7 @@ struct ExpenseSheet: View {
                 RacoonSheetConfig.shared.showingSuccessfullyAlert = true
             } else {
                 // 未成功修改
-                print(Log().fatalerror + "UpdateExpense cannot find id")
+                XCLog(.error, "UpdateExpense cannot find id")
             }
 
             RacoonSheetConfig.shared.showingExpenseSheet = false // 收回sheet

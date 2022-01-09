@@ -2,10 +2,10 @@ import SwiftUI
 
 struct AmountField: View {
     var hint: String = ""
-    
+
     @Binding var input_float: Float
     @Binding var input_string: String
-    
+
     @Binding var isEditing: Bool
 
     var body: some View {
@@ -25,7 +25,6 @@ struct AmountField: View {
         })
         // 别用 onReceive()
         .onChange(of: input_string) { _ in
-//            print(Log().string + "Changed.")
             if let newValue = Float(input_string) {
                 self.input_float = newValue
             }

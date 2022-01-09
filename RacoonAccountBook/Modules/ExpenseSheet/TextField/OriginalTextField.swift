@@ -14,16 +14,15 @@ struct OriginalTextField: View {
     var body: some View {
         TextField(
             hint,
-            text: $expenseInfo_inputting.originalText ?? "") { isEditing in
-                self.isEditing = isEditing
+            text: $expenseInfo_inputting.originalText ?? ""
+        ) { isEditing in
+            self.isEditing = isEditing
         }
         onCommit: {
-//            print(Log().string + "Committed")
             UpdateExpenseInfo()
         }
         // 注意这里最好不用`.onReceive` 因为`Just()`所认为的修改应该不仅仅有值上的改变 还有地址上的改变 好像一赋值就会执行 这并不是所期望的
         .onChange(of: expenseInfo_inputting.originalText) { _ in
-//            print(Log().string + "Changed.")
             UpdateExpenseInfo()
         }
         .autocapitalization(.none)
@@ -42,7 +41,8 @@ struct OriginalTextField: View {
             spentMoneyAt: spentMoneyAt,
             event: OriginalText2Event(from: expenseInfo_inputting.originalText ?? "") ?? "",
             amount_float: OriginalText2Amount(from: expenseInfo_inputting.originalText ?? "") ?? 0.0,
-            generatedTags: OriginalText2GeneratedTags(from: expenseInfo_inputting.originalText ?? ""))
+            generatedTags: OriginalText2GeneratedTags(from: expenseInfo_inputting.originalText ?? "")
+        )
         amount_string_inputting = String(expenseInfo_inputting.amount)
     }
 }
