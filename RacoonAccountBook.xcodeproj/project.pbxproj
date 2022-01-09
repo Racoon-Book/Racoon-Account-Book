@@ -108,8 +108,8 @@
 
 /* Begin PBXFileReference section */
 		480B711D278AD081002C2A2E /* UserDefaults+isFirstLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+isFirstLaunch.swift"; sourceTree = "<group>"; };
-		480B711F278AD303002C2A2E /* MarkNotation.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = MarkNotation.md; sourceTree = "<group>"; };
 		480B7123278AD9EF002C2A2E /* DisplayDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayDate.swift; sourceTree = "<group>"; };
+		481BF323278B05C200AE79AC /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		4823CD2C269FFE6900C7217F /* LargeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeButton.swift; sourceTree = "<group>"; };
 		482A322D26F9AF5800BDF958 /* WeChatBillInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeChatBillInfo.swift; sourceTree = "<group>"; };
 		482A322F26F9AFC000BDF958 /* cropImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cropImage.swift; sourceTree = "<group>"; };
@@ -224,7 +224,6 @@
 		480B7120278AD363002C2A2E /* Docs */ = {
 			isa = PBXGroup;
 			children = (
-				480B711F278AD303002C2A2E /* MarkNotation.md */,
 			);
 			path = Docs;
 			sourceTree = "<group>";
@@ -435,6 +434,7 @@
 		488D3A6B269F0E5B00287A50 = {
 			isa = PBXGroup;
 			children = (
+				481BF323278B05C200AE79AC /* README.md */,
 				488D3A76269F0E5B00287A50 /* RacoonAccountBook */,
 				480B7120278AD363002C2A2E /* Docs */,
 				48F06833278AC64700CD9099 /* Scripts */,
@@ -1091,7 +1091,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.racoon.RacoonAccountBook.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.racoonAccountBook.dev;
 				PRODUCT_NAME = "浣熊财记Dev";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
