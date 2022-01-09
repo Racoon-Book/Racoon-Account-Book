@@ -40,7 +40,7 @@ struct ScreenshotImportSheet: View {
 //                                Label("添加新账单", systemImage: "photo")
 //                        }
                     }
-                    .padding() // 图片与sheet上边别接触
+//                    .padding() // 图片与sheet上边别接触
                 }
 
                 if weChatBills.count != 0 {
@@ -57,6 +57,7 @@ struct ScreenshotImportSheet: View {
                                     }
                                     .padding()
 
+                                    // TODO: change to List
                                     ForEach(Array(weChatBills.enumerated()), id: \.element) { i, weChatBill in
 
                                         // weChatBillView
@@ -124,12 +125,10 @@ struct ScreenshotImportSheet: View {
                 }
             }
             .background(defaultColorSet.alertBackground)
-            .ignoresSafeArea() // TODO:
 
-            .navigationBarTitle(
-                Text("截图导入"),
-                displayMode: .inline
-            )
+            .navigationBarTitle("截图导入")
+            .navigationBarTitleDisplayMode(.inline)
+
             // [Sheet左右两侧的按钮]
             .navigationBarItems(
                 // 左边有两个按钮
