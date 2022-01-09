@@ -273,7 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				482A322C26F9AE6C00BDF958 /* VoiceInput */,
-				4844ED4126D0D7FF0037C09A /* Expense */,
+				4844ED4126D0D7FF0037C09A /* ExpenseSheet */,
 				482A322A26F9AE1B00BDF958 /* ScreenshotImport */,
 			);
 			path = Modules;
@@ -319,7 +319,7 @@
 			path = NLP;
 			sourceTree = "<group>";
 		};
-		4844ED4126D0D7FF0037C09A /* Expense */ = {
+		4844ED4126D0D7FF0037C09A /* ExpenseSheet */ = {
 			isa = PBXGroup;
 			children = (
 				488D3AA0269F5A2A00287A50 /* ExpenseView.swift */,
@@ -331,7 +331,7 @@
 				486ECDFB26B0E34200EF00B1 /* Focus */,
 				4830D9C226B1FD5A007710FD /* ExtraMetaItem */,
 			);
-			path = Expense;
+			path = ExpenseSheet;
 			sourceTree = "<group>";
 		};
 		4844ED4426D110DA0037C09A /* DataStructure */ = {
