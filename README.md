@@ -54,3 +54,9 @@ RacoonAccountBook Dev:
 * `// QUESTION: ` 对代码或者程序运行情况尚不清楚
 * `// MARK: ` Xcode 代码分块 
 * `// MARK: - ` Xcode代码分块（带分隔符）
+
+# App Store Connect
+
+## 更新日志
+
+在每次上传新版本之后，需要在<https://github.com/Racoon-Book/About>更新`更新日志`。
