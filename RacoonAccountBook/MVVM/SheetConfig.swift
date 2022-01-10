@@ -25,7 +25,7 @@ struct SheetConfig {
     /// 是否为修改某个Expense的Sheet
     var isEditMode: Bool = false
     /// 要修改的Expense的uuid
-    var uuidOfExpenseToEdit: UUID? = nil
+    var uuidOfExpenseToEdit: UUID?
 
     // MARK: - 是否显示某视图
 

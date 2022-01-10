@@ -8,7 +8,8 @@ struct TagField: View {
     var body: some View {
         TextField(
             hint,
-            text: $input_text) { _ in }
+            text: $input_text
+        ) { _ in }
         onCommit: {
             if input_text != "" {
                 expenseInfo_inputting.tags.append(input_text)

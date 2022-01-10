@@ -8,7 +8,7 @@ class SheetConfigModel: ObservableObject {
     @Published var shared = SheetConfigModel.newSheetConfig()
 
     private static func newSheetConfig() -> SheetConfig {
-        return SheetConfig()
+        SheetConfig()
     }
 
     // 是添加的情况 将数据都清除

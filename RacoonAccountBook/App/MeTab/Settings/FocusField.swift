@@ -2,14 +2,15 @@ import SwiftUI
 
 struct FocusField: View {
     @Environment(\.managedObjectContext) private var context
-    
+
     var hint: String = ""
     @State var input_text: String = ""
 
     var body: some View {
         TextField(
             hint,
-            text: $input_text) { _ in }
+            text: $input_text
+        ) { _ in }
         onCommit: {
             if input_text != "" {
                 Focus.focus(name: input_text, context: context) // 添加这个新的focus到数据库

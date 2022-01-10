@@ -22,7 +22,8 @@ struct MultilineTagsForDisplay: View {
         .frame(height: totalHeight) // << variant for ScrollView/List
         .frame(
             minHeight: tags == [] ? 0 : MultilineTagsViewForModify.oneLineTagHeight,
-            maxHeight: max(totalHeight, MultilineTagsViewForModify.oneLineTagHeight)) // << variant for VStack
+            maxHeight: max(totalHeight, MultilineTagsViewForModify.oneLineTagHeight)
+        ) // << variant for VStack
         // 这里以一行的tag为基准 确保tag不会出现被挤没的情况
     }
 
@@ -63,7 +64,7 @@ struct MultilineTagsForDisplay: View {
     }
 
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {
-        return GeometryReader { geometry -> Color in
+        GeometryReader { geometry -> Color in
             let rect = geometry.frame(in: .local)
             DispatchQueue.main.async {
                 binding.wrappedValue = rect.size.height

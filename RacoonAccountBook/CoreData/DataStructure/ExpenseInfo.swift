@@ -12,7 +12,7 @@ struct ExpenseInfo {
     /// 不保留原始语音
     ///
     /// 不在列表中显示 只做录入用
-    var originalText: String? = nil
+    var originalText: String?
 
     /// 消费发生的日期 单位：天
     ///
@@ -48,7 +48,7 @@ struct ExpenseInfo {
     /// 多为支出的目的 for what、用户最关心的分类
     ///
     /// 可以通过精选tag得到 多次出现的tag可以称为focus
-    var focus: String? = nil
+    var focus: String?
 
     /// 为谁产生的花销
     ///
@@ -57,7 +57,7 @@ struct ExpenseInfo {
     // TODO: ps. 如果是丢失的欠款，好像也不是为了自己花的吧？所以加一个lost项？
 
     /// 财记
-    var story: Story? = nil
+    var story: Story?
 
     /// 财记
     struct Story {
@@ -68,14 +68,14 @@ struct ExpenseInfo {
         /// 五星表示非常值得纪念 一星表示非常不值得
         ///
         /// 如果想添加故事 那么这一项从nil变为有值 默认值为3 用户调整该值后添加story
-        var rating: Int? = nil
+        var rating: Int?
 
         /// 用户想的话 可以添加一个emoji
-        var emoji: String? = nil
+        var emoji: String?
         // TODO: 这里也可以提供一个候选框让用户选一些预置的
 
         /// 用户在添加花销或回顾时找感兴趣的花销添加与这笔钱相关的故事
-        var text: String? = nil
+        var text: String?
 
         mutating func update(rating: Int? = nil,
                              emoji: String? = nil,
@@ -123,9 +123,9 @@ struct ExpenseInfo {
     {
         if originalText != nil { self.originalText = originalText }
 
-        if spentMoneyAt != nil { self.spentAtDate = spentMoneyAt! }
+        if spentMoneyAt != nil { spentAtDate = spentMoneyAt! }
         if event != nil { self.event = event! }
-        if amount_float != nil { self.amount = amount_float! }
+        if amount_float != nil { amount = amount_float! }
 
         if generatedTags != nil { self.generatedTags = generatedTags! }
         if tags != nil { self.tags = tags! }

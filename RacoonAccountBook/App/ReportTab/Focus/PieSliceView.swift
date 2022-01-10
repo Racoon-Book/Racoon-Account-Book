@@ -12,7 +12,7 @@ struct PieSlice: View {
     var pieSliceData: PieSliceData
 
     var midRadians: Double {
-        return Double.pi / 2.0 - (pieSliceData.startAngle + pieSliceData.endAngle).radians / 2.0
+        Double.pi / 2.0 - (pieSliceData.startAngle + pieSliceData.endAngle).radians / 2.0
     }
 
     var body: some View {

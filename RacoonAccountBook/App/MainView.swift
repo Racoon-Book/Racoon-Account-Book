@@ -33,7 +33,7 @@ struct MainView: View {
     @State private var sideMenuOffsetX: Float = 1
 
     var isSideMenuOpen: Bool {
-        return sideMenuOffsetX == 0
+        sideMenuOffsetX == 0
     }
 
     func onSideMenuClose() {

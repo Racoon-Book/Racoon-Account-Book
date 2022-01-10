@@ -17,14 +17,16 @@ struct BriefReportView: View {
                                   expenseSum: expenses_thisMonth.sum(),
                                   expenseCount: expenses_thisMonth.count,
                                   maxExpense: expenses_thisMonth.max_expense(),
-                                  isMonth: true)))
+                                  isMonth: true
+                              )))
         CardSeperatorView(title: "历史花销",
                           contentView: AnyView(
                               ExReportCardContent(
                                   expenseSum: expenses_all.sum(),
                                   expenseCount: expenses_all.count,
                                   maxExpense: expenses_all.max_expense(),
-                                  isMonth: false)
+                                  isMonth: false
+                              )
                           ))
     }
 }

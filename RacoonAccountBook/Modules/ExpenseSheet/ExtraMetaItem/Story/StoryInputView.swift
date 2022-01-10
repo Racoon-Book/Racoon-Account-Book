@@ -5,17 +5,17 @@ struct StoryInputView: View {
     @Binding var expenseInfo_inputting: ExpenseInfo
 
     init(expenseInfo_inputting: Binding<ExpenseInfo>, showingStoryInputView: Binding<Bool>) {
-        self._expenseInfo_inputting = expenseInfo_inputting
-        self._showingStoryInputView = showingStoryInputView
+        _expenseInfo_inputting = expenseInfo_inputting
+        _showingStoryInputView = showingStoryInputView
 
         // 有story就将初值设置为story.rating
-        self._rating = State(initialValue:
+        _rating = State(initialValue:
             (expenseInfo_inputting.story.wrappedValue == nil) ?
                 3 :
                 (expenseInfo_inputting.story.wrappedValue!.rating ?? 3))
 
         // 有emoji就将初值设置为story.emoji
-        self._selectedEmoji = State(initialValue:
+        _selectedEmoji = State(initialValue:
             (expenseInfo_inputting.story.wrappedValue == nil) ?
                 emojiStickers.first! :
                 (expenseInfo_inputting.story.wrappedValue!.emoji ?? emojiStickers.first!))
@@ -59,7 +59,8 @@ struct StoryInputView: View {
                     }
                     StoryField(
                         story: $expenseInfo_inputting.story,
-                        hint: "添加财记～")
+                        hint: "添加财记～"
+                    )
                 }
                 .padding([.horizontal], 4)
 
@@ -80,7 +81,8 @@ struct StoryInputView: View {
             expenseInfo_inputting.story = ExpenseInfo.Story(
                 rating: rating,
                 emoji: nil,
-                text: nil)
+                text: nil
+            )
         } else {
             expenseInfo_inputting.story!.update(rating: rating)
         }

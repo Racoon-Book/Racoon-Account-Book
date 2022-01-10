@@ -12,10 +12,10 @@ extension Expense {
                         spentAtDate: spentAt,
                         event: event,
                         amount: amount,
-                        generatedTags: generatedTags.map { $0.name },
-                        tags: tags.map { $0.name },
+                        generatedTags: generatedTags.map(\.name),
+                        tags: tags.map(\.name),
                         focus: focus?.name,
-                        forWho: forWho.map { $0.name },
+                        forWho: forWho.map(\.name),
                         story: story == nil ? nil : ExpenseInfo.Story(rating: story?.rating, emoji: story?.emoji, text: story?.text))
         }
 

@@ -19,7 +19,8 @@ struct BookTab: View {
 
             ScrollViewReader { scrollView in
                 if let (dict, lastDayWithItems) = RacoonAccountBook.GetDayItemsInOneMonth(date: today),
-                   let keys = dict.keys.sorted() {
+                   let keys = dict.keys.sorted()
+                {
                     ScrollView(.vertical) {
                         LazyVStack {
                             // Check https://stackoverflow.com/questions/56675532/swiftui-iterating-through-dictionary-with-foreach
@@ -28,7 +29,8 @@ struct BookTab: View {
                                 if let day = Day(rawValue: key.rawValue),
                                    let date = DateInRegion(year: thisYear, month: thisMonth, day: day.rawValue),
                                    let ex = dict[key],
-                                   let dayItems = ex.items {
+                                   let dayItems = ex.items
+                                {
                                     DayItemsView(
                                         date: date,
                                         dayItems: dayItems

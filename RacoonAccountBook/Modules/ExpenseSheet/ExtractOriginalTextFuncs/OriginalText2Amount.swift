@@ -12,7 +12,8 @@ func OriginalText2Amount(from originalText: String) -> Float? {
     } else {
         // 提取不到就先提取中文的金额表达 然后转成Float返回
         if let ChineseAmount: String = GetChineseAmount(from: originalText),
-           let amount_float: Float = ChineseAmount2Float(from: ChineseAmount) {
+           let amount_float: Float = ChineseAmount2Float(from: ChineseAmount)
+        {
             return amount_float
         }
     }

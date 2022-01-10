@@ -32,12 +32,12 @@ struct WeChatBillInfo: CustomStringConvertible, Identifiable, Hashable {
 
 extension RandomAccessCollection where Element == WeChatBillInfo {
     func sum() -> Float {
-        return self.reduce(0.0) { $0 + $1.amount }
+        reduce(0.0) { $0 + $1.amount }
     }
 }
 
 extension WeChatBillInfo {
     func toExpenseInfo() -> ExpenseInfo {
-        return ExpenseInfo(spentAtDate: self.spentAtDate, event: self.name, amount: self.amount)
+        ExpenseInfo(spentAtDate: spentAtDate, event: name, amount: amount)
     }
 }

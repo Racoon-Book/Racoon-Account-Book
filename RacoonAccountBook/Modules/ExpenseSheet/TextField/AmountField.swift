@@ -9,7 +9,7 @@ struct AmountField: View {
     @Binding var isEditing: Bool
 
     var body: some View {
-        return TextField(hint, text: $input_string) { isEditing in
+        TextField(hint, text: $input_string) { isEditing in
             // 每次isEditing改变就会触发这个函数
             self.isEditing = isEditing
         } onCommit: {

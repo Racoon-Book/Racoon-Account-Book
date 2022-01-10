@@ -9,8 +9,9 @@ struct ExpenseInfoCommomTextField: View {
     var body: some View {
         TextField(
             hint,
-            text: $input_text) { isEditing in
-                self.isEditing = isEditing
+            text: $input_text
+        ) { isEditing in
+            self.isEditing = isEditing
         } onCommit: {}
             .autocapitalization(.none)
             .disableAutocorrection(false)

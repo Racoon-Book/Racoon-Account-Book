@@ -16,7 +16,7 @@ struct ExpenseView: View {
     var isEditable: Bool = true
 
     /// 要修改的Expense的id
-    var uuidOfExpenseToEdit: UUID? = nil
+    var uuidOfExpenseToEdit: UUID?
 
     var body: some View {
         let amount_dispaly = String(format: "%.1f", expenseInfo.amount)

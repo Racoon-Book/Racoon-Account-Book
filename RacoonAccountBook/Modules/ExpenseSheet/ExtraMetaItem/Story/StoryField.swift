@@ -9,9 +9,9 @@ struct StoryField: View {
     @State private var text: String
 
     init(story: Binding<ExpenseInfo.Story?>, hint: String) {
-        self._story_inputting = story
+        _story_inputting = story
 
-        self._text = State(initialValue: (story.wrappedValue == nil) ? "" : (story.wrappedValue!.text ?? ""))
+        _text = State(initialValue: (story.wrappedValue == nil) ? "" : (story.wrappedValue!.text ?? ""))
 
         self.hint = hint
     }

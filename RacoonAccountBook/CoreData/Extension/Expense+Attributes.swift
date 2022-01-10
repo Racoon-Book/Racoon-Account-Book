@@ -79,7 +79,7 @@ extension Expense {
     }
 
     var amount: Float {
-        get { return amount_ }
+        get { amount_ }
         set { amount_ = newValue }
     }
 

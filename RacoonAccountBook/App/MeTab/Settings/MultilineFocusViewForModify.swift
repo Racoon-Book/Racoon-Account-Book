@@ -25,8 +25,9 @@ struct MultilineFocusViewForModify: View {
         }
         .frame(height: totalHeight) // << variant for ScrollView/List
         .frame(
-            minHeight: (focusList.count == 0) ? 0: MultilineTagsViewForModify.oneLineTagHeight,
-            maxHeight: max(totalHeight, MultilineTagsViewForModify.oneLineTagHeight)) // << variant for VStack
+            minHeight: (focusList.count == 0) ? 0 : MultilineTagsViewForModify.oneLineTagHeight,
+            maxHeight: max(totalHeight, MultilineTagsViewForModify.oneLineTagHeight)
+        ) // << variant for VStack
         // 这里以一行的tag为基准 确保tag不会出现被挤没的情况
     }
 
@@ -67,7 +68,7 @@ struct MultilineFocusViewForModify: View {
     }
 
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {
-        return GeometryReader { geometry -> Color in
+        GeometryReader { geometry -> Color in
             let rect = geometry.frame(in: .local)
             DispatchQueue.main.async {
                 binding.wrappedValue = rect.size.height

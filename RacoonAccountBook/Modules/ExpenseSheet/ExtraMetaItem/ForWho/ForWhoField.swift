@@ -8,7 +8,8 @@ struct ForWhoField: View {
     var body: some View {
         TextField(
             hint,
-            text: $input_text) { _ in }
+            text: $input_text
+        ) { _ in }
         onCommit: {
             if input_text != "" {
                 expenseInfo_inputting.forWho.append(input_text)

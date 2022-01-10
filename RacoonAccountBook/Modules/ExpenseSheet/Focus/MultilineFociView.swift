@@ -66,7 +66,7 @@ struct MultilineFociView: View {
     }
 
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {
-        return GeometryReader { geometry -> Color in
+        GeometryReader { geometry -> Color in
             let rect = geometry.frame(in: .local)
             DispatchQueue.main.async {
                 binding.wrappedValue = rect.size.height

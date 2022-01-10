@@ -240,7 +240,7 @@ struct ExpenseSheet: View {
         let noEvent: Bool = RacoonSheetConfig.shared.expense_inputting.event == ""
         let noAmount: Bool = RacoonSheetConfig.shared.expense_inputting.amount == 0
 
-        if !noEvent && !noAmount {
+        if !noEvent, !noAmount {
             // 进行添加
             Expense.create(expenseInfo: RacoonSheetConfig.shared.expense_inputting, context: context)
 
