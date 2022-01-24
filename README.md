@@ -17,15 +17,16 @@
 本仓库有两个`Scheme`，对应的`Bundle Identifier`不同。
 
 RacoonAccountBook:
-    * `com.racoonAccountBook.alpha` 和<https://developer.apple.com/account/resources/identifiers/list>页面申请的`Identifiers`是一样的
-    * 应用名：浣熊财记
-    * 实际上架的App。在进行Archive的时候，注意切回这个Scheme
+* `com.racoonAccountBook.alpha` 和<https://developer.apple.com/account/resources/identifiers/list>页面申请的`Identifiers`是一样的
+* 应用名：浣熊财记
+* 实际上架的App。在进行Archive的时候，注意切回这个Scheme
+
 RacoonAccountBook Dev:
-    * `com.racoonAccountBook.dev` 这个随便写都可以的
-    * 应用名：浣熊财记 Dev
-    * 如果想在模拟器或者真机上安装多个Dev版应用，直接改一下这个也可以（但不推荐）
-    * 在代码中可以使用 `#if DEV` `#endif` 来对Dev版添加不同的代码
-    * 在Dev的环境下会插入测试数据
+* `com.racoonAccountBook.dev` 这个随便写都可以的
+* 应用名：浣熊财记 Dev
+* 如果想在模拟器或者真机上安装多个Dev版应用，直接改一下这个也可以（但不推荐）
+* 在代码中可以使用 `#if DEV` `#endif` 来对Dev版添加不同的代码
+* 在Dev的环境下会插入测试数据
 
 两个Scheme都开启了`OS_ACTIVITY_MODE=disable`来屏蔽在运行过程中系统给出的提示。如果确实要借助系统的Log debug的话，可以关闭这个参数。
 
@@ -33,8 +34,8 @@ RacoonAccountBook Dev:
 
 本仓库使用shell脚本`Script/set_build_number.sh`来自动生成`Build Number`和`Version`。
 
-`Build Number`：在Xcode构建项目时会将`Build Number`更新为主分支上的提交数。
-`Version`：在Xcode构建项目时会将`Version`更新为主分支上最新的一个tag。
+* `Build Number`：在Xcode构建项目时会将`Build Number`更新为主分支上的提交数。
+* `Version`：在Xcode构建项目时会将`Version`更新为主分支上最新的一个tag。
 
 注意，如果要更新版本，使用`git tag -a x.x.x -m "xxxx"`添加version之后在Xcode里面Build一下就可以了。
 
