@@ -2,6 +2,7 @@
 
 - [合作开发需要注意的事项](#合作开发需要注意的事项)
   - [GitHub管理](#github管理)
+    - [Branches](#branches)
     - [Issues](#issues)
   - [代码开发](#代码开发)
     - [代码结构](#代码结构)
@@ -14,6 +15,10 @@
 
 ## GitHub管理
 
+### Branches
+
+项目有3个分支，`newCoreData` 分支为默认的唯一分支，另外2个分支不使用。
+
 ### Issues
 
 `Discussions`和`Projects`中的条目一旦删除就是永久删除，但是`Issues`中的项目可以开启可以关闭，较为方便。
@@ -24,7 +29,40 @@
 
 ### 代码结构
 
-TODO
+```
+RacoonAccountBook
+├── App
+│   ├── RacoonAccountBookApp.swift
+│   ├── MainView.swift
+│   ├── BookTab - 账本Tab
+│   ├── StoryTab - 财记Tab
+│   ├── ReportTab - 报告Tab
+│   ├── MeTab - 我的Tab
+│   └── TopViews - 一些显示在页面最上层的UI组件
+├── Auxiliary - 辅助代码
+│   ├── Extensions
+│   └── Functions
+├── Components - 一些UI组件
+├── Configuration
+│   └── ColorSet.swift - 颜色配置
+├── CoreData
+│   ├── AccountBook.xcdatamodeld - 数据库模型
+│   ├── DataStructure
+│   │   └── ExpenseInfo.swift - 一条账目的数据结构
+│   ├── Extension - 读取数据库必要操作
+│   ├── Persistence.swift
+│   └── TestData
+│       └── TestExpenseInfo.swift - 测试数据
+├── Info.plist
+├── Launch Screen.storyboard
+├── MVVM - 状态管理
+│   ├── SheetConfig.swift
+│   └── SheetConfigModel.swift
+└── Modules
+    ├── ExpenseSheet - 填写修改账目的sheet
+    ├── ScreenshotImport - 截图导入
+    └── VoiceInput - 语音输入
+```
 
 ### Scheme
 
